@@ -1,0 +1,14 @@
+{% extends "../main/base.html" %}
+{% block content %}
+    {% include "./pagetopper.html" %}
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p></p>
+                <h2 class="mb-4">ADM Information Management System</h3>
+                {% load static %}
+                <p><img src="{% static 'main/images/pmo4.jpg' %}" alt="ADM Management Information System" style="width:600px;"></p>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

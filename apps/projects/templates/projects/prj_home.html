@@ -1,0 +1,31 @@
+{% extends "../main/base.html" %}
+{% block content %}
+    {% include "./prj_pagetopper.html" %}
+    {% if user.is_authenticated %}
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    {% include "./prj_sidemenu.html" %}
+                </div>
+                <div class="col-md-9">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                    {% include "./prj_main.html" %}
+                </div>
+            </div>
+        </main>
+    {% else %}
+            <main role="main" class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Projects Homepage!</h1>
+                    </div>
+                </div>
+            </main>
+    {% endif %}
+{% endblock content %}
