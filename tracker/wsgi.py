@@ -1,5 +1,5 @@
 """
-WSGI config for admtracker project.
+WSGI config for tracker project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
