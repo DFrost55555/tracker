@@ -26,7 +26,6 @@ SECRET_KEY = 'ibqznpxs4ap=z31j0z0@m)bht*ym(89vb015%ndwpm3^e8z#vh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [
     '.azurewebsites.net',
 ]
@@ -65,7 +64,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'admtracker.urls'
 ROOT_URLCONF = 'tracker.urls'
 
 TEMPLATES = [
@@ -84,7 +82,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'admtracker.wsgi.application'
 WSGI_APPLICATION = 'tracker.wsgi.application'
 
 
