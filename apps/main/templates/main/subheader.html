@@ -13,7 +13,7 @@
                 <div class="navbar-nav">
                 {% if user.is_authenticated %}
                     {%if user.is_staff %}
-                        <a class="usr-nav-item nav-link-2" href="http://localhost:8000/admin/">Administration&nbsp;&nbsp;<i class="fas fa-user-cog"></i></a>
+                        <a class="usr-nav-item nav-link-2" href="http://admmis.azurewebsites.net/admin/">Administration&nbsp;&nbsp;<i class="fas fa-user-cog"></i></a>
                     {% endif %}
                     <p class="usr-nav-item"><b>User: {{ user.username }}</b></p>
                     <a class="usr-nav-item nav-link-2" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Profile</a>
