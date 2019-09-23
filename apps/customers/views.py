@@ -35,7 +35,9 @@ def CustomerFilterView(request):
 class CustomerDetailView(DetailView):
     model = Customer
     
-
+class CustomerCreateView(CreateView):
+    model = Customer
+    fields = ['cust_name']
 
 
 
