@@ -1,0 +1,19 @@
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <p></p>
+                </div>
+                <div class="content-section col-md-6">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">New Customer</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-info" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
