@@ -17,9 +17,11 @@ Including another URLconf
 from django.urls import path
 from . import views
 from .views import (
-    CustomerFilterView
+    CustomerFilterView,
+    CustomerDetailView,
 )
 
 urlpatterns = [
     path('customers/', CustomerFilterView, name='cust-home'),
+    path('customer/<int:pk>/', CustomerDetailView.as_view(), name='customer-detail'),
 ]
