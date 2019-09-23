@@ -31,14 +31,16 @@ def CustomerFilterView(request):
     }
     
     return render(request,"customers/cust_home.html",context)
+
+class CustomerDetailView(DetailView):
+    model = Customer
     
+
+
+
+
     
-    
-    
-    
-    
-    
-    
+  
     
     
     
