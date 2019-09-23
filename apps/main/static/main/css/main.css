@@ -252,9 +252,27 @@ a.article-title:hover {
     font-weight:700;
 }
 
-a.fixed-pgheader{
+a.fixed-pgheader.link{
     color: #ffffff;
     text-decoration: none;
+}
+
+
+a.fixed-pgheader.visited{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+a.fixed-pgheader.active{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+a.fixed-pgheader.hover{
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .btn-primary-adm {
