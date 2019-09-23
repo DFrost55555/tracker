@@ -38,9 +38,7 @@ class CustomerDetailView(DetailView):
 class CustomerCreateView(CreateView):
     model = Customer
     fields = ['cust_name']
-
-
-
+    labels = { "cust_name": "Customer Name"}
     
   
     
