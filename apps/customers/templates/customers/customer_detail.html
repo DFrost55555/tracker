@@ -1,6 +1,6 @@
 {% extends "../main/base.html" %}
 {% block content %}
-    {% with breadcrumb="Components / Customers"%}
+    {% with breadcrumb="Components / Customers / Customer Details"%}
         {% include "./cust_pagetopper.html" %}
     {% endwith %}
     {% include "./cust_pgheader.html" %}
@@ -15,10 +15,10 @@
                     </div>
                     {% endfor %}
                 {% endif %}
-                    <h2><b>{{ object.cust_name }}</b></h2>
+                    {% include "../customers/cust_details.html" %}
                 </div>
                 <div class="col-md-3">
-                    {% include "../customers/cust_sideoptions.html" %}
+                    {% include "../customers/cust_detailoptions.html" %}
                 </div>
             </div>
         </main>
