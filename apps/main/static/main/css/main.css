@@ -253,6 +253,11 @@ a.article-title:hover {
 }
 
 
+a.fixed-pgheader{
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .btn-primary-adm {
   color: #373737;
   font-weight:700;
