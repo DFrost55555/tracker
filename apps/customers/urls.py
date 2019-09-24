@@ -20,10 +20,14 @@ from .views import (
     CustomerFilterView,
     CustomerDetailView,
     CustomerCreateView,
+    CustomerUpdateView,
+    CustomerDeleteView,
 )
 
 urlpatterns = [
     path('customers/', CustomerFilterView, name='cust-home'),
     path('customer/<int:pk>/', CustomerDetailView.as_view(), name='customer-detail'),
     path('customer/new/', CustomerCreateView.as_view(), name='customer-create'),
+    path('customer/<int:pk>/update/', CustomerUpdateView.as_view(), name='customer-update'),
+    path('customer/<int:pk>/delete/', CustomerDeleteView.as_view(), name='customer-delete'),
 ]
