@@ -16,6 +16,14 @@
                     {% endfor %}
                 {% endif %}
                     <h2>{{ object.name }}</h2>
+                    <p>User Group:</p>
+                    {% if request.user|has_group:"CCReader" %}
+                        <p>User is a member of the CCReader Group</p>
+                    {% elif request.user|has_group:"CCEditor" %}
+                        <p>User is a member of the CCEditor Group</p>
+                    {% else %}
+                        <p>User is a member of no group!</p>
+                    {% endif %}
                 </div>
                 <div class="col-md-3">
                     {% include "../customers/cust_sideoptions.html" %}
