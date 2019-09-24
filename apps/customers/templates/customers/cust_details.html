@@ -1,3 +1,8 @@
 <div>
     <h2><b>{{ object.cust_name }}</b></h2>
+    {% for group in user.groups.all %}
+        {% if group.name == 'CCReader' %}
+            <p>CCReader</p>
+        {% endif %}
+    {% endfor %}
 </div>
