@@ -1,8 +1,8 @@
           <div class="content-section">
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="javascript:history.go(-1)">Go Back</a></li>
-                <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="#">Edit / Update Details</a></li>
-                <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="#">Delete Customer</a></li>
+                <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'customer-update' %}">Edit / Update Details</a></li>
+                <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'customer-delete' %}">Delete Customer</a></li>
                 <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'customer-create' %}">New Customer...</a></li>
               </ul>
           </div>
