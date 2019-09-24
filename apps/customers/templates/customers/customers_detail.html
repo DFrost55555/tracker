@@ -1,5 +1,4 @@
 {% extends "../main/base.html" %}
-{% load usergroups %}
 {% block content %}
     {% with breadcrumb="Components / Customers"%}
         {% include "./cust_pagetopper.html" %}
@@ -18,9 +17,11 @@
                 {% endif %}
                     <h2>{{ object.name }}</h2>
                     <h2>User Group:</h2>
-                    {% ifequal user.groups.all.0 'CCReader' %}
-                        <p>CCReader</p>
-                    {% endif %}
+                    {% for group in user.groups.all %}
+                        {% if group.name == 'CCReader' %}
+                            <p>CCReader</p>
+                        {% endif %}
+                    {% endfor %}
                 </div>
                 <div class="col-md-3">
                     {% include "../customers/cust_sideoptions.html" %}
