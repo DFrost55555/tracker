@@ -32,20 +32,30 @@ def CustomerFilterView(request):
     
     return render(request,"customers/cust_home.html",context)
 
-class CustomerDetailView(DetailView):
+class CustomerDetailView(LoginRequiredMixin, DetailView):
     model = Customer
     
-class CustomerCreateView(CreateView):
+class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
     fields = ['cust_name']
-    labels = { "cust_name": "Customer Name"}
     
     def form_valid(self, form):
         form.instance.cust_createdby = self.request.user
         form.instance.cust_modifiedby = self.request.user
         return super().form_valid(form)
     
+class CustomerUpdateView(LoginRequiredMixin, UpdateView):
+    model = Customer
+    fields = ['cust_name']
     
+    def form_valid(self, form):
+        form.instance.cust_createdby = self.request.user
+        form.instance.cust_modifiedby = self.request.user
+        return super().form_valid(form)
+    
+class CustomerDeleteView(LoginRequiredMixin, DeleteView):
+    model = Customer
+    success_url = '/'
     
 """     model = Customer
     template_name = 'customers/cust_home.html'
