@@ -5,9 +5,10 @@
                         {% csrf_token %}
                         <fieldset class="form-group">
                             <legend class="border-bottom mb-4">Delete Customer</legend>
+                            <h2>Are you sure you want to delete the customer: "{{ object.cust_name }}"</h2>
                         </fieldset>
                         <div class="form-group">
-                            <button class="btn btn-outline-info" type="submit">Create...</button>
+                            <button class="btn btn-outline-danger" type="submit">Delete ?</button>
                         </div>
                     </form>
                 </div>
