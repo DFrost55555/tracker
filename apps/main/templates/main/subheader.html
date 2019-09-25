@@ -15,7 +15,7 @@
                     {%if user.is_staff %}
                         <a class="usr-nav-item nav-link-2" href="http://admmis.azurewebsites.net/admin/">Administration&nbsp;&nbsp;<i class="fas fa-user-cog"></i></a>
                     {% endif %}
-                    <p class="usr-nav-item"><b>User: {{ user.username }}</b></p>
+                    <p class="usr-nav-item"><b>User: {{ user.username }} {{ group.name }} </b></p>
                     <a class="usr-nav-item nav-link-2" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Profile</a>
                     <a class="usr-nav-item nav-link-2" href="{% url 'logout' %}">Logout&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
                 {% else %}
