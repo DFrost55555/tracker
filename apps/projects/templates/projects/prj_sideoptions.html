@@ -1,0 +1,9 @@
+          <div class="content-section">
+              <ul class="list-group">
+                {% for group in user.groups.all %}
+                  {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
+                    <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'project-create' %}">New Customer...</a></li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+          </div>
