@@ -5,9 +5,9 @@ from django.urls import reverse
 
 class Customer(models.Model):
     cust_name = models.CharField('Customer Name', max_length=150)
-    cust_createdby = models.ForeignKey(User, on_delete=models.CASCADE)
+    cust_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     cust_createddate = models.DateTimeField(default=timezone.now)
-    cust_modifiedby = models.ForeignKey(User, related_name='editor',on_delete=models.CASCADE)
+    cust_modifiedby = models.ForeignKey(User, related_name='cust_editor', on_delete=models.SET_NULL, null=True)
     cust_modifieddate = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
