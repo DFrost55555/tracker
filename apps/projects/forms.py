@@ -1,6 +1,6 @@
 from django import forms
 from .models import Project
-from tracker.apps.customers.models import Customer
+from customers.models import Customer
 from django.forms import ModelChoiceField
 
 
