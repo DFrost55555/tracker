@@ -34,6 +34,8 @@ def ProjectFilterView(request):
     
     return render(request,"projects/project_home.html",context)
 
+class ProjectDetailView(LoginRequiredMixin, DetailView):
+    model = Project
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
