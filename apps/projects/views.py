@@ -12,9 +12,28 @@ from .forms import ProjectModelForm
 from django.shortcuts import render, get_object_or_404
 from .models import Project
 from apps.customers.models import Customer
+from .filters import CustomerFilter
 
-def prj_home(request):
-    return render(request, 'projects/prj_home.html', {'title': 'Projects Home'})
+
+def ProjectFilterView(request):
+    qs = Project.objects.all().order_by('project_name')
+    projectName_query = request.GET.get('projectName')
+    
+    if projectName_query != '' and projectName_query is not None:
+        qs = qs.filter(cust_name__icontains=projectName_query).order_by('project_name')
+            
+    paginator = Paginator(qs, 10)
+    
+    page = request.GET.get('page')
+    
+    qs = paginator.get_page(page)
+    
+    context = {
+        'queryset': qs
+    }
+    
+    return render(request,"projects/project_home.html",context)
+
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
