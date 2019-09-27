@@ -23,7 +23,7 @@
             <tbody>
                 {% for customer in queryset %}
                     <tr>
-                        <td scope="row"> <a href="{% url 'customer-detail' customer.id %}">{{customer.cust_name }}</a> </td>
+                        <td scope="row"> <a href="{% url 'customer-detail' customer.id %}" style="display:block;">{{customer.cust_name }}</a> </td>
                     </tr>
                 {% endfor %}
               </tbody>
