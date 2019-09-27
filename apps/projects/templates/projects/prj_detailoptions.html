@@ -1,10 +1,10 @@
           <div class="content-section">
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="javascript:history.go(-1)">Go Back</a></li>
-                <!-- <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'project-update' object.id %}">Edit / Update Details</a></li> -->
+                <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'project-update' object.id %}">Edit / Update Details</a></li>
                 {% for group in user.groups.all %}
                   {% if group.name == 'CCDelegate' %}
-                    <!-- <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'project-delete' object.id %}">Delete Project</a></li> -->
+                    <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'project-delete' object.id %}">Delete Project</a></li>
                   {% endif %}
                 {% endfor %}
                 <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'project-create' %}">New Project...</a></li>
