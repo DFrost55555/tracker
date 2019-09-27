@@ -11,7 +11,7 @@ from django.views.generic import (
 from .forms import ProjectModelForm
 from django.shortcuts import render, get_object_or_404
 from .models import Project
-from apps.customers.models import Customer
+from tracker.apps.customers.models import Customer
 
 def prj_home(request):
     return render(request, 'projects/prj_home.html', {'title': 'Projects Home'})
