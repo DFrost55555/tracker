@@ -16,7 +16,13 @@ Including another URLconf
 
 from django.urls import path
 from . import views
-
+from .views import (
+    ProjectFilterView,
+    ProjectDetailView,
+    ProjectCreateView,
+    ProjectUpdateView,
+    ProjectDeleteView,
+)
 urlpatterns = [
-    path('projects/', views.prj_home, name='project-home'),
+    path('projects/', ProjectFilterView, name='project-home'),
 ]
