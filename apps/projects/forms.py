@@ -1,6 +1,6 @@
 from django import forms
 from .models import Project
-from customers.models import Customer
+from apps.customers.models import Customer
 from django.forms import ModelChoiceField
 
 
