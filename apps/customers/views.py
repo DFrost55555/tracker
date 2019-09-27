@@ -20,7 +20,7 @@ def CustomerFilterView(request):
     if customerName_query != '' and customerName_query is not None:
         qs = qs.filter(cust_name__icontains=customerName_query).order_by('cust_name')
             
-    paginator = Paginator(qs, 20)
+    paginator = Paginator(qs, 10)
     
     page = request.GET.get('page')
     
