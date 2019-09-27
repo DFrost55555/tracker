@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from tracker.apps.customers.models import Customer
+from customers.models import Customer
 from django.urls import reverse
 
 class Project(models.Model):
