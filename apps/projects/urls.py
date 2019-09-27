@@ -20,8 +20,8 @@ from .views import (
     ProjectFilterView,
     ProjectDetailView,
     ProjectCreateView,
-    ProjectUpdateView,
-    ProjectDeleteView,
+    #ProjectUpdateView,
+    #ProjectDeleteView,
 )
 urlpatterns = [
     path('projects/', ProjectFilterView, name='project-home'),
