@@ -1,0 +1,9 @@
+<div>
+    <h2><b>{{ object.project_name }}</b></h2>
+    <h3>{{ object.project_customer_fk }}</h3>
+    {% for group in user.groups.all %}
+        {% if group.name == 'CCReader' %}
+            <p>CCReader</p>
+        {% endif %}
+    {% endfor %}
+</div>
