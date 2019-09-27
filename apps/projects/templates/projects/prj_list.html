@@ -23,7 +23,7 @@
             <tbody>
                 {% for project in queryset %}
                     <tr>
-                        <td scope="row"> <a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_name }}</a> </td>
+                        <td scope="row"> <a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_name }}  {{project.project_customer_fk}}</a> </td>
                     </tr>
                 {% endfor %}
               </tbody>
