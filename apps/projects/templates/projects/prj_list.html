@@ -17,13 +17,13 @@
         <table class="table-adm table-sm table-hover">
             <thead>
                 <tr>
-                <th scope="col">Project</th>
+                <th scope="col">Project</th><th>Customer</th>
                  </tr>
             </thead>
             <tbody>
                 {% for project in queryset %}
                     <tr>
-                        <td scope="row"> <a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_name }}  {{project.project_customer_fk}}</a> </td>
+                        <td scope="row"> <a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_name }}</a></td><td>{{project.project_customer_fk}}</td>
                     </tr>
                 {% endfor %}
               </tbody>
