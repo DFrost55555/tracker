@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator
+from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User, Group
 from django.views.generic import (
@@ -45,3 +46,18 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
         form.instance.project_createdby = self.request.user
         form.instance.project_modifiedby = self.request.user
         return super().form_valid(form)
+    
+        
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
+    model = Project
+    fields = ['project_name', 'project_customer_fk']
+    
+    def form_valid(self, form):
+        #form.instance.project_createdby = self.request.user
+        form.instance.project_modifiedby = self.request.user
+        form.instance.project_modifieddate = timezone.now
+        return super().form_valid(form)
+    
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
+    model = Project
+    success_url = '/'
