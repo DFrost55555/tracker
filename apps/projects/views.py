@@ -12,7 +12,7 @@ from .forms import ProjectModelForm
 from django.shortcuts import render, get_object_or_404
 from .models import Project
 from apps.customers.models import Customer
-from .filters import CustomerFilter
+from .filters import ProjectFilter
 
 
 def ProjectFilterView(request):
