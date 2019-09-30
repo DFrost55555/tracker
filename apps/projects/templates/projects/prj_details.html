@@ -4,6 +4,16 @@
                     <legend class="border-bottom mb-4">Project Details</legend>
                     <h2><b>{{ object.project_name }}</b></h2>
                     <h3>{{ object.project_customer_fk }}</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Project Reference</td><td>Project Status</td>
+                            </tr>
+                            <tr>
+                                <td>{{ object.project_reference}}</td><td>{{ object.project_status }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </main>
