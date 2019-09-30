@@ -3,21 +3,16 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from apps.customers.models import Customer
 from apps.statustype.models import StatusType
+from apps.chgcodetype.models import ChgCodeType
 from django.urls import reverse
 
-
-CHARGE_CODE_CHOICES = (
-    ('wbs','WBS Code'),
-    ('ctr', 'Cost Centre'),
-    ('trs','MARS Request')
-)
 
 class Project(models.Model):
     project_name = models.CharField('Project Name', max_length=150)
     project_customer_fk = models.ForeignKey(Customer, verbose_name='Customer', on_delete=models.SET_NULL, null=True)
     project_reference = models.CharField('Project Reference', max_length=255)
     project_chargecode = models.CharField('Charge Code',max_length=255)
-    project_chargecodetype = models.CharField('Charge Code Type', max_length=25, choices=CHARGE_CODE_CHOICES, default='wbs')
+    project_chargecodetype_fk = models.ForeignKey(ChgCodeType, verbose_name='Charge Code Type', on_delete=models.SET_NULL, null=True)
     project_statustype_fk = models.ForeignKey(StatusType, verbose_name='Status', on_delete=models.SET_NULL, null=True)
     project_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     project_createddate = models.DateTimeField(default=timezone.now)
