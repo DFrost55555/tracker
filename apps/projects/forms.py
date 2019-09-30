@@ -27,7 +27,7 @@ class ProjectModelForm(forms.ModelForm):
             "project_reference",
             "project_chargecode",
             "project_chargecodetype",
-            "project_status",
+            "project_status_fk",
             
         ]
         
