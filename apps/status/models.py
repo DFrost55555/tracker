@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 class StatusType(models.Model):
-    statustype_name = models.CharField('Service Type Name', max_length=150)
+    statustype_name = models.CharField('Status Type Name', max_length=150)
     statustype_description = models.CharField('Description', max_length=2000)
     statustype_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     statustype_createddate = models.DateTimeField(default=timezone.now)
