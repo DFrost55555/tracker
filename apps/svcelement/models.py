@@ -5,7 +5,7 @@ from apps.svcarea.models import ServiceArea
 from django.urls import reverse
 
 class ServiceElement(models.Model):
-    svcelement_name = models.CharField('Service Area Name', max_length=150)
+    svcelement_name = models.CharField('Service Element Name', max_length=150)
     svcelement_svcarea_fk = models.ForeignKey(ServiceArea, verbose_name='Service Area', on_delete=models.SET_NULL, null=True)
     svcelement_description = models.CharField('Description', max_length=2000)
     svcelement_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
