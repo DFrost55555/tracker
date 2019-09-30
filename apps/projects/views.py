@@ -40,17 +40,19 @@ class ProjectDetailView(LoginRequiredMixin, DetailView):
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
-    fields = ['project_name', 'project_customer_fk']
+    fields = ['project_name', 'project_customer_fk', 'project_reference', 'project_chargecode', 'project_chargecodetype', 'project_status']
     
     def form_valid(self, form):
         form.instance.project_createdby = self.request.user
+        form.instance.project_createddate = timezone.now
         form.instance.project_modifiedby = self.request.user
+        form.instance.project_modifieddate = timezone.now
         return super().form_valid(form)
     
         
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
-    fields = ['project_name', 'project_customer_fk']
+    fields = ['project_name', 'project_customer_fk', 'project_reference', 'project_chargecode', 'project_chargecodetype', 'project_status']
     
     def form_valid(self, form):
         #form.instance.project_createdby = self.request.user
