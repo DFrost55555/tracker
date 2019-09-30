@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from apps.customers.models import Customer
+from apps.statustype.models import StatusType
 from django.urls import reverse
 
 
@@ -11,13 +12,6 @@ CHARGE_CODE_CHOICES = (
     ('trs','MARS Request')
 )
 
-STATUS_CHOICES = (
-    ('active','Active'),
-    ('inactive','Inactive'),
-    ('onhold','On Hold'),
-    ('archive','Archive'),
-)
-
 
 class Project(models.Model):
     project_name = models.CharField('Project Name', max_length=150)
@@ -25,7 +19,7 @@ class Project(models.Model):
     project_reference = models.CharField('Project Reference', max_length=255)
     project_chargecode = models.CharField('Charge Code',max_length=255)
     project_chargecodetype = models.CharField('Charge Code Type', max_length=25, choices=CHARGE_CODE_CHOICES, default='wbs')
-    project_status = models.CharField('Status', max_length=25, choices=STATUS_CHOICES, default='active')
+    project_status_fk = models.ForeignKey(StatusType, verbose_name='Status', on_delete=models.SET_NULL, null=True)
     project_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     project_createddate = models.DateTimeField(default=timezone.now)
     project_modifiedby = models.ForeignKey(User, related_name='prj_editor',on_delete=models.SET_NULL, null=True)
