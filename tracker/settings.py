@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'apps.reports',
     'apps.admsettings',
     'apps.customers',
+    'apps.svcarea',
+    'apps.svcelement',
     'users.apps.UsersConfig',
     'crispy_forms',
     'django.contrib.admin',
