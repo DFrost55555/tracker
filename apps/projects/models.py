@@ -17,7 +17,7 @@ class Project(models.Model):
     project_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     project_createddate = models.DateTimeField(default=timezone.now)
     project_modifiedby = models.ForeignKey(User, related_name='prj_editor',on_delete=models.SET_NULL, null=True)
-    project_modifieddate = models.DateTimeField(default=timezone.now)
+    project_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
     def __str__(self):
         return self.project_name

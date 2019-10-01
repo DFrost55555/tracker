@@ -58,7 +58,7 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     
     def form_valid(self, form):
         form.instance.project_modifiedby = self.request.user
-        form.instance.project_modifieddate = timezone.now
+        #form.instance.project_modifieddate = timezone.now
         return super().form_valid(form)
     
 class ProjectDeleteView(LoginRequiredMixin, DeleteView):
