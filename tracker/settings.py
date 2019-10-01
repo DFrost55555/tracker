@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'apps.svcarea',
     'apps.svcelement',
     'apps.statustype',
+    'apps.chgcodetype',
     'users.apps.UsersConfig',
     'crispy_forms',
     'django.contrib.admin',
