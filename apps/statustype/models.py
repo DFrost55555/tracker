@@ -10,7 +10,7 @@ class StatusType(models.Model):
     statustype_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     statustype_createddate = models.DateTimeField(default=timezone.now)
     statustype_modifiedby = models.ForeignKey(User, related_name='statustype_editor',on_delete=models.SET_NULL, null=True)
-    statustype_modifieddate = models.DateTimeField(default=timezone.now)
+    statustype_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
     def __str__(self):
         return self.statustype_name

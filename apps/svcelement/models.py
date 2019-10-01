@@ -11,7 +11,7 @@ class ServiceElement(models.Model):
     svcelement_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     svcelement_createddate = models.DateTimeField(default=timezone.now)
     svcelement_modifiedby = models.ForeignKey(User, related_name='svcelement_editor',on_delete=models.SET_NULL, null=True)
-    svcelement_modifieddate = models.DateTimeField(default=timezone.now)
+    svcelement_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
     def __str__(self):
         return self.svcelement_name

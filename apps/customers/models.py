@@ -8,7 +8,7 @@ class Customer(models.Model):
     cust_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     cust_createddate = models.DateTimeField(default=timezone.now)
     cust_modifiedby = models.ForeignKey(User, related_name='cust_editor', on_delete=models.SET_NULL, null=True)
-    cust_modifieddate = models.DateTimeField(default=timezone.now)
+    cust_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
     def __str__(self):
         return self.cust_name

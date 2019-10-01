@@ -9,7 +9,7 @@ class ServiceArea(models.Model):
     svcarea_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     svcarea_createddate = models.DateTimeField(default=timezone.now)
     svcarea_modifiedby = models.ForeignKey(User, related_name='svcarea_editor',on_delete=models.SET_NULL, null=True)
-    svcarea_modifieddate = models.DateTimeField(default=timezone.now)
+    svcarea_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
     def __str__(self):
         return self.svcarea_name
