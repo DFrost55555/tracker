@@ -49,7 +49,7 @@ class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     fields = ['cust_name']
     
     def form_valid(self, form):
-        form.instance.cust_createdby = self.request.user
+        #form.instance.cust_createdby = self.request.user
         form.instance.cust_modifiedby = self.request.user
         return super().form_valid(form)
     
