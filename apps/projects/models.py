@@ -21,3 +21,7 @@ class Project(models.Model):
     
     def __str__(self):
         return self.project_name
+
+    def get_absolute_url(self):
+        return reverse ('project-detail', kwargs={"pk": self.pk})
+    
