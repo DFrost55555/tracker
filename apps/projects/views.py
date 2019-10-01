@@ -14,6 +14,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Project
 from apps.customers.models import Customer
 from apps.statustype.models import StatusType
+from apps.chgcodetype.models import ChgCodeType
 from .filters import ProjectFilter
 
 
@@ -41,7 +42,7 @@ class ProjectDetailView(LoginRequiredMixin, DetailView):
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
-    fields = ['project_name', 'project_customer_fk', 'project_reference', 'project_chargecode', 'project_chargecodetype', 'project_status_fk']
+    fields = ['project_name', 'project_customer_fk', 'project_reference', 'project_chargecode', 'project_chargecodetype_fk', 'project_status_fk']
     
     def form_valid(self, form):
         form.instance.project_createdby = self.request.user
@@ -53,7 +54,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
         
 class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Project
-    fields = ['project_name', 'project_customer_fk', 'project_reference', 'project_chargecode', 'project_chargecodetype', 'project_status_fk']
+    fields = ['project_name', 'project_customer_fk', 'project_reference', 'project_chargecode', 'project_chargecodetype_fk', 'project_status_fk']
     
     def form_valid(self, form):
         #form.instance.project_createdby = self.request.user
