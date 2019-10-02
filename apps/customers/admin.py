@@ -6,4 +6,4 @@ class CustomerAdmin(admin.ModelAdmin):
     list_display = ('custcontact_firstname', 'custcontact_lastname','custcontact_role','custcontact_mobnumber','custcontact_email')
 
 
-admin.site.register(Customer, CustomerContact, CustomerNote, CustomerAdmin)
+admin.site.register(Customer, CustomerAdmin)
