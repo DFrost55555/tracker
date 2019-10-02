@@ -21,6 +21,7 @@ class CustomerContact(models.Model):
     custcontact_customer_fk = models.ForeignKey(Customer, verbose_name='Customer', on_delete=models.SET_NULL, null=True)
     custcontact_firstname = models.CharField('First Name', max_length=150)
     custcontact_lastname = models.CharField('Last Name', max_length=150)
+    custcontact_role = models.CharField('Role', max_length=150, null=True)
     custcontact_email = models.EmailField('Email Address', max_length=250)
     custcontact_telnum = models.CharField('Telephone Number', max_length=150)
     custcontact_mobnumber = models.CharField('Mobile Number', max_length=150)
