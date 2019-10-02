@@ -10,7 +10,6 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Customer
-from apps.projects.models import Project
 from .filters import CustomerFilter, CustomerProjectFilter
 
 
@@ -58,15 +57,6 @@ class CustomerDeleteView(LoginRequiredMixin, DeleteView):
     model = Customer
     success_url = '/'
 
-
-class CustomerProjectListView(LoginRequiredMixin, ListView):
-    model = Project
-    template_name = 'customers/cust_projects_list.html'
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['customer_projects'] = CustomerProjectFilter(self.request.GET, queryset=self.get_queryset())
-        return context
     
     
 """     model = Customer
