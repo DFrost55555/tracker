@@ -10,7 +10,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Customer
-from .filters import CustomerFilter, CustomerProjectFilter
+from .filters import CustomerFilter
 
 
 def CustomerFilterView(request):
