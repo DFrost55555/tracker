@@ -17,5 +17,5 @@ class CustomerProjectFilter(filters.FilterSet):
     class Meta:
         model = Project
         fields = {
-            'project_customer_fk': self.object.pk
+            'project_customer_fk': ['self.object.pk']
         }
