@@ -10,6 +10,7 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Customer
+from apps.projects.models import Project
 from .filters import CustomerFilter
 
 
@@ -20,7 +21,7 @@ def CustomerFilterView(request):
     if customerName_query != '' and customerName_query is not None:
         qs = qs.filter(cust_name__icontains=customerName_query).order_by('cust_name')
             
-    paginator = Paginator(qs, 10)
+    paginator = Paginator(qs, 15)
     
     page = request.GET.get('page')
     
@@ -34,6 +35,12 @@ def CustomerFilterView(request):
 
 class CustomerDetailView(LoginRequiredMixin, DetailView):
     model = Customer
+    
+    def get_context_data(self, **kwargs):
+        context = super(CustomerDetailView).get_context_data(self, **kwargs)
+        context['projects'] = Project.objects.filter(project_customer_fk = self.object.pk).order_by(-project_createddate)
+            
+            return context
     
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
