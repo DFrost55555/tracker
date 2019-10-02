@@ -11,7 +11,7 @@ from django.views.generic import (
 )
 from .models import Customer
 from apps.projects.models import Project
-from .filters import CustomerFilter
+from .filters import CustomerFilter, CustomerProjectFilter
 
 
 def CustomerFilterView(request):
@@ -36,11 +36,6 @@ def CustomerFilterView(request):
 class CustomerDetailView(LoginRequiredMixin, DetailView):
     model = Customer
     
-    def get_context_data(self, **kwargs):
-        context = super(CustomerDetailView).get_context_data(self, **kwargs)
-        context['projects'] = Project.objects.filter(project_customer_fk = self.object.pk).order_by(-project_createddate)
-        return context
-    
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
     fields = ['cust_name']
@@ -62,6 +57,17 @@ class CustomerUpdateView(LoginRequiredMixin, UpdateView):
 class CustomerDeleteView(LoginRequiredMixin, DeleteView):
     model = Customer
     success_url = '/'
+
+
+class CustomerProjectListView(LoginRequiredMixin, ListView):
+    model = Project
+    template_name = 'customers/cust_projects_list.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['customer_projects'] = CustomerProjectFilter(self.request.GET, queryset=self.get_queryset())
+        return context
+    
     
 """     model = Customer
     template_name = 'customers/cust_home.html'
