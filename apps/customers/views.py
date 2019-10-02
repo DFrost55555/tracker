@@ -39,8 +39,7 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(CustomerDetailView).get_context_data(self, **kwargs)
         context['projects'] = Project.objects.filter(project_customer_fk = self.object.pk).order_by(-project_createddate)
-            
-            return context
+        return context
     
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
