@@ -1,5 +1,9 @@
-<ul>
-    {% for project in prjqueryset %}
-        <li>{{ project.project_name }}</li>
-    {% endfor %}
-</ul>
+{% if prjqueryset %}
+    <ul>
+        {% for project in prjqueryset %}
+            <li>{{ project.project_name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h4>No projects found...</h4>
+{% endif%}
