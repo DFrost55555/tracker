@@ -27,7 +27,7 @@ def CustomerFilterView(request):
     qs = paginator.get_page(page)
     
     context = {
-        'queryset': qs
+        'custumerqs': qs
     }
     
     return render(request,"customers/cust_home.html",context)

@@ -21,7 +21,7 @@
                  </tr>
             </thead>
             <tbody>
-                {% for customer in queryset %}
+                {% for customer in customerqs %}
                     <tr>
                         <td scope="row"> <a href="{% url 'customer-detail' customer.id %}" style="display:block;">{{customer.cust_name }}</a> </td>
                     </tr>
