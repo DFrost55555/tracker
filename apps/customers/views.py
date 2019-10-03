@@ -60,7 +60,7 @@ class CustomerDeleteView(LoginRequiredMixin, DeleteView):
 
     
 def CustomerProjectList(request,pk):
-    projectqs = Project.objects.filter(project_customer_fk__exact=self.kwargs.get('pk'))
+    projectqs = Project.objects.filter(project_customer_fk__exact=self.kwargs['pk'])
 
     context = {
         "prjqueryset": projectqs
