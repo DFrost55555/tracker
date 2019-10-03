@@ -1,6 +1,6 @@
-{% if prjqueryset %}
+{% if project_list is not None %}
     <ul>
-        {% for project in prjqueryset %}
+        {% for project in project_list %}
             <li>{{ project.project_name }}</li>
         {% endfor %}
     </ul>

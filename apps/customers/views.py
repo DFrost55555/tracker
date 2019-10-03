@@ -59,13 +59,8 @@ class CustomerDeleteView(LoginRequiredMixin, DeleteView):
     success_url = '/'
 
     
-def CustomerProjectList(request,pk):
-    projectqs = Project.objects.filter(project_customer_fk__exact=self.kwargs['pk'])
-
-    context = {
-        "prjqueryset": projectqs
-    }
-
+def CustomerProjectList(request, pk):
+    project_list = Project.objects.filter(project_customer_fk=int(pk))
 
 
 """     model = Customer
