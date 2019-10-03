@@ -1,5 +1,5 @@
 <ul>
-    {% for project in filter.qs %}
-        <li>{{ project_name }}</li>
+    {% for project in prjqueryset %}
+        <li>{{ project.project_name }}</li>
     {% endfor %}
 </ul>

@@ -9,6 +9,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
+from apps.projects.models import Project
 from .models import Customer
 from .filters import CustomerFilter
 
@@ -27,7 +28,7 @@ def CustomerFilterView(request):
     qs = paginator.get_page(page)
     
     context = {
-        'custumerqs': qs
+        'customerqs': qs
     }
     
     return render(request,"customers/cust_home.html",context)
@@ -58,7 +59,15 @@ class CustomerDeleteView(LoginRequiredMixin, DeleteView):
     success_url = '/'
 
     
-    
+def CustomerProjectList(request,pk):
+    projectqs = Project.objects.filter(project_customer_fk__exact=self.kwargs.get('pk'))
+
+    context = {
+        "prjqueryset": projectqs
+    }
+
+
+
 """     model = Customer
     template_name = 'customers/cust_home.html'
     context_object_name = 'customers'
