@@ -1,9 +1,19 @@
-{% if cust_projects is not None %}
-    <ul>
-        {% for project in cust_projects %}
-            <li>{{ project.project_name }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <h4>No projects found...</h4>
-{% endif%}
+    {% if cust_projects is not None %}
+        <table class="table-adm table-sm table-hover">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                 </tr>
+            </thead>
+            <tbody>
+                {% for project in cust_projects %}
+                    <tr>
+                        <td scope="row"><a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_name }}</a></td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+        </table>
+        <hr/>
+    {% else %}
+        <h4>No projects found...</h4>
+    {% endif%}
