@@ -21,11 +21,10 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 <div id="contacts" class="container tab-pane active"><br>
-                    <{% include "../customers/cust_contacts_list.html" %}
+                    {% include "../customers/cust_contacts_list.html" %}
                 </div>
                 <div id="notes" class="container tab-pane"><br>
-                <h3>Notes</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                {% include "../customers/cust_notes_list.html" %}
                 </div>
                 <div id="projects" class="container tab-pane"><br>
                     {% include "../customers/cust_projects_list.html" %}
