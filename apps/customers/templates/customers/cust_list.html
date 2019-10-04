@@ -31,24 +31,24 @@
         <hr/>
         <div class="pagination">
             <span>
-                {% if queryset.has_previous %}
+                {% if customerqs.has_previous %}
                     <a class="btn btn-outline-dark mb-4" href="?page=1">&lt;&lt;</a>
-                    <a class="btn btn-outline-dark mb-4" href="?page={{ queryset.previous_page_number }}">&lt;</a>
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ customerqs.previous_page_number }}">&lt;</a>
                 {% endif %}
-                {% for num in queryset.paginator.page_range%}
-                    {% if queryset.number == num %}
+                {% for num in customerqs.paginator.page_range%}
+                    {% if customerqs.number == num %}
                          <a class="btn btn-dark mb-4" href="?page={{ num }}">{{ num }}</a>
-                    {% elif num > queryset.number|add:'-3' and num < queryset.number|add:'3' %}
+                    {% elif num > customerqs.number|add:'-3' and num < customerqs.number|add:'3' %}
                         <a class="btn btn-outline-dark mb-4" href="?page={{ num }}">{{ num }}</a>
                     {% endif %}
                 {% endfor %}
-                {% if queryset.has_next %}
-                    <a class="btn btn-outline-dark mb-4" href="?page={{ queryset.next_page_number }}">&gt;</a>
-                    <a class="btn btn-outline-dark mb-4" href="?page={{ queryset.paginator.num_pages }}">&gt;&gt;</a>
+                {% if customerqs.has_next %}
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ customerqs.next_page_number }}">&gt;</a>
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ customerqs.paginator.num_pages }}">&gt;&gt;</a>
                 {% endif %}
             </span>
         </div>
     </div>
                     <span class="current">
-                        Page {{ queryset.number }} of {{ queryset.paginator.num_pages }}.
+                        Page {{ customerqs.number }} of {{ customerqs.paginator.num_pages }}.
                     </span>
