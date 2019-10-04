@@ -1,4 +1,4 @@
-    {% if cust_notes is not None %}
+    {% if cust_notes %}
         <table class="table-adm table-sm table-hover">
             <thead>
                 <tr>
@@ -15,5 +15,5 @@
         </table>
         <hr/>
     {% else %}
-        <h4>No notes found...</h4>
+        <h4 class="border-top mt-2">No notes found...</h4>
     {% endif%}

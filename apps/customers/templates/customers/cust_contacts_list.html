@@ -1,4 +1,4 @@
-    {% if cust_contacts is not None %}
+    {% if cust_contacts %}
         <table class="table-adm table-sm table-hover">
             <thead>
                 <tr>
@@ -15,5 +15,5 @@
         </table>
         <hr/>
     {% else %}
-        <h4>No projects found...</h4>
+        <h4>No contacts found...</h4>
     {% endif%}
