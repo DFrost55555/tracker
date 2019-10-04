@@ -1,0 +1,19 @@
+    {% if cust_contacts is not None %}
+        <table class="table-adm table-sm table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Firstname</th><th scope="col">Lastname</th><th scope="col">Role</th><th scope="col">Contact Number</th><th scope="col">Email</th>
+                 </tr>
+            </thead>
+            <tbody>
+                {% for contact in cust_contacts %}
+                    <tr>
+                        <td scope="row"><a href="#" style="display:block;">{{ CustomerContact.custcontact_firstname }}</a></td><td><a href="#" style="display:block;">{{ CustomerContact.custcontact_lastname }}</a></td><td><a href="#" style="display:block;">{{ CustomerContact.custcontact_role }}</a></td><td><a href="#" style="display:block;">{{ CustomerContact.custcontact_mobnumber }}</a></td><td><a href="#" style="display:block;">{{ CustomerContact.custcontact_email }}</a></td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+        </table>
+        <hr/>
+    {% else %}
+        <h4>No projects found...</h4>
+    {% endif%}

@@ -39,8 +39,8 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
         prjcontext = super(CustomerDetailView, self).get_context_data(**kwargs)
         prjcontext['cust_projects'] = Project.objects.filter(project_customer_fk=self.kwargs['pk'])
         ntecontext['cust_notes'] = CustomerNote.objects.filter(custnote_customer_fk=self.kwargs['pk'])
-        comcontext['cust_comments'] = CustomerContact.objects.filter(custcontact_customer_fk=self.kwargs['pk'])
-        return prjcontext, ntecontext, comcontext    
+        contcontext['cust_contacts'] = CustomerContact.objects.filter(custcontact_customer_fk=self.kwargs['pk'])
+        return prjcontext, ntecontext, contcontext    
         
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
