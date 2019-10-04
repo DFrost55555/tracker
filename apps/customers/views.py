@@ -38,7 +38,7 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['project_list'] = Project.objects.filter(pk='pk')
+        context['project_list'] = Project.objects.filter(pk='project_customer_fk')
         return context
         
         
