@@ -8,7 +8,7 @@
             <tbody>
                 {% for project in cust_projects %}
                     <tr>
-                        <td scope="row"><a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_name }}</a></td><td scope="row"><a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_reference }}</a></td><td scope="row"><a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_status_fk }}</a></td>
+                        <td scope="row"><a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_name }}</a></td><td scope="row"><a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_reference }}</a></td><td scope="row"><a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_statustype_fk }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
