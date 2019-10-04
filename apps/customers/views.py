@@ -9,10 +9,9 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from apps.projects.models import Project
 from .models import Customer
+from apps.projects.models import Project
 from .filters import CustomerFilter
-
 
 def CustomerFilterView(request):
     qs = Customer.objects.all().order_by('cust_name')
@@ -37,7 +36,6 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
     model = Customer
     
     def get_context_data(self, **kwargs):
-        #customer = Customer.objects.get(pk=kwargs['pk'])
         prjcontext = super(CustomerDetailView, self).get_context_data(**kwargs)
         prjcontext['cust_projects'] = Project.objects.filter(project_customer_fk=self.kwargs['pk'])
         return prjcontext    
