@@ -33,7 +33,8 @@ class CustomerContact(models.Model):
     
     def __str__(self):
             return self.custcontact_email
-
+    objects = models.Manager()
+    
     def get_absolute_url(self):
         return reverse ('custcontact-detail', kwargs={"pk": self.pk})
     
@@ -47,6 +48,7 @@ class CustomerNote(models.Model):
     
     def __str__(self):
             return self.custnote_note
-
+    objects = models.Manager()
+    
     def get_absolute_url(self):
         return reverse ('custnote-detail', kwargs={"pk": self.pk})

@@ -9,7 +9,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Customer
+from .models import Customer, CustomerNote, CustomerContact
 from apps.projects.models import Project
 from .filters import CustomerFilter
 
@@ -38,7 +38,9 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         prjcontext = super(CustomerDetailView, self).get_context_data(**kwargs)
         prjcontext['cust_projects'] = Project.objects.filter(project_customer_fk=self.kwargs['pk'])
-        return prjcontext    
+        ntecontext['cust_notes'] = CustomerNote.objects.filter(custnote_customer_fk=self.kwargs['pk'])
+        comcontext['cust_comments'] = CustomerContact.objects.filter(custcontact_customer_fk=self.kwargs['pk'])
+        return prjcontext, ntecontext, comcontext    
         
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
