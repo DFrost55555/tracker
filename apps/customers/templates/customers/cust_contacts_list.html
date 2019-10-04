@@ -1,4 +1,4 @@
-    {% if cust_contacts is not None %}
+    {% if customer_lists.cust_contacts is not None %}
         <table class="table-adm table-sm table-hover">
             <thead>
                 <tr>
@@ -6,9 +6,9 @@
                  </tr>
             </thead>
             <tbody>
-                {% for contact in cust_contacts %}
+                {% for contact in customer_lists.cust_contacts %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;">{{ CustomerContact.custcontact_firstname }}</a></td><td><a href="#" style="display:block;">{{ CustomerContact.custcontact_lastname }}</a></td><td><a href="#" style="display:block;">{{ CustomerContact.custcontact_role }}</a></td><td><a href="#" style="display:block;">{{ CustomerContact.custcontact_mobnumber }}</a></td><td><a href="#" style="display:block;">{{ CustomerContact.custcontact_email }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;">{{ contact.custcontact_firstname }}</a></td><td><a href="#" style="display:block;">{{ contact.custcontact_lastname }}</a></td><td><a href="#" style="display:block;">{{ contact.custcontact_role }}</a></td><td><a href="#" style="display:block;">{{ contact.custcontact_mobnumber }}</a></td><td><a href="#" style="display:block;">{{ contact.custcontact_email }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>

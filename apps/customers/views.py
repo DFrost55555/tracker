@@ -34,13 +34,13 @@ def CustomerFilterView(request):
 
 class CustomerDetailView(LoginRequiredMixin, DetailView):
     model = Customer
+    context_object_name = 'customer_lists'
     
-    def get_context_data(self, **kwargs):
-        prjcontext = super(CustomerDetailView, self).get_context_data(**kwargs)
-        prjcontext['cust_projects'] = Project.objects.filter(project_customer_fk=self.kwargs['pk'])
-        ntecontext['cust_notes'] = CustomerNote.objects.filter(custnote_customer_fk=self.kwargs['pk'])
-        contcontext['cust_contacts'] = CustomerContact.objects.filter(custcontact_customer_fk=self.kwargs['pk'])
-        return prjcontext, ntecontext, contcontext    
+    def get_queryset(self, **kwargs):
+        cust_queryset = {'cust_projects': Project.objects.filter(project_customer_fk=self.kwargs['pk']),
+                         'cust_notes' : CustomerNote.objects.filter(custnote_customer_fk=self.kwargs['pk']),
+                         'cust_contacts' : CustomerContact.objects.filter(custcontact_customer_fk=self.kwargs['pk'])}
+        return cust_queryset    
         
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
