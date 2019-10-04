@@ -36,6 +36,12 @@ def CustomerFilterView(request):
 class CustomerDetailView(LoginRequiredMixin, DetailView):
     model = Customer
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(self, **kwargs)
+        context['project_list'] = Project.objects.all()
+        return context
+        
+        
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
     fields = ['cust_name']
@@ -58,9 +64,6 @@ class CustomerDeleteView(LoginRequiredMixin, DeleteView):
     model = Customer
     success_url = '/'
 
-    
-def CustomerProjectList(request, pk):
-    project_list = Project.objects.filter(project_customer_fk=int(pk))
 
 
 """     model = Customer
