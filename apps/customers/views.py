@@ -38,9 +38,9 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
     
     def get_context_data(self, **kwargs):
         #customer = Customer.objects.get(pk=kwargs['pk'])
-        context = super(CustomerDetailView, self).get_context_data(**kwargs)
-        context['cust_projects'] = Project.objects.filter(project_customer_fk=self.kwargs['pk'])
-        return context    
+        prjcontext = super(CustomerDetailView, self).get_context_data(**kwargs)
+        prjcontext['cust_projects'] = Project.objects.filter(project_customer_fk=self.kwargs['pk'])
+        return prjcontext    
         
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
