@@ -37,10 +37,10 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'customer_lists'
     
     def get_queryset(self, **kwargs):
-        cust_queryset = {'cust_projects': Project.objects.filter(project_customer_fk=self.kwargs['pk']),
-                         'cust_notes' : CustomerNote.objects.filter(custnote_customer_fk=self.kwargs['pk']),
-                         'cust_contacts' : CustomerContact.objects.filter(custcontact_customer_fk=self.kwargs['pk'])}
-        return cust_queryset    
+        queryset = {'cust_projects': Project.objects.all().filter(project_customer_fk=self.kwargs['pk']),
+                    'cust_notes' : CustomerNote.objects.all().filter(custnote_customer_fk=self.kwargs['pk']),
+                    'cust_contacts' : CustomerContact.objects.all().filter(custcontact_customer_fk=self.kwargs['pk'])}
+        return queryset    
         
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
