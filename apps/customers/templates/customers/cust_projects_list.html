@@ -1,4 +1,4 @@
-    {% if customer_lists.cust_projects is not None %}
+    {% if cust_projects is not None %}
         <table class="table-adm table-sm table-hover">
             <thead>
                 <tr>
@@ -6,7 +6,7 @@
                  </tr>
             </thead>
             <tbody>
-                {% for project in customer_lists.cust_projects %}
+                {% for project in cust_projects %}
                     <tr>
                         <td scope="row"><a href="{% url 'project-detail' project.id %}" style="display:block;">{{project.project_name }}</a></td>
                     </tr>
