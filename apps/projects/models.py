@@ -2,8 +2,8 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from apps.customers.models import Customer
-# from apps.statustype.models import StatusType
-# from apps.chgcodetype.models import ChgCodeType
+from apps.statustype.models import StatusType
+from apps.chgcodetype.models import ChgCodeType
 from apps.lists.models import Location, ProjectStatus, ResourceStatus, ChargeCodeType, ChargeUnitType
 from apps.resources.models import Resource
 from django.urls import reverse
