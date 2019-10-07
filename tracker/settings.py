@@ -42,11 +42,11 @@ INSTALLED_APPS = [
     'apps.customers',
     'apps.svcarea',
     'apps.svcelement',
-    'apps.statustype',
-    'apps.chgcodetype',
+    # 'apps.statustype',
+    # 'apps.chgcodetype',
     'apps.resources',
     'apps.roles',
-    'apps.location',
+    # 'apps.location',
     'apps.lists',
     'users.apps.UsersConfig',
     'crispy_forms',
@@ -104,7 +104,7 @@ DATABASES = {
         'HOST': 'gd-adm-mssql01.database.windows.net',
         'PORT':'1433',
         'OPTIONS': {
-            #'driver': 'SQL Server Native Client 11.0',
+            # 'driver': 'SQL Server Native Client 11.0',
             'driver': 'ODBC Driver 17 for SQL Server',
                 }
     }
