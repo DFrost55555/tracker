@@ -18,8 +18,8 @@ class Location(models.Model):
 
 class ProjectStatus(models.Model):
     prjsts_id = models.AutoField(primary_key = True)
-    prjsts_name = models.CharField('location name', max_length=150)
-    prjsts_description = models.CharField('location description', max_length=2000)
+    prjsts_name = models.CharField('project status name', max_length=150)
+    prjsts_description = models.CharField('project status description', max_length=2000)
     prjsts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     prjsts_createddate = models.DateTimeField(default=timezone.now)
     prjsts_modifiedby = models.ForeignKey(User, related_name='prjsts_editor',on_delete=models.SET_NULL, null=True)
@@ -31,8 +31,8 @@ class ProjectStatus(models.Model):
 
 class ChargeCodeType(models.Model):
     cct_id = models.AutoField(primary_key = True)
-    cct_name = models.CharField('location name', max_length=150)
-    cct_description = models.CharField('location description', max_length=2000)
+    cct_name = models.CharField('charge code type name', max_length=150)
+    cct_description = models.CharField('charge code type description', max_length=2000)
     cct_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     cct_createddate = models.DateTimeField(default=timezone.now)
     cct_modifiedby = models.ForeignKey(User, related_name='cct_editor',on_delete=models.SET_NULL, null=True)
@@ -44,8 +44,8 @@ class ChargeCodeType(models.Model):
 
 class ChargeUnitType(models.Model):
     cut_id = models.AutoField(primary_key = True)
-    cut_name = models.CharField('location name', max_length=150)
-    cut_description = models.CharField('location description', max_length=2000)
+    cut_name = models.CharField('charge unit type name', max_length=150)
+    cut_description = models.CharField('charge unit type description', max_length=2000)
     cut_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     cut_createddate = models.DateTimeField(default=timezone.now)
     cut_modifiedby = models.ForeignKey(User, related_name='cut_editor',on_delete=models.SET_NULL, null=True)
@@ -57,8 +57,8 @@ class ChargeUnitType(models.Model):
 
 class ResourceStatus(models.Model):
     ressts_id = models.AutoField(primary_key = True)
-    ressts_name = models.CharField('location name', max_length=150)
-    ressts_description = models.CharField('location description', max_length=2000)
+    ressts_name = models.CharField('resource status name', max_length=150)
+    ressts_description = models.CharField('resource status description', max_length=2000)
     ressts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     ressts_createddate = models.DateTimeField(default=timezone.now)
     ressts_modifiedby = models.ForeignKey(User, related_name='ressts_editor',on_delete=models.SET_NULL, null=True)
