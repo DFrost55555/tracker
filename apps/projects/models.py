@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from apps.customers.models import Customer
 from apps.statustype.models import StatusType
 from apps.chgcodetype.models import ChgCodeType
+from apps.resources.models import Resource
 from django.urls import reverse
 
 
@@ -25,3 +26,8 @@ class Project(models.Model):
     def get_absolute_url(self):
         return reverse ('project-detail', kwargs={"pk": self.pk})
     
+class ProjectResources(models.Model):
+    pr_id = models.AutoField(primary_key=True)
+    pr_project_fk = models.ForeignKey(Project, verbose_name='project', on_delete=models.SET_NULL, null=True)
+    pr_resource_fk = models.ForeignKey(Resource, verbose_name='resource', on_delete=models.SET_NULL, null=True)
+    pr_statustype_fk = models.ForeignKey(StatusType, verbose_name='res status', on_delete=models.SET_NULL, null=True)
