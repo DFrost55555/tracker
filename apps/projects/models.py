@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from apps.customers.models import Customer
+from apps.resources.models import Resource, ResourceType
+from apps.suppliers.models import Supplier
 from apps.statustype.models import StatusType
 from apps.chgcodetype.models import ChgCodeType
 from apps.lists.models import Location, ProjectStatus, ResourceStatus, ChargeCodeType, ChargeUnitType
@@ -30,5 +32,9 @@ class Project(models.Model):
 class ProjectResources(models.Model):
     pr_id = models.AutoField(primary_key=True)
     pr_project_fk = models.ForeignKey(Project, verbose_name='project', on_delete=models.SET_NULL, null=True)
+    pr_customer_fk = models.ForeignKey(Customer, verbose_name="customer", on_delete=models.SET_NULL, null=True)
     pr_resource_fk = models.ForeignKey(Resource, verbose_name='resource', on_delete=models.SET_NULL, null=True)
-    pr_statustype_fk = models.ForeignKey(ResourceStatus, verbose_name='res status', on_delete=models.SET_NULL, null=True)
+    pr_statustype_fk = models.ForeignKey(ResourceStatus, verbose_name='resource status', on_delete=models.SET_NULL, null=True)
+    pr_supplier_fk = models.ForeignKey(Supplier, verbose_name="supplier", on_delete=models.SET_NULL, null=True)
+    pr_location_fk = models.ForeignKey(Location, verbose_name="location", on_delete=models.SET_NULL, null=True)
+    pr_chargeunit_fk = models.ForeignKey(ChargeUnitType, verbose_name="charge unit", on_delete=models.SET_NULL, null=True)
