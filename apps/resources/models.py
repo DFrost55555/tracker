@@ -32,7 +32,7 @@ class Resource(models.Model):
     res_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
     def __str__(self):
-            return '%s %s' % (self.res_lastname, self.res_firstname)
+            return '%s %s %s' % (self.res_lastname, ", ", self.res_firstname)
 
     def get_absolute_url(self):
         return reverse ('resource-detail', kwargs={"pk": self.pk})
