@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from apps.customers.models import Customer
 from apps.resources.models import Resource, ResourceType
 from apps.suppliers.models import Supplier
+from apps.roles.models import Role
 from apps.statustype.models import StatusType
 from apps.chgcodetype.models import ChgCodeType
 from apps.lists.models import Location, ProjectStatus, ResourceStatus, ChargeCodeType, ChargeUnitType
@@ -34,7 +35,12 @@ class ProjectResources(models.Model):
     pr_project_fk = models.ForeignKey(Project, verbose_name='project', on_delete=models.SET_NULL, null=True)
     pr_customer_fk = models.ForeignKey(Customer, verbose_name="customer", on_delete=models.SET_NULL, null=True)
     pr_resource_fk = models.ForeignKey(Resource, verbose_name='resource', on_delete=models.SET_NULL, null=True)
+    pr_role_fk = models.ForeignKey(Role, verbose_name='resource role', on_delete=models.SET_NULL, null=True)
     pr_statustype_fk = models.ForeignKey(ResourceStatus, verbose_name='resource status', on_delete=models.SET_NULL, null=True)
     pr_supplier_fk = models.ForeignKey(Supplier, verbose_name="supplier", on_delete=models.SET_NULL, null=True)
     pr_location_fk = models.ForeignKey(Location, verbose_name="location", on_delete=models.SET_NULL, null=True)
     pr_chargeunit_fk = models.ForeignKey(ChargeUnitType, verbose_name="charge unit", on_delete=models.SET_NULL, null=True)
+    pr_start_date = models.DateField(verbose_name='Start Date', null=True)
+    pr_end_date = models.DateField(verbose_name='End Date', null=True)
+    pr_cost = models.DecimalField(verbose_name='Cost', max_digits=10, decimal_places=2)
+    pr_xcharge = models.DecimalField(verbose_name='XCharge', max_digits=10, decimal_places=2)
