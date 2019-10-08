@@ -25,13 +25,14 @@ class Resource(models.Model):
     res_lastname = models.CharField('lastname', max_length=100)
     res_resource_type = models.ForeignKey(ResourceType, verbose_name='resource type', on_delete=models.SET_NULL, null=True)
     res_emp_ref = models.CharField('employee reference', max_length=50)
+    res_networkid = models.CharField('network id', max_length=50)
     res_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     res_createddate = models.DateTimeField(default=timezone.now)
     res_modifiedby = models.ForeignKey(User, related_name='res_editor',on_delete=models.SET_NULL, null=True)
     res_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
     def __str__(self):
-            return self.res_lastname
+            return self.res_lastname and self.res_firstname
 
     def get_absolute_url(self):
         return reverse ('resource-detail', kwargs={"pk": self.pk})
