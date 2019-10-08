@@ -3,7 +3,6 @@ from .models import ServiceElement
 
 class SvcElementAdmin(admin.ModelAdmin):
     list_display = ('svcelement_name', 'svcelement_svcarea_fk','svcelement_createdby', 'svcelement_createddate', 'svcelement_modifiedby', 'svcelement_modifieddate')
-    list_display_links = ('svcelement_name')
     list_per_page = 20
 
 
