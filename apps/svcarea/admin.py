@@ -6,4 +6,4 @@ class SvcAreaAdmin(admin.ModelAdmin):
     list_display_links = ('svcarea_name')
     list_per_page = 20
 
-admin.site.register(ServiceArea)
+admin.site.register(ServiceArea, SvcAreaAdmin)
