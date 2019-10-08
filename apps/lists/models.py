@@ -66,3 +66,68 @@ class ResourceStatus(models.Model):
     
     def __str__(self):
         return self.ressts_name
+    
+        
+class POItemType(models.Model):
+    poit_id = models.AutoField(primary_key = True)
+    poit_name = models.CharField('po item type name', max_length=150)
+    poit_description = models.CharField('po item type description', max_length=2000)
+    poit_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    poit_createddate = models.DateTimeField(default=timezone.now)
+    poit_modifiedby = models.ForeignKey(User, related_name='poit_editor',on_delete=models.SET_NULL, null=True)
+    poit_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.poit_name
+    
+        
+class RAGStatus(models.Model):
+    ragsts_id = models.AutoField(primary_key = True)
+    ragsts_name = models.CharField('rag status name', max_length=150)
+    ragsts_description = models.CharField('rag status description', max_length=2000)
+    ragsts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    ragsts_createddate = models.DateTimeField(default=timezone.now)
+    ragsts_modifiedby = models.ForeignKey(User, related_name='ragsts_editor',on_delete=models.SET_NULL, null=True)
+    ragsts_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.ragsts_name
+    
+        
+class RAIDStatus(models.Model):
+    raidsts_id = models.AutoField(primary_key = True)
+    raidsts_name = models.CharField('raid status name', max_length=150)
+    raidsts_description = models.CharField('raid status description', max_length=2000)
+    raidsts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    raidsts_createddate = models.DateTimeField(default=timezone.now)
+    raidsts_modifiedby = models.ForeignKey(User, related_name='raidsts_editor',on_delete=models.SET_NULL, null=True)
+    raidsts_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.raidsts_name
+    
+        
+class RAIDType(models.Model):
+    raidtyp_id = models.AutoField(primary_key = True)
+    raidtyp_name = models.CharField('raid type name', max_length=150)
+    raidtyp_description = models.CharField('raid type description', max_length=2000)
+    raidtyp_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    raidtyp_createddate = models.DateTimeField(default=timezone.now)
+    raidtyp_modifiedby = models.ForeignKey(User, related_name='raidtyp_editor',on_delete=models.SET_NULL, null=True)
+    raidtyp_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.raidtyp_name
+    
+        
+class ListPriority(models.Model):
+    ltprty_id = models.AutoField(primary_key = True)
+    ltprty_name = models.CharField('list priority name', max_length=150)
+    ltprty_description = models.CharField('list priority description', max_length=2000)
+    ltprty_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    ltprty_createddate = models.DateTimeField(default=timezone.now)
+    ltprty_modifiedby = models.ForeignKey(User, related_name='ltprty_editor',on_delete=models.SET_NULL, null=True)
+    ltprty_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.ltprty_name
