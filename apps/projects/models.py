@@ -25,7 +25,7 @@ class Project(models.Model):
     project_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
     def __str__(self):
-        return self.project_name
+        return self.project_reference
 
     def get_absolute_url(self):
         return reverse ('project-detail', kwargs={"pk": self.pk})
