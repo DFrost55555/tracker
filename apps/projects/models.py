@@ -46,6 +46,6 @@ class ProjectResources(models.Model):
     pr_xcharge = models.DecimalField(verbose_name='XCharge', max_digits=10, decimal_places=2)
         
     def __str__(self):
-        return self.pr_resource_fk
-
+        return self.Project.project_name
+    
     
