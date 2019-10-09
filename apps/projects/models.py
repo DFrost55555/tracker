@@ -44,3 +44,8 @@ class ProjectResources(models.Model):
     pr_end_date = models.DateField(verbose_name='End Date', null=True)
     pr_cost = models.DecimalField(verbose_name='Cost', max_digits=10, decimal_places=2)
     pr_xcharge = models.DecimalField(verbose_name='XCharge', max_digits=10, decimal_places=2)
+        
+    def __str__(self):
+        return self.pr_resource_fk
+
+    
