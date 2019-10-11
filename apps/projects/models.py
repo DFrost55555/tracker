@@ -64,8 +64,6 @@ class ProjectItems(models.Model):
     pitm_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
     
-    
-    
 class ProjectContact(models.Model):
     prjcontact = models.AutoField(primary_key=True)
     prjcontact_customer_fk = models.ForeignKey(Customer, verbose_name='Customer', on_delete=models.SET_NULL, null=True)
@@ -97,7 +95,6 @@ class ProjectNote(models.Model):
     
     def __str__(self):
             return self.prjnote_note
-    
     
     def get_absolute_url(self):
         return reverse ('prjnote-detail', kwargs={"pk": self.pk})
