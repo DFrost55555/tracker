@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.roles',
     'apps.location',
     'apps.lists',
+    'apps.items',
     'apps.suppliers',
     'users.apps.UsersConfig',
     'crispy_forms',
