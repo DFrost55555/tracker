@@ -9,7 +9,6 @@ from apps.roles.models import Role
 from apps.statustype.models import StatusType
 from apps.chgcodetype.models import ChgCodeType
 from apps.lists.models import Location, ProjectStatus, ResourceStatus, ChargeCodeType, ChargeUnitType
-from apps.resources.models import Resource
 from django.urls import reverse
 
 
