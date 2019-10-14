@@ -5,8 +5,41 @@ from apps.resources.models import Resource, ResourceType
 from apps.items.models import Item, ItemType
 from apps.suppliers.models import Supplier
 from apps.list.models import POItemType, ChargeUnitType
+from apps.approvers.models import Approver
 from django.urls import reverse
 
+
+class POStatus(models.Model):
+    posts_id = models.AutoField(primary_key = True)
+    posts_name = models.CharField('po status name', max_length=150)
+    posts_description = models.CharField('po status description', max_length=2000)
+    posts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    posts_createddate = models.DateTimeField(default=timezone.now)
+    posts_modifiedby = models.ForeignKey(User, related_name='posts_editor',on_delete=models.SET_NULL, null=True)
+    posts_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+            return self.posts_name
+    
+    def get_absolute_url(self):
+        return reverse ('posts-detail', kwargs={"pk": self.pk})
+
+
+class POType(models.Model):
+    potyp_id = models.AutoField(primary_key = True)
+    potyp_name = models.CharField('po type name', max_length=150)
+    potyp_description = models.CharField('po type description', max_length=2000)
+    potyp_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    potyp_createddate = models.DateTimeField(default=timezone.now)
+    potyp_modifiedby = models.ForeignKey(User, related_name='potyp_editor',on_delete=models.SET_NULL, null=True)
+    potyp_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+            return self.potyp_name
+    
+    def get_absolute_url(self):
+        return reverse ('potyp-detail', kwargs={"pk": self.pk})
+    
 
 class PurchaseOrder(models.Model):
     po_id = models.AutoField(primary_key=True)
@@ -29,3 +62,34 @@ class PurchaseOrder(models.Model):
 
     def get_absolute_url(self):
         return reverse ('purorder-detail', kwargs={"pk": self.pk})
+
+
+class PONote(models.Model):
+    ponote_po_fk = models.ForeignKey(PurchaseOrder, verbose_name='Purchase Order', on_delete=models.SET_NULL, null=True)
+    ponote_note = models.CharField('PO Note', max_length=2500)
+    ponote_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    ponote_createddate = models.DateTimeField(default=timezone.now)
+    ponote_modifiedby = models.ForeignKey(User, related_name='ponote_editor', on_delete=models.SET_NULL, null=True)
+    ponote_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+            return self.ponote_note
+    
+    def get_absolute_url(self):
+        return reverse ('ponote-detail', kwargs={"pk": self.pk})
+    
+
+class POMatrix(models.Model):
+    pomtx_id = models.AutoField(primary_key=True)
+    pomtx_po_id = models.ForeignKey(PurchaseOrder, verbose_name='purchase order', on_delete=models.SET_NULL, null=True)
+    pomtx_project_fk = models.ForeignKey(Project, verbose_name='project', on_delete=models.SET_NULL, null=True)
+    pomtx_customer_fk = models.ForeignKey(Customer, verbose_name="customer", on_delete=models.SET_NULL, null=True)
+    pomtx_supplier_fk = models.ForeignKey(Supplier, verbose_name="supplier", on_delete=models.SET_NULL, null=True)
+    pomtx_approver_fk = models.ForeignKey(Approver, verbose_name="approver", on_delete=models.SET_NULL, null=True)
+    pomtx_apprvd_date = models.DateField(verbose_name='approved date', null=True)
+    pomtx_status_fk = models.ForeignKey(POStatus, verbose_name="po status", on_delete=models.SET_NULL, null=True)
+    pomtx_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    pomtx_createddate = models.DateTimeField(default=timezone.now)
+    pomtx_modifiedby = models.ForeignKey(User, related_name='pomtx_editor',on_delete=models.SET_NULL, null=True)
+    pomtx_modifieddate = models.DateTimeField(auto_now=True, null=True)
+ 
