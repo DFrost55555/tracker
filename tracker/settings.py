@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'apps.lists',
     'apps.items',
     'apps.suppliers',
+    'apps.purorders',
     'users.apps.UsersConfig',
     'crispy_forms',
     'django.contrib.admin',
