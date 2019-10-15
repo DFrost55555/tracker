@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User, Group
+from apps.projects.models import Project
 from apps.resources.models import Resource, ResourceType
 from apps.items.models import Item, ItemType
 from apps.suppliers.models import Supplier
