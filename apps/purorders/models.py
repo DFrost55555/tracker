@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, Group
 from apps.resources.models import Resource, ResourceType
 from apps.items.models import Item, ItemType
 from apps.suppliers.models import Supplier
-from apps.list.models import POItemType, ChargeUnitType
+from apps.lists.models import POItemType, ChargeUnitType
 from apps.approvers.models import Approver
 from django.urls import reverse
 
