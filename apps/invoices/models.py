@@ -15,13 +15,10 @@ from django.urls import reverse
 class INVStatus(models.Model):
     invsts_id = models.AutoField(primary_key=True)
     invsts_name = models.CharField('invoice status name', max_length=150)
-    invsts_description = models.CharField(
-        'invoice status description', max_length=2000)
-    invsts_createdby = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True)
+    invsts_description = models.CharField('invoice status description', max_length=2000)
+    invsts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     invsts_createddate = models.DateTimeField(default=timezone.now)
-    invsts_modifiedby = models.ForeignKey(
-        User, related_name='invsts_editor', on_delete=models.SET_NULL, null=True)
+    invsts_modifiedby = models.ForeignKey(User, related_name='invsts_editor', on_delete=models.SET_NULL, null=True)
     invsts_modifieddate = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
