@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Invoice, INVMatrix, INVNote, INVStatus, INVType
 
-# Register your models here.
+admin.site.register(Invoice)
+admin.site.register(INVMatrix)
+admin.site.register(INVNote)
+admin.site.register(INVStatus)
+admin.site.register(INVType)
