@@ -54,6 +54,7 @@ class PurchaseOrder(models.Model):
     po_unit_charge = models.DecimalField('po unit charge', max_digits=10, decimal_places=2)
     po_start_date = models.DateField(verbose_name='Start Date', null=True)
     po_end_date = models.DateField(verbose_name='End Date', null=True)
+    po_status_fk = models.ForeignKey(POStatus, verbose_name='po status',on_delete=models.SET_NULL, null=True)
     po_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     po_createddate = models.DateTimeField(default=timezone.now)
     po_modifiedby = models.ForeignKey(User, related_name='po_editor',on_delete=models.SET_NULL, null=True)

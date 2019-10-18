@@ -79,7 +79,7 @@ class Invoice(models.Model):
 
 class INVNote(models.Model):
     invnote_inv_fk = models.ForeignKey(
-        PurchaseOrder, verbose_name='Invoice', on_delete=models.SET_NULL, null=True)
+        Invoice, verbose_name='Invoice', on_delete=models.SET_NULL, null=True)
     invnote_note = models.CharField('Invoice Note', max_length=2500)
     invnote_createdby = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True)
