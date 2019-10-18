@@ -59,7 +59,8 @@ class Invoice(models.Model):
     inv_unit_cost = models.DecimalField(
         'invoice unit cost', max_digits=10, decimal_places=2)
     inv_date = models.DateField(verbose_name='Invoice Date', null=True)
-    inv_end_date = models.DateField(verbose_name='End Date', null=True)
+    inv_gr_reference = models.CharField('invoice gr reference', max_length=50, null=True)
+    inv_gr_date = models.DateField(verbose_name='gr date', null=True)
     inv_createdby = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True)
     inv_createddate = models.DateTimeField(default=timezone.now)
