@@ -112,7 +112,7 @@ class INVMatrix(models.Model):
     invmtx_apprvd_date = models.DateField(
         verbose_name='approved date', null=True)
     invmtx_status_fk = models.ForeignKey(
-        POStatus, verbose_name="inv status", on_delete=models.SET_NULL, null=True)
+        INVStatus, verbose_name="inv status", on_delete=models.SET_NULL, null=True)
     invmtx_createdby = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True)
     invmtx_createddate = models.DateTimeField(default=timezone.now)
