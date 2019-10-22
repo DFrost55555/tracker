@@ -85,6 +85,7 @@ class PONote(models.Model):
 class POMatrix(models.Model):
     pomtx_id = models.AutoField(primary_key=True)
     pomtx_po_id = models.ForeignKey(PurchaseOrder, verbose_name='purchase order', on_delete=models.SET_NULL, null=True)
+    pomtx_potype_id = models.ForeignKey(POType, verbose_name='purchase order type', on_delete=models.SET_NULL, null=True)
     pomtx_project_fk = models.ForeignKey(Project, verbose_name='project', on_delete=models.SET_NULL, null=True)
     pomtx_customer_fk = models.ForeignKey(Customer, verbose_name="customer", on_delete=models.SET_NULL, null=True)
     pomtx_supplier_fk = models.ForeignKey(Supplier, verbose_name="supplier", on_delete=models.SET_NULL, null=True)
