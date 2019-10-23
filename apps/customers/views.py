@@ -54,7 +54,7 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
     
     def get_success_url(self):
-        return super().get_success_url('cust-home')
+        return 'cust-home'
     
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     model = Customer
