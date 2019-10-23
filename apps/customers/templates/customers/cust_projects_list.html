@@ -1,4 +1,10 @@
     {% if cust_projects %}
+        <table>
+            <tr>
+                <td><a class="nav-item-2" href="{% url 'project-home' %}">Add Project...</a></td>
+            </tr>
+        </table>
+        <hr/>
         <table class="table-adm table-sm table-hover">
             <thead>
                 <tr>
@@ -13,7 +19,7 @@
                 {% endfor %}
               </tbody>
         </table>
-        <hr/>
+        <hr class="mb-4"/>
     {% else %}
         <h5 class="text-white text-center bg-dark border-top border-bottom mt-4 mb-4">No projects found...</h5>
     {% endif%}

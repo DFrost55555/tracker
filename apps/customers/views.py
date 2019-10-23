@@ -54,8 +54,8 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
         form.instance.cust_modifiedby = self.request.user
         return super().form_valid(form)
     
-    def get_success_url(self):
-        return reverse('cust-home')
+    #def get_success_url(self):
+        #return reverse('cust-home')
     
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     model = Customer
