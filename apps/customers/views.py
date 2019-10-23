@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
+from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User, Group
 from django.views.generic import (
@@ -54,7 +55,7 @@ class CustomerCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
     
     def get_success_url(self):
-        return 'cust-home'
+        return reverse('cust-home')
     
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     model = Customer
