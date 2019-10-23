@@ -47,6 +47,7 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
     fields = ['cust_name']
+    success_url = '/'
     
     def form_valid(self, form):
         form.instance.cust_createdby = self.request.user
