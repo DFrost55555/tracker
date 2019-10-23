@@ -47,12 +47,14 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
     fields = ['cust_name']
-    success_url = '/'
     
     def form_valid(self, form):
         form.instance.cust_createdby = self.request.user
         form.instance.cust_modifiedby = self.request.user
         return super().form_valid(form)
+    
+    def get_success_url(self):
+        return super().get_success_url('cust-home')
     
 class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     model = Customer
