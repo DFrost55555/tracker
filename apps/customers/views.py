@@ -39,13 +39,14 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(CustomerDetailView, self).get_context_data(**kwargs)
+        self.request.session['cust_id'] = self.object.id
         context.update({
         'cust_projects' : Project.objects.filter(project_customer_fk=self.kwargs['pk']),
         'cust_notes' : CustomerNote.objects.filter(custnote_customer_fk=self.kwargs['pk']),
         'cust_contacts' : CustomerContact.objects.filter(custcontact_customer_fk=self.kwargs['pk']),
         })
         return context
-        self.request.session['cust_id'] = self.object.id
+        
             
 class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
