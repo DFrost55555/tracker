@@ -90,7 +90,6 @@ Django==2.1.10
 django-bootstrap-breadcrumbs==0.9.1
 django-crispy-forms==1.7.2
 django-filter==2.1.0
-django-formtools==2.1
 django-pyodbc-azure==2.1.0.0
 django-storages==1.7.1
 django-storages-azure==1.6.8

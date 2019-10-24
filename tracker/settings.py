@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
-    'formtools',
     'django_bootstrap_breadcrumbs',
     'django_filters',
 ]
