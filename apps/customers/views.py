@@ -39,8 +39,6 @@ class CustomerDetailView(LoginRequiredMixin, DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(CustomerDetailView, self).get_context_data(**kwargs)
-        if not self.request.session['cust_id']:
-            self.request.session['cust_id'] = [self.object.pk]
         context.update({
         'cust_projects' : Project.objects.filter(project_customer_fk=self.kwargs['pk']),
         'cust_notes' : CustomerNote.objects.filter(custnote_customer_fk=self.kwargs['pk']),
