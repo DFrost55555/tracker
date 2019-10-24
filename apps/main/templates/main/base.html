@@ -33,6 +33,10 @@
       {% include "./navbar.html" %}
     </header>
       {% block content %}
+          {% load static %}
+          <div class="loader">
+            <img src="{% static 'main/images/loader.gif' %}" alt="Loading..."/>
+          </div>
       {% endblock %}
       {% include "./footer.html" %}
     <!-- Optional JavaScript -->

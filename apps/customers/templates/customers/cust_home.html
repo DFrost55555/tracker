@@ -1,9 +1,5 @@
 {% extends "../main/base.html" %}
 {% block content %}
-    {% load static %}
-    <div class="loader">
-      <img src="{% static 'main/images/loader.gif' %}" alt="Loading..."/>
-    </div>
     {% with breadcrumb="Components / Customers"%}
         {% include "./cust_pagetopper.html" %}
     {% endwith %}
