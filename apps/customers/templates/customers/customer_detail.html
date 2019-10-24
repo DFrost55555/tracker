@@ -5,6 +5,10 @@
     {% endwith %}
     {% include "./cust_pgheader.html" %}
     {% if user.is_authenticated %}
+        {% load static %}
+          <div class="loader">
+            <img src="{% static 'main/images/loader.gif' %}" alt="Loading..."/>
+          </div>
         <main role="main" class="container">
             <div class="row">
                 <div class="col-md-9">
