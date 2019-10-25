@@ -96,4 +96,21 @@ class POMatrix(models.Model):
     pomtx_createddate = models.DateTimeField(default=timezone.now)
     pomtx_modifiedby = models.ForeignKey(User, related_name='pomtx_editor',on_delete=models.SET_NULL, null=True)
     pomtx_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+
+class POFiles(models.Model):
+    pofile_id = models.AutoField(primary_key=True)
+    pofile_po_fk = models.ForeignKey(PurchaseOrder, verbose_name='Purchase Order', on_delete=models.SET_NULL, null=True)
+    pofile_name = models.CharField('PO Filename', max_length=255)
+    pofile_file = models.FileField(upload_to='pofiles/', max_length=255)
+    pofile_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    pofile_createddate = models.DateTimeField(default=timezone.now)
+    pofile_modifiedby = models.ForeignKey(User, related_name='pofile_editor', on_delete=models.SET_NULL, null=True)
+    pofile_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+            return self.pofile_name
+    
+    def get_absolute_url(self):
+        return reverse ('pofile-detail', kwargs={"pk": self.pk})
  

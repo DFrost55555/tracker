@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User, Group
 from django.views.generic import (
+    TemplateView,
     ListView,
     DetailView,
     CreateView,
@@ -46,9 +47,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     
     def form_valid(self, form):
         form.instance.project_createdby = self.request.user
-        #form.instance.project_createddate = timezone.now
         form.instance.project_modifiedby = self.request.user
-        #form.instance.project_modifieddate = timezone.now
         return super().form_valid(form)
     
         
@@ -58,7 +57,6 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
     
     def form_valid(self, form):
         form.instance.project_modifiedby = self.request.user
-        #form.instance.project_modifieddate = timezone.now
         return super().form_valid(form)
     
 class ProjectDeleteView(LoginRequiredMixin, DeleteView):
