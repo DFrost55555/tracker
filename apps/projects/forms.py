@@ -24,3 +24,22 @@ class ProjectModelForm(forms.ModelForm):
             "project_statustype_fk",
         ]
         
+class CustProjectModelForm(forms.ModelForm):
+    project_name = forms.CharField(widget=forms.TextInput(), required=True)
+    project_customer_fk = forms.CharField(widget=forms.NumberInput())
+    project_reference = forms.CharField(widget=forms.TextInput(), required=True)
+    project_chargecode = forms.CharField(widget=forms.TextInput(), required=True)
+    project_chargecodetype_fk = ModelChoiceField(queryset=ChgCodeType.objects.all(), initial=0, required=True)
+    project_statustype_fk = ModelChoiceField(queryset=StatusType.objects.all(), initial=0, required=True)
+
+    class Meta:
+        model = Project
+        fields = [
+            "project_name",
+            "project_customer_fk",
+            "project_reference",
+            "project_chargecode",
+            "project_chargecodetype_fk",
+            "project_statustype_fk",
+        ]
+        widgets = {'project_customer_fk': forms.HiddenInput()}

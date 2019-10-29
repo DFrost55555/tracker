@@ -97,3 +97,16 @@ class ProjectNote(models.Model):
     
     def get_absolute_url(self):
         return reverse ('prjnote-detail', kwargs={"pk": self.pk})
+    
+    
+class ProjectAttachment(models.Model):
+    prjattach_id = models.AutoField(primary_key=True)
+    prjattach_title = models.CharField('Attacment Title', max_length=2500)
+    prjattach_file = models.FileField(upload_to='prjfiles/', max_length=255)
+    prjattach_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    prjattach_createddate = models.DateTimeField(default=timezone.now)
+    prjattach_modifiedby = models.ForeignKey(User, related_name='prjattach_editor', on_delete=models.SET_NULL, null=True)
+    prjattach_modifieddate = models.DateTimeField(auto_now=True, null=True)
+
+    def __str__(self):
+            return self.prjattach_title

@@ -62,3 +62,18 @@ class ProjectUpdateView(LoginRequiredMixin, UpdateView):
 class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Project
     success_url = '/'
+    
+    
+class CustProjectCreateView(LoginRequiredMixin, CreateView):
+    model = Project
+    fields = ['project_name', 'project_reference', 'project_chargecode', 'project_chargecodetype_fk', 'project_statustype_fk']
+              
+    def form_valid(self, form):
+        form.instance.project_customer_fk = self.request.session['cust_id']
+        form.instance.project_createdby = self.request.user
+        form.instance.project_modifiedby = self.request.user
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        url = 'customer/<int:' + self.request.session['cust_id'] + '>/'
+        return url
