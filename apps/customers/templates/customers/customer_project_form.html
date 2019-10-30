@@ -1,6 +1,6 @@
 {% extends "../main/base.html" %}
 {% block content %}
-    {% with breadcrumb="Components / Customers / Customer Details"%}
+    {% with breadcrumb="Components / Customers / Customer / New Project"%}
         {% include "./cust_pagetopper.html" %}
     {% endwith %}
     {% include "./cust_pgheader.html" %}
@@ -19,7 +19,7 @@
                     </div>
                     {% endfor %}
                 {% endif %}
-                    {% include "../customers/cust_form.html" %}
+                    {% include "../customers/cust_new_project.html" %}
                 </div>
                 <div class="col-md-3">
                     {% include "../customers/cust_formoptions.html" %}
