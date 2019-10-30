@@ -3,12 +3,12 @@ from .models import Customer
 from apps.projects.models import Project
 from apps.statustype.models import StatusType
 from apps.chgcodetype.models import ChgCodeType
-from django.forms import ModelChoiceField
+from django.forms import ModelChoiceField, HiddenInput
 
 
 class CustProjectModelForm(forms.ModelForm):
     project_name = forms.CharField(widget=forms.TextInput(), required=True)
-    project_customer_fk = forms.CharField(widget=forms.NumberInput())
+    project_customer_fk = forms.CharField(widget=forms.HiddenInput())
     project_reference = forms.CharField(widget=forms.TextInput(), required=True)
     project_chargecode = forms.CharField(widget=forms.TextInput(), required=True)
     project_chargecodetype_fk = ModelChoiceField(queryset=ChgCodeType.objects.all(), initial=0, required=True)
@@ -24,4 +24,3 @@ class CustProjectModelForm(forms.ModelForm):
             "project_chargecodetype_fk",
             "project_statustype_fk",
         ]
-        widgets = {'project_customer_fk': forms.HiddenInput()}
