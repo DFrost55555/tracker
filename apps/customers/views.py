@@ -76,7 +76,6 @@ class CustomerDeleteView(LoginRequiredMixin, DeleteView):
 
 
 class CustProjectCreateView(LoginRequiredMixin, CreateView):
-    form_class = CustProjectModelForm
     model = Project
     fields = ['project_name', 'project_customer_fk', 'project_reference', 'project_chargecode', 'project_chargecodetype_fk', 'project_statustype_fk']
     template_name = 'customer_project_form.html'
