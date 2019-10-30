@@ -3,7 +3,9 @@ from django.core.paginator import Paginator
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User, Group
+from .forms import CustProjectModelForm
 from django.views.generic import (
+    TemplateView,
     ListView,
     DetailView,
     CreateView,
@@ -71,3 +73,20 @@ class CustomerUpdateView(LoginRequiredMixin, UpdateView):
 class CustomerDeleteView(LoginRequiredMixin, DeleteView):
     model = Customer
     success_url = '/'
+
+
+class CustProjectCreateView(LoginRequiredMixin, CreateView):
+    form_class = CustProjectModelForm
+    model = Project
+    fields = ['project_name', 'project_customer_fk', 'project_reference', 'project_chargecode', 'project_chargecodetype_fk', 'project_statustype_fk']
+    template_name = 'customer_project_form.html'
+       
+    def form_valid(self, form):
+        form.instance.project_customer_fk = self.request.session['cust_id']
+        form.instance.project_createdby = self.request.user
+        form.instance.project_modifiedby = self.request.user
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        url = 'customer/<int:' + self.request.session['cust_id'] + '>/'
+        return url
