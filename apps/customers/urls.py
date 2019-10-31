@@ -22,7 +22,6 @@ from .views import (
     CustomerCreateView,
     CustomerUpdateView,
     CustomerDeleteView,
-    CustProjectCreateView,
 )
 
 urlpatterns = [
@@ -31,5 +30,4 @@ urlpatterns = [
     path('customer/new/', CustomerCreateView.as_view(), name='customer-create'),
     path('customer/<int:pk>/update/', CustomerUpdateView.as_view(), name='customer-update'),
     path('customer/<int:pk>/delete/', CustomerDeleteView.as_view(), name='customer-delete'),
-    path('customer/new/project/', CustProjectCreateView.as_view(), name='cust-project-create'),
 ]
