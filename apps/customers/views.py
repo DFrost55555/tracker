@@ -3,7 +3,6 @@ from django.core.paginator import Paginator
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User, Group
-from .forms import CustProjectModelForm
 from django.views.generic import (
     TemplateView,
     ListView,
