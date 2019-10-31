@@ -84,8 +84,8 @@ class CustProjectCreateView(LoginRequiredMixin, CreateView):
        
     def form_valid(self, form):
         form.instance.project_customer_fk = self.request.session['cust_id']
-        #form.instance.project_chargecodetype_fk = ChgCodeType.objects.get(pk=cleaned_data['project_chargecodetype_fk'])
-        #form.instance.project_statustype_fk = StatusType.objects.get(pk=cleaned_data['project_statustype_fk'])
+        form.instance.project_chargecodetype_fk = ChgCodeType.objects.get(pk=cleaned_data['project_chargecodetype_fk'])
+        form.instance.project_statustype_fk = StatusType.objects.get(pk=cleaned_data['project_statustype_fk'])
         form.instance.project_createdby = self.request.user
         form.instance.project_modifiedby = self.request.user
         return super().form_valid(form)
