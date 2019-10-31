@@ -14,8 +14,6 @@ from django.views.generic import (
 )
 from .models import Customer, CustomerNote, CustomerContact
 from apps.projects.models import Project
-from apps.statustype.models import StatusType
-from apps.chgcodetype.models import ChgCodeType
 from .filters import CustomerFilter
 
 def CustomerFilterView(request):
@@ -76,20 +74,3 @@ class CustomerDeleteView(LoginRequiredMixin, DeleteView):
     model = Customer
     success_url = '/'
 
-
-class CustProjectCreateView(LoginRequiredMixin, CreateView):
-    model = Project
-    form_class = CustProjectModelForm
-    template_name = 'customers/customer_project_form.html'
-       
-    def form_valid(self, form):
-        form.instance.project_customer_fk = self.request.session['cust_id']
-        form.instance.project_chargecodetype_fk = ChgCodeType.objects.get(pk=cleaned_data['project_chargecodetype_fk'])
-        form.instance.project_statustype_fk = StatusType.objects.get(pk=cleaned_data['project_statustype_fk'])
-        form.instance.project_createdby = self.request.user
-        form.instance.project_modifiedby = self.request.user
-        return super().form_valid(form)
-    
-    def get_success_url(self):
-        url = 'customer/<int:' + self.request.session['cust_id'] + '>/'
-        return url

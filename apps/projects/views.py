@@ -10,7 +10,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .forms import ProjectModelForm
+from .forms import ProjectModelForm, CustProjectModelForm
 from django.shortcuts import render, get_object_or_404
 from .models import Project
 from apps.customers.models import Customer
@@ -63,3 +63,18 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Project
     success_url = '/'
 
+
+class CustProjectCreateView(LoginRequiredMixin, CreateView):
+    model = Project
+    form_class = CustProjectModelForm
+    template_name = 'projects/customer_project_form.html'
+       
+    def form_valid(self, form):
+        form.instance.project_customer_fk = self.request.session['cust_id']
+        form.instance.project_createdby = self.request.user
+        form.instance.project_modifiedby = self.request.user
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        url = 'customer/<int:' + self.request.session['cust_id'] + '>/'
+        return url
