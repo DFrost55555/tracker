@@ -81,5 +81,5 @@ class CustProjectCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
     
     def get_success_url(self):
-        url = '../customers/<int:' + self.request.session['cust_id'] + '>/'
+        url = '../customer/' + self.request.session['cust_id'] + '/'
         return url
