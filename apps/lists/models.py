@@ -159,7 +159,7 @@ class HardwareStatus(models.Model):
         return self.hwsts_name
     
     
-class SoftwarewareCategory(models.Model):
+class SoftwareCategory(models.Model):
     swcat_id = models.AutoField(primary_key = True)
     swcat_name = models.CharField('software category name', max_length=150)
     swcat_description = models.CharField('software category description', max_length=2000)
