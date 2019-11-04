@@ -17,14 +17,11 @@
                             <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 SERVICES
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'project-home' %}">Projects</a></li>
-                                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Product Lifecycle</a></li>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Hardware</a></li>
-                                    <li><a class="dropdown-item" href="#">Software</a></li>
-                                </ul>
-                            </ul>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'project-home' %}">Projects</a>
+                                <a class="dropdown-item" href="#">Hardware Lifecycle</a>
+                                <a class="dropdown-item" href="#">Software Lifecycle</a>
+                            </div>
                         </li>
                     </ul>                    
                     <ul>
