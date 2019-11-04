@@ -72,13 +72,16 @@ class CustProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
     form_class = CustProjectModelForm
     template_name = 'projects/customer_project_form.html'
-    success_url = url = '../customer/' + self.request.session['cust_id'] + '/'
        
     def form_valid(self, form):
-        form.instance.project_customer_fk = self.request.session['cust_id']
         form.instance.project_createdby = self.request.user
         form.instance.project_modifiedby = self.request.user
         return super().form_valid(form)
+    
+    def get_initial(self, *args, **kwargs):
+        initial = super(CustProjectCreateView, self).get_initial(**kwargs)
+        initial['project_customer_fk'] = self.request.session['cust_id']
+        return initial
     
     # def get_success_url(self):
     #     url = '../customer/' + self.request.session['cust_id'] + '/'
