@@ -1,9 +1,9 @@
 {% extends "../main/base.html" %}
 {% block content %}
     {% with breadcrumb="Components / Customers / Customer / New Project"%}
-        {% include "./cust_pagetopper.html" %}
+        {% include "./prj_pagetopper.html" %}
     {% endwith %}
-    {% include "./cust_pgheader.html" %}
+    {% include "./prj_pgheader.html" %}
     {% if user.is_authenticated %}
         {% load static %}
           <div class="loader">

@@ -13,10 +13,16 @@
                         </li>
                     </ul>
                     <ul>
-                        <li class="nav-item-3">
-                            <a class="btn btn-primary-adm btn-md" role="button" aria-pressed="true" href="{% url 'project-home' %}">PROJECTS</a>
+                        <li class="nav-item-3 dropdown">
+                            <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                SERVICES
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'project-home' %}">Projects</a>
+                                <a class="dropdown-item" href="#">Product Lifecycle</a>
+                            </div>
                         </li>
-                    </ul>
+                    </ul>                    
                     <ul>
                         <li class="nav-item-3 dropdown">
                             <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
