@@ -131,3 +131,68 @@ class ListPriority(models.Model):
     
     def __str__(self):
         return self.ltprty_name
+    
+
+class HardwareCategory(models.Model):
+    hwcat_id = models.AutoField(primary_key = True)
+    hwcat_name = models.CharField('hardware category name', max_length=150)
+    hwcat_description = models.CharField('hardware category description', max_length=2000)
+    hwcat_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    hwcat_createddate = models.DateTimeField(default=timezone.now)
+    hwcat_modifiedby = models.ForeignKey(User, related_name='hwcat_editor',on_delete=models.SET_NULL, null=True)
+    hwcat_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.hwcat_name
+
+
+class HardwareStatus(models.Model):
+    hwsts_id = models.AutoField(primary_key = True)
+    hwsts_name = models.CharField('hardware status name', max_length=150)
+    hwsts_description = models.CharField('hardware status description', max_length=2000)
+    hwsts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    hwsts_createddate = models.DateTimeField(default=timezone.now)
+    hwsts_modifiedby = models.ForeignKey(User, related_name='hwsts_editor',on_delete=models.SET_NULL, null=True)
+    hwsts_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.hwsts_name
+    
+    
+class SoftwarewareCategory(models.Model):
+    swcat_id = models.AutoField(primary_key = True)
+    swcat_name = models.CharField('software category name', max_length=150)
+    swcat_description = models.CharField('software category description', max_length=2000)
+    swcat_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    swcat_createddate = models.DateTimeField(default=timezone.now)
+    swcat_modifiedby = models.ForeignKey(User, related_name='swcat_editor',on_delete=models.SET_NULL, null=True)
+    swcat_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.swcat_name
+
+
+class SoftwareStatus(models.Model):
+    swsts_id = models.AutoField(primary_key = True)
+    swsts_name = models.CharField('software status name', max_length=150)
+    swsts_description = models.CharField('software status description', max_length=2000)
+    swsts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    swsts_createddate = models.DateTimeField(default=timezone.now)
+    swsts_modifiedby = models.ForeignKey(User, related_name='swsts_editor',on_delete=models.SET_NULL, null=True)
+    swsts_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.swsts_name
+
+
+class SoftwareClassification(models.Model):
+    swclass_id = models.AutoField(primary_key = True)
+    swclass_name = models.CharField('software classification  name', max_length=150)
+    swclass_description = models.CharField('software classification description', max_length=2000)
+    swclass_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    swclass_createddate = models.DateTimeField(default=timezone.now)
+    swclass_modifiedby = models.ForeignKey(User, related_name='swclass_editor',on_delete=models.SET_NULL, null=True)
+    swclass_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.swclass_name
