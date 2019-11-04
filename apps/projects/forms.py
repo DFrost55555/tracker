@@ -3,6 +3,7 @@ from .models import Project
 from apps.customers.models import Customer
 from apps.statustype.models import StatusType
 from apps.chgcodetype.models import ChgCodeType
+from apps.lists.models import Location, ProjectStatus, ResourceStatus, ChargeCodeType, ChargeUnitType
 from django.forms import ModelChoiceField
 
 class ProjectModelForm(forms.ModelForm):
@@ -10,7 +11,7 @@ class ProjectModelForm(forms.ModelForm):
     project_customer_fk = ModelChoiceField(queryset=Customer.objects.all(), initial=0, required=True)
     project_reference = forms.CharField(widget=forms.TextInput(), required=True)
     project_chargecode = forms.CharField(widget=forms.TextInput(), required=True)
-    project_chargecodetype_fk = ModelChoiceField(queryset=ChgCodeType.objects.all(), initial=0, required=True)
+    project_chargecodetype_fk = ModelChoiceField(queryset=ChargeCodeType.objects.all(), initial=0, required=True)
     project_statustype_fk = ModelChoiceField(queryset=StatusType.objects.all(), initial=0, required=True)
 
     class Meta:
@@ -30,8 +31,8 @@ class CustProjectModelForm(forms.ModelForm):
     project_customer_fk = forms.IntegerField(widget=forms.HiddenInput(), )
     project_reference = forms.CharField(widget=forms.TextInput(), required=True)
     project_chargecode = forms.CharField(widget=forms.TextInput(), required=True)
-    project_chargecodetype_fk = ModelChoiceField(queryset=ChgCodeType.objects.all(), initial=0, required=False)
-    project_statustype_fk = ModelChoiceField(queryset=StatusType.objects.all(), initial=0, required=False)
+    project_chargecodetype_fk = ModelChoiceField(queryset=ChargeCodeType.objects.all(), initial=0, required=False)
+    project_statustype_fk = ModelChoiceField(queryset=ProjectStatus.objects.all(), initial=0, required=False)
 
     class Meta:
         model = Project
