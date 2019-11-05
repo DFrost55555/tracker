@@ -3,8 +3,8 @@ from django.utils import timezone
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User, Group
 from django.contrib import messages
+from django.views.generic.base import TemplateView, RedirectView
 from django.views.generic import (
-    TemplateView,
     ListView,
     DetailView,
     CreateView,
