@@ -28,7 +28,7 @@ class ProjectModelForm(forms.ModelForm):
 
 class CustProjectModelForm(forms.ModelForm):
     project_name = forms.CharField(widget=forms.TextInput(), required=True)
-    project_customer_fk = ModelChoiceField(widget=forms.HiddenInput, queryset=Customer.objects.all(), initial=0, required=True)
+    project_customer_fk = ModelChoiceField(widget=forms.HiddenInput(), queryset=Customer.objects.all(), initial=0, required=True)
     project_reference = forms.CharField(widget=forms.TextInput(), required=True)
     project_chargecode = forms.CharField(widget=forms.TextInput(), required=True)
     #project_chargecodetype_fk = ModelChoiceField(queryset=ChargeCodeType.objects.all(), initial=1, required=False)
