@@ -11,7 +11,7 @@ from django.views.generic import (
     DeleteView
 )
 from .forms import ProjectModelForm, CustProjectModelForm
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Project
 from apps.customers.models import Customer
 from apps.statustype.models import StatusType
@@ -69,21 +69,28 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
 
 
 class CustProjectCreateView(LoginRequiredMixin, TemplateView):
-    model = Project
-    form_class = CustProjectModelForm
     template_name = 'projects/customer_project_form.html'
-       
-    def form_valid(self, form):
-        form.instance.project_customer_fk = Customer.objects.get(id=self.request.session['cust_id'])
-        form.instance.project_createdby = self.request.user
-        form.instance.project_modifiedby = self.request.user
-        return super().form_valid(form)
-    #
-    # def get_initial(self, *args, **kwargs):
-    #     initial = super(CustProjectCreateView, self).get_initial(**kwargs)
-    #     initial['project_customer_fk'] = self.request.session['cust_id']
-    #     return initial
     
-    def get_success_url(self):
-        url = '../customer/' + self.request.session['cust_id'] + '/'
-        return url
+    def get(self, request):
+        form = CustProjectModelForm()
+        return render(request, self.template_name, {'form': form})
+    
+    def post(self, request):
+        form = CustProjectModelForm(request.POST)
+        if form.is_valid():
+            Project = form.save(commit=False)
+            Project.project_customer_fk = self.request.session['cust_id']
+            Project.project_createdby = self.request.user
+            Project.project_modifiedby = self.request.user
+            Project.save()
+            
+            url_success = '../customer/' + self.request.session['cust_id'] + '/'
+            return redirect(url_success)            
+ 
+        args = {'form': form}
+        return render(request, self.template_name, args)
+        
+    
+    # def get_success_url(self):
+    #     url = '../customer/' + self.request.session['cust_id'] + '/'
+    #     return url
