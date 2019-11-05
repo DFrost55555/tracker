@@ -90,7 +90,7 @@ class CustProjectCreateView(LoginRequiredMixin, TemplateView):
         args = {'form': form}
         return render(request, self.template_name, args)
         
-    
+
     # def get_success_url(self):
     #     url = '../customer/' + self.request.session['cust_id'] + '/'
     #     return url
