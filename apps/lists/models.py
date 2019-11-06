@@ -196,3 +196,16 @@ class SoftwareClassification(models.Model):
     
     def __str__(self):
         return self.swclass_name
+    
+    
+class ProductType(models.Model):
+    prdtype_id = models.AutoField(primary_key = True)
+    prdtype_name = models.CharField('product type name', max_length=150)
+    prdtype_description = models.CharField('product type description', max_length=2000)
+    prdtype_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    prdtype_createddate = models.DateTimeField(default=timezone.now)
+    prdtype_modifiedby = models.ForeignKey(User, related_name='prdtype_editor',on_delete=models.SET_NULL, null=True)
+    prdtype_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.prdtype_name
