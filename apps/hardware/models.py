@@ -26,13 +26,23 @@ class PortfolioStatus(models.Model):
 class Hardware(models.Model):
     hw_id = models.AutoField(primary_key = True)
     hw_description = models.CharField('Hardware Description', max_length=250)
+    hw_vend_fk = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True)
+    hw_repl_desc = models.CharField('Replacement Hardware Description', max_length=250, null=True)
+    hw_repl_vend_fk = models.ForeignKey(Vendor, related_name='hw_repl_vend_id', on_delete=models.SET_NULL, null=True)
     hw_cust_fk = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
     hw_portsts_fk = models.ForeignKey(PortfolioStatus, on_delete=models.SET_NULL, null=True)
     hw_hwcat_fk = models.ForeignKey(HardwareCategory, on_delete=models.SET_NULL, null=True)
     hw_hwsts_fk = models.ForeignKey(HardwareStatus, on_delete=models.SET_NULL, null=True)
     hw_int_code = models.CharField('Internal Part Code', max_length=250)
     hw_ext_code = models.CharField('External Part Code', max_length=250)
-    hw_eol_date = models.DateTimeField(null=True)
+    hw_eol_date = models.DateTimeField(null=True) # End of Life
+    hw_eow_date = models.DateTimeField(null=True) # End of Warranty
+    hw_ems_date = models.DateTimeField(null=True) # End of Mainstream Support
+    hw_ees1_date = models.DateTimeField(null=True) # End of Extended Support - Period One
+    hw_ees2_date = models.DateTimeField(null=True) # End of Extended Support - Period Two
+    hw_ees3_date = models.DateTimeField(null=True) # End of Extended Support - Period Three
+    hw_see_txt = models.CharField('Hardware Description', max_length=250, null=True) # Support End Estimated
+    hw_plp_txt = models.CharField('Hardware Description', max_length=250, null=True) # Product Lifecycle Policy
     hw_upd_date = models.DateTimeField(null=True)
     hw_int_reference = models.CharField('Internal Reference', max_length=250)
     hw_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
@@ -42,7 +52,7 @@ class Hardware(models.Model):
     
     def __str__(self):
         return self.hw_description
-    objects = models.Manager()
+ 
     
     def get_absolute_url(self):
         return reverse ('hardware-detail', kwargs={"pk": self.pk})
