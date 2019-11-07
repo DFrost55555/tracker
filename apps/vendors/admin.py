@@ -4,9 +4,7 @@ from .models import Vendor,VendorContact,VendorNote,VendorType
 # Register your models here.
 class VendorAdmin(admin.ModelAdmin):
     fields = ('vend_name',)
-    
-    class Meta:
-        ordering = ['vend_name']
+    ordering = ('vend_name',)      
 
 
 admin.site.register(Vendor, VendorAdmin)
