@@ -3,8 +3,6 @@ from .models import Vendor,VendorContact,VendorNote,VendorType
 
 # Register your models here.
 class VendorAdmin(admin.ModelAdmin):
-    list_display = ('vend_name')
-    list_per_page = 20
     ordering = ('vend_name',)
 
 

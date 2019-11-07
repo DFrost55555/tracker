@@ -30,7 +30,6 @@ class Vendor(models.Model):
     
     def __str__(self):
         return self.vend_name
-    objects = models.Manager()
     
     def get_absolute_url(self):
         return reverse ('Vendor-detail', kwargs={"pk": self.pk})
@@ -52,7 +51,6 @@ class VendorContact(models.Model):
     
     def __str__(self):
             return self.vendcontact_email
-    objects = models.Manager()
     
     def get_absolute_url(self):
         return reverse ('vendcontact-detail', kwargs={"pk": self.pk})
@@ -68,7 +66,6 @@ class VendorNote(models.Model):
     
     def __str__(self):
             return self.vendnote_note
-    objects = models.Manager()
     
     def get_absolute_url(self):
         return reverse ('vendnote-detail', kwargs={"pk": self.pk})
