@@ -3,7 +3,10 @@ from .models import Vendor,VendorContact,VendorNote,VendorType
 
 # Register your models here.
 class VendorAdmin(admin.ModelAdmin):
-    ordering = ('vend_name',)
+    fields = ('vend_name',)
+    
+    class Meta:
+        ordering = ['vend_name']
 
 
 admin.site.register(Vendor, VendorAdmin)
