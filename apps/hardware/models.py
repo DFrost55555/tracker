@@ -26,28 +26,28 @@ class PortfolioStatus(models.Model):
 class Hardware(models.Model):
     hw_id = models.AutoField(primary_key = True)
     hw_description = models.CharField('Hardware Description', max_length=250)
-    hw_vend_fk = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True)
-    hw_repl_desc = models.CharField('Replacement Hardware Description', max_length=250, null=True)
-    hw_repl_vend_fk = models.ForeignKey(Vendor, related_name='hw_repl_vend_id', on_delete=models.SET_NULL, null=True)
-    hw_cust_fk = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
-    hw_portsts_fk = models.ForeignKey(PortfolioStatus, on_delete=models.SET_NULL, null=True)
-    hw_hwcat_fk = models.ForeignKey(HardwareCategory, on_delete=models.SET_NULL, null=True)
-    hw_hwsts_fk = models.ForeignKey(HardwareStatus, on_delete=models.SET_NULL, null=True)
-    hw_int_code = models.CharField('Internal Part Code', max_length=250)
-    hw_ext_code = models.CharField('External Part Code', max_length=250)
-    hw_eol_date = models.DateField(null=True) # End of Life
-    hw_eow_date = models.DateField(null=True) # End of Warranty
-    hw_ems_date = models.DateField(null=True) # End of Mainstream Support
-    hw_ees1_date = models.DateField(null=True) # End of Extended Support - Period One
-    hw_ees2_date = models.DateField(null=True) # End of Extended Support - Period Two
-    hw_ees3_date = models.DateField(null=True) # End of Extended Support - Period Three
-    hw_see_txt = models.CharField('Hardware Description', max_length=250, null=True) # Support End Estimated
-    hw_plp_txt = models.CharField('Hardware Description', max_length=250, null=True) # Product Lifecycle Policy
-    hw_upd_date = models.DateField(null=True)
-    hw_int_reference = models.CharField('Internal Reference', max_length=250)
-    hw_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    hw_vend_fk = models.ForeignKey(Vendor, verbose_name='Vendor', on_delete=models.SET_NULL, blank=True, null=True)
+    hw_repl_desc = models.CharField('Replacement Hardware Description', max_length=250,blank=True, null=True)
+    hw_repl_vend_fk = models.ForeignKey(Vendor, verbose_name='Replacement Vendor', related_name='hw_repl_vend_id', on_delete=models.SET_NULL,blank=True, null=True)
+    hw_cust_fk = models.ForeignKey(Customer, verbose_name='Customer', on_delete=models.SET_NULL,blank=True, null=True)
+    hw_portsts_fk = models.ForeignKey(PortfolioStatus, verbose_name='Portfolio Status', on_delete=models.SET_NULL,blank=True, null=True)
+    hw_hwcat_fk = models.ForeignKey(HardwareCategory, verbose_name='Hardware Category', on_delete=models.SET_NULL,blank=True, null=True)
+    hw_hwsts_fk = models.ForeignKey(HardwareStatus, verbose_name='Hardware Status', on_delete=models.SET_NULL,blank=True, null=True)
+    hw_int_code = models.CharField('Internal Part Code', max_length=250, blank=True, null=True)
+    hw_ext_code = models.CharField('External Part Code', max_length=250, blank=True, null=True)
+    hw_eol_date = models.DateField('End of Life', blank=True, null=True) # End of Life
+    hw_eow_date = models.DateField('End of Warranty', blank=True, null=True) # End of Warranty
+    hw_ems_date = models.DateField('End of Mainstream Support', blank=True, null=True) # End of Mainstream Support
+    hw_ees1_date = models.DateField('End of Extended Support - Period One', blank=True, null=True) # End of Extended Support - Period One
+    hw_ees2_date = models.DateField('End of Extended Support - Period Two', blank=True, null=True) # End of Extended Support - Period Two
+    hw_ees3_date = models.DateField('End of Extended Support - Period Three', blank=True, null=True) # End of Extended Support - Period Three
+    hw_see_txt = models.CharField('Support End Estimated', max_length=250,blank=True,  null=True) # Support End Estimated
+    hw_plp_txt = models.CharField('Product Lifecycle Policy', max_length=250,blank=True, null=True) # Product Lifecycle Policy
+    hw_upd_date = models.DateField('Info Update', blank=True, null=True)
+    hw_int_reference = models.CharField('Internal Reference', max_length=250, blank=True, null=True)
+    hw_createdby = models.ForeignKey(User, verbose_name='Created By', on_delete=models.SET_NULL, blank=True, null=True)
     hw_createddate = models.DateTimeField(default=timezone.now)
-    hw_modifiedby = models.ForeignKey(User, related_name='hw_editor', on_delete=models.SET_NULL, null=True)
+    hw_modifiedby = models.ForeignKey(User, verbose_name='Modified By', related_name='hw_editor', on_delete=models.SET_NULL,blank=True, null=True)
     hw_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
     def __str__(self):
@@ -61,12 +61,12 @@ class Hardware(models.Model):
 class HardwareContact(models.Model):
     hwcontact_id = models.AutoField(primary_key = True)
     hwcontact_hw_fk = models.ForeignKey(Hardware, verbose_name='Hardware', on_delete=models.SET_NULL, null=True)
-    hwcontact_firstname = models.CharField('First Name', max_length=150)
-    hwcontact_lastname = models.CharField('Last Name', max_length=150)
-    hwcontact_role = models.CharField('Role', max_length=150, null=True)
-    hwcontact_email = models.EmailField('Email Address', max_length=250)
-    hwcontact_telnum = models.CharField('Telephone Number', max_length=150)
-    hwcontact_mobnumber = models.CharField('Mobile Number', max_length=150)
+    hwcontact_firstname = models.CharField('First Name', max_length=150, null=True)
+    hwcontact_lastname = models.CharField('Last Name', max_length=150, null=True)
+    hwcontact_role = models.CharField('Role', max_length=150, blank=True, null=True)
+    hwcontact_email = models.EmailField('Email Address', max_length=250, blank=True, null=True)
+    hwcontact_telnum = models.CharField('Telephone Number', max_length=150, blank=True, null=True)
+    hwcontact_mobnumber = models.CharField('Mobile Number', max_length=150, blank=True, null=True)
     hwcontact_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     hwcontact_createddate = models.DateTimeField(default=timezone.now)
     hwcontact_modifiedby = models.ForeignKey(User, related_name='hwcontact_editor', on_delete=models.SET_NULL, null=True)
