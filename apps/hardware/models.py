@@ -35,15 +35,15 @@ class Hardware(models.Model):
     hw_hwsts_fk = models.ForeignKey(HardwareStatus, on_delete=models.SET_NULL, null=True)
     hw_int_code = models.CharField('Internal Part Code', max_length=250)
     hw_ext_code = models.CharField('External Part Code', max_length=250)
-    hw_eol_date = models.DateTimeField(null=True) # End of Life
-    hw_eow_date = models.DateTimeField(null=True) # End of Warranty
-    hw_ems_date = models.DateTimeField(null=True) # End of Mainstream Support
-    hw_ees1_date = models.DateTimeField(null=True) # End of Extended Support - Period One
-    hw_ees2_date = models.DateTimeField(null=True) # End of Extended Support - Period Two
-    hw_ees3_date = models.DateTimeField(null=True) # End of Extended Support - Period Three
+    hw_eol_date = models.DateField(null=True) # End of Life
+    hw_eow_date = models.DateField(null=True) # End of Warranty
+    hw_ems_date = models.DateField(null=True) # End of Mainstream Support
+    hw_ees1_date = models.DateField(null=True) # End of Extended Support - Period One
+    hw_ees2_date = models.DateField(null=True) # End of Extended Support - Period Two
+    hw_ees3_date = models.DateField(null=True) # End of Extended Support - Period Three
     hw_see_txt = models.CharField('Hardware Description', max_length=250, null=True) # Support End Estimated
     hw_plp_txt = models.CharField('Hardware Description', max_length=250, null=True) # Product Lifecycle Policy
-    hw_upd_date = models.DateTimeField(null=True)
+    hw_upd_date = models.DateField(null=True)
     hw_int_reference = models.CharField('Internal Reference', max_length=250)
     hw_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     hw_createddate = models.DateTimeField(default=timezone.now)
