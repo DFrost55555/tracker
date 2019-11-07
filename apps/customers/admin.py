@@ -9,6 +9,8 @@ class CustomerContactAdmin(admin.ModelAdmin):
     list_per_page = 15
     
 class CustomerAdmin(admin.ModelAdmin):
+    fields = ('cust_name',)
+    ordering = ('cust_name',)
     list_per_page = 15
 
 class CustomerNoteAdmin(admin.ModelAdmin):
