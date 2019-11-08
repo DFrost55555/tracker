@@ -1,0 +1,34 @@
+{% extends "../main/base.html" %}
+{% block content %}
+    {% with breadcrumb="HARDWARE"%}
+        {% include "./hw_pagetopper.html" %}
+    {% endwith %}
+    {% include "./hw_pgheader.html" %}
+    {% if user.is_authenticated %}
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-9">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                    {% include "./hw_list.html" %}
+                </div>
+                <div class="col-md-3">
+                    {% include "../hardware/hw_sideoptions.html" %}
+                </div>
+            </div>
+        </main>
+    {% else %}
+            <main role="main" class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h1>You need to be logged in to view the information in this section of the application...</h1>
+                    </div>
+                </div>
+            </main>
+    {% endif %}
+{% endblock content %}
