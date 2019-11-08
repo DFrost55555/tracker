@@ -23,7 +23,7 @@
             <tbody>
                 {% for hardware in queryset %}
                     <tr>
-                        <td scope="row"><a href="{% url 'hardware-detail' hardware.id %}" style="display:block;">{{hardware.hw_description }}</a></td><td><a href="{% url 'hardware-detail' hardware.id %}" style="display:block;">{{harware.hw_vend_fk}}</a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_description }}</a></td><td><a href="{% url 'hardware-detail' hardware.id %}" style="display:block;">{{harware.hw_vend_fk}}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
