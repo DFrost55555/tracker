@@ -24,7 +24,7 @@ from .views import (
     HardwareDeleteView,
 )
 urlpatterns = [
-    path('hardware/', HardwareFilterView, name='project-home'),
+    path('hardware/', HardwareFilterView, name='hardware-home'),
     # path('hardware/<int:pk>/', HardwareDetailView.as_view(), name='hardware-detail'),
     # path('hardware/new/', HardwareCreateView.as_view(), name='hardware-create'),
     # path('hardware/<int:pk>/update/', HardwareUpdateView.as_view(), name='hardware-update'),
