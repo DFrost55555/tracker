@@ -22,7 +22,7 @@ from .views import (
     ProjectCreateView,
     ProjectUpdateView,
     ProjectDeleteView,
-    CustProjectCreateView,
+    #CustProjectCreateView,
 )
 urlpatterns = [
     path('projects/', ProjectFilterView, name='project-home'),
