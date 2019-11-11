@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'storages',
     'django_bootstrap_breadcrumbs',
     'django_filters',
+    'bootstrap4',
     'bootstrap_datepicker_plus',
 ]
 

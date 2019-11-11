@@ -2,11 +2,14 @@
             <div class="row">
                 <div class="content-section col-md-9">
                 {% load crispy_forms_tags %}
+                {% load bootstrap4 %}
+                {% bootstrap_css %}
+                {% bootstrap_javascript jquery='full' %}
                     <form method="POST">
                         {% csrf_token %}
                         <fieldset class="form-group">
                             <legend class="border-bottom mb-4">Hardware Details</legend>
-                            {{ form|crispy }}
+                            {{ form.media|crispy }}
                         </fieldset>
                         <div class="form-group">
                             <button class="btn btn-dark" type="submit">Save</button>
