@@ -23,6 +23,6 @@ def profile(request):
     return render(request, 'users/profile.html')
 
 
-@login_required
-def passwordChange(request):
-    return render(request, 'users/password_change_complete.html')
+# @login_required
+# def passwordChange(request):
+#     return render(request, 'users/password_change_complete.html')
