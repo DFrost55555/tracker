@@ -29,3 +29,4 @@ urlpatterns = [
     path('software/new/', SoftwareCreateView.as_view(), name='software-create'),
     path('software/<int:pk>/update/', SoftwareUpdateView.as_view(), name='software-update'),
     path('software/<int:pk>/delete/', SoftwareDeleteView.as_view(), name='software-delete'),
+]
