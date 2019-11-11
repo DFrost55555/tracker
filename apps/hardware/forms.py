@@ -9,26 +9,26 @@ from apps.vendors.models import Vendor
 
 
 class HardwareModelForm(forms.ModelForm):
-    hw_description = forms.CharField(widget=forms.TextInput(), required=True)
-    hw_vend_fk = ModelChoiceField(queryset=Vendor.objects.all(), initial=0, required=True)
-    hw_repl_desc = forms.CharField(widget=forms.TextInput(), required=False)
-    hw_repl_vend_fk = ModelChoiceField(queryset=Vendor.objects.all(), initial=0, required=False)
-    hw_cust_fk = ModelChoiceField(queryset=Customer.objects.all(), initial=0, required=False)
-    hw_portsts_fk = ModelChoiceField(queryset=PortfolioStatus.objects.all(), initial=0, required=False)
-    hw_hwcat_fk = ModelChoiceField(queryset=HardwareCategory.objects.all(), initial=0, required=False)
-    hw_hwsts_fk = ModelChoiceField(queryset=HardwareStatus.objects.all(), initial=0, required=False)
-    hw_int_code = forms.CharField(widget=forms.TextInput(), required=False)
-    hw_ext_code = forms.CharField(widget=forms.TextInput(), required=False)
-    hw_eol_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Life
-    hw_eow_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Warranty
-    hw_ems_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Mainstream Support
-    hw_ees1_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Extended Support - Period One
-    hw_ees2_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Extended Support - Period Two
-    hw_ees3_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Extended Support - Period Three
-    hw_see_txt = forms.CharField(widget=forms.TextInput(), required=False) # Support End Estimated
-    hw_plp_txt = forms.CharField(widget=forms.TextInput(), required=False) # Product Lifecycle Policy
-    hw_upd_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True}))
-    hw_int_reference = forms.CharField(widget=forms.TextInput(), required=False)
+    # hw_description = forms.CharField(widget=forms.TextInput(), required=True)
+    # hw_vend_fk = ModelChoiceField(queryset=Vendor.objects.all(), initial=0, required=True)
+    # hw_repl_desc = forms.CharField(widget=forms.TextInput(), required=False)
+    # hw_repl_vend_fk = ModelChoiceField(queryset=Vendor.objects.all(), initial=0, required=False)
+    # hw_cust_fk = ModelChoiceField(queryset=Customer.objects.all(), initial=0, required=False)
+    # hw_portsts_fk = ModelChoiceField(queryset=PortfolioStatus.objects.all(), initial=0, required=False)
+    # hw_hwcat_fk = ModelChoiceField(queryset=HardwareCategory.objects.all(), initial=0, required=False)
+    # hw_hwsts_fk = ModelChoiceField(queryset=HardwareStatus.objects.all(), initial=0, required=False)
+    # hw_int_code = forms.CharField(widget=forms.TextInput(), required=False)
+    # hw_ext_code = forms.CharField(widget=forms.TextInput(), required=False)
+    # hw_eol_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Life
+    # hw_eow_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Warranty
+    # hw_ems_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Mainstream Support
+    # hw_ees1_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Extended Support - Period One
+    # hw_ees2_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Extended Support - Period Two
+    # hw_ees3_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True})) # End of Extended Support - Period Three
+    # hw_see_txt = forms.CharField(widget=forms.TextInput(), required=False) # Support End Estimated
+    # hw_plp_txt = forms.CharField(widget=forms.TextInput(), required=False) # Product Lifecycle Policy
+    # hw_upd_date = forms.DateField(widget=DatePickerInput(options={"format": "dd/mm/yyy", "autoclose": True}))
+    # hw_int_reference = forms.CharField(widget=forms.TextInput(), required=False)
 
     class Meta:
         model = Hardware
@@ -53,3 +53,12 @@ class HardwareModelForm(forms.ModelForm):
                   'hw_upd_date',
                   'hw_int_reference',
                   ]
+        widgets = {
+                'hw_eol_date' : DatePickerInput(format='%d-%m-%Y'),
+                'hw_eow_date' : DatePickerInput(format='%d-%m-%Y'),
+                'hw_ems_date' : DatePickerInput(format='%d-%m-%Y'),
+                'hw_ees1_date' : DatePickerInput(format='%d-%m-%Y'),
+                'hw_ees2_date' : DatePickerInput(format='%d-%m-%Y'),
+                'hw_ees3_date' : DatePickerInput(format='%d-%m-%Y'),
+                'hw_upd_date' : DatePickerInput(format='%d-%m-%Y'),
+        }
