@@ -1,0 +1,28 @@
+{% extends "../main/base.html" %}
+{% block content %}
+    {% with breadcrumb="VENDORS"%}
+        {% include "./vend_pagetopper.html" %}
+    {% endwith %}
+    {% include "./vend_pgheader.html" %}
+    {% if user.is_authenticated %}
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-9">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                    {% include "./vend_details.html" %}
+                </div>
+                <div class="col-md-3">
+                    {% include "../vendor/vend_detailoptions.html" %}
+                </div>
+            </div>
+        </main>
+    {% else %}
+    {% include "../main/warning.html" %}
+    {% endif %}
+{% endblock content %}

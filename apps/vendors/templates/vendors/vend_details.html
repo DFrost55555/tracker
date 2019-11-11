@@ -1,0 +1,53 @@
+        <main role="main" class="container">
+            <div class="row">
+                <div class="content-section col-md-12">
+                    <legend class="border-bottom mb-4">Software Details</legend>
+                    <h2><b>{{ object.sw_description }}</b></h2>
+                    <h3 class="border-bottom mb-4">{{ object.sw_vend_fk }}</h3>
+                    <div class="row">
+                        <div class="col"><h6><b>Customer</b></h6></div><div class="col"><h6><b>Portfolio Status</b></h6></div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">{{ object.sw_cust_fk}}</div><div class="col">{{ object.sw_portsts_fk }}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col"><h6><b>Software Category</b></h6></div><div class="col"><h6><b>Software Status</b></h6></div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">{{ object.sw_swcat_fk }}</div><div class="col">{{ object.sw_swsts_fk }}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col"><h6><b>Internal Part Code</b></h6></div><div class="col"><h6><b>External Part Code</b></h6></div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">{{ object.sw_int_code }}</div><div class="col">{{ object.sw_ext_code }}</div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#contacts"><b>CONTACTS</b></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#notes"><b>NOTES</b></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#attachments"><b>ATTACHMENTS</b></a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div id="contacts" class="container tab-pane"><br>
+                                    <h6>CONTACTS</h6>
+                                </div>
+                                <div id="notes" class="container tab-pane"><br>
+                                    <h6>NOTES</h6>
+                                </div>
+                                <div id="attachments" class="container tab-pane"><br>
+                                    <h6>ATTACHMENTS</h6>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>

@@ -22,7 +22,7 @@ class VendorType(models.Model):
 class Vendor(models.Model):
     vend_id = models.AutoField(primary_key = True)
     vend_name = models.CharField('Vendor Name', max_length=150)
-    vend_type_fk = models.ForeignKey(VendorType, verbose_name='Vendor Type', on_delete=models.SET_NULL, null=True)
+    vend_type_fk = models.ForeignKey(VendorType, verbose_name='Vendor Type', on_delete=models.SET_NULL, blank=True, null=True)
     vend_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     vend_createddate = models.DateTimeField(default=timezone.now)
     vend_modifiedby = models.ForeignKey(User, related_name='vend_editor', on_delete=models.SET_NULL, null=True)

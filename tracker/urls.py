@@ -30,6 +30,7 @@ urlpatterns = [
     path('',include('apps.reports.urls')),
     path('',include('apps.admsettings.urls')),
     path('',include('apps.customers.urls')),
+    path('',include('apps.vendors.urls')),
 ]
 
 if settings.DEBUG:

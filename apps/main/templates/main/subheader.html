@@ -19,8 +19,8 @@
                     <a class="usr-nav-item nav-link-2" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Profile</a>
                     <a class="usr-nav-item nav-link-2" href="{% url 'logout' %}">Logout&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
                 {% else %}
-                    <a class="usr-nav-item nav-link-2" href="{% url 'login' %}">Login</a>
-                    <a class="usr-nav-item nav-link-2" href="{% url 'register' %}">Request Account</a>
+                    <a class="usr-nav-item nav-link-2" href="{% url 'login' %}"><b>Login</b></a>
+                    <a class="usr-nav-item nav-link-2" href="{% url 'register' %}"><b>Request Account</b></a>
                 {% endif %}
                 </div>
             </div>
