@@ -12,6 +12,7 @@
                             <a class="nav-link-3 ml-120 mr-4" href="{% url 'main-home' %}"><i class="fas fa-home"></i></a>
                         </li>
                     </ul>
+                    {% if user.is_authenticated %}
                     <ul>
                         <li class="nav-item-3 dropdown">
                             <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,6 +71,18 @@
                             </div>
                         </li>
                     </ul>
+                    {% else %}
+                    <ul>
+                        <li class="nav-item-3 dropdown">
+                            <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#"></a>
+                                <a class="dropdown-item" href="#"></a>
+                                <a class="dropdown-item" href="#"></a>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endif %}
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
