@@ -1,0 +1,17 @@
+        <main role="main" class="container">
+            <div class="row">
+                <div class="content-section col-md-9">
+                {% load crispy_forms_tags %}
+                    <form method="POST">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Software Details</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-dark" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>

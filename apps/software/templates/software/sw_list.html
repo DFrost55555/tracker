@@ -2,11 +2,11 @@
         <form method="GET" action=".">
             <div class="form-row">
                 <div class="col-2">
-                    <label for="hardwareDesc">Hardware filter:  </label>
+                    <label for="softwareDesc">Software filter:  </label>
                 </div>
                 <div class="col-6">
-                    <input type="text" class="form-control" id="hardwareDesc" name="hardwareDesc" aria-describedby="hardwareHelp" placeholder="Hardware description contains...">
-                    {% comment %} <small id="hardwareHelp" class="form-text text-muted">Enter letters contained in the hardware description...</small> {% endcomment %}
+                    <input type="text" class="form-control" id="softwareDesc" name="softwareDesc" aria-describedby="softwareHelp" placeholder="Hardware description contains...">
+                    {% comment %} <small id="softwareHelp" class="form-text text-muted">Enter letters contained in the software description...</small> {% endcomment %}
                 </div>
                 <div class="col">
                     <button class="btn btn-dark" type="submit" >Filter</button>
@@ -21,9 +21,9 @@
                  </tr>
             </thead>
             <tbody>
-                {% for hardware in queryset %}
+                {% for software in queryset %}
                     <tr>
-                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_description }}</a></td><td><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_vend_fk}}</a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_hwcat_fk }}</a><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_portsts_fk }}</a><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_eol_date }}</a>
+                        <td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_description }}</a></td><td><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_vend_fk}}</a></td><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_swcat_fk }}</a><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_portsts_fk }}</a><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_eol_date }}</a>
                     </tr>
                 {% endfor %}
               </tbody>
