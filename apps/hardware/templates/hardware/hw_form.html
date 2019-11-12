@@ -6,8 +6,7 @@
                         {% csrf_token %}
                         <fieldset class="form-group">
                             <legend class="border-bottom mb-4">Hardware Details</legend>
-                            {{ form|crispy }}
-                            {{ form.media }}
+                            {{ form|bootstrap }}
                         </fieldset>
                         <div class="form-group">
                             <button class="btn btn-dark" type="submit">Save</button>
