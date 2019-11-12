@@ -1,7 +1,7 @@
 from django import forms
 from bootstrap_datepicker_plus import DatePickerInput
 from django.forms import ModelChoiceField
-
+from bootstrap_datepicker.widgets import DatePicker
 from .models import Hardware, HardwareContact, HardwareNote, PortfolioStatus
 from apps.lists.models import ProductType,HardwareCategory,HardwareStatus
 from apps.customers.models import Customer
@@ -54,11 +54,10 @@ class HardwareModelForm(forms.ModelForm):
                   'hw_int_reference',
                   ]
         widgets = {
-                'hw_eol_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_eow_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_ems_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_ees1_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_ees2_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_ees3_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_upd_date' : DatePickerInput(format='%d-%m-%Y'),
-        }
+                'hw_eol_date' : DatePicker(
+                    options={
+                        "format": "mm/dd/yyyy", 
+                        "autoclose": True
+                        }
+                    ),
+                }
