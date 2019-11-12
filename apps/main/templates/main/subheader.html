@@ -13,11 +13,11 @@
                 <div class="navbar-nav">
                 {% if user.is_authenticated %}
                     {%if user.is_staff %}
-                        <a class="usr-nav-item nav-link-2" href="http://admmis.azurewebsites.net/admin/">Administration&nbsp;&nbsp;<i class="fas fa-user-cog"></i></a>
+                        <a class="usr-nav-item nav-link-2" href="http://admmis.azurewebsites.net/admin/"><b>Administration&nbsp;&nbsp;<i class="fas fa-user-cog"></i></b></a>
                     {% endif %}
                     <p class="usr-nav-item"><b>User: {{ user.username }}</b></p>
-                    <a class="usr-nav-item nav-link-2" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Profile</a>
-                    <a class="usr-nav-item nav-link-2" href="{% url 'logout' %}">Logout&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></a>
+                    <a class="usr-nav-item nav-link-2" href="{% url 'profile' %}"><b><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Profile</b></a>
+                    <a class="usr-nav-item nav-link-2" href="{% url 'logout' %}"><b>Logout&nbsp;&nbsp;<i class="fas fa-sign-out-alt"></i></b></a>
                 {% else %}
                     <a class="usr-nav-item nav-link-2" href="{% url 'login' %}"><b>Login</b></a>
                     <a class="usr-nav-item nav-link-2" href="{% url 'register' %}"><b>Request Account</b></a>
