@@ -1,8 +1,4 @@
 {% extends "../main/base.html" %}
-  <script type="text/javascript" src="{% url jsi18n %}"></script>
-  <script type="text/javascript" src="{{ ADMIN_MEDIA_PREFIX }}/js/core.js"></script>
-  <script type="text/javascript">window.__admin_media_prefix__ = "{{ ADMIN_MEDIA_PREFIX|escapejs }}";</script>
-  <link href="{{ ADMIN_MEDIA_PREFIX }}/css/widgets.css" type="text/css" media="all" rel="stylesheet" />
 {% block content %}
     {% with breadcrumb="HARDWARE"%}
         {% include "./hw_pagetopper.html" %}
