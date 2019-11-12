@@ -56,7 +56,7 @@ class HardwareModelForm(forms.ModelForm):
         widgets = {
                 'hw_eol_date' : DatePicker(
                     options={
-                        "format": "mm/dd/yyyy", 
+                        "format": "yyyy-mm-dd", 
                         "autoclose": True
                         }
                     ),
