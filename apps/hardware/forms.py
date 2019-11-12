@@ -67,3 +67,8 @@ class HardwareModelForm(forms.ModelForm):
             'hw_ees3_date' : DatePicker(),
             'hw_upd_date' : DatePicker(),
             }
+        
+        def __init__(self, *args, **kwargs):
+            #super(HardwareModelForm, self).__init__(*args, **kwargs)
+            #self.user = kwargs.pop('user', None)
+            self.fields['hw_vend_fk'].queryset = self.fields['hw_vend_fk'].queryset.order_by('vend_name')
