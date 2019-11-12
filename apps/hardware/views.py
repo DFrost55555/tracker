@@ -58,7 +58,8 @@ class HardwareCreateView(LoginRequiredMixin, CreateView):
         
 class HardwareUpdateView(LoginRequiredMixin, UpdateView):
     model = Hardware
-    fields = ['hw_description','hw_vend_fk','hw_repl_desc','hw_repl_vend_fk','hw_cust_fk','hw_portsts_fk','hw_hwcat_fk','hw_hwsts_fk','hw_int_code','hw_ext_code','hw_eol_date','hw_eow_date','hw_ems_date','hw_ees1_date','hw_ees2_date','hw_ees3_date','hw_see_txt','hw_plp_txt','hw_upd_date','hw_int_reference']
+    #fields = ['hw_description','hw_vend_fk','hw_repl_desc','hw_repl_vend_fk','hw_cust_fk','hw_portsts_fk','hw_hwcat_fk','hw_hwsts_fk','hw_int_code','hw_ext_code','hw_eol_date','hw_eow_date','hw_ems_date','hw_ees1_date','hw_ees2_date','hw_ees3_date','hw_see_txt','hw_plp_txt','hw_upd_date','hw_int_reference']
+    form_class = HardwareModelForm
     
     def form_valid(self, form):
         form.instance.hw_modifiedby = self.request.user
