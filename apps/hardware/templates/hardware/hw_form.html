@@ -2,6 +2,7 @@
             <div class="row">
                 <div class="content-section col-md-9">
                 {% load crispy_forms_tags %}
+                {{ form.media }}
                     <form method="POST">
                         {% csrf_token %}
                         <fieldset class="form-group">

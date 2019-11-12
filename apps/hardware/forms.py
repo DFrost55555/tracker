@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.admin.widgets import AdminDateWidget
 from bootstrap_datepicker_plus import DatePickerInput
 from django.forms import ModelChoiceField
 from bootstrap_datepicker.widgets import DatePicker
@@ -54,10 +55,5 @@ class HardwareModelForm(forms.ModelForm):
                   'hw_int_reference',
                   ]
         widgets = {
-                'hw_eol_date' : DatePicker(
-                    options={
-                        "format": "yyyy-mm-dd", 
-                        "autoclose": True
-                        }
-                    ),
+                'hw_eol_date' : AdminDateWidget(),
                 }
