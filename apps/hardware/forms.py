@@ -53,12 +53,3 @@ class HardwareModelForm(forms.ModelForm):
                   'hw_upd_date',
                   'hw_int_reference',
                   ]
-        widgets = {
-                'hw_eol_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_eow_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_ems_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_ees1_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_ees2_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_ees3_date' : DatePickerInput(format='%d-%m-%Y'),
-                'hw_upd_date' : DatePickerInput(format='%d-%m-%Y'),
-        }
