@@ -14,61 +14,17 @@
                     </ul>
                     {% if user.is_authenticated %}
                     <ul>
-                        <li class="nav-item-3 dropdown">
-                            <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                SERVICES
+                        <li class="nav-item-3">
+                            <a class="btn btn-primary-adm btn-md" role="button" href="{% url 'appdelivery-home' %}" aria-haspopup="true" aria-expanded="false">
+                                APPLICATION DELIVERY
                             </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{% url 'project-home' %}">Application Delivery</a>
-                                <a class="dropdown-item" href="{% url 'hardware-home' %}">Product Lifecycle</a>
-                                <a class="dropdown-item" href="#">-----</a>
-                            </div>
                         </li>
                     </ul>                    
                     <ul>
-                        <li class="nav-item-3 dropdown">
-                            <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                
+                        <li class="nav-item-3">
+                            <a class="btn btn-primary-adm btn-md" role="button" href="{% url 'products-home' %}" aria-haspopup="true" aria-expanded="false">
+                                PRODUCT LIFECYCLE
                             </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#"></a>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="nav-item-3 dropdown">
-                            <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#"></a>
-                                <a class="dropdown-item" href="#"></a>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="nav-item-3 dropdown">
-                    <a class="btn btn-primary-adm btn-md" role="button" aria-pressed="true" href="#"></a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="nav-item-3 dropdown">
-                            <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                SETTINGS
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Service Lines</a>
-                                <a class="dropdown-item" href="#">Services</a>
-                                <a class="dropdown-item" href="#">Service Elements</a>
-                            </div>
                         </li>
                     </ul>
                     {% else %}
