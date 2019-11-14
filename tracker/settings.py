@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'apps.hardware',
     'apps.software',
     'apps.vendors',
+    'apps.appdelivery',
+    'apps.products',
     'users.apps.UsersConfig',
     'crispy_forms',
     'django.contrib.admin',
