@@ -16,4 +16,4 @@ from django.views.generic import (
 # Create your views here.
 
 def ProductsView(request):
-    return redirect("https:admmis.azurewebsites,net/products/")
+    return redirect("https://admmis.azurewebsites.net/products/")
