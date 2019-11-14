@@ -24,7 +24,7 @@ from .views import (
 #     SoftwareDeleteView,
 )
 urlpatterns = [
-    path('delivery/', AppDeliveryView, name='delivery-home'),
+    path('appdelivery/', AppDeliveryView, name='appdelivery-home'),
     # path('software/<int:pk>/', SoftwareDetailView.as_view(), name='software-detail'),
     # path('software/new/', SoftwareCreateView.as_view(), name='software-create'),
     # path('software/<int:pk>/update/', SoftwareUpdateView.as_view(), name='software-update'),
