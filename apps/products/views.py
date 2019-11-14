@@ -16,4 +16,4 @@ from django.views.generic import (
 # Create your views here.
 
 def ProductsView(request):
-    return render(request, 'products/prod_home.html', {'title': 'Products'})
+    return render(request, 'products/prod_home.html')
