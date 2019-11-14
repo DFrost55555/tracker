@@ -1,0 +1,90 @@
+      <nav class="navbar navbar-expand-md navbar-dark mb3 fixed-navbar">
+        <div class="container">
+        {% load static %}
+            <a class="navbar-brand mr-4" href="https://intranet.computacenter.com/sites/OneCC/en-gb/Pages/default.aspx" target="_blank"><img src="{% static 'main/images/cclogo.png' %}" alt="Computacenter logo" style="width:40px;">></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav">
+                    <ul>
+                        <li class="nav-item-3">
+                            <a class="nav-link-3 ml-120 mr-4" href="{% url 'main-home' %}"><i class="fas fa-home"></i></a>
+                        </li>
+                    </ul>
+                    {% if user.is_authenticated %}
+                    <ul>
+                        <li class="nav-item-3 dropdown">
+                            <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                SERVICES
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'project-home' %}">Application Projects</a>
+                                <a class="dropdown-item" href="{% url 'products-home' %}">Product Lifecycle</a>
+                                <a class="dropdown-item" href="#">-----</a>
+                            </div>
+                        </li>
+                    </ul>                    
+                    <ul>
+                        <li class="nav-item-3 dropdown">
+                            <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                COMPONENTS
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'cust-home' %}">Customers</a>
+                                <a class="dropdown-item" href="#">Suppliers</a>
+                                <a class="dropdown-item" href="#">Resources</a>
+                                <a class="dropdown-item" href="#">Roles</a>
+                                <a class="dropdown-item" href="#">Assets</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="nav-item-3 dropdown">
+                            <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                FINANCIALS
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Purchase Orders</a>
+                                <a class="dropdown-item" href="#">Invoices</a>
+                                <a class="dropdown-item" href="#">Projects</a>
+                                <a class="dropdown-item" href="#">Forecasts</a>
+                                <a class="dropdown-item" href="#">Actuals</a>
+                                <a class="dropdown-item" href="#">SAP</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="nav-item-3 dropdown">
+                    <a class="btn btn-primary-adm btn-md" role="button" aria-pressed="true" href="{% url 'rep-home' %}">REPORTS</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="nav-item-3 dropdown">
+                            <a class="dropdown-toggle btn btn-primary-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                SETTINGS
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Service Lines</a>
+                                <a class="dropdown-item" href="#">Services</a>
+                                <a class="dropdown-item" href="#">Service Elements</a>
+                            </div>
+                        </li>
+                    </ul>
+                    {% else %}
+                    <ul>
+                        <li class="nav-item-3">&nbsp;</li>
+                    </ul>
+                    {% endif %}
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        {%if user.is_staff %}
+                            <a class="nav-item nav-link" href="#"></a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+      </nav>

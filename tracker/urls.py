@@ -32,6 +32,7 @@ urlpatterns = [
     path('',include('apps.customers.urls')),
     path('',include('apps.vendors.urls')),
     path('',include('apps.products.urls')),
+    path('',include('apps.appdelivery.urls')),
 ]
 
 if settings.DEBUG:
