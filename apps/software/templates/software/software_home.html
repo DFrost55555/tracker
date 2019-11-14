@@ -23,6 +23,12 @@
             </div>
         </main>
     {% else %}
-    {% include "../main/warning.html" %}
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    {% include "../products/prod_warning.html" %}
+                </div>
+            </div>
+        </main>
     {% endif %}
 {% endblock content %}
