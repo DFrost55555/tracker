@@ -16,4 +16,4 @@ from django.views.generic import (
 # Create your views here.
 
 def AppDeliveryView(request):
-    return render(request, 'appsdelivery/appdel_home.html')
+    return render(request, 'appdelivery/appdel_home.html')
