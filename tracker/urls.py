@@ -31,6 +31,7 @@ urlpatterns = [
     path('',include('apps.admsettings.urls')),
     path('',include('apps.customers.urls')),
     path('',include('apps.vendors.urls')),
+    path('',include('apps.products.urls')),
 ]
 
 if settings.DEBUG:

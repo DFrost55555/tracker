@@ -7,5 +7,3 @@ def home(request):
 def about(request):
     return render(request, 'main/about.html', {'title': 'About'})
 
-def products(request):
-    return render(request, '../products/prod_home.html', {'title': 'Products'})

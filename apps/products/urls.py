@@ -16,8 +16,17 @@ Including another URLconf
 
 from django.urls import path
 from . import views
-
+from .views import (
+    ProductsView,
+#     SoftwareDetailView,
+#     SoftwareCreateView,
+#     SoftwareUpdateView,
+#     SoftwareDeleteView,
+)
 urlpatterns = [
-    path('', views.home, name='main-home'),
-    path('about/', views.about, name='main-about'),
+    path('products/', ProductsView, name='products-home'),
+    # path('software/<int:pk>/', SoftwareDetailView.as_view(), name='software-detail'),
+    # path('software/new/', SoftwareCreateView.as_view(), name='software-create'),
+    # path('software/<int:pk>/update/', SoftwareUpdateView.as_view(), name='software-update'),
+    # path('software/<int:pk>/delete/', SoftwareDeleteView.as_view(), name='software-delete'),
 ]
