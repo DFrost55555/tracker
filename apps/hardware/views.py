@@ -87,4 +87,4 @@ def HardwareCSVExportView(request):
     for obj in hw_items:
         writer.writerow([obj.hw_description, obj.hw_vend_fk, obj.hw_repl_desc, obj.hw_repl_vend_fk, obj.hw_cust_fk, obj.hw_portsts_fk, obj.hw_hwcat_fk, obj.hw_hwsts_fk, obj.hw_int_code, obj.hw_ext_code, obj.hw_eol_date, obj.hw_eow_date, obj.hw_ems_date, obj.hw_ees1_date, obj.hw_ees2_date, obj.hw_ees3_date, obj.hw_see_txt, obj.hw_plp_txt, obj.hw_upd_date, obj.hw_int_reference])
         
-        return response
+    return response
