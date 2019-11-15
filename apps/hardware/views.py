@@ -82,7 +82,7 @@ def HardwareCSVExportView(request):
     response['Content-Disposition']='attachment; filename="hardware_list.csv"'
     
     writer = csv.writer(response, delimiter=',')
-    writer.writerow('hw_description','hw_vend_fk','hw_repl_desc','hw_repl_vend_fk','hw_cust_fk','hw_portsts_fk','hw_hwcat_fk','hw_hwsts_fk','hw_int_code','hw_ext_code','hw_eol_date','hw_eow_date','hw_ems_date','hw_ees1_date','hw_ees2_date','hw_ees3_date','hw_see_txt','hw_plp_txt','hw_upd_date','hw_int_reference')
+    writer.writerow(['hw_description', 'hw_vend_fk', 'hw_repl_desc','hw_repl_vend_fk','hw_cust_fk', 'hw_portsts_fk', 'hw_hwcat_fk', 'hw_hwsts_fk', 'hw_int_code', 'hw_ext_code', 'hw_eol_date', 'hw_eow_date', 'hw_ems_date', 'hw_ees1_date', 'hw_ees2_date', 'hw_ees3_date', 'hw_see_txt', 'hw_plp_txt', 'hw_upd_date', 'hw_int_reference'])
     
     for obj in hw_items:
         writer.writerow([obj.hw_description, obj.hw_vend_fk, obj.hw_repl_desc, obj.hw_repl_vend_fk, obj.hw_cust_fk, obj.hw_portsts_fk, obj.hw_hwcat_fk, obj.hw_hwsts_fk, obj.hw_int_code, obj.hw_ext_code, obj.hw_eol_date, obj.hw_eow_date, obj.hw_ems_date, obj.hw_ees1_date, obj.hw_ees2_date, obj.hw_ees3_date, obj.hw_see_txt, obj.hw_plp_txt, obj.hw_upd_date, obj.hw_int_reference])
