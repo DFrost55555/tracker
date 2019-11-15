@@ -301,7 +301,7 @@ legend {
   max-width: 100%;
   padding: 0;
   margin-bottom: .5rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: inherit;
   color: inherit;
   white-space: normal;
@@ -349,8 +349,8 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: inherit;
-  font-weight: 500;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
   line-height: 1.2;
   color: inherit;
 }
