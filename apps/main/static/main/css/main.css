@@ -1,5 +1,5 @@
 ﻿body {
-  font-family: 'Open Sans';
+  font-family: 'Montserrat';
   background: #ffffff;
   color: #333333;
   margin-top: 210px;
@@ -22,7 +22,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Quicksand';
   color: #373737;
 }
 
@@ -31,14 +31,29 @@ ul {
 }
 
 a {
+  color: #373737;
   text-decoration: none;
-  background-color:transparent;
-  color:#373737;
-  border:0;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
+  color: #ff7900;
   text-decoration: none;
+}
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):focus {
+  outline: 0;
 }
 
 .bg-steel {
@@ -136,7 +151,7 @@ a.article-title:hover {
 }
 
 .nav-item-2 {
-  font-family: Arial;
+  font-family: Montserrat;
   font-size: 11pt;
   font-weight: 700;
   color: #373737;
@@ -181,7 +196,7 @@ a.article-title:hover {
 
 .fixed-header-2{
 	position: fixed; 
-	font-family: Roboto;
+	font-family: Quicksand;
 	background: #e1e0e0;
 	height:36px;
 	top: 36px;
@@ -191,7 +206,7 @@ a.article-title:hover {
 }
 
 .fixed-navbar{
-	font-family: Arial;
+	font-family: Quicksand;
 	width: 100%;
 	position:fixed; 
     padding: 5px 0;
@@ -247,7 +262,7 @@ a.article-title:hover {
     height:50px;
     color: #ffffff;
     z-index:9500;
-    font-family:Roboto;
+    font-family:Quicksand;
     font-size:18pt;
     font-weight:700;
 }
@@ -413,7 +428,7 @@ a.fixed-pgheader.hover{
 }
 
 .list-adm {
-	font-family:Roboto;
+	font-family:Montserrat;
 	font-size:11pt;
 	font-weight:500;
 	padding:10px 5px 5px 5px;
@@ -430,7 +445,8 @@ a.fixed-pgheader.hover{
   max-width: 100%;
   margin-bottom: 5px;
   background-color: transparent;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:500;
   font-size: 10pt;
 }
 
@@ -540,4 +556,10 @@ hr {
 .form-control:disabled, .form-control[readonly] {
   background-color: #e9ecef;
   opacity: 1;
+}
+
+.pg-detail-adm {
+	font-family:'Monserrat';
+	font-size: 10pt;
+	background-color: #ffffff;
 }
