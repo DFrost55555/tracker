@@ -14,7 +14,7 @@
                 {% for group in user.groups.all %}
                     {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
                         <div class="col-2">
-                            <button class="btn btn-dark" type="button" href="{% url 'hardware-create' %}">New Hardware...</button>
+                            <a class="btn btn-dark" href="{% url 'hardware-create' %}">New Hardware...</a>
                         </div>
                     {% endif %}
                 {% endfor %}               
