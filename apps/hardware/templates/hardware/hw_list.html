@@ -8,13 +8,20 @@
                     <input type="text" class="form-control" id="hardwareDesc" name="hardwareDesc" aria-describedby="hardwareHelp" placeholder="Hardware description contains...">
                     {% comment %} <small id="hardwareHelp" class="form-text text-muted">Enter letters contained in the hardware description...</small> {% endcomment %}
                 </div>
-                <div class="col">
+                <div class="col-2">
                     <button class="btn btn-dark" type="submit" >Filter</button>
                 </div>
+                {% for group in user.groups.all %}
+                    {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
+                        <div class="col-2">
+                            <button class="btn btn-dark" type="button" href="{% url 'hardware-create' %}">New Hardware...</button>
+                        </div>
+                    {% endif %}
+                {% endfor %}               
             </div>
         </form>
         <hr/>
-        <table class="table-adm table-sm table-hover">
+        <table class="table-adm table-sm table-hover table-striped">
             <thead>
                 <tr>
                 <th scope="col">Description</th><th>Vendor</th><th>Category</th><th>Status</th><th>End of Life</th>
