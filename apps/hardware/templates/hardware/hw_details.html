@@ -5,22 +5,22 @@
                     <h3><b>{{ object.hw_description }}</b></h3>
                     <h4 class="border-bottom mb-4">{{ object.hw_vend_fk }}</h4>
                     <div class="row">
-                        <div class="col"><h6><b>Customer</b></h6></div><div class="col"><h6><b>Portfolio Status</b></h6></div>
+                        <div class="col pg-detail-hdr">Customer<</div><div class="col pg-detail-hdr">Portfolio Status</div>
                     </div>
                     <div class="row">
-                        <div class="pg-detail-adm">{{ object.hw_cust_fk }}</div><div class="pg-detail-adm">{{ object.hw_portsts_fk }}</div>
+                        <div class="pg-detail-txt">{{ object.hw_cust_fk }}</div><div class="pg-detail-txt">{{ object.hw_portsts_fk }}</div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col"><h6><b>Hardware Category</b></h6></div><div class="col"><h6><b>Hardware Status</b></h6></div>
+                        <div class="col pg-detail-hdr">Hardware Category</div><div class="col pg-detail-hdr">Hardware Status</div>
                     </div>
                     <div class="row">
-                        <div class="pg-detail-adm">{{ object.hw_hwcat_fk }}</div><div class="pg-detail-adm">{{ object.hw_hwsts_fk }}</div>
+                        <div class="col pg-detail-txt">{{ object.hw_hwcat_fk }}</div><div class="col pg-detail-txt">{{ object.hw_hwsts_fk }}</div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col"><h6><b>Internal Part Code</b></h6></div><div class="col"><h6><b>External Part Code</b></h6></div>
+                        <div class="col pg-detail-hdr">Internal Part Code</div><div class="col pg-detail-hdr">External Part Code</div>
                     </div>
                     <div class="row">
-                        <div class="pg-detail-adm">{{ object.hw_int_code }}</div><div class="pg-detail-adm">{{ object.hw_ext_code }}</div>
+                        <div class="col pg-detail-txt">{{ object.hw_int_code }}</div><div class="col pg-detail-txt">{{ object.hw_ext_code }}</div>
                     </div>
                     <br>
                     <br>
