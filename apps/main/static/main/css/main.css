@@ -292,14 +292,14 @@ a.fixed-pgheader.hover{
 
 .btn-navmain-adm {
   color: #373737;
-  font-weight:700;
+  font-weight:800;
   background-color: #ffffff;
   border-color: #ffffff;
 }
 
 .btn-navmain-adm:hover {
   color: #ffffff;
-  font-weight:700;
+  font-weight:800;
   background-color: #ff7900;
   border-color: #373737;
 }

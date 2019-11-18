@@ -24,13 +24,13 @@
         <table class="table-adm table-adm-sm table-adm-hover table-striped">
             <thead>
                 <tr>
-                <th scope="col">Description</th><th>Vendor</th><th>Category</th><th>Status</th><th>End of Life</th>
+                <th scope="col">Description</th><th>Vendor</th><th>Category</th><th>Customer</th><th>Status</th><th>End of Life</th>
                  </tr>
             </thead>
             <tbody>
                 {% for hardware in queryset %}
                     <tr>
-                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;"><b>{{hardware.hw_description }}</b></a></td><td><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_vend_fk}}</a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_hwcat_fk }}</a><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_portsts_fk }}</a><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_eol_date }}</a>
+                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;"><b>{{hardware.hw_description }}</b></a></td><td><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_vend_fk}}</a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_hwcat_fk }}</a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;"><b>{{hardware.hw_cust_fk }}</b></a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_portsts_fk }}</a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_eol_date }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
