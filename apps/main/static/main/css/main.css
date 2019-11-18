@@ -558,8 +558,16 @@ hr {
   opacity: 1;
 }
 
-.pg-detail-adm {
-	font-family:'Montserrat';
+.pg-detail-txt {
+	font-family:'Nunito';
 	font-size: 10pt;
+	font-weight:500;
+	background-color: #ffffff;
+}
+
+.pg-detail-hdr {
+	font-family:'Nunito';
+	font-size: 11pt;
+	font-weight:700;
 	background-color: #ffffff;
 }
