@@ -30,7 +30,7 @@ def HardwareFilterView(request):
     if hardwareDesc_query != '' and hardwareDesc_query is not None:
         hwqs = hwqs.filter(hw_description__icontains=hardwareDesc_query).order_by('hw_description')
             
-    paginator = Paginator(hwqs, 10)
+    paginator = Paginator(hwqs, 25)
     
     page = request.GET.get('page')
     
