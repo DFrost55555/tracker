@@ -3,7 +3,8 @@
                 <div class="content-section col-md-12">
                     <legend class="border-bottom">HARDWARE DETAILS</legend>
                     <h3 class="mt-2"><b>{{ object.hw_description }}</b></h3>
-                    <h4 class="border-bottom mb-2">{{ object.hw_vend_fk }}</h4>
+                    <h4 class="mb-2">{{ object.hw_vend_fk }}</h4>
+                    <hr class="mt-2 mb-4">
                     <div class="row">
                         <div class="col pg-detail-hdr">Customer</div><div class="col pg-detail-hdr">Portfolio Status</div>
                     </div>
@@ -25,12 +26,9 @@
                     <div class="row mt-2">
                         <div class="col pg-detail-hdr">EOL Date</div><div class="col pg-detail-hdr">Internal Reference</div>
                     </div>
-                    <div class="row">
+                    <div class="row border-bottom mb-4">
                         <div class="col pg-detail-txt">{{ object.hw_eol_date }}</div><div class="col pg-detail-txt">{{ object.hw_int_reference }}</div>
-                    </div>
-                    <hr>    
-                    <br>
-                    <br>
+                    </div>  
                     <div class="row">
                         <div class="col-md-12">
                             <!-- Tabs -->
