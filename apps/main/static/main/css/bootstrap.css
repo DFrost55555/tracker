@@ -302,6 +302,7 @@ legend {
   padding: 0;
   margin-bottom: .5rem;
   font-size: 1rem;
+  font-weight:700;
   line-height: inherit;
   color: inherit;
   white-space: normal;

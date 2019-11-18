@@ -1,7 +1,7 @@
         <main role="main" class="container">
             <div class="row">
                 <div class="content-section col-md-12">
-                    <legend class="border-bottom mb-4">Hardware Details</legend>
+                    <legend class="border-bottom mb-4">HARDWARE DETAILS</legend>
                     <h3><b>{{ object.hw_description }}</b></h3>
                     <h4 class="border-bottom mb-4">{{ object.hw_vend_fk }}</h4>
                     <div class="row">
@@ -22,8 +22,13 @@
                     <div class="row">
                         <div class="col pg-detail-txt">{{ object.hw_int_code }}</div><div class="col pg-detail-txt">{{ object.hw_ext_code }}</div>
                     </div>
-                    <br>
-                    <br>
+                    <div class="row mt-2">
+                        <div class="col pg-detail-hdr">EOL Date</div><div class="col pg-detail-hdr">Internal Reference/div>
+                    </div>
+                    <div class="row">
+                        <div class="col pg-detail-txt">{{ object.hw_eol_date }}</div><div class="col pg-detail-txt">{{ object.hw_int_reference }}</div>
+                    </div>
+                    <hr>    
                     <br>
                     <br>
                     <div class="row">
