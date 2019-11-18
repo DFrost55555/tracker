@@ -1,5 +1,5 @@
 ﻿body {
-  font-family: 'Montserrat';
+  font-family: 'Nunito';
   background: #ffffff;
   color: #333333;
   margin-top: 210px;
@@ -151,7 +151,7 @@ a.article-title:hover {
 }
 
 .nav-item-2 {
-  font-family: Montserrat;
+  font-family: Nunito;
   font-size: 11pt;
   font-weight: 700;
   color: #373737;
@@ -290,11 +290,47 @@ a.fixed-pgheader.hover{
   text-decoration: none;
 }
 
-.btn-primary-adm {
+.btn-navmain-adm {
   color: #373737;
   font-weight:700;
-  background-color: #fffff;
-  border-color: #ffffff;
+  background-color: #ffffff;
+  border-color: #373737;
+}
+
+.btn-navmain-adm:hover {
+  color: #ffffff;
+  font-weight:700;
+  background-color: #ff7900;
+  border-color: #373737;
+}
+
+.btn-navmain-adm:focus, .btn-navmain.focus {
+  box-shadow: 0 0 0 0.2rem rgba(55, 55, 55, 0.5);
+}
+
+.btn-navmain-adm.disabled, .btn-navmain:disabled {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-navmain-adm:not(:disabled):not(.disabled):active, .btn-navmain:not(:disabled):not(.disabled).active,
+.show > .btn-navmain.dropdown-toggle {
+  color: #ffffff;
+  background-color: #373737;
+  border-color: #373737;
+}
+
+.btn-navmain-adm:not(:disabled):not(.disabled):active:focus, .btn-navmain:not(:disabled):not(.disabled).active:focus,
+.show > .btn-navmain.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(55, 55, 55, 0.5);
+}
+
+.btn-primary-adm {
+  color: #ffffff;
+  font-weight:700;
+  background-color: #373737;
+  border-color: #373737;
 }
 
 .btn-primary-adm:hover {
@@ -325,6 +361,7 @@ a.fixed-pgheader.hover{
 .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(55, 55, 55, 0.5);
 }
+
 
 .breadcrumb-adm {
   display: -webkit-box;
@@ -560,12 +597,19 @@ hr {
 
 .pg-detail-txt {
 	font-family:'Nunito';
-	font-size: 10pt;
+	font-size: 11pt;
 	font-weight:500;
 	background-color: #ffffff;
 }
 
 .pg-detail-hdr {
+	font-family:'Nunito';
+	font-size: 11pt;
+	font-weight:700;
+	background-color: #ffffff;
+}
+
+.sidebar-options {
 	font-family:'Nunito';
 	font-size: 11pt;
 	font-weight:700;
