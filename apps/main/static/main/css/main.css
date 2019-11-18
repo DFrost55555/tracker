@@ -23,7 +23,7 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
-  color: #444444;
+  color: #373737;
 }
 
 ul {
@@ -430,7 +430,7 @@ a.fixed-pgheader.hover{
   max-width: 100%;
   margin-bottom: 5px;
   background-color: transparent;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 10pt;
 }
 
@@ -444,7 +444,7 @@ a.fixed-pgheader.hover{
   color: #fff;
   background-color: #343a40;
   border-color: #343a40;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 11pt;
   font-weight:700;
   vertical-align: bottom;
@@ -458,6 +458,25 @@ a.fixed-pgheader.hover{
 .table-adm .table-adm {
   background-color: #fff;
 }
+
+.table-adm-sm th,
+.table-adm-sm td {
+  padding: 0.3rem;
+}
+
+.table-adm-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-adm-hover .table-adm:hover {
+  background-color: #ff7900;
+}
+
+.table-adm-hover .table-adm:hover > td,
+.table-adm-hover .table-adm:hover > th {
+  background-color: #ff7900;
+}
+
 
 hr {
   margin-top: 1rem;
