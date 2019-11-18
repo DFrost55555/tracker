@@ -30,7 +30,7 @@
             <tbody>
                 {% for hardware in queryset %}
                     <tr>
-                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_description }}</a></td><td><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_vend_fk}}</a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_hwcat_fk }}</a><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_portsts_fk }}</a><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_eol_date }}</a>
+                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;"><b>{{hardware.hw_description }}</b></a></td><td><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_vend_fk}}</a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_hwcat_fk }}</a><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_portsts_fk }}</a><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_eol_date }}</a>
                     </tr>
                 {% endfor %}
               </tbody>
@@ -57,5 +57,5 @@
         </div>
     </div>
     <span class="current">
-        Page {{ queryset.number }} of {{ queryset.paginator.num_pages }}.
+        Page {{ queryset.number }} of {{ queryset.paginator.num_pages }}
     </span>
