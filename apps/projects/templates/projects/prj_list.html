@@ -8,13 +8,20 @@
                     <input type="text" class="form-control" id="projectName" name="projectName" aria-describedby="projectHelp" placeholder="Project name contains...">
                     {% comment %} <small id="projectHelp" class="form-text text-muted">Enter letters contained in the projects name...</small> {% endcomment %}
                 </div>
-                <div class="col">
+                <div class="col-2">
                     <button class="btn btn-dark" type="submit" >Filter</button>
                 </div>
+                {% for group in user.groups.all %}
+                    {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
+                        <div class="col-2">
+                            <a class="btn btn-dark" href="{% url 'project-create' %}">New Project...</a>
+                        </div>
+                    {% endif %}
+                {% endfor %} 
             </div>
         </form>
         <hr/>
-        <table class="table-adm table-sm table-hover">
+        <table class="table-adm table-sm table-hover table-striped">
             <thead>
                 <tr>
                 <th scope="col">Project</th><th>Customer</th>

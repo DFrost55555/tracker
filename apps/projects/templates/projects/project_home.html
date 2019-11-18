@@ -7,7 +7,7 @@
     {% if user.is_authenticated %}
         <main role="main" class="container">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-12">
                 {% if messages %}
                     {% for message in messages %}
                     <div class="alert alert-{{ message.tags }}">
@@ -17,15 +17,12 @@
                 {% endif %}
                     {% include "./prj_list.html" %}
                 </div>
-                <div class="col-md-3">
-                    {% include "../projects/prj_sideoptions.html" %}
-                </div>
             </div>
         </main>
     {% else %}
             <main role="main" class="container">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         {% include "../appdelivery/appdel_warning.html" %}
                     </div>
                 </div>
