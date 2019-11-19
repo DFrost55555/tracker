@@ -9,17 +9,15 @@
                         </fieldset>
                         {{ form.non_field_errors }}
                         <div class="form-row">
-                            <div class="form-group col">
+                            <div class="form-group col-md-6">
                                 {{ form.hw_description.errors}}
                                 <label for="{{ form.hw_description.id_for_label }}">Hardware Description</label>
-                                {{ form.hw_description }}
+                                {{ form.hw_description|as_crispy_field }}
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col">
+                            <div class="form-group col-md-6">
                                 {{ form.hw_vend_fk.errors}}
                                 <label for="{{ form.hw_vend_fk.id_for_label }}">Vendor</label>
-                                {{ form.hw_vend_fk }}
+                                {{ form.hw_vend_fk|as_crispy_field }}
                             </div>
                         </div>
                         <div class="form-group">
