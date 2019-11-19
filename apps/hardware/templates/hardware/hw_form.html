@@ -7,7 +7,7 @@
                         <div class="form-row">
                             <legend class="border-bottom mb-2">Hardware Details</legend>
                         </div>
-                        <div class="form-row">
+                        <div class="form-row border-bottom mb-2">
                             <div class="form-group col-md-8">
                                 {{ form.hw_description|as_crispy_field }}
                             </div>
@@ -15,6 +15,38 @@
                                 {{ form.hw_vend_fk|as_crispy_field }}
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                {{ form.hw_cust_fk|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form.hw_portsts_fk|as_crispy_field }}
+                            </div>                          
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                {{ form.hw_hwcat_fk|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form.hw_hwsts_fk|as_crispy_field }}
+                            </div>                          
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                {{ form.hw_hwcat_fk|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form.hw_hwsts_fk|as_crispy_field }}
+                            </div>                          
+                        </div>                                                                     
+                        <div class="form-row border-bottom mb-2">
+                            <div class="form-group col-md-8">
+                                {{ form.hw_int_code|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-4">
+                                {{ form.hw_ext_code|as_crispy_field }}
+                            </div>
+                        </div>                        
                         <hr class="mt-4 mb-4" />
                         <div class="form-group">
                             <button class="btn btn-primary-adm" type="submit">Save</button>
