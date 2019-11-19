@@ -334,6 +334,8 @@ a.fixed-pgheader.hover{
 
 .btn-navmain-adm {
   color: #373737;
+  font-family:'Nunito';
+  font-size: 12pt;
   font-weight:800;
   background-color: #ffffff;
   border-color: #ffffff;
