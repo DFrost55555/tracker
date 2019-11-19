@@ -13,9 +13,9 @@ class DatePicker(forms.DateInput):
 
 
 class HardwareModelForm(forms.ModelForm):
-    hw_description = forms.CharField(widget=forms.TextInput(), label="Hardware Description",required=True)
-    hw_vend_fk = ModelChoiceField(queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=True)
-    hw_repl_desc = forms.CharField(widget=forms.TextInput(), required=False)
+    hw_description = forms.CharField('Hardware Description', widget=forms.TextInput(), required=True)
+    hw_vend_fk = ModelChoiceField(label='Vendor', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=True)
+    hw_repl_desc = forms.CharField('Replacement Hardware Description', widget=forms.TextInput(), required=False)
     hw_repl_vend_fk = ModelChoiceField(queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=False)
     hw_cust_fk = ModelChoiceField(queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=False)
     hw_portsts_fk = ModelChoiceField(queryset=PortfolioStatus.objects.all(), initial=0, required=False)
@@ -25,7 +25,7 @@ class HardwareModelForm(forms.ModelForm):
     hw_ext_code = forms.CharField(widget=forms.TextInput(), required=False)
     hw_eol_date = forms.DateField(widget=DatePicker(), required=False) # End of Life
     hw_eow_date = forms.DateField(widget=DatePicker(), required=False) # End of Warranty
-    hw_ems_date = forms.DateField(widget=DatePicker(), label="End of Mainstream Support", required=False) # End of Mainstream Support
+    hw_ems_date = forms.DateField(widget=DatePicker(), label='End of Mainstream Support', required=False) # End of Mainstream Support
     hw_ees1_date = forms.DateField(widget=DatePicker(), required=False) # End of Extended Support - Period One
     hw_ees2_date = forms.DateField(widget=DatePicker(), required=False) # End of Extended Support - Period Two
     hw_ees3_date = forms.DateField(widget=DatePicker(), required=False) # End of Extended Support - Period Three
