@@ -13,9 +13,9 @@ class DatePicker(forms.DateInput):
 
 
 class HardwareModelForm(forms.ModelForm):
-    hw_description = forms.CharField('Hardware Description', widget=forms.TextInput(), required=True)
+    hw_description = forms.CharField(label='Hardware Description', widget=forms.TextInput(), required=True)
     hw_vend_fk = ModelChoiceField(label='Vendor', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=True)
-    hw_repl_desc = forms.CharField('Replacement Hardware Description', widget=forms.TextInput(), required=False)
+    hw_repl_desc = forms.CharField(label='Replacement Hardware Description', widget=forms.TextInput(), required=False)
     hw_repl_vend_fk = ModelChoiceField(queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=False)
     hw_cust_fk = ModelChoiceField(queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=False)
     hw_portsts_fk = ModelChoiceField(queryset=PortfolioStatus.objects.all(), initial=0, required=False)
