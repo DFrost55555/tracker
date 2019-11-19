@@ -17,10 +17,10 @@ class HardwareModelForm(forms.ModelForm):
     hw_vend_fk = ModelChoiceField(label='Vendor', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=True)
     hw_repl_desc = forms.CharField(label='Replacement Hardware Description', widget=forms.TextInput(), required=False)
     hw_repl_vend_fk = ModelChoiceField(label='Replacement Hardware Vendor', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=False)
-    hw_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=False)
-    hw_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=PortfolioStatus.objects.all(), initial=0, required=False)
-    hw_hwcat_fk = ModelChoiceField(label='Hardware Category', queryset=HardwareCategory.objects.all().order_by('hwcat_name'), initial=0, required=False)
-    hw_hwsts_fk = ModelChoiceField(label='Hardware Status', queryset=HardwareStatus.objects.all(), initial=0, required=False)
+    hw_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=True)
+    hw_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=PortfolioStatus.objects.all(), initial=0, required=True)
+    hw_hwcat_fk = ModelChoiceField(label='Hardware Category', queryset=HardwareCategory.objects.all().order_by('hwcat_name'), initial=0, required=True)
+    hw_hwsts_fk = ModelChoiceField(label='Hardware Status', queryset=HardwareStatus.objects.all(), initial=0, required=True)
     hw_int_code = forms.CharField(label='Internal Part Code', widget=forms.TextInput(), required=False)
     hw_ext_code = forms.CharField(label='External Part Code', widget=forms.TextInput(), required=False)
     hw_eol_date = forms.DateField(label='End of Life', widget=DatePicker(), required=False) # End of Life
@@ -29,7 +29,7 @@ class HardwareModelForm(forms.ModelForm):
     hw_ees1_date = forms.DateField(label='End of Extended Support - Period 1', widget=DatePicker(), required=False) # End of Extended Support - Period One
     hw_ees2_date = forms.DateField(label='End of Extended Support - Period 2', widget=DatePicker(), required=False) # End of Extended Support - Period Two
     hw_ees3_date = forms.DateField(label='End of Extended Support - Period 3', widget=DatePicker(), required=False) # End of Extended Support - Period Three
-    hw_see_txt = forms.CharField(label='Support End Estimated', widget=forms.TextInput(), required=False) # Support End Estimated
+    hw_see_txt = forms.BooleanField(label='Support End Estimated', widget=forms.BooleanField(), required=False) # Support End Estimated
     hw_plp_txt = forms.CharField(label='Product Lifecycle Policy', widget=forms.TextInput(), required=False) # Product Lifecycle Policy
     hw_upd_date = forms.DateField(label='Information Updated', widget=DatePicker(), required=False)
     hw_int_reference = forms.CharField(label='Internal Process Reference', widget=forms.TextInput(), required=False)
