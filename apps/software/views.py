@@ -47,7 +47,6 @@ class SoftwareDetailView(LoginRequiredMixin, DetailView):
 
 class SoftwareCreateView(LoginRequiredMixin, CreateView):
     model = Software
-    #fields = ['sw_description','sw_vend_fk','sw_repl_desc','sw_repl_vend_fk','sw_cust_fk','sw_portsts_fk','sw_swcat_fk','sw_swsts_fk','sw_int_code','sw_ext_code','sw_eol_date','sw_eow_date','sw_ems_date','sw_ees1_date','sw_ees2_date','sw_ees3_date','sw_see_yn_fk','sw_plp_txt','sw_upd_date','sw_int_reference']
     form_class = SoftwareModelForm
     
     def form_valid(self, form):
@@ -58,7 +57,6 @@ class SoftwareCreateView(LoginRequiredMixin, CreateView):
         
 class SoftwareUpdateView(LoginRequiredMixin, UpdateView):
     model = Software
-    #fields = ['sw_description','sw_vend_fk','sw_repl_desc','sw_repl_vend_fk','sw_cust_fk','sw_portsts_fk','sw_swcat_fk','sw_swsts_fk','sw_int_code','sw_ext_code','sw_eol_date','sw_eow_date','sw_ems_date','sw_ees1_date','sw_ees2_date','sw_ees3_date','sw_see_yn_fk','sw_plp_txt','sw_upd_date','sw_int_reference']
     form_class = SoftwareModelForm
     
     def form_valid(self, form):
