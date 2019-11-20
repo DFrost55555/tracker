@@ -54,11 +54,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='hardware',
-            name='hw_see_txt',
-            field=models.CharField(max_length=250, null=True, verbose_name='Hardware Description'),
-        ),
-        migrations.AddField(
-            model_name='hardware',
             name='hw_vend_fk',
             field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='vendors.Vendor'),
         ),

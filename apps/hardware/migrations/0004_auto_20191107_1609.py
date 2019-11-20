@@ -104,11 +104,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='hardware',
-            name='hw_see_txt',
-            field=models.CharField(blank=True, max_length=250, null=True, verbose_name='Support End Estimated'),
-        ),
-        migrations.AlterField(
-            model_name='hardware',
             name='hw_upd_date',
             field=models.DateField(blank=True, null=True),
         ),
