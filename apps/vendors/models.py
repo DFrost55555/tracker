@@ -59,7 +59,7 @@ class VendorContact(models.Model):
     
 class VendorNote(models.Model):
     vendnote_id = models.AutoField(primary_key = True)
-    vendnote_vendomer_fk = models.ForeignKey(Vendor, verbose_name='Vendor', on_delete=models.SET_NULL, null=True)
+    vendnote_vend_fk = models.ForeignKey(Vendor, verbose_name='Vendor', on_delete=models.SET_NULL, null=True)
     vendnote_note = models.CharField('Note', max_length=2500)
     vendnote_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     vendnote_createddate = models.DateTimeField(default=timezone.now)

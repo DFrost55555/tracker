@@ -121,4 +121,55 @@ class SoftwareNote(models.Model):
         return reverse ('swnote-detail', kwargs={"pk": self.pk})
 
 
-
+class SoftwareVendor(models.Model):
+    swvend_id = models.AutoField(primary_key = True)
+    swvend_name = models.CharField('Vendor Name', max_length=150)
+    swvend_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    swvend_createddate = models.DateTimeField(default=timezone.now)
+    swvend_modifiedby = models.ForeignKey(User, related_name='swvend_editor', on_delete=models.SET_NULL, null=True)
+    swvend_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.swvend_name
+    objects = models.Manager()
+    
+    def get_absolute_url(self):
+        return reverse ('Vendor-detail', kwargs={"pk": self.pk})
+    
+    
+class SWVendorContact(models.Model):
+    swvendcontact_id = models.AutoField(primary_key = True)
+    swvendcontact_vend_fk = models.ForeignKey(Vendor, verbose_name='Vendor', on_delete=models.SET_NULL, null=True)
+    swvendcontact_firstname = models.CharField('First Name', max_length=150)
+    swvendcontact_lastname = models.CharField('Last Name', max_length=150)
+    swvendcontact_role = models.CharField('Role', max_length=150, null=True)
+    swvendcontact_email = models.EmailField('Email Address', max_length=250)
+    swvendcontact_telnum = models.CharField('Telephone Number', max_length=150)
+    swvendcontact_mobnumber = models.CharField('Mobile Number', max_length=150)
+    swvendcontact_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    swvendcontact_createddate = models.DateTimeField(default=timezone.now)
+    swvendcontact_modifiedby = models.ForeignKey(User, related_name='swvendcontact_editor', on_delete=models.SET_NULL, null=True)
+    swvendcontact_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+            return self.swvendcontact_email
+    objects = models.Manager()
+    
+    def get_absolute_url(self):
+        return reverse ('swvendcontact-detail', kwargs={"pk": self.pk})
+    
+class SWVendorNote(models.Model):
+    swvendnote_id = models.AutoField(primary_key = True)
+    swvendnote_vend_fk = models.ForeignKey(Vendor, verbose_name='Vendor', on_delete=models.SET_NULL, null=True)
+    swvendnote_note = models.CharField('Note', max_length=2500)
+    swvendnote_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    swvendnote_createddate = models.DateTimeField(default=timezone.now)
+    swvendnote_modifiedby = models.ForeignKey(User, related_name='swvendnote_editor', on_delete=models.SET_NULL, null=True)
+    swvendnote_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+            return self.vendnote_note
+    objects = models.Manager()
+    
+    def get_absolute_url(self):
+        return reverse ('vendnote-detail', kwargs={"pk": self.pk})
