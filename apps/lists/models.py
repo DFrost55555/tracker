@@ -209,3 +209,25 @@ class ProductType(models.Model):
     
     def __str__(self):
         return self.prdtype_name
+    
+class YesNo(models.Model):
+    yesno_id = models.AutoField(primary_key = True)
+    yesno_text = models.CharField('yes no', max_length=10)
+    yesno_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    yesno_createddate = models.DateTimeField(default=timezone.now)
+    yesno_modifiedby = models.ForeignKey(User, related_name='yesno_editor',on_delete=models.SET_NULL, null=True)
+    yesno_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.yesno_text
+    
+class TrueFalse(models.Model):
+    tf_id = models.AutoField(primary_key = True)
+    tf_text = models.CharField('yes no', max_length=10)
+    tf_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    tf_createddate = models.DateTimeField(default=timezone.now)
+    tf_modifiedby = models.ForeignKey(User, related_name='tf_editor',on_delete=models.SET_NULL, null=True)
+    tf_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.tf_text
