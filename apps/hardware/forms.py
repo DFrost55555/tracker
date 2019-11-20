@@ -5,7 +5,7 @@ from django.forms import ModelChoiceField
 #from bootstrap_datepicker.widgets import DatePicker
 from .models import Hardware, HardwareContact, HardwareNote, PortfolioStatus
 from .choices import *
-from apps.lists.models import ProductType,HardwareCategory,HardwareStatus, YesNo
+from apps.lists.models import ProductType,HardwareCategory, HardwareStatus, YesNo
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
 
@@ -30,7 +30,7 @@ class HardwareModelForm(forms.ModelForm):
     hw_ees1_date = forms.DateField(label='End of Extended Support - Period 1', widget=DatePicker(), required=False) # End of Extended Support - Period One
     hw_ees2_date = forms.DateField(label='End of Extended Support - Period 2', widget=DatePicker(), required=False) # End of Extended Support - Period Two
     hw_ees3_date = forms.DateField(label='End of Extended Support - Period 3', widget=DatePicker(), required=False) # End of Extended Support - Period Three
-    hw_see_txt = forms.ModelChoiceField(label='Support End Estimated', queryset=YesNo.objects.all().order_by('yesno_id'), initial=2, required=True) # Support End Estimated
+    hw_see_yn_fk = forms.ModelChoiceField(label='Support End Estimated', queryset=YesNo.objects.all().order_by('yesno_id'), initial=2, required=True) # Support End Estimated
     hw_plp_txt = forms.CharField(label='Product Lifecycle Policy', widget=forms.TextInput(), required=False) # Product Lifecycle Policy
     hw_upd_date = forms.DateField(label='Information Updated', widget=DatePicker(), required=False)
     hw_int_reference = forms.CharField(label='Internal Process Reference', widget=forms.TextInput(), required=False)
@@ -54,7 +54,7 @@ class HardwareModelForm(forms.ModelForm):
             "hw_ees1_date",
             "hw_ees2_date",
             "hw_ees3_date",
-            "hw_see_txt",
+            "hw_see_yn_fk",
             "hw_plp_txt",
             "hw_upd_date",
             "hw_int_reference",

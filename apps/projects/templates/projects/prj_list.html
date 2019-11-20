@@ -14,14 +14,14 @@
                 {% for group in user.groups.all %}
                     {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
                         <div class="col-2">
-                            <a class="btn btn-dark" href="{% url 'project-create' %}">New Project...</a>
+                            <a class="btn btn-primary-adm" href="{% url 'project-create' %}">New Project...</a>
                         </div>
                     {% endif %}
                 {% endfor %} 
             </div>
         </form>
         <hr/>
-        <table class="table-adm table-sm table-hover table-striped">
+        <table class="table-adm table-adm-sm table-adm-hover table-striped">
             <thead>
                 <tr>
                 <th scope="col">Project</th><th>Customer</th>
