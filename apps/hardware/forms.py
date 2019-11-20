@@ -4,6 +4,7 @@ from django import forms
 from django.forms import ModelChoiceField
 #from bootstrap_datepicker.widgets import DatePicker
 from .models import Hardware, HardwareContact, HardwareNote, PortfolioStatus
+from .choices import *
 from apps.lists.models import ProductType,HardwareCategory,HardwareStatus
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
@@ -11,10 +12,6 @@ from apps.vendors.models import Vendor
 class DatePicker(forms.DateInput):
     input_type = 'date'
 
-TRUE_FALSE_CHOICES = (
-    (True, 'Yes'),
-    (False, 'No')
-)
 
 class HardwareModelForm(forms.ModelForm):
     hw_description = forms.CharField(label='Hardware Description', widget=forms.TextInput(), required=True)
