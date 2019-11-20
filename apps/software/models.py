@@ -5,7 +5,7 @@ from django.urls import reverse
 
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
-from apps.lists.models import SoftwareCategory,SoftwareStatus,SoftwareClassification
+from apps.lists.models import SoftwareCategory,SoftwareStatus,SoftwareClassification, YesNo, TrueFalse
 
 
 class SWPortfolioStatus(models.Model):
@@ -41,7 +41,7 @@ class Software(models.Model):
     sw_ees1_date = models.DateField('End of Extended Support - Period One', blank=True, null=True) # End of Extended Support - Period One
     sw_ees2_date = models.DateField('End of Extended Support - Period Two', blank=True, null=True) # End of Extended Support - Period Two
     sw_ees3_date = models.DateField('End of Extended Support - Period Three', blank=True, null=True) # End of Extended Support - Period Three
-    sw_see_txt = models.CharField('Support End Estimated', max_length=250,blank=True,  null=True) # Support End Estimated
+    sw_see_yn_fk = models.ForeignKey(YesNo, verbose_name='Support End Estimated', on_delete=models.SET_NULL, blank=True, null=True) # Support End Estimated
     sw_plp_txt = models.CharField('Product Lifecycle Policy', max_length=250,blank=True, null=True) # Product Lifecycle Policy
     sw_upd_date = models.DateField('Info Update', blank=True, null=True)
     sw_int_reference = models.CharField('Internal Reference', max_length=250, blank=True, null=True)
