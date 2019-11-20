@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Location, ProjectStatus, ResourceStatus, ChargeCodeType, ChargeUnitType, POItemType,RAGStatus,ListPriority,RAIDStatus,RAIDType,HardwareCategory,HardwareStatus,SoftwareCategory,SoftwareStatus,SoftwareClassification,ProductType, YesNo, TrueFalse, ApprovalStatus
+from .models import Location, ProjectStatus, ResourceStatus, ChargeCodeType, ChargeUnitType, POItemType,RAGStatus,ListPriority,RAIDStatus,RAIDType,HardwareCategory,HardwareStatus,SoftwareCategory,SoftwareStatus,SoftwareClassification,ProductType, YesNo, TrueFalse, ApprovalStatus, SoftwareFrequency
 
 admin.site.register(Location)
 admin.site.register(ProjectStatus)
@@ -20,4 +20,4 @@ admin.site.register(ProductType)
 admin.site.register(YesNo)
 admin.site.register(TrueFalse)
 admin.site.register(ApprovalStatus)
-ApprovalStatus
+admin.site.register(SoftwareFrequency)

@@ -235,6 +235,7 @@ class TrueFalse(models.Model):
 class ApprovalStatus(models.Model):
     apprsts_id = models.AutoField(primary_key = True)
     apprsts_text = models.CharField('Approval Status', max_length=50)
+    apprsts_desc = models.CharField('Approval Status Description', max_length=2500, blank=True, null=True)
     apprsts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     apprsts_createddate = models.DateTimeField(default=timezone.now)
     apprsts_modifiedby = models.ForeignKey(User, related_name='apprsts_editor',on_delete=models.SET_NULL, null=True)
@@ -245,7 +246,8 @@ class ApprovalStatus(models.Model):
 
 class SoftwareFrequency(models.Model):
     swfreq_id = models.AutoField(primary_key = True)
-    swfreq_text = models.CharField('Approval Status', max_length=10)
+    swfreq_text = models.CharField('Agreed Release Frequency', max_length=250)
+    swfreq_desc = models.CharField('Agreed Release Frequency Description', max_length=2500, blank=True, null=True)
     swfreq_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     swfreq_createddate = models.DateTimeField(default=timezone.now)
     swfreq_modifiedby = models.ForeignKey(User, related_name='swfreq_editor',on_delete=models.SET_NULL, null=True)
@@ -253,3 +255,15 @@ class SoftwareFrequency(models.Model):
     
     def __str__(self):
         return self.swfreq_text
+    
+class VendorFrequency(models.Model):
+    vendfreq_id = models.AutoField(primary_key = True)
+    vendfreq_text = models.CharField('Vendor Release Frequency', max_length=250)
+    vendfreq_desc = models.CharField('Vendor Release Frequency Description', max_length=2500, blank=True, null=True)
+    vendfreq_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    vendfreq_createddate = models.DateTimeField(default=timezone.now)
+    vendfreq_modifiedby = models.ForeignKey(User, related_name='vendfreq_editor',on_delete=models.SET_NULL, null=True)
+    vendfreq_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.vendfreq_text

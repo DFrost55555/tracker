@@ -9,7 +9,7 @@
                     {% comment %} <small id="projectHelp" class="form-text text-muted">Enter letters contained in the projects name...</small> {% endcomment %}
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-dark" type="submit" >Filter</button>
+                    <button class="btn btn-dark" type="submit" ><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Search</button>
                 </div>
                 {% for group in user.groups.all %}
                     {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}

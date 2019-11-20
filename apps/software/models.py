@@ -5,7 +5,7 @@ from django.urls import reverse
 
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
-from apps.lists.models import SoftwareCategory,SoftwareStatus,SoftwareClassification, YesNo, TrueFalse
+from apps.lists.models import SoftwareCategory, SoftwareStatus, SoftwareClassification, YesNo, TrueFalse, SoftwareFrequency, ApprovalStatus, VendorFrequency
 
 
 class SWPortfolioStatus(models.Model):
@@ -40,18 +40,24 @@ class SWPortfolioCategory(models.Model):
 
 class Software(models.Model):
     sw_id = models.AutoField(primary_key = True)
+    sw_version = models.CharField('Software Version', max_length=250, blank=True, null=True)
     sw_description = models.CharField('Software Description', max_length=250)
     sw_vend_fk = models.ForeignKey(Vendor, verbose_name='Vendor', on_delete=models.SET_NULL, blank=True, null=True)
     sw_progver_code = models.CharField('Version In Progress', max_length=250, blank=True, null=True)
     sw_latestver_code = models.CharField('Latest Available Version', max_length=250, blank=True, null=True)
+    sw_cust_notified = models.DateField('Customer Notified', blank=True, null=True) # Customer Notified
+    sw_repl_ver = models.CharField('Replacement Software Version', max_length=250, blank=True, null=True)
     sw_repl_desc = models.CharField('Replacement Software Description', max_length=250,blank=True, null=True)
     sw_repl_vend_fk = models.ForeignKey(Vendor, verbose_name='Replacement Vendor', related_name='sw_repl_vend_id', on_delete=models.SET_NULL,blank=True, null=True)
     sw_cust_fk = models.ForeignKey(Customer, verbose_name='Customer', on_delete=models.SET_NULL,blank=True, null=True)
+    sw_cust_ref = models.CharField('Customer Reference', max_length=250, blank=True, null=True)
     sw_portsts_fk = models.ForeignKey(SWPortfolioStatus, verbose_name='Portfolio Status', on_delete=models.SET_NULL,blank=True, null=True)
     sw_portcat_fk = models.ForeignKey(SWPortfolioCategory, verbose_name='Portfolio Category', on_delete=models.SET_NULL,blank=True, null=True)
     sw_swclass_fk = models.ForeignKey(SoftwareClassification, verbose_name='Software Classification', on_delete=models.SET_NULL,blank=True, null=True)
     sw_swcat_fk = models.ForeignKey(SoftwareCategory, verbose_name='Software Category', on_delete=models.SET_NULL,blank=True, null=True)
     sw_swsts_fk = models.ForeignKey(SoftwareStatus, verbose_name='Software Status', on_delete=models.SET_NULL,blank=True, null=True)
+    sw_swfreq_fk = models.ForeignKey(SoftwareFrequency, verbose_name='Software Release Frequency', on_delete=models.SET_NULL,blank=True, null=True)
+    sw_vendfreq_fk = models.ForeignKey(VendorFrequency, verbose_name='Vendor Release Frequency', on_delete=models.SET_NULL,blank=True, null=True)    
     sw_int_code = models.CharField('Internal Part Code', max_length=250, blank=True, null=True)
     sw_ext_code = models.CharField('External Part Code', max_length=250, blank=True, null=True)
     sw_eol_date = models.DateField('End of Life', blank=True, null=True) # End of Life

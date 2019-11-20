@@ -13,16 +13,24 @@ class DatePicker(forms.DateInput):
 
 
 class SoftwareModelForm(forms.ModelForm):
-    sw_description = forms.CharField(label='Hardware Description', widget=forms.TextInput(), required=True)
+    sw_version = forms.CharField(label='Software Version', widget=forms.TextInput(), required=True)
+    sw_description = forms.CharField(label='Software Description', widget=forms.TextInput(), required=True)
     sw_vend_fk = ModelChoiceField(label='Vendor', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=True)
-    sw_repl_desc = forms.CharField(label='Replacement Hardware Description', widget=forms.TextInput(), required=False)
-    sw_repl_vend_fk = ModelChoiceField(label='Replacement Hardware Vendor', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=False)
+    sw_progver_code = forms.CharField(label='Version In Progress', widget=forms.TextInput(), required=True)
+    sw_latestver_code = forms.CharField(label='Latest Available Version', widget=forms.TextInput(), required=True)
+    sw_cust_notified = forms.DateField(label='Customer Notified', widget=DatePicker(), required=False)
+    sw_repl_ver = forms.CharField(label='Replacement Software Version', widget=forms.TextInput(), required=False)
+    sw_repl_desc = forms.CharField(label='Replacement Software Description', widget=forms.TextInput(), required=False)
+    sw_repl_vend_fk = ModelChoiceField(label='Replacement Vendor', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=False)
     sw_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=True)
+    sw_cust_ref = forms.CharField(label='Customer Reference', widget=forms.TextInput(), required=False)
     sw_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=SWPortfolioStatus.objects.all(), initial=0, required=True)
     sw_portcat_fk = ModelChoiceField(label='Portfolio Category', queryset=SWPortfolioCategory.objects.all(), initial=0, required=True)
-    sw_swclass_fk = ModelChoiceField(label='Hardware Category', queryset=SoftwareClassification.objects.all().order_by('swclass_name'), initial=0, required=True)
-    sw_swcat_fk = ModelChoiceField(label='Hardware Category', queryset=SoftwareCategory.objects.all().order_by('swcat_name'), initial=0, required=True)
-    sw_swsts_fk = ModelChoiceField(label='Hardware Status', queryset=SoftwareStatus.objects.all(), initial=0, required=True)
+    sw_swclass_fk = ModelChoiceField(label='Software Classification', queryset=SoftwareClassification.objects.all().order_by('swclass_name'), initial=0, required=True)
+    sw_swcat_fk = ModelChoiceField(label='Software Category', queryset=SoftwareCategory.objects.all().order_by('swcat_name'), initial=0, required=True)
+    sw_swsts_fk = ModelChoiceField(label='Software Status', queryset=SoftwareStatus.objects.all(), initial=0, required=True)
+    sw_swfreq_fk = ModelChoiceField(label='Agreed Release Frequency', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=False)
+    sw_vendfreq_fk = ModelChoiceField(label='Vendor Release Frequency', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=False)
     sw_int_code = forms.CharField(label='Internal Part Code', widget=forms.TextInput(), required=False)
     sw_ext_code = forms.CharField(label='External Part Code', widget=forms.TextInput(), required=False)
     sw_eol_date = forms.DateField(label='End of Life', widget=DatePicker(), required=False) # End of Life
@@ -39,15 +47,23 @@ class SoftwareModelForm(forms.ModelForm):
     class Meta:
         model = Software
         fields = [
+            "sw_version",
             "sw_description",
-            "sw_vend_fk",        
+            "sw_vend_fk",
+            "sw_progver_code",
+            "sw_latestver_code",
+            "sw_cust_notified",
+            "sw_repl_ver",
             "sw_repl_desc",
             "sw_repl_vend_fk",
             "sw_cust_fk",
             "sw_portsts_fk",
             "sw_portcat_fk",
+            "sw_swclass_fk",
             "sw_swcat_fk",
             "sw_swsts_fk",
+            "sw_swfreq_fk",
+            "sw_vendfreq_fk",
             "sw_int_code",
             "sw_ext_code",
             "sw_eol_date",
