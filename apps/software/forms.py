@@ -3,7 +3,7 @@ from django import forms
 #from bootstrap_datepicker_plus import DatePickerInput
 from django.forms import ModelChoiceField
 #from bootstrap_datepicker.widgets import DatePicker
-from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus
+from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, SWPortfolioCategory
 from apps.lists.models import ProductType, SoftwareCategory, SoftwareStatus, SoftwareClassification, YesNo, TrueFalse
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
@@ -18,9 +18,10 @@ class SoftwareModelForm(forms.ModelForm):
     sw_repl_desc = forms.CharField(label='Replacement Hardware Description', widget=forms.TextInput(), required=False)
     sw_repl_vend_fk = ModelChoiceField(label='Replacement Hardware Vendor', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=False)
     sw_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=True)
-    sw_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=PortfolioStatus.objects.all(), initial=0, required=True)
-    sw_swcat_fk = ModelChoiceField(label='Hardware Category', queryset=HardwareCategory.objects.all().order_by('swcat_name'), initial=0, required=True)
-    sw_swsts_fk = ModelChoiceField(label='Hardware Status', queryset=HardwareStatus.objects.all(), initial=0, required=True)
+    sw_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=SWPortfolioStatus.objects.all(), initial=0, required=True)
+    sw_portcat_fk = ModelChoiceField(label='Portfolio Category', queryset=SWPortfolioCategory.objects.all(), initial=0, required=True)
+    sw_swcat_fk = ModelChoiceField(label='Hardware Category', queryset=SoftwareCategory.objects.all().order_by('swcat_name'), initial=0, required=True)
+    sw_swsts_fk = ModelChoiceField(label='Hardware Status', queryset=SoftwareStatus.objects.all(), initial=0, required=True)
     sw_int_code = forms.CharField(label='Internal Part Code', widget=forms.TextInput(), required=False)
     sw_ext_code = forms.CharField(label='External Part Code', widget=forms.TextInput(), required=False)
     sw_eol_date = forms.DateField(label='End of Life', widget=DatePicker(), required=False) # End of Life
@@ -43,6 +44,7 @@ class SoftwareModelForm(forms.ModelForm):
             "sw_repl_vend_fk",
             "sw_cust_fk",
             "sw_portsts_fk",
+            "sw_portcat_fk",
             "sw_swcat_fk",
             "sw_swsts_fk",
             "sw_int_code",
