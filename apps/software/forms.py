@@ -20,6 +20,7 @@ class SoftwareModelForm(forms.ModelForm):
     sw_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=True)
     sw_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=SWPortfolioStatus.objects.all(), initial=0, required=True)
     sw_portcat_fk = ModelChoiceField(label='Portfolio Category', queryset=SWPortfolioCategory.objects.all(), initial=0, required=True)
+    sw_swclass_fk = ModelChoiceField(label='Hardware Category', queryset=SoftwareClassification.objects.all().order_by('swclass_name'), initial=0, required=True)
     sw_swcat_fk = ModelChoiceField(label='Hardware Category', queryset=SoftwareCategory.objects.all().order_by('swcat_name'), initial=0, required=True)
     sw_swsts_fk = ModelChoiceField(label='Hardware Status', queryset=SoftwareStatus.objects.all(), initial=0, required=True)
     sw_int_code = forms.CharField(label='Internal Part Code', widget=forms.TextInput(), required=False)
