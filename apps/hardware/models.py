@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User, Group
 from django.urls import reverse
 
+from .choices import *
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
 from apps.lists.models import HardwareCategory,HardwareStatus
@@ -41,7 +42,7 @@ class Hardware(models.Model):
     hw_ees1_date = models.DateField('End of Extended Support - Period One', blank=True, null=True) # End of Extended Support - Period One
     hw_ees2_date = models.DateField('End of Extended Support - Period Two', blank=True, null=True) # End of Extended Support - Period Two
     hw_ees3_date = models.DateField('End of Extended Support - Period Three', blank=True, null=True) # End of Extended Support - Period Three
-    hw_see_txt = models.BooleanField('Support End Estimated', default=False) # Support End Estimated
+    hw_see_txt = models.CharField('Support End Estimated', choices=TRUE_FALSE_CHOICES, max_length=10, default=False, blank=True, null=True) # Support End Estimated
     hw_plp_txt = models.CharField('Product Lifecycle Policy', max_length=250,blank=True, null=True) # Product Lifecycle Policy
     hw_upd_date = models.DateField('Info Update', blank=True, null=True)
     hw_int_reference = models.CharField('Internal Reference', max_length=250, blank=True, null=True)
