@@ -1,0 +1,60 @@
+from django import forms
+#from django.contrib.admin.widgets import AdminDateWidget
+#from bootstrap_datepicker_plus import DatePickerInput
+from django.forms import ModelChoiceField
+#from bootstrap_datepicker.widgets import DatePicker
+from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus
+from apps.lists.models import ProductType, SoftwareCategory, SoftwareStatus, SoftwareClassification, YesNo, TrueFalse
+from apps.customers.models import Customer
+from apps.vendors.models import Vendor
+
+class DatePicker(forms.DateInput):
+    input_type = 'date'
+
+
+class SoftwareModelForm(forms.ModelForm):
+    sw_description = forms.CharField(label='Hardware Description', widget=forms.TextInput(), required=True)
+    sw_vend_fk = ModelChoiceField(label='Vendor', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=True)
+    sw_repl_desc = forms.CharField(label='Replacement Hardware Description', widget=forms.TextInput(), required=False)
+    sw_repl_vend_fk = ModelChoiceField(label='Replacement Hardware Vendor', queryset=Vendor.objects.all().order_by('vend_name'), initial=0, required=False)
+    sw_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=True)
+    sw_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=PortfolioStatus.objects.all(), initial=0, required=True)
+    sw_swcat_fk = ModelChoiceField(label='Hardware Category', queryset=HardwareCategory.objects.all().order_by('swcat_name'), initial=0, required=True)
+    sw_swsts_fk = ModelChoiceField(label='Hardware Status', queryset=HardwareStatus.objects.all(), initial=0, required=True)
+    sw_int_code = forms.CharField(label='Internal Part Code', widget=forms.TextInput(), required=False)
+    sw_ext_code = forms.CharField(label='External Part Code', widget=forms.TextInput(), required=False)
+    sw_eol_date = forms.DateField(label='End of Life', widget=DatePicker(), required=False) # End of Life
+    sw_eow_date = forms.DateField(label='End of Warranty', widget=DatePicker(), required=False) # End of Warranty
+    sw_ems_date = forms.DateField(label='End of Mainstream Support', widget=DatePicker(), required=False) # End of Mainstream Support
+    sw_ees1_date = forms.DateField(label='End of Extended Support - Period 1', widget=DatePicker(), required=False) # End of Extended Support - Period One
+    sw_ees2_date = forms.DateField(label='End of Extended Support - Period 2', widget=DatePicker(), required=False) # End of Extended Support - Period Two
+    sw_ees3_date = forms.DateField(label='End of Extended Support - Period 3', widget=DatePicker(), required=False) # End of Extended Support - Period Three
+    sw_see_yn_fk = forms.ModelChoiceField(label='Support End Estimated', queryset=YesNo.objects.all().order_by('yesno_id'), initial=2, required=True) # Support End Estimated
+    sw_plp_txt = forms.CharField(label='Product Lifecycle Policy', widget=forms.TextInput(), required=False) # Product Lifecycle Policy
+    sw_upd_date = forms.DateField(label='Information Updated', widget=DatePicker(), required=False)
+    sw_int_reference = forms.CharField(label='Internal Process Reference', widget=forms.TextInput(), required=False)
+
+    class Meta:
+        model = Software
+        fields = [
+            "sw_description",
+            "sw_vend_fk",        
+            "sw_repl_desc",
+            "sw_repl_vend_fk",
+            "sw_cust_fk",
+            "sw_portsts_fk",
+            "sw_swcat_fk",
+            "sw_swsts_fk",
+            "sw_int_code",
+            "sw_ext_code",
+            "sw_eol_date",
+            "sw_eow_date",
+            "sw_ems_date",
+            "sw_ees1_date",
+            "sw_ees2_date",
+            "sw_ees3_date",
+            "sw_see_yn_fk",
+            "sw_plp_txt",
+            "sw_upd_date",
+            "sw_int_reference",
+        ]

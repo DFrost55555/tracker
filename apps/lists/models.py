@@ -231,3 +231,25 @@ class TrueFalse(models.Model):
     
     def __str__(self):
         return self.tf_text
+    
+class ApprovalStatus(models.Model):
+    apprsts_id = models.AutoField(primary_key = True)
+    apprsts_text = models.CharField('Approval Status', max_length=50)
+    apprsts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    apprsts_createddate = models.DateTimeField(default=timezone.now)
+    apprsts_modifiedby = models.ForeignKey(User, related_name='apprsts_editor',on_delete=models.SET_NULL, null=True)
+    apprsts_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.apprsts_text
+
+class SoftwareFrequency(models.Model):
+    swfreq_id = models.AutoField(primary_key = True)
+    swfreq_text = models.CharField('Approval Status', max_length=10)
+    swfreq_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    swfreq_createddate = models.DateTimeField(default=timezone.now)
+    swfreq_modifiedby = models.ForeignKey(User, related_name='swfreq_editor',on_delete=models.SET_NULL, null=True)
+    swfreq_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.swfreq_text

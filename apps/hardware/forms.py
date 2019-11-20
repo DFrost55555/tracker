@@ -4,7 +4,6 @@ from django import forms
 from django.forms import ModelChoiceField
 #from bootstrap_datepicker.widgets import DatePicker
 from .models import Hardware, HardwareContact, HardwareNote, PortfolioStatus
-from .choices import *
 from apps.lists.models import ProductType,HardwareCategory, HardwareStatus, YesNo
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor

@@ -23,14 +23,33 @@ class SWPortfolioStatus(models.Model):
         return reverse ('swportsts-detail', kwargs={"pk": self.pk})    
 
 
+class SWPortfolioCategory(models.Model):
+    swportcat_id = models.AutoField(primary_key = True)
+    swportcat_name = models.CharField('SW Portfolio Status Name', max_length=150)
+    swportcat_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    swportcat_createddate = models.DateTimeField(default=timezone.now)
+    swportcat_modifiedby = models.ForeignKey(User, related_name='swportcat_editor', on_delete=models.SET_NULL, null=True)
+    swportcat_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.swportcat_name
+        
+    def get_absolute_url(self):
+        return reverse ('swportcat-detail', kwargs={"pk": self.pk})
+
+
 class Software(models.Model):
     sw_id = models.AutoField(primary_key = True)
     sw_description = models.CharField('Software Description', max_length=250)
     sw_vend_fk = models.ForeignKey(Vendor, verbose_name='Vendor', on_delete=models.SET_NULL, blank=True, null=True)
+    sw_progver_code = models.CharField('Version In Progress', max_length=250, blank=True, null=True)
+    sw_latestver_code = models.CharField('Latest Available Version', max_length=250, blank=True, null=True)
     sw_repl_desc = models.CharField('Replacement Software Description', max_length=250,blank=True, null=True)
     sw_repl_vend_fk = models.ForeignKey(Vendor, verbose_name='Replacement Vendor', related_name='sw_repl_vend_id', on_delete=models.SET_NULL,blank=True, null=True)
     sw_cust_fk = models.ForeignKey(Customer, verbose_name='Customer', on_delete=models.SET_NULL,blank=True, null=True)
-    sw_portsts_fk = models.ForeignKey(SWPortfolioStatus, verbose_name='SW Portfolio Status', on_delete=models.SET_NULL,blank=True, null=True)
+    sw_portsts_fk = models.ForeignKey(SWPortfolioStatus, verbose_name='Portfolio Status', on_delete=models.SET_NULL,blank=True, null=True)
+    sw_portcat_fk = models.ForeignKey(SWPortfolioCategory, verbose_name='Portfolio Category', on_delete=models.SET_NULL,blank=True, null=True)
+    sw_swclass_fk = models.ForeignKey(SoftwareClassification, verbose_name='Software Classification', on_delete=models.SET_NULL,blank=True, null=True)
     sw_swcat_fk = models.ForeignKey(SoftwareCategory, verbose_name='Software Category', on_delete=models.SET_NULL,blank=True, null=True)
     sw_swsts_fk = models.ForeignKey(SoftwareStatus, verbose_name='Software Status', on_delete=models.SET_NULL,blank=True, null=True)
     sw_int_code = models.CharField('Internal Part Code', max_length=250, blank=True, null=True)
