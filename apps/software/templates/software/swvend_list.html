@@ -30,7 +30,7 @@
             <tbody>
                 {% for softwarevendor in queryset %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;"><b>{{ swvend_name }}</b></a></td>
+                        <td scope="row"><a href="{% url 'swvend-detail' softwarevendor.swvend_id %}" style="display:block;"><b>{{ softwarevendor.swvend_name }}</b></a></td>
                     </tr>
                 {% endfor %}
               </tbody>
