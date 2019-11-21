@@ -3,7 +3,7 @@ from django import forms
 #from bootstrap_datepicker_plus import DatePickerInput
 from django.forms import ModelChoiceField
 #from bootstrap_datepicker.widgets import DatePicker
-from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, SWPortfolioCategory
+from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, SWPortfolioCategory, SoftwareVendor, SWVendorContact, SWVendorNote
 from apps.lists.models import ProductType, SoftwareCategory, SoftwareStatus, SoftwareClassification, YesNo, TrueFalse
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
@@ -76,4 +76,14 @@ class SoftwareModelForm(forms.ModelForm):
             "sw_plp_txt",
             "sw_upd_date",
             "sw_int_reference",
+        ]
+        
+        
+class SoftwareVendorModelForm(forms.ModelForm):
+    swvend_name = forms.CharField(label='Software Vendor', widget=forms.TextInput(), required=True)
+    
+    class Meta:
+        model = SoftwareVendor
+        fields = [
+            "swvend_name",
         ]

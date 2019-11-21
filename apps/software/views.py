@@ -12,7 +12,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus
+from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, SoftwareVendor, SWVendorContact, SWVendorNote
 from apps.lists.models import ProductType,SoftwareCategory,SoftwareStatus
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
@@ -66,4 +66,52 @@ class SoftwareUpdateView(LoginRequiredMixin, UpdateView):
     
 class SoftwareDeleteView(LoginRequiredMixin, DeleteView):
     model = Software
+    success_url = '/'
+    
+    
+def SWVendorFilterView(request):
+    swvendqs = SoftwareVendor.objects.all().order_by('swvend_description')
+    swvendorDesc_query = request.GET.get('swvendorDesc')
+    
+    if swvendorDesc_query != '' and swvendorDesc_query is not None:
+        vendqs = vendqs.filter(vend_name__icontains=swvendorDesc_query).order_by('swvend_name')
+            
+    paginator = Paginator(swvendqs, 10)
+    
+    page = request.GET.get('page')
+    
+    swvendqs = paginator.get_page(page)
+    
+    context = {
+        'queryset': swvendqs
+    }
+    
+    return render(request,"swvendor/swvendor_home.html",context)
+
+
+class SWVendorDetailView(LoginRequiredMixin, DetailView):
+    model = SoftwareVendor
+    
+
+class SWVendorCreateView(LoginRequiredMixin, CreateView):
+    model = SoftwareVendor
+    fields = ['swvend_name']
+    
+    def form_valid(self, form):
+        form.instance.swvend_createdby = self.request.user
+        form.instance.swvend_modifiedby = self.request.user
+        return super().form_valid(form)
+    
+        
+class SWVendorUpdateView(LoginRequiredMixin, UpdateView):
+    model = SoftwareVendor
+    fields = ['swvend_name']
+    
+    def form_valid(self, form):
+        form.instance.swvend_modifiedby = self.request.user
+        return super().form_valid(form)
+
+    
+class SWVendorDeleteView(LoginRequiredMixin, DeleteView):
+    model = SoftwareVendor
     success_url = '/'

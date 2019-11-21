@@ -1,0 +1,54 @@
+    <div>
+        <form method="GET" action=".">
+            <div class="form-row">
+                <div class="col-2">
+                    <label for="vendorDesc">Vendor filter:  </label>
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" id="vendorDesc" name="vendorDesc" aria-describedby="vendorHelp" placeholder="Vendor name contains...">
+                    {% comment %} <small id="vendorHelp" class="form-text text-muted">Enter letters contained in the vendor name...</small> {% endcomment %}
+                </div>
+                <div class="col">
+                    <button class="btn btn-dark" type="submit" >Filter</button>
+                </div>
+            </div>
+        </form>
+        <hr/>
+        <table class="table-adm table-sm table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Vendor</th>
+                 </tr>
+            </thead>
+            <tbody>
+                {% for vendor in queryset %}
+                    <tr>
+                        <td><a href="{% url 'vendor-detail' vendor.vend_id %}" style="display:block;">{{vendor.vend_vend_fk}}</a></td><td scope="row"><a href="{% url 'vendor-detail' vendor.vend_id %}" style="display:block;">{{vendor.vend_vendcat_fk }}</a><td scope="row"><a href="{% url 'vendor-detail' vendor.vend_id %}" style="display:block;">{{vendor.vend_portsts_fk }}</a><td scope="row"><a href="{% url 'vendor-detail' vendor.vend_id %}" style="display:block;">{{vendor.vend_eol_date }}</a>
+                    </tr>
+                {% endfor %}
+              </tbody>
+        </table>
+        <hr/>
+        <div class="pagination">
+            <span>
+                {% if queryset.has_previous %}
+                    <a class="btn btn-outline-dark mb-4" href="?page=1">&lt;&lt;</a>
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ queryset.previous_page_number }}">&lt;</a>
+                {% endif %}
+                {% for num in queryset.paginator.page_range%}
+                    {% if queryset.number == num %}
+                         <a class="btn btn-dark mb-4" href="?page={{ num }}">{{ num }}</a>
+                    {% elif num > queryset.number|add:'-3' and num < queryset.number|add:'3' %}
+                        <a class="btn btn-outline-dark mb-4" href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if queryset.has_next %}
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ queryset.next_page_number }}">&gt;</a>
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ queryset.paginator.num_pages }}">&gt;&gt;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    <span class="current">
+        Page {{ queryset.number }} of {{ queryset.paginator.num_pages }}.
+    </span>

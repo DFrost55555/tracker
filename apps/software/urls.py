@@ -22,6 +22,11 @@ from .views import (
     SoftwareCreateView,
     SoftwareUpdateView,
     SoftwareDeleteView,
+    SWVendorFilterView,
+    SWVendorDetailView,
+    SWVendorCreateView,
+    SWVendorUpdateView,
+    SWVendorDeleteView,
 )
 urlpatterns = [
     path('software/', SoftwareFilterView, name='software-home'),
@@ -29,4 +34,9 @@ urlpatterns = [
     path('software/new/', SoftwareCreateView.as_view(), name='software-create'),
     path('software/<int:pk>/update/', SoftwareUpdateView.as_view(), name='software-update'),
     path('software/<int:pk>/delete/', SoftwareDeleteView.as_view(), name='software-delete'),
+    path('swvendor/', SWVendorFilterView, name='swvend-home'),
+    path('swvendor/<int:pk>/', SWVendorDetailView.as_view(), name='swvend-detail'),
+    path('swvendor/new/', SWVendorCreateView.as_view(), name='swvend-create'),
+    path('swvendor/<int:pk>/update/', SWVendorUpdateView.as_view(), name='swvend-update'),
+    path('swvendor/<int:pk>/delete/', SWVendorDeleteView.as_view(), name='swvend-delete'),
 ]
