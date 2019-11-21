@@ -70,11 +70,11 @@ class SoftwareDeleteView(LoginRequiredMixin, DeleteView):
     
     
 def SWVendorFilterView(request):
-    swvendqs = SoftwareVendor.objects.all().order_by('swvend_description')
+    swvendqs = SoftwareVendor.objects.all().order_by('swvend_name')
     swvendorDesc_query = request.GET.get('swvendorDesc')
     
     if swvendorDesc_query != '' and swvendorDesc_query is not None:
-        vendqs = vendqs.filter(vend_name__icontains=swvendorDesc_query).order_by('swvend_name')
+        swvendqs = swvendqs.filter(swvend_name__icontains=swvendorDesc_query).order_by('swvend_name')
             
     paginator = Paginator(swvendqs, 10)
     
