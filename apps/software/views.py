@@ -86,7 +86,7 @@ def SWVendorFilterView(request):
         'queryset': swvendqs
     }
     
-    return render(request,"software/swvendor_home.html",context)
+    return render(request,"software/softwarevendor_home.html",context)
 
 
 class SWVendorDetailView(LoginRequiredMixin, DetailView):
