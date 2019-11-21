@@ -76,7 +76,7 @@ def SWVendorFilterView(request):
     if swvendorDesc_query != '' and swvendorDesc_query is not None:
         swvendqs = swvendqs.filter(swvend_name__icontains=swvendorDesc_query).order_by('swvend_name')
             
-    paginator = Paginator(swvendqs, 10)
+    paginator = Paginator(swvendqs, 25)
     
     page = request.GET.get('page')
     

@@ -28,9 +28,9 @@
                  </tr>
             </thead>
             <tbody>
-                {% for swvend in queryset %}
+                {% for softwarevendor in queryset %}
                     <tr>
-                        <td><a href="{% url 'swvend-detail' softwarevendor.swvend_id %}" style="display:block;">{{softwarevendor.swvend_name}}</a></td>
+                        <td scope="row"><a href="{% url 'swvend-detail' swvend_id %}" style="display:block;"><b>{{ swvend_name }}</b></a></td>
                     </tr>
                 {% endfor %}
               </tbody>
