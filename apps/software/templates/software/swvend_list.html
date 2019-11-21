@@ -2,28 +2,35 @@
         <form method="GET" action=".">
             <div class="form-row">
                 <div class="col-2">
-                    <label for="vendorDesc">Vendor filter:  </label>
+                    <label for="swvendorDesc">Vendor filter:  </label>
                 </div>
                 <div class="col-6">
-                    <input type="text" class="form-control" id="vendorDesc" name="vendorDesc" aria-describedby="vendorHelp" placeholder="Vendor name contains...">
+                    <input type="text" class="form-control" id="swvendorDesc" name="vendorDesc" aria-describedby="swvendorHelp" placeholder="Vendor name contains...">
                     {% comment %} <small id="vendorHelp" class="form-text text-muted">Enter letters contained in the vendor name...</small> {% endcomment %}
                 </div>
                 <div class="col">
-                    <button class="btn btn-dark" type="submit" >Filter</button>
+                    <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search</button>
                 </div>
+                {% for group in user.groups.all %}
+                    {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
+                        <div class="col-2">
+                            <a class="btn btn-primary-adm" href="{% url 'swvend-create' %}"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;&nbsp;New Vendor...</a>
+                        </div>
+                    {% endif %}
+                {% endfor %} 
             </div>
         </form>
         <hr/>
-        <table class="table-adm table-sm table-hover">
+        <table class="table-adm table-adm-sm table-adm-hover table-striped">
             <thead>
                 <tr>
                 <th scope="col">Vendor</th>
                  </tr>
             </thead>
             <tbody>
-                {% for vendor in queryset %}
+                {% for swvend in queryset %}
                     <tr>
-                        <td><a href="{% url 'vendor-detail' vendor.vend_id %}" style="display:block;">{{vendor.vend_vend_fk}}</a></td><td scope="row"><a href="{% url 'vendor-detail' vendor.vend_id %}" style="display:block;">{{vendor.vend_vendcat_fk }}</a><td scope="row"><a href="{% url 'vendor-detail' vendor.vend_id %}" style="display:block;">{{vendor.vend_portsts_fk }}</a><td scope="row"><a href="{% url 'vendor-detail' vendor.vend_id %}" style="display:block;">{{vendor.vend_eol_date }}</a>
+                        <td><a href="{% url 'swvend-detail' softwarevendor.swvend_id %}" style="display:block;">{{softwarevendor.swvend_name}}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
