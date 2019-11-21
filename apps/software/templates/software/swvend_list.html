@@ -2,11 +2,11 @@
         <form method="GET" action=".">
             <div class="form-row">
                 <div class="col-2">
-                    <label for="swvendorDesc">Vendor filter:  </label>
+                    <label for="swvendorDesc">Software Vendor filter:  </label>
                 </div>
                 <div class="col-6">
                     <input type="text" class="form-control" id="swvendorDesc" name="swvendorDesc" aria-describedby="swvendorHelp" placeholder="Software Vendor name contains...">
-                    {% comment %} <small id="vendorHelp" class="form-text text-muted">Enter letters contained in the vendor name...</small> {% endcomment %}
+                    {% comment %} <small id="swvendorHelp" class="form-text text-muted">Enter letters contained in the software vendor name...</small> {% endcomment %}
                 </div>
                 <div class="col-2">
                     <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search</button>
@@ -30,7 +30,7 @@
             <tbody>
                 {% for softwarevendor in queryset %}
                     <tr>
-                        <td scope="row"><a href="{% url 'swvend-detail' swvend_id %}" style="display:block;"><b>{{ swvend_name }}</b></a></td>
+                        <td scope="row"><a href="#" style="display:block;"><b>{{ swvend_name }}</b></a></td>
                     </tr>
                 {% endfor %}
               </tbody>

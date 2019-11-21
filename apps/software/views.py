@@ -16,7 +16,7 @@ from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, 
 from apps.lists.models import ProductType,SoftwareCategory,SoftwareStatus
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
-from .forms import SoftwareModelForm
+from .forms import SoftwareModelForm, SoftwareVendorModelForm
 
 
 # Create your views here.
@@ -95,7 +95,7 @@ class SWVendorDetailView(LoginRequiredMixin, DetailView):
 
 class SWVendorCreateView(LoginRequiredMixin, CreateView):
     model = SoftwareVendor
-    fields = ['swvend_name']
+    form_class = SoftwareVendorModelForm
     
     def form_valid(self, form):
         form.instance.swvend_createdby = self.request.user
@@ -105,7 +105,7 @@ class SWVendorCreateView(LoginRequiredMixin, CreateView):
         
 class SWVendorUpdateView(LoginRequiredMixin, UpdateView):
     model = SoftwareVendor
-    fields = ['swvend_name']
+    form_class = SoftwareVendorModelForm
     
     def form_valid(self, form):
         form.instance.swvend_modifiedby = self.request.user
