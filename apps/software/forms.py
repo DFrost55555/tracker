@@ -39,7 +39,7 @@ class SoftwareModelForm(forms.ModelForm):
     sw_ees1_date = forms.DateField(label='End of Extended Support - Period 1', widget=DatePicker(), required=False) # End of Extended Support - Period One
     sw_ees2_date = forms.DateField(label='End of Extended Support - Period 2', widget=DatePicker(), required=False) # End of Extended Support - Period Two
     sw_ees3_date = forms.DateField(label='End of Extended Support - Period 3', widget=DatePicker(), required=False) # End of Extended Support - Period Three
-    sw_see_yn_fk = forms.ModelChoiceField(label='Support End Estimated', queryset=YesNo.objects.all().order_by('yesno_id'), initial=2, required=True) # Support End Estimated
+    sw_see_yn_fk = forms.ModelChoiceField(label='Is SEE', queryset=YesNo.objects.all().order_by('yesno_id'), initial=2, required=True) # Support End Estimated
     sw_plp_txt = forms.CharField(label='Product Lifecycle Policy', widget=forms.TextInput(), required=False) # Product Lifecycle Policy
     sw_upd_date = forms.DateField(label='Information Updated', widget=DatePicker(), required=False)
     sw_int_reference = forms.CharField(label='Internal Process Reference', widget=forms.TextInput(), required=False)
