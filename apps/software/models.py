@@ -51,7 +51,7 @@ class SoftwareVendor(models.Model):
     objects = models.Manager()
     
     def get_absolute_url(self):
-        return reverse ('Vendor-detail', kwargs={"pk": self.pk})
+        return reverse ('swvend-detail', kwargs={"pk": self.pk})
     
     
 class SWVendorContact(models.Model):

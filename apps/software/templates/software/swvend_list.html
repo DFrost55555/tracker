@@ -1,14 +1,14 @@
     <div>
         <form method="GET" action=".">
             <div class="form-row">
-                <div class="col-3">
+                <div class="col-2">
                     <label for="swvendorDesc">Vendor filter:  </label>
                 </div>
-                <div class="col-7">
+                <div class="col-6">
                     <input type="text" class="form-control" id="swvendorDesc" name="vendorDesc" aria-describedby="swvendorHelp" placeholder="Vendor name contains...">
                     {% comment %} <small id="vendorHelp" class="form-text text-muted">Enter letters contained in the vendor name...</small> {% endcomment %}
                 </div>
-                <div class="col">
+                <div class="col-2">
                     <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search</button>
                 </div>
                 {% for group in user.groups.all %}

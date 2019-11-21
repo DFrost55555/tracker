@@ -5,9 +5,9 @@
                     <form method="POST">
                         {% csrf_token %}
                         <div class="form-row">
-                            <legend class="border-bottom mb-2">Software Details</legend>
+                            <legend class="border-bottom mb-4">SOFTWARE DETAILS</legend>
                         </div>
-                        <div class="form-row border-bottom mb-2">
+                        <div class="form-row border-bottom mb-4">
                             <h6 class="form-group col-md-12">Current Software</h6>
                             <div class="form-group col-md-3">
                                 {{ form.sw_vend_fk|as_crispy_field }}
@@ -19,7 +19,7 @@
                                 {{ form.sw_version|as_crispy_field }}
                             </div>
                         </div>
-                        <div class="form-row border-bottom mb-2">
+                        <div class="form-row border-bottom mb-4">
                             <h6 class="form-group col-md-12">Replacement Software (if applicable)</h6>
                             <div class="form-group col-md-3">
                                 {{ form.sw_repl_vend_fk|as_crispy_field }}
@@ -62,6 +62,7 @@
                             </div>
                         </div>
                         <div class="form-row">
+                            <h6 class="form-group col-md-12">Milestone Dates</h6>
                             <div class="form-group col-md-6">
                                 {{ form.sw_eol_date|as_crispy_field }}
                             </div>
@@ -69,7 +70,7 @@
                                 {{ form.sw_eow_date|as_crispy_field }}
                             </div>                          
                         </div>
-                        <div class="form-row border-bottom mb-2">
+                        <div class="form-row border-bottom mb-4">
                             <div class="form-group col-md-3">
                                 {{ form.sw_ems_date|as_crispy_field }}
                             </div>
@@ -99,7 +100,7 @@
                                 {{ form.sw_upd_date|as_crispy_field }}
                             </div>                          
                         </div>                     
-                        <hr class="mt-4 mb-4" />
+                        <hr class="mt-2 mb-4" />
                         <div class="form-group">
                             <button class="btn btn-primary-adm" type="submit">Save</button>
                             <a class="btn btn-danger-adm" href="javascript:history.go(-1)">Cancel</a>
