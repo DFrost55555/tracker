@@ -2,29 +2,24 @@
             <div class="row">
                 <div class="content-section col-md-12">
                     <legend class="border-bottom mb-4">SOFTWARE DETAILS</legend>
-                    <h2><b>{{ object.sw_description }}&nbsp;{{ object.sw_description }}</b></h2>
-                    <h3 class="border-bottom mb-4">{{ object.sw_vend_fk }}</h3>
+                    <h2><b>{{ object.sw_description }}&nbsp;{{ object.sw_version }}</b></h2>
+                    <h3 class="mb-2">{{ object.sw_vend_fk }}</h3>
+                    <hr class="mt-2 mb-2">
                     <div class="row">
-                        <div class="col-md-4"><h6><b>Customer</b></h6></div><div class="col-md-4"><h6><b>Customer Reference</b></h6></div><div class="col-md-2"><h6><b>Portfolio Status</b></h6></div><div class="col-md-2"><h6><b>Portfolio Category</b></h6></div>
+                        <div class="col pg-detail-hdr">Customer</div><div class="col pg-detail-hdr">Customer Reference</div><div class="col pg-detail-hdr">Portfolio Status</div><div class="col pg-detail-hdr">Portfolio Category</div>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col-md-4">{{ object.sw_cust_fk}}</div><div class="col-md-4">{{ object.sw_cust_ref }}</div><div class="col-md-2">{{ object.sw_portsts_fk }}</div><div class="col-md-2">{{ object.sw_portcat_fk }}</div>
+                    <div class="row">
+                        <div class="col pg-detail-txt">{{ object.sw_cust_fk}}</div><div class="col pg-detail-txt">{{ object.sw_cust_ref }}</div><div class="col pg-detail-txt">{{ object.sw_portsts_fk }}</div><div class="col pg-detail-txt">{{ object.sw_portcat_fk }}</div>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col-md-4"><h6><b>Software Classification</b></h6></div><div class="col-md-4"><h6><b>Software Category</b></h6></div><div class="col-md-4"><h6><b>Software Status</b></h6></div>
+                    <div class="row mt-2">
+                        <div class="col pg-detail-hdr">Software Classification</div><div class="col pg-detail-hdr">Software Category</div><div class="col pg-detail-hdr">Software Status</div>
                     </div>
                     <div class="row border-bottom mb-2">
-                        <div class="col">{{ object.sw_swclass_fk }}</div><div class="col">{{ object.sw_swcat_fk }}</div><div class="col">{{ object.sw_swsts_fk }}</div>
+                        <div class="col pg-detail-txt">{{ object.sw_swclass_fk }}</div><div class="col pg-detail-txt">{{ object.sw_swcat_fk }}</div><div class="col pg-detail-txt">{{ object.sw_swsts_fk }}</div>
+                        <br>
+                        <br>
                     </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-12">
                             <!-- Tabs -->
                             <ul class="nav nav-tabs" role="tablist">
