@@ -102,6 +102,17 @@ def SWVendorFilterView(request):
 class SWVendorDetailView(LoginRequiredMixin, DetailView):
     model = SoftwareVendor
     
+    
+    def get_context_data(self, **kwargs):
+        context = super(SWVendorDetailView, self).get_context_data(**kwargs)
+        self.request.session['swvend_id'] = self.object.swvend_id
+        context.update({
+        'swvend_products' : Software.objects.filter(sw_vend_fk=self.kwargs['pk']),
+        'swvend_contacts' : SWVendorContact.objects.filter(swvendcontact_vend_fk=self.kwargs['pk']),
+        'swvend_notes' : SWVendorNote.objects.filter(swvendnote_vend_fk=self.kwargs['pk']),
+        })        
+        return context
+    
 
 class SWVendorCreateView(LoginRequiredMixin, CreateView):
     model = SoftwareVendor

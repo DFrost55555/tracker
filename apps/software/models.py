@@ -56,7 +56,7 @@ class SoftwareVendor(models.Model):
     
 class SWVendorContact(models.Model):
     swvendcontact_id = models.AutoField(primary_key = True)
-    swvendcontact_vend_fk = models.ForeignKey(Vendor, verbose_name='Vendor', on_delete=models.SET_NULL, null=True)
+    swvendcontact_vend_fk = models.ForeignKey(SoftwareVendor, verbose_name='Software Vendor', on_delete=models.SET_NULL, null=True)
     swvendcontact_firstname = models.CharField('First Name', max_length=150)
     swvendcontact_lastname = models.CharField('Last Name', max_length=150)
     swvendcontact_role = models.CharField('Role', max_length=150, null=True)
@@ -78,7 +78,7 @@ class SWVendorContact(models.Model):
     
 class SWVendorNote(models.Model):
     swvendnote_id = models.AutoField(primary_key = True)
-    swvendnote_vend_fk = models.ForeignKey(Vendor, verbose_name='Vendor', on_delete=models.SET_NULL, null=True)
+    swvendnote_vend_fk = models.ForeignKey(SoftwareVendor, verbose_name='Software Vendor', on_delete=models.SET_NULL, null=True)
     swvendnote_note = models.CharField('Note', max_length=2500)
     swvendnote_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     swvendnote_createddate = models.DateTimeField(default=timezone.now)
