@@ -17,13 +17,10 @@
                             </div>
                             <div class="form-group col-md-3">
                                 {{ form.sw_version|as_crispy_field }}
-                                {% for error in form.sw_version.errors %}
-                                    <p>{{ error }}</p>
-                                {% endfor %}
                             </div>
                         </div>
                         <div class="form-row border-bottom mb-4">
-                            <h6 class="form-group col-md-12">Replacement Software (if applicable)</h6>
+                            <h6 class="form-group col-md-12">Replacement Software <i>(if applicable)</i></h6>
                             <div class="form-group col-md-3">
                                 {{ form.sw_repl_vend_fk|as_crispy_field }}
                             </div>                                              
@@ -35,35 +32,34 @@
                             </div>
                         </div>
                         <div class="form-row">
+                            <h6 class="form-group col-md-12">Software Portfolio Details</h6>
                             <div class="form-group col-md-4">
                                 {{ form.sw_cust_fk|as_crispy_field }}
                             </div>
                             <div class="form-group col-md-4">
                                 {{ form.sw_cust_ref|as_crispy_field }}
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-2">
                                 {{ form.sw_portsts_fk|as_crispy_field }}
-                            </div>                                                   
+                            </div>
+                            <div class="form-group col-md-2">
+                                {{ form.sw_portcat_fk|as_crispy_field }}
+                            </div>                                               
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
+                        <div class="form-row border-bottom mb-2">
+                            <div class="form-group col-md-3">
+                                {{ form.sw_swsts_fk|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-3">
                                 {{ form.sw_swclass_fk|as_crispy_field }}
                             </div>                        
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-3">
                                 {{ form.sw_swcat_fk|as_crispy_field }}
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-3">
                                 {{ form.sw_portcat_fk|as_crispy_field }}
                             </div>                           
                         </div>                                                                  
-                        <div class="form-row border-bottom mb-2">
-                            <div class="form-group col-md-6">
-                                {{ form.sw_int_code|as_crispy_field }}
-                            </div>
-                            <div class="form-group col-md-6">
-                                {{ form.sw_ext_code|as_crispy_field }}
-                            </div>
-                        </div>
                         <div class="form-row">
                             <h6 class="form-group col-md-12">Milestone Dates</h6>
                             <div class="form-group col-md-6">
