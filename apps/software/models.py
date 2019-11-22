@@ -191,6 +191,3 @@ class SoftwareMatrix(models.Model):
     swmtx_modifiedby = models.ForeignKey(User, related_name='swmtx_editor', on_delete=models.SET_NULL, null=True)
     swmtx_modifieddate = models.DateTimeField(auto_now=True, null=True)
     
-    def __str__(self):
-            return self.swmtx_id
-    objects = models.Manager()
