@@ -176,4 +176,15 @@ class SoftwareNote(models.Model):
         return reverse ('swnote-detail', kwargs={"pk": self.pk})
 
 
-
+class SoftwareMatrix(models.Model):
+    swmtx_id = models.AutoField(primary_key = True)
+    swmtx_sw_fk = models.ForeignKey(Software, verbose_name='Software', on_delete=models.SET_NULL, null=True)
+    swmtx_swvend_fk = models.ForeignKey(SoftwareVendor, verbose_name='Software Vendor', on_delete=models.SET_NULL, null=True)
+    swmtx_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    swmtx_createddate = models.DateTimeField(default=timezone.now)
+    swmtx_modifiedby = models.ForeignKey(User, related_name='swmtx_editor', on_delete=models.SET_NULL, null=True)
+    swmtx_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+            return self.swmtx_id
+    objects = models.Manager()
