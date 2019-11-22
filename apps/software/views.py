@@ -12,7 +12,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, SoftwareVendor, SWVendorContact, SWVendorNote
+from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, SoftwareVendor, SWVendorContact, SWVendorNote, SoftwareMatrix
 from apps.lists.models import ProductType,SoftwareCategory,SoftwareStatus
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
@@ -44,6 +44,15 @@ def SoftwareFilterView(request):
 class SoftwareDetailView(LoginRequiredMixin, DetailView):
     model = Software
     
+    def get_context_data(self, **kwargs):
+        context = super(SoftwareDetailView, self).get_context_data(**kwargs)
+        self.request.session['sw_id'] = self.object.id
+        context.update({
+        'sw_customers' : SoftwareMatrix.objects.filter(swmtx_cust_fk=self.kwargs['pk']),
+        'sw_contacts' : SoftwareContact.objects.filter(swcontact_sw_fk=self.kwargs['pk']),
+        'sw_notes' : SoftwareNote.objects.filter(swnote_sw_fk=self.kwargs['pk']),
+        })        
+        return context
 
 class SoftwareCreateView(LoginRequiredMixin, CreateView):
     model = Software
