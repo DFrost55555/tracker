@@ -2,26 +2,24 @@
             <div class="row">
                 <div class="content-section col-md-12">
                     <legend class="border-bottom mb-4">SOFTWARE DETAILS</legend>
-                    <h2><b>{{ object.sw_description }}</b></h2>
+                    <h2><b>{{ object.sw_description }}&nbsp;{{ object.sw_description }}</b></h2>
                     <h3 class="border-bottom mb-4">{{ object.sw_vend_fk }}</h3>
                     <div class="row">
-                        <div class="col"><h6><b>Customer</b></h6></div><div class="col"><h6><b>Portfolio Status</b></h6></div>
+                        <div class="col-md-4"><h6><b>Customer</b></h6></div><div class="col-md-4"><h6><b>Customer Reference</b></h6></div><div class="col-md-2"><h6><b>Portfolio Status</b></h6></div><div class="col-md-2"><h6><b>Portfolio Category</b></h6></div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col">{{ object.sw_cust_fk}}</div><div class="col">{{ object.sw_portsts_fk }}</div>
+                        <div class="col-md-4">{{ object.sw_cust_fk}}</div><div class="col-md-4">{{ object.sw_cust_ref }}</div><div class="col-md-2">{{ object.sw_portsts_fk }}</div><div class="col-md-2">{{ object.sw_portcat_fk }}</div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col"><h6><b>Software Category</b></h6></div><div class="col"><h6><b>Software Status</b></h6></div>
+                        <div class="col-md-4"><h6><b>Software Classification</b></h6></div><div class="col-md-4"><h6><b>Software Category</b></h6></div><div class="col-md-4"><h6><b>Software Status</b></h6></div>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col">{{ object.sw_swcat_fk }}</div><div class="col">{{ object.sw_swsts_fk }}</div>
+                    <div class="row border-bottom mb-2">
+                        <div class="col">{{ object.sw_swclass_fk }}</div><div class="col">{{ object.sw_swcat_fk }}</div><div class="col">{{ object.sw_swsts_fk }}</div>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col"><h6><b>Internal Part Code</b></h6></div><div class="col"><h6><b>External Part Code</b></h6></div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col">{{ object.sw_int_code }}</div><div class="col">{{ object.sw_ext_code }}</div>
-                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     <br>
                     <br>
                     <br>
