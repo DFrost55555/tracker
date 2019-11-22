@@ -6,19 +6,37 @@
                     <h3 class="mb-2">{{ object.sw_vend_fk }}</h3>
                     <hr class="mt-2 mb-2">
                     <div class="row mt-2">
+                        <div class="col-md-4 pg-detail-hdr">End of Sale</div><div class="col-md-4 pg-detail-hdr">End of Mainstream Support</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-4 pg-detail-txt">{{ object.sw_eol_date}}</div><div class="col-md-4 pg-detail-txt">{{ object.sw_ems_date }}</div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-4 pg-detail-hdr">End of Extended Support - Period 1</div><div class="col-md-4 pg-detail-hdr">End of Extended Support - Period 2</div><div class="col-md-4 pg-detail-hdr">End of Extended Support - Period 3</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-4 pg-detail-txt">{{ object.sw_ees1_date}}</div><div class="col-md-4 pg-detail-txt">{{ object.sw_ees2_date }}</div><div class="col-md-4 pg-detail-txt">{{ object.sw_ees3_date }}</div>
+                    </div>
+                    <div class="row mt-2">
                         <div class="col-md-4 pg-detail-hdr">Customer</div><div class="col-md-4 pg-detail-hdr">Customer Reference</div><div class="col-md-2 pg-detail-hdr">Status</div><div class="col-md-2 pg-detail-hdr">Category</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-4 pg-detail-txt">{{ object.sw_cust_fk}}</div><div class="col-md-4 pg-detail-txt">{{ object.sw_cust_ref }}</div><div class="col-md-2 pg-detail-txt">{{ object.sw_portsts_fk }}</div><div class="col-md-2 pg-detail-txt">{{ object.sw_portcat_fk }}</div>
-                    </div>
+                    </div>                                        
                     <div class="row mt-2">
                         <div class="col-md-4 pg-detail-hdr">Software Classification</div><div class="col-md-4 pg-detail-hdr">Software Category</div><div class="col-md-4 pg-detail-hdr">Software Status</div>
                     </div>
-                    <div class="row border-bottom mb-2">
+                    <div class="row mb-2">
                         <div class="col-md-4 pg-detail-txt">{{ object.sw_swclass_fk }}</div><div class="col-md-4 pg-detail-txt">{{ object.sw_swcat_fk }}</div><div class="col-md-4 pg-detail-txt">{{ object.sw_swsts_fk }}</div>
-                        <br>
-                        <br>
                     </div>
+                    <div class="row mt-2">
+                        <div class="col-md-1 pg-detail-hdr">Is SEE</div><div class="col-md-11 pg-detail-hdr">Product Lifecycle Policy</div>
+                    </div>
+                    <div class="row border-bottom mb-2">
+                        <div class="col-md-4 pg-detail-txt">{{ object.sw_see_yn_fk}}</div><div class="col-md-4 pg-detail-txt">{{ object.sw_plp_txt }}</div>
+                        <br>
+                        <br>
+                    </div>                    
                     <div class="row mt-4">
                         <div class="col-md-12">
                             <!-- Tabs -->
