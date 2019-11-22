@@ -8,13 +8,13 @@
         <table class="table-adm table-adm-sm table-adm-hover table-striped">
             <thead>
                 <tr class="ml-2 mr-2">
-                    <th scope="col">Product</th><th>Version</th><th>End of Sale</th>
+                    <th scope="col">Product</th><th>Version</th><th>Category</th><th>End of Sale</th>
                  </tr>
             </thead>
             <tbody>
                 {% for product in swvend_products %}
                     <tr class="ml-2 mr-2">
-                        <td scope="row"><a href="{% url 'software-detail' product.sw_id %}" style="display:block;">{{product.sw_description }}</a></td><td scope="row"><a href="{% url 'software-detail' product.sw_id %}" style="display:block;">{{product.sw_version }}</a></td><td scope="row"><a href="{% url 'software-detail' product.sw_id %}" style="display:block;">{{product.sw_eol_date }}</a></td>
+                        <td scope="row"><a href="{% url 'software-detail' product.sw_id %}" style="display:block;"><b>{{product.sw_description }}</b></a></td><td scope="row"><a href="{% url 'software-detail' product.sw_id %}" style="display:block;"><b>{{product.sw_version }}</b></a></td><td scope="row"><a href="{% url 'software-detail' product.sw_id %}" style="display:block;">{{product.sw_swcat_fk }}</a></td><td scope="row"><a href="{% url 'software-detail' product.sw_id %}" style="display:block;">{{product.sw_eol_date }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
