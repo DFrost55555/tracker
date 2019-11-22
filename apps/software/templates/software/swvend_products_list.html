@@ -5,15 +5,15 @@
     </table>
     <hr/> {% endcomment %}
     {% if swvend_products %}
-        <table class="table-adm table-adm-sm table-adm-hover table-striped mr-2 ml-2">
+        <table class="table-adm table-adm-sm table-adm-hover table-striped">
             <thead>
-                <tr>
+                <tr class="ml-2 mr-2">
                     <th scope="col">Product</th><th>Version</th><th>End of Sale</th>
                  </tr>
             </thead>
             <tbody>
                 {% for product in swvend_products %}
-                    <tr>
+                    <tr class="ml-2 mr-2">
                         <td scope="row"><a href="{% url 'software-detail' product.sw_id %}" style="display:block;">{{product.sw_description }}</a></td><td scope="row"><a href="{% url 'software-detail' product.sw_id %}" style="display:block;">{{product.sw_version }}</a></td><td scope="row"><a href="{% url 'software-detail' product.sw_id %}" style="display:block;">{{product.sw_eol_date }}</a></td>
                     </tr>
                 {% endfor %}
