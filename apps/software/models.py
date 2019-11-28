@@ -123,6 +123,7 @@ class Software(models.Model):
     sw_ees3_date = models.DateField('End of Extended Support - Period Three', blank=True, null=True) # End of Extended Support - Period Three
     sw_see_yn_fk = models.ForeignKey(YesNo, verbose_name='Is SEE', on_delete=models.SET_NULL, blank=True, null=True) # Support End Estimated
     sw_plp_txt = models.CharField('Product Lifecycle Policy', max_length=250,blank=True, null=True) # Product Lifecycle Policy
+    sw_suppeol_txt = models.CharField('Supplier End of Life Policy', max_length=250,blank=True, null=True) # Supplier End of Life Policy
     sw_upd_date = models.DateField('Info Update', blank=True, null=True)
     sw_int_reference = models.CharField('Internal Reference', max_length=250, blank=True, null=True)
     sw_createdby = models.ForeignKey(User, verbose_name='Created By', on_delete=models.SET_NULL, blank=True, null=True)
