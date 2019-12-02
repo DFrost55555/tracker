@@ -97,6 +97,7 @@ def PLMCustomerFilterView(request):
     return render(request,"customers/plm_cust_home.html",context)
 
 class PLMCustomerDetailView(LoginRequiredMixin, DetailView):
+    template_name = 'customers/plm_customer_detail.html'
     model = Customer
     
     
