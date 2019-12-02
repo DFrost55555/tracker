@@ -3,7 +3,7 @@ from django import forms
 #from bootstrap_datepicker_plus import DatePickerInput
 from django.forms import ModelChoiceField
 #from bootstrap_datepicker.widgets import DatePicker
-from .models import Hardware, HardwareContact, HardwareNote, PortfolioStatus
+from .models import Hardware, HardwareContact, HardwareNote, PortfolioStatus, PortfolioCategory, HardwareMatrix
 from apps.lists.models import ProductType,HardwareCategory, HardwareStatus, YesNo
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
@@ -57,4 +57,28 @@ class HardwareModelForm(forms.ModelForm):
             "hw_plp_txt",
             "hw_upd_date",
             "hw_int_reference",
+        ]
+        
+        
+class HardwareMatrixForm(forms.ModelForm):
+    hwmtx_hw_fk = forms.IntegerField(label="Hardware Product FK", widget=forms.NumberInput(), required=True)
+    hwmtx_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all(), initial=0, required=True)
+    hwmtx_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=PortfolioStatus.objects.all(), initial=0, required=True)
+    hwmtx_portcat_fk = ModelChoiceField(label='Portfolio Category', queryset=PortfolioCategory.objects.all(), initial=0, required=True)
+    hwmtx_hwcat_fk = ModelChoiceField(label='Hardware Category', queryset=HardwareCategory.objects.all(), initial=0, required=True)
+    hwmtx_hwsts_fk = ModelChoiceField(label='Hardware Status', queryset=HardwareStatus.objects.all(), initial=0, required=True)
+    hwmtx_cust_code = forms.CharField(label='Customer Part Code', widget=forms.TextInput(), required=False)
+    hwmtx_cust_ref = forms.CharField(label='Customer Reference', widget=forms.TextInput(), required=False)
+    
+    class Meta:
+        model = HardwareMatrix
+        fields = [
+            "hwmtx_hw_fk",
+            "hwmtx_cust_fk",        
+            "hwmtx_portsts_fk",
+            "hwmtx_portcat_fk",
+            "hwmtx_hwcat_fk",
+            "hwmtx_hwsts_fk",
+            "hwmtx_cust_code",
+            "hwmtx_cust_ref",
         ]
