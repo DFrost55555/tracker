@@ -14,7 +14,7 @@
             <tbody>
                 {% for customer in hw_customers %}
                     <tr>
-                        <td scope="row"><a href="{% url 'plm-customer-detail' customer.id %}" style="display:block;">{{customer.hwmtx_cust_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_code }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_ref }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portsts_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portcat_fk }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;"><b>{{customer.hwmtx_cust_fk }}</b></a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_code }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_ref }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portsts_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portcat_fk }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
