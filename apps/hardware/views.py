@@ -14,7 +14,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Hardware, HardwareContact, HardwareNote, PortfolioStatus
+from .models import Hardware, HardwareContact, HardwareNote, PortfolioStatus, HardwareMatrix, PortfolioCategory
 from .forms import HardwareModelForm
 from apps.lists.models import ProductType,HardwareCategory,HardwareStatus
 from apps.customers.models import Customer
@@ -49,6 +49,11 @@ class HardwareDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(HardwareDetailView, self).get_context_data(**kwargs)
         self.request.session['hardware_id'] = self.object.hw_id
+        context.update({
+        'hw_notes' : HardwareNote.objects.filter(hwnote_hw_fk=self.kwargs['pk']),
+        'hw_contacts' : HardwareContact.objects.filter(hwcontact_hw_fk=self.kwargs['pk']),
+        'hw_customers' : HardwareMatrix.objects.filter(hwmtx_hw_fk=self.kwargs['pk']),
+        })
         return context
     
 
