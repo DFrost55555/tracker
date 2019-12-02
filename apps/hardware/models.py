@@ -10,7 +10,7 @@ from apps.lists.models import HardwareCategory, HardwareStatus, YesNo
 
 class PortfolioStatus(models.Model):
     portsts_id = models.AutoField(primary_key = True)
-    portsts_name = models.CharField('Portfolio Status Name', max_length=150)
+    portsts_name = models.CharField('Portfolio Status Name', max_length=250)
     portsts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     portsts_createddate = models.DateTimeField(default=timezone.now)
     portsts_modifiedby = models.ForeignKey(User, related_name='portsts_editor', on_delete=models.SET_NULL, null=True)
@@ -20,7 +20,22 @@ class PortfolioStatus(models.Model):
         return self.portsts_name
         
     def get_absolute_url(self):
-        return reverse ('portsts-detail', kwargs={"pk": self.pk})    
+        return reverse ('portsts-detail', kwargs={"pk": self.pk})
+    
+    
+class PortfolioCategory(models.Model):
+    portcat_id = models.AutoField(primary_key = True)
+    portcat_name = models.CharField('Portfolio Category Name', max_length=250)
+    portcat_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    portcat_createddate = models.DateTimeField(default=timezone.now)
+    portcat_modifiedby = models.ForeignKey(User, related_name='portcat_editor', on_delete=models.SET_NULL, null=True)
+    portcat_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.portsts_name
+        
+    def get_absolute_url(self):
+        return reverse ('portsts-detail', kwargs={"pk": self.pk})   
 
 
 class Hardware(models.Model):
@@ -94,6 +109,23 @@ class HardwareNote(models.Model):
     
     def get_absolute_url(self):
         return reverse ('hwnote-detail', kwargs={"pk": self.pk})
+    
+    
+class HardwareMatrix(models.Model):
+    hwmtx_id = models.AutoField(primary_key = True)
+    hwmtx_hw_fk = models.ForeignKey(Hardware, verbose_name='Hardware Product', on_delete=models.SET_NULL, blank=True, null=True)
+    hwmtx_cust_fk = models.ForeignKey(Customer, verbose_name='Software Customer', on_delete=models.SET_NULL,blank=True, null=True)
+    hwmtx_cust_ref = models.CharField('Customer Reference', max_length=250, blank=True, null=True)
+    hwmtx_portsts_fk = models.ForeignKey(PortfolioStatus, verbose_name='Portfolio Status', on_delete=models.SET_NULL,blank=True, null=True)
+    hwmtx_portcat_fk = models.ForeignKey(PortfolioCategory, verbose_name='Portfolio Category', on_delete=models.SET_NULL,blank=True, null=True)
+    hwmtx_hwcat_fk = models.ForeignKey(HardwareCategory, verbose_name='Hardware Category', on_delete=models.SET_NULL,blank=True, null=True)
+    hwmtx_hwsts_fk = models.ForeignKey(HardwareStatus, verbose_name='Hardware Status', on_delete=models.SET_NULL,blank=True, null=True)
+    hwmtx_cust_code = models.CharField('Customer Part Code', max_length=250, blank=True, null=True)
+    hwmtx_cust_ref = models.CharField('Customer Reference', max_length=250, blank=True, null=True)   
+    hwmtx_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    hwmtx_createddate = models.DateTimeField(default=timezone.now)
+    hwmtx_modifiedby = models.ForeignKey(User, related_name='hwmtx_editor', on_delete=models.SET_NULL, null=True)
+    hwmtx_modifieddate = models.DateTimeField(auto_now=True, null=True)
 
 
 
