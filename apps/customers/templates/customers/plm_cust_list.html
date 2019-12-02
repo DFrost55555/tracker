@@ -1,0 +1,54 @@
+    <div>
+        <form method="GET" action=".">
+            <div class="form-row">
+                <div class="col-2">
+                    <label for="plmcustomerName">Customer filter:  </label>
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" id="plmcustomerName" name="plmcustomerName" aria-describedby="plmcustomerHelp" placeholder="Customer name contains...">
+                    {% comment %} <small id="customerHelp" class="form-text text-muted">Enter letters contained in the customers name...</small> {% endcomment %}
+                </div>
+                <div class="col">
+                    <button class="btn btn-dark" type="submit" >Filter</button>
+                </div>
+            </div>
+        </form>
+        <hr/>
+        <table class="table-adm table-sm table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Customer Name</th>
+                 </tr>
+            </thead>
+            <tbody>
+                {% for customer in plmcustomerqs %}
+                    <tr>
+                        <td scope="row"> <a href="{% url 'plm-customer-detail' customer.id %}" style="display:block;">{{customer.cust_name }}</a> </td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+        </table>
+        <hr/>
+        <div class="pagination">
+            <span>
+                {% if plmcustomerqs.has_previous %}
+                    <a class="btn btn-outline-dark mb-4" href="?page=1">&lt;&lt;</a>
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ plmcustomerqs.previous_page_number }}">&lt;</a>
+                {% endif %}
+                {% for num in plmcustomerqs.paginator.page_range%}
+                    {% if plmcustomerqs.number == num %}
+                         <a class="btn btn-dark mb-4" href="?page={{ num }}">{{ num }}</a>
+                    {% elif num > plmcustomerqs.number|add:'-3' and num < plmcustomerqs.number|add:'3' %}
+                        <a class="btn btn-outline-dark mb-4" href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+                {% if plmcustomerqs.has_next %}
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ plmcustomerqs.next_page_number }}">&gt;</a>
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ plmcustomerqs.paginator.num_pages }}">&gt;&gt;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+                    <span class="current">
+                        Page {{ plmcustomerqs.number }} of {{ plmcustomerqs.paginator.num_pages }}.
+                    </span>

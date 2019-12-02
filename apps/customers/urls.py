@@ -22,6 +22,11 @@ from .views import (
     CustomerCreateView,
     CustomerUpdateView,
     CustomerDeleteView,
+    PLMCustomerFilterView,
+    PLMCustomerDetailView,
+    PLMCustomerCreateView,
+    PLMCustomerUpdateView,
+    PLMCustomerDeleteView,
 )
 
 urlpatterns = [
@@ -30,4 +35,9 @@ urlpatterns = [
     path('customer/new/', CustomerCreateView.as_view(), name='customer-create'),
     path('customer/<int:pk>/update/', CustomerUpdateView.as_view(), name='customer-update'),
     path('customer/<int:pk>/delete/', CustomerDeleteView.as_view(), name='customer-delete'),
+    path('plmcustomers/', PLMCustomerFilterView, name='plm-cust-home'),
+    path('plmcustomer/<int:pk>/', PLMCustomerDetailView.as_view(), name='plm-customer-detail'),
+    path('plmcustomer/new/', PLMCustomerCreateView.as_view(), name='plm-customer-create'),
+    path('plmcustomer/<int:pk>/update/', PLMCustomerUpdateView.as_view(), name='plm-customer-update'),
+    path('plmcustomer/<int:pk>/delete/', PLMCustomerDeleteView.as_view(), name='plm-customer-delete'),
 ]
