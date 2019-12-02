@@ -1,0 +1,19 @@
+    {% if hw_notes %}
+        <table class="table-adm table-adm-sm table-adm-hover table-striped">
+            <thead>
+                <tr>
+                <th scope="col">Details</th>
+                 </tr>
+            </thead>
+            <tbody>
+                {% for note in hw_notes %}
+                    <tr>
+                        <td scope="row"><a href="#" style="display:block;">{{ note.hwnote_note }}</a></td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+        </table>
+        <hr/>
+    {% else %}
+        <h5 class="text-white text-center bg-dark border-top border-bottom mt-4 mb-4">No hardware product notes found...</h5>
+    {% endif%}

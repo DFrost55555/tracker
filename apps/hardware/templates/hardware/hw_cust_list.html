@@ -8,13 +8,13 @@
         <table class="table-adm table-adm-sm table-adm-hover table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Customer</th><th>Product Reference</th><th>Portfolio Status</th><th>Portfolio Category</th>
+                    <th scope="col">Customer</th><th>Customer Product Code</th><th>Product Reference</th><th>Portfolio Status</th><th>Portfolio Category</th>
                  </tr>
             </thead>
             <tbody>
                 {% for customer in hw_customers %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;">{{customer.hwmtx_cust_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_ref }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portsts_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portcat_fk }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;">{{customer.hwmtx_cust_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_code }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_ref }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portsts_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portcat_fk }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>

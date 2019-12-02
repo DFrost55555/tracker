@@ -1,0 +1,19 @@
+    {% if hw_contacts %}
+        <table class="table-adm table-adm-sm table-adm-hover table-striped">
+            <thead>
+                <tr>
+                <th scope="col">Name</th><th scope="col">Role</th><th scope="col">Contact Number</th><th scope="col">Email</th>
+                 </tr>
+            </thead>
+            <tbody>
+                {% for contact in hw_contacts %}
+                    <tr>
+                        <td scope="row"><a href="#" style="display:block;">{{ contact.hwcontact_firstname }} {{ contact.hwcontact_lastname }}</a></td><td><a href="#" style="display:block;">{{ contact.hwcontact_role }}</a></td><td><a href="#" style="display:block;">{{ contact.hwcontact_mobnumber }}</a></td><td><a href="#" style="display:block;">{{ contact.hwcontact_email }}</a></td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+        </table>
+        <hr/>
+    {% else %}
+        <h5 class="text-white text-center bg-dark border-top border-bottom mt-4 mb-4">No hardware product contacts found...</h5>
+    {% endif%}
