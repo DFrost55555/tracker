@@ -1,9 +1,9 @@
 {% extends "../products/prod_base.html" %}
 {% block content %}
     {% with breadcrumb="Components / Customers"%}
-        {% include "./hw_pagetopper.html" %}
+        {% include "./cust_pagetopper.html" %}
     {% endwith %}
-    {% include "./hw_pgheader.html" %}
+    {% include "./cust_pgheader.html" %}
     {% if user.is_authenticated %}
         {% load static %}
           <div class="loader">
