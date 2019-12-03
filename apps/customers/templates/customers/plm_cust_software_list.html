@@ -8,13 +8,13 @@
         <table class="table-adm table-adm-sm table-adm-hover table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Product</th><th>Category</th><th>Status</th>
+                    <th scope="col">Product</th><th>Version</th><th>Vendor</th><th>Category</th><th>Status</th>
                  </tr>
             </thead>
             <tbody>
                 {% for software in cust_swproducts %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;"><b>{{ software.swmtx_sw_fk }}</b></a></td><td scope="row"><a href="#" style="display:block;">{{ software.swmtx_portcat_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ software.swmtx_portsts_fk }}</a></td>
+                        <td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{ software.sw_description }}</b></a></td><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{ software.sw_version }</b></a></td><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{ software.sw_vend_fk }}</b></a></td><td scope="row"><a href="#" style="display:block;">{{ software.sw_swcat_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ software.sw_swsts_fk }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>

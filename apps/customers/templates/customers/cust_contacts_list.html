@@ -8,7 +8,7 @@
             <tbody>
                 {% for contact in cust_contacts %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;">{{ contact.custcontact_firstname }} {{ contact.custcontact_lastname }}</a></td><td><a href="#" style="display:block;">{{ contact.custcontact_role }}</a></td><td><a href="#" style="display:block;">{{ contact.custcontact_mobnumber }}</a></td><td><a href="#" style="display:block;">{{ contact.custcontact_email }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;"><b>{{ contact.custcontact_firstname }}&nbsp;{{ contact.custcontact_lastname }}</b></a></td><td><a href="#" style="display:block;">{{ contact.custcontact_role }}</a></td><td><a href="#" style="display:block;">{{ contact.custcontact_mobnumber }}</a></td><td><a href="#" style="display:block;">{{ contact.custcontact_email }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
