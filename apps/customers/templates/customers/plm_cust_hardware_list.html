@@ -8,13 +8,13 @@
         <table class="table-adm table-adm-sm table-adm-hover table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Product</th><th>Vendor</th><th>Category</th><th>Status</th>
+                    <th scope="col">Product</th><th>Category</th><th>Status</th>
                  </tr>
             </thead>
             <tbody>
                 {% for product in cust_hardware %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;"><b>{{ product.hw_id }}&nbsp;&nbsp;{{ product.hw_description }}</b></a></td><td scope="row"><a href="#" style="display:block;">{{ product.hw_vend_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ product.hw_hwcat_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ product.hw_hwsts_fk }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;"><b>{{ product.hwmtx_id }}&nbsp;&nbsp;{{ product.hwmtx_hw_fk }}</b></a></td><td scope="row"><a href="#" style="display:block;">{{ product.hwmtx_portcat_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ product.hwmtx_portsts_fk }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
