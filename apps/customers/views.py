@@ -104,8 +104,8 @@ class PLMCustomerDetailView(LoginRequiredMixin, DetailView):
         context = super(PLMCustomerDetailView, self).get_context_data(**kwargs)
         self.request.session['cust_id'] = self.object.id    
         context.update({
-        'cust_hwproducts' : Hardware.objects.filter(hardwarematrix__customer__id=self.kwargs['pk']), #HardwareMatrix.objects.filter(hwmtx_cust_fk=self.kwargs['pk']),
-        'cust_swproducts' : Software.objects.filter(softwarematrix__customer__id=self.kwargs['pk']),
+        'cust_hwproducts' : Hardware.objects.filter(HardwareMatrix__hwmtx_cust_fk=self.kwargs['pk']),
+        'cust_swproducts' : SoftwareMatrix.objects.filter(swmtx_cust_fk=self.kwargs['pk']),
         'cust_notes' : CustomerNote.objects.filter(custnote_customer_fk=self.kwargs['pk']),
         'cust_contacts' : CustomerContact.objects.filter(custcontact_customer_fk=self.kwargs['pk']),
         })
