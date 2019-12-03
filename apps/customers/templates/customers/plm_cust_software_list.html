@@ -4,7 +4,7 @@
         </tr>
     </table>
     <hr/> {% endcomment %}
-    {% if cust_software %}
+    {% if cust_swproducts %}
         <table class="table-adm table-adm-sm table-adm-hover table-striped">
             <thead>
                 <tr>
@@ -12,9 +12,9 @@
                  </tr>
             </thead>
             <tbody>
-                {% for software in cust_software %}
+                {% for software in cust_swproducts %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;"><b>{{ software.sw_id }}&nbsp;&nbsp;{{ software.swmtx_sw_fk }}</b></a></td><td scope="row"><a href="#" style="display:block;">{{ software.swmtx_portcat_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ software.swmtx_portsts_fk }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;"><b>{{ software.swmtx_sw_fk }}</b></a></td><td scope="row"><a href="#" style="display:block;">{{ software.swmtx_portcat_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ software.swmtx_portsts_fk }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>

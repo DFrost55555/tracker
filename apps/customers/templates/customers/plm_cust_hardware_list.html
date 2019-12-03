@@ -4,7 +4,7 @@
         </tr>
     </table>
     <hr/> {% endcomment %}
-    {% if cust_hardware %}
+    {% if cust_hwproducts %}
         <table class="table-adm table-adm-sm table-adm-hover table-striped">
             <thead>
                 <tr>
@@ -12,9 +12,9 @@
                  </tr>
             </thead>
             <tbody>
-                {% for product in cust_hardware %}
+                {% for product in cust_hwproducts %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;"><b>{{ product.hwmtx_id }}&nbsp;&nbsp;{{ product.hwmtx_hw_fk }}</b></a></td><td scope="row"><a href="#" style="display:block;">{{ product.hwmtx_portcat_fk }}</a></td><td scope="row"><a href="#" style="display:block;">{{ product.hwmtx_portsts_fk }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;"><b>{{ product.hw_description }}</b></a></td><td scope="row"><a href="#" style="display:block;">#</a></td><td scope="row"><a href="#" style="display:block;">#</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
