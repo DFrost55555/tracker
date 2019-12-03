@@ -19,10 +19,10 @@
                 {% for product in cust_hwproducts %}
                     <tr>
                         <td scope="row"><a href="{% url 'hardware-detail' product.hw_id %}" style="display:block;"><b>{{ product.hw_description }}</b></a></td>
-                        <td scope="row"><a href="{% url 'hardware-detail' product.hw_id %}" style="display:block;"><b>hw_vend_fk</b></a></td>
-                        <td scope="row"><a href="{% url 'hardware-detail' product.hw_id %}" style="display:block;">hw_hwcat_fk</a></td>
-                        <td scope="row"><a href="{% url 'hardware-detail' product.hw_id %}" style="display:block;">hw_hwsts_fk</a></td>
-                        <td scope="row"><a href="{% url 'hardware-detail' product.hw_id %}" style="display:block;">hw_eol_date</a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' product.hw_id %}" style="display:block;"><b>{{ product.hw_vend_fk }}</b></a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' product.hw_id %}" style="display:block;">{{ product.hw_hwcat_fk }}</a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' product.hw_id %}" style="display:block;">{{ product.hw_hwsts_fk }}</a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' product.hw_id %}" style="display:block;">{{ product.hw_eol_date }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
