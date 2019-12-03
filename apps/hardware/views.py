@@ -52,7 +52,7 @@ class HardwareDetailView(LoginRequiredMixin, DetailView):
         context.update({
         'hw_notes' : HardwareNote.objects.filter(hwnote_hw_fk=self.kwargs['pk']),
         'hw_contacts' : HardwareContact.objects.filter(hwcontact_hw_fk=self.kwargs['pk']),
-        'hw_customers' : HardwareMatrix.objects.filter(hwmtx_hw_fk=self.kwargs['pk']),
+        'hw_customers' : Customer.objects.filter(hardwarematrix__hwmtx_hw_fk=self.kwargs['pk']),
         })
         return context
     
