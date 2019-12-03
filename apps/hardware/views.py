@@ -53,6 +53,7 @@ class HardwareDetailView(LoginRequiredMixin, DetailView):
         'hw_notes' : HardwareNote.objects.filter(hwnote_hw_fk=self.kwargs['pk']),
         'hw_contacts' : HardwareContact.objects.filter(hwcontact_hw_fk=self.kwargs['pk']),
         'hw_customers' : Customer.objects.filter(hardwarematrix__hwmtx_hw_fk=self.kwargs['pk']),
+        'hw_portfolio' : HardwareMatrix.objects.filter(hwmtx_hw_fk=self.kwargs['pk']),
         })
         return context
     
