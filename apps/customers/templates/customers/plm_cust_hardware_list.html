@@ -14,7 +14,7 @@
             <tbody>
                 {% for product in cust_hwproducts %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;"><b>{{ product.hw_description }}</b></a></td><td scope="row"><a href="#" style="display:block;">#</a></td><td scope="row"><a href="#" style="display:block;">#</a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' product.hw_id %}" style="display:block;"><b>{{ product.hw_description }}</b></a></td><td scope="row"><a href="#" style="display:block;">#</a></td><td scope="row"><a href="#" style="display:block;">#</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
