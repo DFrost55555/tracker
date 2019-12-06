@@ -18,13 +18,11 @@
             <tbody>
                 {% for customer in hw_customers %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;"><b>{{ customer.cust_name }}</b></a></td>
-                        {% for item in hw_portfolio %}
-                            <td scope="row"><a href="#" style="display:block;">{{ item.hwmtx_cust_code }}</a></td>
-                            <td scope="row"><a href="#" style="display:block;">{{ item.hwmtx_cust_ref }}</a></td>
-                            <td scope="row"><a href="#" style="display:block;">{{ item.hwmtx_portsts_fk }}</a></td>
-                            <td scope="row"><a href="#" style="display:block;">{{ item.hwmtx_portcat_fk }}</a></td>
-                        {% endfor %}
+                        <td scope="row"><a href="#" style="display:block;"><b>{{ customer.hwmtx_cust_fk }}</b></a></td>
+                        <td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_code }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_ref }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portsts_fk }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portcat_fk }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>

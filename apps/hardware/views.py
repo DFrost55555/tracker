@@ -1,4 +1,5 @@
 import csv, io
+from itertools import chain
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.core.paginator import Paginator
 from django.urls import reverse
@@ -48,12 +49,11 @@ class HardwareDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(HardwareDetailView, self).get_context_data(**kwargs)
-        self.request.session['hardware_id'] = self.object.hw_id
+        self.request.session['hardware_id'] = self.object.hw_id  
         context.update({
         'hw_notes' : HardwareNote.objects.filter(hwnote_hw_fk=self.kwargs['pk']),
         'hw_contacts' : HardwareContact.objects.filter(hwcontact_hw_fk=self.kwargs['pk']),
-        'hw_customers' : Customer.objects.filter(hardwarematrix__hwmtx_hw_fk=self.kwargs['pk']),
-        'hw_portfolio' : HardwareMatrix.objects.filter(hwmtx_hw_fk=self.kwargs['pk']),
+        'hw_customers' : HardwareMatrix.objects.filter(hwmtx_hw_fk=self.kwargs['pk']),
         })
         return context
     
