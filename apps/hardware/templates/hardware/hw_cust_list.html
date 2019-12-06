@@ -18,7 +18,7 @@
             <tbody>
                 {% for customer in hw_customers %}
                     <tr>
-                        <td scope="row"><a href="#" style="display:block;"><b>{{ customer.hwmtx_cust_f.id }}&nbsp;&nbsp;{{ customer.hwmtx_cust_fk }}</b></a></td>
+                        <td scope="row"><a href="#" style="display:block;"><b>{{ customer.hwmtx_cust_fk.pk }}&nbsp;&nbsp;{{ customer.hwmtx_cust_fk }}</b></a></td>
                         <td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_code }}</a></td>
                         <td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_cust_ref }}</a></td>
                         <td scope="row"><a href="#" style="display:block;">{{ customer.hwmtx_portsts_fk }}</a></td>
@@ -29,5 +29,5 @@
         </table>
         <hr class="mb-4"/>
     {% else %}
-        <h5 class="text-white text-center bg-dark border-top border-bottom mt-4 mb-4">No customers found...</h5>
+        <h5 class="text-white text-center bg-dark border-top border-bottom mt-4 mb-4">No customers procure this product...</h5>
     {% endif%}
