@@ -11,7 +11,7 @@
                         <td scope="row"><a href="#" style="display:block;"><b>{{ contact.hwcontact_firstname }} {{ contact.hwcontact_lastname }}</b></a></td>
                         <td><a href="#" style="display:block;">{{ contact.hwcontact_role }}</a></td>
                         <td><a href="#" style="display:block;">{{ contact.hwcontact_mobnumber }}</a></td>
-                        <td><a href="mailto:{% contact.hwcontact_email %}" style="display:block;"><b>{{ contact.hwcontact_email }}</b></a></td>
+                        <td><a style="display:block;"><b>{{ contact.hwcontact_email|urlize }}</b></a></td>
                     </tr>
                 {% endfor %}
               </tbody>
