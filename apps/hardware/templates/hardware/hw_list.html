@@ -30,7 +30,11 @@
             <tbody>
                 {% for hardware in queryset %}
                     <tr>
-                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;"><b>{{hardware.hw_description }}</b></a></td><td><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;"><b>{{hardware.hw_vend_fk}}</b></a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;"><b>{{hardware.hw_hwcat_fk }}</b></a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_portsts_fk }}</a></td><td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_eol_date }}</a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;"><b>{{hardware.hw_description }}</b></a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;"><b>{{hardware.hw_vend_fk}}</b></a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;"><b>{{hardware.hw_hwcat_fk }}</b></a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_portsts_fk }}</a></td>
+                        <td scope="row"><a href="{% url 'hardware-detail' hardware.hw_id %}" style="display:block;">{{hardware.hw_eol_date }}</a></td>
                     </tr>
                 {% endfor %}
               </tbody>
