@@ -132,7 +132,74 @@ class ListPriority(models.Model):
     def __str__(self):
         return self.ltprty_name
     
+    
+class ListImpact(models.Model):
+    ltimpact_id = models.AutoField(primary_key = True)
+    ltimpact_name = models.CharField('list impact name', max_length=150)
+    ltimpact_score = models.IntegerField('list impact score', max_length=2)
+    ltimpact_description = models.CharField('list impact description', max_length=2000)
+    ltimpact_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    ltimpact_createddate = models.DateTimeField(default=timezone.now)
+    ltimpact_modifiedby = models.ForeignKey(User, related_name='ltimpact_editor',on_delete=models.SET_NULL, null=True)
+    ltimpact_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.ltimpact_name
+    
 
+class ListSeverity(models.Model):
+    ltsev_id = models.AutoField(primary_key = True)
+    ltsev_name = models.CharField('list severity name', max_length=150)
+    ltsev_score = models.IntegerField('list severity score', max_length=2)
+    ltsev_description = models.CharField('list severity description', max_length=2000)
+    ltsev_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    ltsev_createddate = models.DateTimeField(default=timezone.now)
+    ltsev_modifiedby = models.ForeignKey(User, related_name='ltsev_editor',on_delete=models.SET_NULL, null=True)
+    ltsev_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.ltsev_name
+    
+        
+class ListStatus(models.Model):
+    ltsts_id = models.AutoField(primary_key = True)
+    ltsts_name = models.CharField('list status name', max_length=150)
+    ltsts_description = models.CharField('list status description', max_length=2000)
+    ltsts_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    ltsts_createddate = models.DateTimeField(default=timezone.now)
+    ltsts_modifiedby = models.ForeignKey(User, related_name='ltsts_editor',on_delete=models.SET_NULL, null=True)
+    ltsts_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.ltsts_name
+
+class RiskImpact(models.Model):
+    rskimpact_id = models.AutoField(primary_key = True)
+    rskimpact_name = models.CharField('risk impact name', max_length=150)
+    rskimpact_score = models.IntegerField('risk impact score', max_length=2)
+    rskimpact_description = models.CharField('risk impact description', max_length=2000)
+    rskimpact_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    rskimpact_createddate = models.DateTimeField(default=timezone.now)
+    rskimpact_modifiedby = models.ForeignKey(User, related_name='rskimpact_editor',on_delete=models.SET_NULL, null=True)
+    rskimpact_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.rskimpact_name
+    
+
+class RiskLikelihood(models.Model):
+    rsklklh_id = models.AutoField(primary_key = True)
+    rsklklh_name = models.CharField('risk likelihood name', max_length=150)
+    rsklklh_score = models.IntegerField('risk likelihood score', max_length=2)
+    rsklklh_description = models.CharField('risk likelihood description', max_length=2000)
+    rsklklh_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    rsklklh_createddate = models.DateTimeField(default=timezone.now)
+    rsklklh_modifiedby = models.ForeignKey(User, related_name='rsklklh_editor',on_delete=models.SET_NULL, null=True)
+    rsklklh_modifieddate = models.DateTimeField(auto_now=True, null=True)
+    
+    def __str__(self):
+        return self.rsklklh_name
+    
 class HardwareCategory(models.Model):
     hwcat_id = models.AutoField(primary_key = True)
     hwcat_name = models.CharField('hardware category name', max_length=150)
