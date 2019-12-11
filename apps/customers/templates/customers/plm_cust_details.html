@@ -1,5 +1,5 @@
 <div class="container">
-    <legend class="border-bottom mb-4">Customer Details</legend>
+    <legend class="border-bottom mb-4">CUSTOMER DETAILS</legend>
     <h2 class="mb-4"><b>{{ object.cust_name }}</b></h2>
     <hr/>
     <br>
@@ -12,30 +12,4 @@
     <br>
     <br>
     <br>
-    <div class="row">
-        <div class="col-md-12">
-            <!-- Tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#contacts"><b>CONTACTS</b></a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#notes"><b>NOTES</b></a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#hardware"><b>HARDWARE PORTFOLIO</b></a></li>
-                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#software"><b>SOFTWARE PORTFOLIO</b></a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div id="contacts" class="container tab-pane active"><br>
-                    {% include "../customers/cust_contacts_list.html" %}
-                </div>
-                <div id="notes" class="container tab-pane"><br>
-                {% include "../customers/cust_notes_list.html" %}
-                </div>
-                <div id="hardware" class="container tab-pane"><br>
-                    {% include "../customers/plm_cust_hardware_list.html" %}
-                </div>
-                <div id="software" class="container tab-pane"><br>
-                    {% include "../customers/plm_cust_software_list.html" %}
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
