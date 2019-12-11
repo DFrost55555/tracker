@@ -181,6 +181,7 @@ class SoftwareMatrix(models.Model):
     swmtx_id = models.AutoField(primary_key = True)
     swmtx_sw_fk = models.ForeignKey(Software, verbose_name='Software Product', on_delete=models.SET_NULL, blank=True, null=True)
     swmtx_cust_fk = models.ForeignKey(Customer, verbose_name='Software Customer', on_delete=models.SET_NULL,blank=True, null=True)
+    swmtx_cust_code = models.CharField('Customer Reference', max_length=250, blank=True, null=True)
     swmtx_cust_ref = models.CharField('Customer Reference', max_length=250, blank=True, null=True)
     swmtx_portsts_fk = models.ForeignKey(SWPortfolioStatus, verbose_name='Portfolio Status', on_delete=models.SET_NULL,blank=True, null=True)
     swmtx_portcat_fk = models.ForeignKey(SWPortfolioCategory, verbose_name='Portfolio Category', on_delete=models.SET_NULL,blank=True, null=True)

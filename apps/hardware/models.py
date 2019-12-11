@@ -115,7 +115,6 @@ class HardwareMatrix(models.Model):
     hwmtx_id = models.AutoField(primary_key = True)
     hwmtx_hw_fk = models.ForeignKey(Hardware, verbose_name='Hardware Product', on_delete=models.SET_NULL, blank=True, null=True)
     hwmtx_cust_fk = models.ForeignKey(Customer, verbose_name='Hardware Customer', on_delete=models.SET_NULL,blank=True, null=True)
-    hwmtx_cust_ref = models.CharField('Customer Reference', max_length=250, blank=True, null=True)
     hwmtx_portsts_fk = models.ForeignKey(PortfolioStatus, verbose_name='Portfolio Status', on_delete=models.SET_NULL,blank=True, null=True)
     hwmtx_portcat_fk = models.ForeignKey(PortfolioCategory, verbose_name='Portfolio Category', on_delete=models.SET_NULL,blank=True, null=True)
     hwmtx_hwcat_fk = models.ForeignKey(HardwareCategory, verbose_name='Hardware Category', on_delete=models.SET_NULL,blank=True, null=True)

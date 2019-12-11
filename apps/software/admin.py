@@ -5,8 +5,8 @@ from .models import SWPortfolioStatus,Software,SoftwareContact,SoftwareNote, SWP
 # Register your models here.
 
 class SoftwareMatrixAdmin(admin.ModelAdmin):
-    list_display = ('swmtx_id', 'swmtx_hw_fk','swmtx_cust_fk','swmtx_portsts_fk','swmtx_portcat_fk')
-    list_display_links = ('swmtx_sw_fk')
+    list_display = ('swmtx_id', 'swmtx_sw_fk','swmtx_cust_fk','swmtx_portsts_fk','swmtx_portcat_fk')
+    list_display_links = ('swmtx_sw_fk','swmtx_cust_fk','swmtx_portsts_fk','swmtx_portcat_fk')
     list_per_page = 15
 
 admin.site.register(SWPortfolioStatus)

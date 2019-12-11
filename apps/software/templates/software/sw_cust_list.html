@@ -1,0 +1,35 @@
+    <table>
+        <tr>
+            <td><a class="nav-item-2" href="#"><button type="button" class="btn btn-primary-adm btn-sm">Associate Customer...</button></a></td>
+        </tr>
+    </table>
+    <hr/> 
+    {% if sw_customers %}
+        <table class="table-adm table-adm-sm table-adm-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Customer</th>
+                    <th>Customer Code</th>
+                    <th>Customer Reference</th>
+                    <th>Category</th>                    
+                    <th>Status</th>
+                 </tr>
+            </thead>
+            <tbody>
+                {% for customer in sw_customers %}
+                    <tr>
+                        <td scope="row"><a href="{% url 'plm-customer-detail' customer.swmtx_cust_fk.pk %}" style="display:block;">
+                            <b>{{ customer.swmtx_cust_fk }}</b>
+                        </a></td>
+                        <td scope="row"><a href="#" style="display:block;">{{ customer.swmtx_cust_code }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;">{{ customer.swmtx_cust_ref }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;">{{ customer.swmtx_portcat_fk }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;">{{ customer.swmtx_portsts_fk }}</a></td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+        </table>
+        <hr class="mb-4"/>
+    {% else %}
+        <h5 class="text-white text-center bg-dark border-top border-bottom mt-4 mb-4">No customers procure this software product...</h5>
+    {% endif %}
