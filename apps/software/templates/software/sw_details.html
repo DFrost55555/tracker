@@ -1,12 +1,12 @@
         <main role="main" class="container">
             <div class="row">
                 <div class="content-section col-md-12">
-                    <legend class="border-bottom mb-4">SOFTWARE DETAILS</legend>
+                    <legend class="border-bottom mb-2">SOFTWARE DETAILS</legend>
                     <h2><b>{{ object.sw_description }}&nbsp;{{ object.sw_version }}</b></h2>
                     <h3 class="mb-2">{{ object.sw_vend_fk }}</h3>
                     <hr class="mt-2 mb-2">
                     <div class="row mt-2">
-                        <h6 class="col-md-12" mb4>Milestone Dates</h6>
+                        <legend class="border-bottom mb-2">Milestone Dates</legend>
                         <div class="col-md-4 pg-detail-hdr">End of Sale</div>
                         <div class="col-md-4 pg-detail-hdr">End of Mainstream Support</div>
                     </div>
@@ -37,12 +37,12 @@
                         <div class="col-md-4 pg-detail-txt">{{ object.sw_plp_txt }}</div>
                     </div>
                     <div class="row mt-2">
-                        <h6 class="col-md-12 mb-4">Software Bandings</h6>
+                        <legend class="border-bottom mb-2">Software Bandings</legend>
                         <div class="col-md-4 pg-detail-hdr">Software Classification</div>
                         <div class="col-md-4 pg-detail-hdr">Software Category</div>
                         <div class="col-md-4 pg-detail-hdr">Software Status</div>
                     </div>
-                    <div class="row mb-4">
+                    <div class="row">
                         <div class="col-md-4 pg-detail-txt">{{ object.sw_swclass_fk }}</div>
                         <div class="col-md-4 pg-detail-txt">{{ object.sw_swcat_fk }}</div>
                         <div class="col-md-4 pg-detail-txt">{{ object.sw_swsts_fk }}</div>
