@@ -166,7 +166,7 @@ class SWMatrixCreateView(LoginRequiredMixin, CreateView):
         
 class SWMatrixUpdateView(LoginRequiredMixin, UpdateView):
     model = SoftwareMatrix
-    form_class = SoftwareVendorModelForm
+    form_class = SoftwareMatrixModelForm
     
     def form_valid(self, form):
         form.instance.swvend_modifiedby = self.request.user
