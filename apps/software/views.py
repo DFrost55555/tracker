@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.models import User, Group
 from django.contrib import messages
 from django.views.generic.base import TemplateView, RedirectView
@@ -16,7 +17,7 @@ from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, 
 from apps.lists.models import ProductType,SoftwareCategory,SoftwareStatus
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
-from .forms import SoftwareModelForm, SoftwareVendorModelForm, SoftwareMatrixModelForm
+from .forms import SoftwareModelForm, SoftwareVendorModelForm, SoftwareMatrixModelForm, SoftwareMatrixForm
 
 
 # Create your views here.
@@ -152,8 +153,23 @@ class SWMatrixDetailView(LoginRequiredMixin, DetailView):
     #     })        
     #     return context
     
+@permission_required('admin.can_add_log_entry') 
+def SWMatrixCreateView(request):
+    initial_data = {
+        'swmtx_sw_fk': request.session['swprd_id']
+    }
+    swmtx_create_form = SoftwareMatrixForm(request.POST or None, initial=initial_data)
+    if swmtx_create_form.is_valid():
+        swmtx_create_form.save()
+    context = {
+        'form': swmtx_create_form
+    }
+    return render(request, "software/softwarematrix_form.html", context)
 
-class SWMatrixCreateView(LoginRequiredMixin, CreateView):
+
+
+
+class SWMatrixCreateModelView(LoginRequiredMixin, CreateView):
     model = SoftwareMatrix
     form_class = SoftwareMatrixModelForm
     

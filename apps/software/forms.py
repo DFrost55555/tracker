@@ -3,10 +3,11 @@ from django import forms
 #from bootstrap_datepicker_plus import DatePickerInput
 from django.forms import ModelChoiceField
 #from bootstrap_datepicker.widgets import DatePicker
-from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, SWPortfolioCategory, SoftwareVendor, SWVendorContact, SWVendorNote
+from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, SWPortfolioCategory, SoftwareVendor, SWVendorContact, SWVendorNote, SoftwareMatrix
 from apps.lists.models import ProductType, SoftwareCategory, SoftwareStatus, SoftwareClassification, YesNo, TrueFalse, SoftwareFrequency, VendorFrequency
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
+
 
 class DatePicker(forms.DateInput):
     input_type = 'date'
@@ -91,26 +92,33 @@ class SoftwareVendorModelForm(forms.ModelForm):
         ]
         
         
-class SoftwareMatrixModelForm(forms.ModelForm):
-    swmtx_sw_fk = ModelChoiceField(label='Software', queryset=Software.objects.all().order_by('sw_description'), required=True)
-    swmtx_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), required=True)
-    swmtx_cust_code = forms.CharField(label='Customer Code', widget=forms.TextInput(), required=False)
-    swmtx_cust_ref = forms.CharField(label='Customer Code', widget=forms.TextInput(), required=False)
-    swmtx_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=SWPortfolioStatus.objects.all(), initial=0, required=True)
-    swmtx_portcat_fk = ModelChoiceField(label='Portfolio Category', queryset=SWPortfolioCategory.objects.all(), initial=0, required=True)
-    
+class SoftwareMatrixForm(forms.ModelForm):
     class Meta:
-        model = SoftwareVendor
+        model = SoftwareMatrix
         fields = [
-            "swmtx_sw_fk",
-            "swmtx_cust_fk",
-            "swmtx_cust_code",
-            "swmtx_cust_ref",
-            "swmtx_portsts_fk",
-            "swmtx_portcat_fk",
+            'swmtx_sw_fk',
+            'swmtx_cust_fk',
+            'swmtx_cust_code',
+            'swmtx_cust_ref',
+            'swmtx_portsts_fk',
+            'swmtx_portcat_fk',
+            'swmtx_swclass_fk',
+            'swmtx_swcat_fk',
+            'swmtx_swsts_fk',
         ]
-
-    def __init__(self, *args, **kwargs):
-        super(SoftwareMatrixModelForm, self).__init__(*args, **kwargs)
-        self.fields['swmtx_sw_fk.id'] = self.request.session['swprd_id']
+        
+class SoftwareMatrixModelForm(forms.ModelForm):
+    class Meta:
+        model = SoftwareMatrix
+        fields = [
+            'swmtx_sw_fk',
+            'swmtx_cust_fk',
+            'swmtx_cust_code',
+            'swmtx_cust_ref',
+            'swmtx_portsts_fk',
+            'swmtx_portcat_fk',
+            'swmtx_swclass_fk',
+            'swmtx_swcat_fk',
+            'swmtx_swsts_fk',
+        ]
         
