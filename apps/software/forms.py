@@ -89,3 +89,23 @@ class SoftwareVendorModelForm(forms.ModelForm):
         fields = [
             "swvend_name",
         ]
+        
+        
+class SoftwareMatrixModelForm(forms.ModelForm):
+    swmtx_sw_fk = ModelChoiceField(label='Vendor', queryset=Software.objects.all().order_by('sw_description'), initial=0, required=True)
+    swmtx_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=False)
+    swmtx_cust_code = forms.CharField(label='Customer Code', widget=forms.TextInput(), required=False)
+    swmtx_cust_ref = forms.CharField(label='Customer Code', widget=forms.TextInput(), required=False)
+    swmtx_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=SWPortfolioStatus.objects.all(), initial=0, required=False)
+    swmtx_portcat_fk = ModelChoiceField(label='Portfolio Category', queryset=SWPortfolioCategory.objects.all(), initial=0, required=False)
+    
+    class Meta:
+        model = SoftwareVendor
+        fields = [
+            "swmtx_sw_fk",
+            "swmtx_cust_fk",
+            "swmtx_cust_code",
+            "swmtx_cust_ref",
+            "swmtx_portsts_fk",
+            "swmtx_portcat_fk",
+        ]

@@ -16,7 +16,7 @@ from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, 
 from apps.lists.models import ProductType,SoftwareCategory,SoftwareStatus
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
-from .forms import SoftwareModelForm, SoftwareVendorModelForm
+from .forms import SoftwareModelForm, SoftwareVendorModelForm, SoftwareMatrixModelForm
 
 
 # Create your views here.
@@ -135,4 +135,43 @@ class SWVendorUpdateView(LoginRequiredMixin, UpdateView):
     
 class SWVendorDeleteView(LoginRequiredMixin, DeleteView):
     model = SoftwareVendor
+    success_url = '/'
+    
+    
+class SWMatrixDetailView(LoginRequiredMixin, DetailView):
+    model = SoftwareMatrix
+    
+    
+    # def get_context_data(self, **kwargs):
+    #     context = super(SWMatrixDetailView, self).get_context_data(**kwargs)
+    #     self.request.session['swvend_id'] = self.object.swvend_id
+    #     context.update({
+    #     'swmtx_products' : Software.objects.filter(sw_vend_fk=self.kwargs['pk']),
+    #     'swmtx_contacts' : SWVendorContact.objects.filter(swvendcontact_vend_fk=self.kwargs['pk']),
+    #     'swmtx_notes' : SWVendorNote.objects.filter(swvendnote_vend_fk=self.kwargs['pk']),
+    #     })        
+    #     return context
+    
+
+class SWMatrixCreateView(LoginRequiredMixin, CreateView):
+    model = SoftwareMatrix
+    form_class = SoftwareMatrixModelForm
+    
+    def form_valid(self, form):
+        form.instance.swvend_createdby = self.request.user
+        form.instance.swvend_modifiedby = self.request.user
+        return super().form_valid(form)
+    
+        
+class SWMatrixUpdateView(LoginRequiredMixin, UpdateView):
+    model = SoftwareMatrix
+    form_class = SoftwareVendorModelForm
+    
+    def form_valid(self, form):
+        form.instance.swvend_modifiedby = self.request.user
+        return super().form_valid(form)
+
+    
+class SWMatrixDeleteView(LoginRequiredMixin, DeleteView):
+    model = SoftwareMatrix
     success_url = '/'

@@ -1,0 +1,31 @@
+{% extends "../products/prod_base.html" %}
+{% block content %}
+    {% with breadcrumb="SOFTWARE VENDORS"%}
+        {% include "./swvend_pagetopper.html" %}
+    {% endwith %}
+    {% include "./swvend_pgheader.html" %}
+    {% if user.is_authenticated %}
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-12">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                    {% include "./swvend_list.html" %}
+                </div>
+            </div>
+        </main>
+    {% else %}
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% include "../products/prod_warning.html" %}
+                </div>
+            </div>
+        </main>
+    {% endif %}
+{% endblock content %}

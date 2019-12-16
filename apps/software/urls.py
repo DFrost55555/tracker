@@ -27,6 +27,10 @@ from .views import (
     SWVendorCreateView,
     SWVendorUpdateView,
     SWVendorDeleteView,
+    SWMatrixDetailView,
+    SWMatrixCreateView,
+    SWMatrxUpdateView,
+    SWMatrixDeleteView,
 )
 urlpatterns = [
     path('software/', SoftwareFilterView, name='software-home'),
@@ -39,4 +43,8 @@ urlpatterns = [
     path('software/vendor/new/', SWVendorCreateView.as_view(), name='swvend-create'),
     path('software/vendor/<int:pk>/update/', SWVendorUpdateView.as_view(), name='swvend-update'),
     path('software/vendor/<int:pk>/delete/', SWVendorDeleteView.as_view(), name='swvend-delete'),
+    path('software/matrix/<int:pk>/', SWMatrixDetailView.as_view(), name='swmtx-detail'),
+    path('software/matrix/new/', SWMatrixCreateView.as_view(), name='swmtx-create'),
+    path('software/matrix/<int:pk>/update/', SWMatrxUpdateView.as_view(), name='swmtx-update'),
+    path('software/matrix/<int:pk>/delete/', SWMatrixDeleteView.as_view(), name='swmtx-delete'),
 ]
