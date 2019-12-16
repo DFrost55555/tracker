@@ -157,18 +157,12 @@ class SWMatrixCreateView(LoginRequiredMixin, CreateView):
     model = SoftwareMatrix
     form_class = SoftwareMatrixModelForm
     
+    
     def form_valid(self, form):
         form.instance.swmtx_sw_fk.id = self.request.session['swprd_id']
         form.instance.swvend_createdby = self.request.user
         form.instance.swvend_modifiedby = self.request.user
         return super().form_valid(form)
-    
-    def get_success_url(self, **kwargs):
-        swmtx_swprd_id = self.request.session['swprd_id']         
-        if  self.request.session['swprd_id'] != None:
-            return reverse_lazy('software-detail', kwargs = {'pk': kwargs['swmtx_swprd_id']})
-        else:
-            return reverse_lazy('software-home')
     
         
 class SWMatrixUpdateView(LoginRequiredMixin, UpdateView):

@@ -92,8 +92,8 @@ class SoftwareVendorModelForm(forms.ModelForm):
         
         
 class SoftwareMatrixModelForm(forms.ModelForm):
-    swmtx_sw_fk = forms.IntegerField(label='Software ID', widget=forms.HiddenInput(), required=False)
-    swmtx_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=True)
+    swmtx_sw_fk = ModelChoiceField(label='Software', queryset=Software.objects.all().order_by('sw_description'), required=True)
+    swmtx_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), required=True)
     swmtx_cust_code = forms.CharField(label='Customer Code', widget=forms.TextInput(), required=False)
     swmtx_cust_ref = forms.CharField(label='Customer Code', widget=forms.TextInput(), required=False)
     swmtx_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=SWPortfolioStatus.objects.all(), initial=0, required=True)
@@ -109,3 +109,8 @@ class SoftwareMatrixModelForm(forms.ModelForm):
             "swmtx_portsts_fk",
             "swmtx_portcat_fk",
         ]
+
+    def __init__(self, *args, **kwargs):
+        super(SoftwareMatrixModelForm, self).__init__(*args, **kwargs)
+        self.fields['swmtx_sw_fk.id'] = self.request.session['swprd_id']
+        
