@@ -47,7 +47,7 @@ class SoftwareDetailView(LoginRequiredMixin, DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(SoftwareDetailView, self).get_context_data(**kwargs)
-        self.request.session['swmtx_swprd_id'] = self.object.sw_id
+        self.request.session['swprd_id'] = self.object.sw_id
         context.update({
         'sw_customers' : SoftwareMatrix.objects.filter(swmtx_sw_fk=self.kwargs['pk']),
         'sw_contacts' : SoftwareContact.objects.filter(swcontact_sw_fk=self.kwargs['pk']),
