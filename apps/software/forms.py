@@ -92,12 +92,12 @@ class SoftwareVendorModelForm(forms.ModelForm):
         
         
 class SoftwareMatrixModelForm(forms.ModelForm):
-    swmtx_sw_fk = ModelChoiceField(label='Software', queryset=Software.objects.all().order_by('sw_description'), widget=forms.HiddenInput(), required=False)
-    swmtx_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=False)
+    swmtx_sw_fk = forms.IntegerField(label='Software ID', widget=forms.HiddenInput(), required=False)
+    swmtx_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=True)
     swmtx_cust_code = forms.CharField(label='Customer Code', widget=forms.TextInput(), required=False)
     swmtx_cust_ref = forms.CharField(label='Customer Code', widget=forms.TextInput(), required=False)
-    swmtx_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=SWPortfolioStatus.objects.all(), initial=0, required=False)
-    swmtx_portcat_fk = ModelChoiceField(label='Portfolio Category', queryset=SWPortfolioCategory.objects.all(), initial=0, required=False)
+    swmtx_portsts_fk = ModelChoiceField(label='Portfolio Status', queryset=SWPortfolioStatus.objects.all(), initial=0, required=True)
+    swmtx_portcat_fk = ModelChoiceField(label='Portfolio Category', queryset=SWPortfolioCategory.objects.all(), initial=0, required=True)
     
     class Meta:
         model = SoftwareVendor
