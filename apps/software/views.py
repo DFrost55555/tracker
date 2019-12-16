@@ -158,6 +158,7 @@ class SWMatrixCreateView(LoginRequiredMixin, CreateView):
     form_class = SoftwareMatrixModelForm
     
     def form_valid(self, form):
+        form.instance.swmtx_sw_fk = self.request.session['swprd_id']
         form.instance.swvend_createdby = self.request.user
         form.instance.swvend_modifiedby = self.request.user
         return super().form_valid(form)
