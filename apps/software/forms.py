@@ -92,7 +92,7 @@ class SoftwareVendorModelForm(forms.ModelForm):
         
         
 class SoftwareMatrixModelForm(forms.ModelForm):
-    swmtx_sw_fk = ModelChoiceField(label='Vendor', queryset=Software.objects.all().order_by('sw_description'), initial=0, required=False)
+    swmtx_sw_fk = ModelChoiceField(label='Software', queryset=Software.objects.all().order_by('sw_description'), widget=forms.HiddenInput(), required=False)
     swmtx_cust_fk = ModelChoiceField(label='Customer', queryset=Customer.objects.all().order_by('cust_name'), initial=0, required=False)
     swmtx_cust_code = forms.CharField(label='Customer Code', widget=forms.TextInput(), required=False)
     swmtx_cust_ref = forms.CharField(label='Customer Code', widget=forms.TextInput(), required=False)
