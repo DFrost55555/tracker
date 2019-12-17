@@ -1,0 +1,34 @@
+{% extends "../products/prod_base.html" %}
+{% block content %}
+    {% with breadcrumb="SOFTWARE / Software Portfolio / Customer Association"%}
+        {% include "./swmtx_pagetopper.html" %}
+    {% endwith %}
+    {% include "./swmtx_pgheader.html" %}
+    {% if user.is_authenticated %}
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-9">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                    {% include "../software/swmtx_delete.html" %}
+                </div>
+                <div class="col-md-3">
+                    {% include "../software/swmtx_deleteoptions.html" %}
+                </div>
+            </div>
+        </main>
+    {% else %}
+            <main role="main" class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% include "../products/prod_warning.html" %}
+                    </div>
+                </div>
+            </main>
+    {% endif %}
+{% endblock content %}
