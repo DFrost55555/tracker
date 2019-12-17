@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -155,14 +155,19 @@ class SWMatrixDetailView(LoginRequiredMixin, DetailView):
     
 @permission_required('admin.can_add_log_entry') 
 def SWMatrixCreateView(request):
-    initial_data = {
-        'swmtx_sw_fk': request.session['swprd_id'],
-        'swmtx_createdby': request.user,
-        'swmtx_modifiedby': request.user
-    }
-    swmtx_create_form = SoftwareMatrixForm(request.POST or None, initial=initial_data)
-    if swmtx_create_form.is_valid():
-        swmtx_create_form.save()
+    if request.method == "POST":
+        initial_data = {
+            'swmtx_sw_fk': request.session['swprd_id'],
+            'swmtx_createdby': request.user,
+            'swmtx_modifiedby': request.user
+        }
+        swmtx_create_form = SoftwareMatrixForm(request.POST or None, initial=initial_data)
+        if swmtx_create_form.is_valid():
+            swmtx_create_form.save()
+            return redirect('software-detail', pk=request.session['swprd_id'])
+    else:
+        swmtx_create_form = SoftwareMatrixForm(request.POST or None, initial=initial_data)
+        
     context = {
         'form': swmtx_create_form
     }
