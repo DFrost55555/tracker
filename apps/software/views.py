@@ -167,8 +167,6 @@ def SWMatrixCreateView(request):
     return render(request, "software/softwarematrix_form.html", context)
 
 
-
-
 class SWMatrixCreateModelView(LoginRequiredMixin, CreateView):
     model = SoftwareMatrix
     form_class = SoftwareMatrixModelForm
