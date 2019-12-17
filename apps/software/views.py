@@ -156,7 +156,9 @@ class SWMatrixDetailView(LoginRequiredMixin, DetailView):
 @permission_required('admin.can_add_log_entry') 
 def SWMatrixCreateView(request):
     initial_data = {
-        'swmtx_sw_fk': request.session['swprd_id']
+        'swmtx_sw_fk': request.session['swprd_id'],
+        'swmtx_createdby': request.user,
+        'swmtx_modifiedby': request.user
     }
     swmtx_create_form = SoftwareMatrixForm(request.POST or None, initial=initial_data)
     if swmtx_create_form.is_valid():
