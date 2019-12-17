@@ -102,10 +102,13 @@ class SoftwareMatrixForm(forms.ModelForm):
             'swmtx_cust_ref',
             'swmtx_portsts_fk',
             'swmtx_portcat_fk',
-            'swmtx_swclass_fk',
-            'swmtx_swcat_fk',
-            'swmtx_swsts_fk',
+            'swmtx_createdby',
+            'swmtx_modifiedby',
         ]
+        widgets = {
+            'swmtx_sw_fk': forms.HiddenInput(),
+        }
+        
         
 class SoftwareMatrixModelForm(forms.ModelForm):
     class Meta:
