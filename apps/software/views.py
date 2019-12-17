@@ -160,13 +160,17 @@ def SWMatrixCreateView(request):
         'swmtx_createdby': request.user,
         'swmtx_modifiedby': request.user
     }
+    
     swmtx_create_form = SoftwareMatrixForm(request.POST or None, initial=initial_data)
+    
     if swmtx_create_form.is_valid():
         swmtx_create_form.save()
-        return redirect('software-detail', pk=request.session['swprd_id'])        
+        return redirect('software-detail', pk=request.session['swprd_id'])
+         
     context = {
         'form': swmtx_create_form
     }
+    
     return render(request, "software/softwarematrix_form.html", context)
 
 

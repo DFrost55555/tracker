@@ -13,6 +13,7 @@
                     <th>Customer Reference</th>
                     <th>Portfolio Category</th>                    
                     <th>Portfolio Status</th>
+                    <th></th>
                  </tr>
             </thead>
             <tbody>
@@ -25,6 +26,7 @@
                         <td scope="row"><a href="#" style="display:block;">{{ customer.swmtx_cust_ref }}</a></td>
                         <td scope="row"><a href="#" style="display:block;">{{ customer.swmtx_portcat_fk }}</a></td>
                         <td scope="row"><a href="#" style="display:block;">{{ customer.swmtx_portsts_fk }}</a></td>
+                        <td scope="row"><a href="#" style="display:block;"><i class="fas fa-minus-circle"></i></a></td>
                     </tr>
                 {% endfor %}
               </tbody>
