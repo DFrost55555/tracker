@@ -141,6 +141,7 @@ class SWVendorDeleteView(LoginRequiredMixin, DeleteView):
     
 class SWMatrixDetailView(LoginRequiredMixin, DetailView):
     model = SoftwareMatrix
+    request.session['swmtx_id'] = object.swmtx_id
 
     
 @permission_required('admin.can_add_log_entry') 
@@ -186,4 +187,6 @@ class SWMatrixUpdateView(LoginRequiredMixin, UpdateView):
     
 class SWMatrixDeleteView(LoginRequiredMixin, DeleteView):
     model = SoftwareMatrix
-    success_url = '/'
+    
+    def get_success_url (self):
+        return reverse_lazy('software-detail', kwargs={'pk': self.request.session['swprd_id']})
