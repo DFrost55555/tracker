@@ -26,7 +26,7 @@
                         <td scope="row"><a href="#" style="display:block;">{{ customer.swmtx_cust_ref }}</a></td>
                         <td scope="row"><a href="#" style="display:block;">{{ customer.swmtx_portcat_fk }}</a></td>
                         <td scope="row"><a href="#" style="display:block;">{{ customer.swmtx_portsts_fk }}</a></td>
-                        <td scope="row"><a href="{% url 'swmtx-detail' customer.swmtx_id %}" style="display:block;"><i class="fas fa-file-alt"></i></a></td>
+                        <td scope="row"><a href="{% url 'swmtx-detail' customer.swmtx_id %}" style="display:block;"><i class="fas fa-file-alt"></i><b>&nbsp;Details</b></a></td>
                     </tr>
                 {% endfor %}
             </tbody>
