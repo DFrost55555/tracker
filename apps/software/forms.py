@@ -107,6 +107,8 @@ class SoftwareMatrixForm(forms.ModelForm):
         ]
         widgets = {
             'swmtx_sw_fk': forms.HiddenInput(),
+            'swmtx_createdby': forms.HiddenInput(),
+            'swmtx_modifiedby': forms.HiddenInput(),            
         }
         
         
@@ -125,4 +127,6 @@ class SoftwareMatrixModelForm(forms.ModelForm):
         ]
         widgets = {
             'swmtx_sw_fk': forms.HiddenInput(),
+            'swmtx_createdby': forms.HiddenInput(),
+            'swmtx_modifiedby': forms.HiddenInput(),
         }

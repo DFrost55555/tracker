@@ -5,7 +5,7 @@
                         {% csrf_token %}
                         <fieldset class="form-group">
                             <legend class="border-bottom mb-4">Remove Customer Association</legend>
-                            <h2>Are you sure you want to remove the customer association: "{{ object.cust_name }}"</h2>
+                            <h2>Are you sure you want to remove the customer association: "{{ object.swmtx_cust_fk }}"</h2>
                         </fieldset>
                         <div class="form-group">
                             <button class="btn btn-outline-danger" type="submit">Remove ?</button>
