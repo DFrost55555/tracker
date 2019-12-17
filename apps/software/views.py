@@ -141,7 +141,11 @@ class SWVendorDeleteView(LoginRequiredMixin, DeleteView):
     
 class SWMatrixDetailView(LoginRequiredMixin, DetailView):
     model = SoftwareMatrix
-    request.session['swmtx_id'] = object.swmtx_id
+
+    def get_context_data(self, **kwargs):
+        context = super(SWMatrixDetailView, self).get_context_data(**kwargs)
+        self.request.session['swmtx_id'] = self.object.swmtx_id       
+        return context
 
     
 @permission_required('admin.can_add_log_entry') 
