@@ -1,51 +1,51 @@
         <main role="main" class="container">
             <div class="row">
-                <div class="content-section col-md-12">
+                <div class="content-section col-lg-12">
                     <legend class="border-bottom mb-2">SOFTWARE DETAILS&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;ID:&nbsp;&nbsp;{{ request.session.swprd_id }}</legend>
                     <h2><b>{{ object.sw_description }}&nbsp;{{ object.sw_version }}</b></h2>
                     <h3 class="mb-2">{{ object.sw_vend_fk }}</h3>
                     <hr class="mt-2 mb-2">
                     <legend class="border-bottom mb-2">MILESTONE DATES</legend>
                     <div class="row mt-2">
-                        <div class="col-md-4 pg-detail-hdr">End of Sale</div>
-                        <div class="col-md-4 pg-detail-hdr">End of Mainstream Support</div>
+                        <div class="col-lg-4 pg-detail-hdr">End of Sale</div>
+                        <div class="col-lg-4 pg-detail-hdr">End of Mainstream Support</div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col-md-4 pg-detail-txt">{{ object.sw_eol_date}}</div>
-                        <div class="col-md-4 pg-detail-txt">{{ object.sw_ems_date }}</div>
+                        <div class="col-lg-4 pg-detail-txt">{{ object.sw_eol_date}}</div>
+                        <div class="col-lg-4 pg-detail-txt">{{ object.sw_ems_date }}</div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-4 pg-detail-hdr">End of Extended Support - Period 1</div>
-                        <div class="col-md-4 pg-detail-hdr">End of Extended Support - Period 2</div>
-                        <div class="col-md-4 pg-detail-hdr">End of Extended Support - Period 3</div>
+                        <div class="col-lg-4 pg-detail-hdr">End of Extended Support - Period 1</div>
+                        <div class="col-lg-4 pg-detail-hdr">End of Extended Support - Period 2</div>
+                        <div class="col-lg-4 pg-detail-hdr">End of Extended Support - Period 3</div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col-md-4 pg-detail-txt">{{ object.sw_ees1_date}}</div>
-                        <div class="col-md-4 pg-detail-txt">{{ object.sw_ees2_date }}</div>
-                        <div class="col-md-4 pg-detail-txt">{{ object.sw_ees3_date }}</div>
+                        <div class="col-lg-4 pg-detail-txt">{{ object.sw_ees1_date}}</div>
+                        <div class="col-lg-4 pg-detail-txt">{{ object.sw_ees2_date }}</div>
+                        <div class="col-lg-4 pg-detail-txt">{{ object.sw_ees3_date }}</div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-2 pg-detail-hdr">Is SEE ?&nbsp;&nbsp;
+                        <div class="col-lg-2 pg-detail-hdr">Is SEE ?&nbsp;&nbsp;
                             <a href="#" data-toggle="popover" data-placement="top" title="Support End Estimated" data-content="Is the Support End date an estimated date, or is it a confirmed date from the Vendor">
                                 <i class="fas fa-info-circle"></i>
                             </a>
                         </div>
-                        <div class="col-md-10 pg-detail-hdr">Product Lifecycle Policy</div>
+                        <div class="col-lg-10 pg-detail-hdr">Product Lifecycle Policy</div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-md-2 pg-detail-txt">{{ object.sw_see_yn_fk}}</div>
-                        <div class="col-md-10 pg-detail-txt">{{ object.sw_plp_txt }}</div>
+                        <div class="col-lg-2 pg-detail-txt">{{ object.sw_see_yn_fk}}</div>
+                        <div class="col-lg-10 pg-detail-txt">{{ object.sw_plp_txt }}</div>
                     </div>
                     <legend class="border-bottom mb-2">SOFTWARE CLASSIFICATION</legend>
                     <div class="row mt-2">
-                        <div class="col-md-4 pg-detail-hdr">Software Type</div>
-                        <div class="col-md-4 pg-detail-hdr">Software Category</div>
-                        <div class="col-md-4 pg-detail-hdr">Software Status</div>
+                        <div class="col-lg-4 pg-detail-hdr">Software Type</div>
+                        <div class="col-lg-4 pg-detail-hdr">Software Category</div>
+                        <div class="col-lg-4 pg-detail-hdr">Software Status</div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 pg-detail-txt">{{ object.sw_swclass_fk }}</div>
-                        <div class="col-md-4 pg-detail-txt">{{ object.sw_swcat_fk }}</div>
-                        <div class="col-md-4 pg-detail-txt">{{ object.sw_swsts_fk }}</div>
+                        <div class="col-lg-4 pg-detail-txt">{{ object.sw_swclass_fk }}</div>
+                        <div class="col-lg-4 pg-detail-txt">{{ object.sw_swcat_fk }}</div>
+                        <div class="col-lg-4 pg-detail-txt">{{ object.sw_swsts_fk }}</div>
                     </div>
                 </div>
             </div>

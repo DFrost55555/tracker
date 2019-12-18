@@ -1,4 +1,4 @@
-      <nav class="navbar navbar-expand-md navbar-dark mb3 fixed-navbar">
+      <nav class="navbar navbar-expand-lg navbar-dark mb3 fixed-navbar">
         <div class="container">
         {% load static %}
             <a class="navbar-brand mr-4" href="https://intranet.computacenter.com/sites/OneCC/en-gb/Pages/default.aspx" target="_blank"><img src="{% static 'main/images/cclogo.png' %}" alt="Computacenter logo" style="width:40px;">></a>
@@ -15,14 +15,14 @@
                     {% if user.is_authenticated %}
                     <ul>
                         <li class="nav-item-3">
-                            <a class="btn btn-navmain-adm btn-md" role="button" href="{% url 'appdelivery-home' %}" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-navmain-adm btn-sm" role="button" href="{% url 'appdelivery-home' %}" aria-haspopup="true" aria-expanded="false">
                                 APPLICATION DELIVERY
                             </a>
                         </li>
                     </ul>                    
                     <ul>
                         <li class="nav-item-3">
-                            <a class="btn btn-navmain-adm btn-md" role="button" href="{% url 'products-home' %}" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-navmain-adm btn-sm" role="button" href="{% url 'products-home' %}" aria-haspopup="true" aria-expanded="false">
                                 PRODUCT LIFECYCLE
                             </a>
                         </li>
