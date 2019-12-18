@@ -4,7 +4,7 @@
     {% if user.is_authenticated %}
     <main role="main" class="container">
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-xl-12 text-center">
                 {% load static %}
                 <h1>Product Lifecycle Management</h1>
                 <p><img src="{% static 'main/images/PLM-Blog.jpg' %}" alt="Product Lifecycle Management" style="width:900px;"></p>
@@ -14,7 +14,7 @@
     {% else %}
         <main role="main" class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-xl-12">
                     {% include "../products/prod_warning.html" %}
                 </div>
             </div>

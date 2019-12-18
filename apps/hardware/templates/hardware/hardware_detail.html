@@ -7,7 +7,7 @@
     {% if user.is_authenticated %}
         <main role="main" class="container">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-xl-9">
                 {% if messages %}
                     {% for message in messages %}
                     <div class="alert alert-{{ message.tags }}">
@@ -17,10 +17,10 @@
                 {% endif %}
                     {% include "./hw_details.html" %}
                 </div>
-                <div class="col-md-3">
+                <div class="col-xl-3">
                     {% include "../hardware/hw_detailoptions.html" %}
                 </div>
-                <div class="col-md-12">
+                <div class="col-xl-12">
                     {% include "../hardware/hw_detail_tabs.html" %}
                 </div>                
             </div>
@@ -28,7 +28,7 @@
     {% else %}
         <main role="main" class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-xl-12">
                     {% include "../products/prod_warning.html" %}
                 </div>
             </div>

@@ -4,10 +4,10 @@
     {% if user.is_authenticated %}
         <main role="main" class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-xl-3">
                     {% include "./prj_sidemenu.html" %}
                 </div>
-                <div class="col-md-9">
+                <div class="col-xl-9">
                 {% if messages %}
                     {% for message in messages %}
                     <div class="alert alert-{{ message.tags }}">
@@ -22,7 +22,7 @@
     {% else %}
             <main role="main" class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-xl-12">
                         <h1>Projects Homepage!</h1>
                     </div>
                 </div>

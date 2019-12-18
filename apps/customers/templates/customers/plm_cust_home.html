@@ -11,7 +11,7 @@
           </div>
         <main role="main" class="container">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-xl-9">
                 {% if messages %}
                     {% for message in messages %}
                     <div class="alert alert-{{ message.tags }}">
@@ -21,7 +21,7 @@
                 {% endif %}
                     {% include "./plm_cust_list.html" %}
                 </div>
-                <div class="col-md-3">
+                <div class="col-xl-3">
                     {% include "../customers/cust_sideoptions.html" %}
                 </div>
             </div>
@@ -29,7 +29,7 @@
     {% else %}
             <main role="main" class="container">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-xl-6">
                         {% include "../products/prod_warning.html" %}
                     </div>
                 </div>
