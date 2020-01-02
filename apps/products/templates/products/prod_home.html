@@ -2,15 +2,27 @@
 {% block content %}
     {% include "./prod_pagetopper.html" %}
     {% if user.is_authenticated %}
-    <main role="main" class="container">
-        <div class="row">
-            <div class="col-xl-12 text-center">
-                {% load static %}
-                <h1>Product Lifecycle Management</h1>
-                <p><img src="{% static 'main/images/PLM-Blog.jpg' %}" alt="Product Lifecycle Management" style="width:900px;"></p>
-            </div>
-        </div>
-    </main>
+        {% for group in user.groups.all %}
+            {% if group.name == 'PLM' %}
+                <main role="main" class="container">
+                    <div class="row">
+                        <div class="col-xl-12 text-center">
+                            {% load static %}
+                            <h1>Product Lifecycle Management</h1>
+                            <p><img src="{% static 'main/images/PLM-Blog.jpg' %}" alt="Product Lifecycle Management" style="width:900px;"></p>
+                        </div>
+                    </div>
+                </main>
+            {% else %}
+                <main role="main" class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            {% include "../products/prod_noaccess.html" %}
+                        </div>
+                    </div>
+                </main>
+            {% endif %}
+        {% endfor %
     {% else %}
         <main role="main" class="container">
             <div class="row">

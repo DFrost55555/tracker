@@ -29,7 +29,13 @@
     <header class="site-header">
       {% include "./prod_header.html" %}
       {% include "./prod_subheader.html" %}
-      {% include "./prod_navbar.html" %}
+      {% for group in user.groups.all %}
+        {% if group.name == 'PLM' %}
+          {% include "./prod_navbar.html" %}
+        {% else %}
+          {% include "../main/navbar.html" %}
+        {% endif %}
+      {% endfor %}
     </header>
       {% block content %}
       {% endblock %}
