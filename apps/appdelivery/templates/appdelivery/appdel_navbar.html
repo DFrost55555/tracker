@@ -19,8 +19,16 @@
                                 SERVICES
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{% url 'appdelivery-home' %}">Application Delivery</a>
-                                <a class="dropdown-item" href="{% url 'products-home' %}">Product Lifecycle</a>
+                            {% for group in user.groups.all %}
+                                {% if group.name == 'ADM' %}
+                                    <a class="dropdown-item" href="{% url 'appdelivery-home' %}">Application Delivery</a>
+                                {% endif %}
+                            {% endfor %}
+                            {% for group in user.groups.all %}
+                                {% if group.name == 'PLM' %}
+                                    <a class="dropdown-item" href="{% url 'products-home' %}">Product Lifecycle</a>
+                                {% endif %}
+                            {% endfor %}
                             </div>
                         </li>
                     </ul>                    
