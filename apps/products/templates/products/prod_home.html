@@ -1,9 +1,9 @@
 {% extends "../products/prod_base.html" %}
+{% load user_group %}
 {% block content %}
     {% include "./prod_pagetopper.html" %}
     {% if user.is_authenticated %}
-        {% for group in user.groups.all %}
-            {% if group.name == 'PLM' %}
+            {% if request.user|has_group:"PLM" %}
                 <main role="main" class="container">
                     <div class="row">
                         <div class="col-xl-12 text-center">
@@ -14,22 +14,9 @@
                     </div>
                 </main>
             {% else %}
-                <main role="main" class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            {% include "../products/prod_noaccess.html" %}
-                        </div>
-                    </div>
-                </main>
+                {% include "../products/prod_noaccess.html" %}
             {% endif %}
-        {% endfor %}
     {% else %}
-        <main role="main" class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    {% include "../products/prod_warning.html" %}
-                </div>
-            </div>
-        </main>
+        {% include "../products/prod_warning.html" %}
     {% endif %}
 {% endblock content %}
