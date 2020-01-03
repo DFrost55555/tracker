@@ -30,7 +30,7 @@
     <header class="site-header">
       {% include "./appdel_header.html" %}
       {% include "./appdel_subheader.html" %}
-      {% if request.user|has_group:"PLM" %}
+      {% if request.user|has_group:"ADM" %}
         {% include "./appdel_navbar.html" %}
       {% else %}
           {% include "../main/navbar.html" %}

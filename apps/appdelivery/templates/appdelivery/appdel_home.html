@@ -3,7 +3,7 @@
 {% block content %}
     {% include "./appdel_pagetopper.html" %}
     {% if user.is_authenticated %}
-        {% if request.user|has_group:"PLM" %}
+        {% if request.user|has_group:"ADM" %}
             <main role="main" class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
