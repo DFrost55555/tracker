@@ -1,16 +1,21 @@
 {% extends "../appdelivery/appdel_base.html" %}
+{% load user_group %}
 {% block content %}
     {% include "./appdel_pagetopper.html" %}
     {% if user.is_authenticated %}
-        <main role="main" class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    {% load static %}
-                    <h1>Application Delivery Management</h1>
-                    <p><img src="{% static 'main/images/deliverymgmt.jpg' %}" alt="Application Delivery Management" style="width:900px;"></p>
+        {% if request.user|has_group:"PLM" %}
+            <main role="main" class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        {% load static %}
+                        <h1>Application Delivery Management</h1>
+                        <p><img src="{% static 'main/images/deliverymgmt.jpg' %}" alt="Application Delivery Management" style="width:900px;"></p>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        {% else %}
+            {% include "../appdelivery/appdel_noaccess.html" %}
+        {% endif %}
     {% else %}
             <main role="main" class="container">
                 <div class="row">

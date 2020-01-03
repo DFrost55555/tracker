@@ -1,6 +1,7 @@
       <nav class="navbar navbar-expand-md navbar-dark mb3 fixed-navbar">
         <div class="container">
         {% load static %}
+        {% load user_group %}
             <a class="navbar-brand mr-4" href="https://intranet.computacenter.com/sites/OneCC/en-gb/Pages/default.aspx" target="_blank"><img src="{% static 'main/images/cclogo.png' %}" alt="Computacenter logo" style="width:40px;">></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -19,16 +20,12 @@
                                 SERVICES
                             </a>
                             <div class="dropdown-menu">
-                            {% for group in user.groups.all %}
-                                {% if group.name == 'ADM' %}
+                                {% if request.user|has_group:"ADM" %}
                                     <a class="dropdown-item" href="{% url 'appdelivery-home' %}">Application Delivery</a>
                                 {% endif %}
-                            {% endfor %}     
-                            {% for group in user.groups.all %}
-                                {% if group.name == 'PLM' %}                           
+                                {% if request.user|has_group:"PLM" %}                           
                                     <a class="dropdown-item" href="{% url 'products-home' %}">Product Lifecycle</a>
                                 {% endif %}
-                            {% endfor %}
                             </div>
                         </li>
                     </ul>                    

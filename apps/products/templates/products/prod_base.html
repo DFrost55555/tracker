@@ -1,5 +1,6 @@
 {% load static %}
 {% load django_bootstrap_breadcrumbs %}
+{% load user_group %}
 
 <!DOCTYPE html>
 <html>
@@ -29,13 +30,11 @@
     <header class="site-header">
       {% include "./prod_header.html" %}
       {% include "./prod_subheader.html" %}
-      {% for group in user.groups.all %}
-        {% if group.name == 'PLM' %}
+        {% if request.user|has_group:"PLM" %}
           {% include "./prod_navbar.html" %}
         {% else %}
           {% include "../main/navbar.html" %}
         {% endif %}
-      {% endfor %}
     </header>
       {% block content %}
       {% endblock %}
