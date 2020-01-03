@@ -1,6 +1,7 @@
       <nav class="navbar navbar-expand-md navbar-dark mb3 fixed-navbar">
         <div class="container">
         {% load static %}
+        {% load user_group %}
             <a class="navbar-brand mr-4" href="https://intranet.computacenter.com/sites/OneCC/en-gb/Pages/default.aspx" target="_blank"><img src="{% static 'main/images/cclogo.png' %}" alt="Computacenter logo" style="width:40px;">></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -67,18 +68,20 @@
                     <a class="btn btn-navmain-adm btn-md" role="button" aria-pressed="true" href="{% url 'rep-adm-home' %}">REPORTS</a>
                         </li>
                     </ul>
-                    <ul>
-                        <li class="nav-item-3 dropdown">
-                            <a class="dropdown-toggle btn btn-navmain-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                SETTINGS
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Service Lines</a>
-                                <a class="dropdown-item" href="#">Services</a>
-                                <a class="dropdown-item" href="#">Service Elements</a>
-                            </div>
-                        </li>
-                    </ul>
+                        {% if request.user|has_group:"CCDelegate" or request.user|has_group:"CCAdministrator" %}
+                            <ul>
+                                <li class="nav-item-3 dropdown">
+                                    <a class="dropdown-toggle btn btn-navmain-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        SETTINGS
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Service Lines</a>
+                                        <a class="dropdown-item" href="#">Services</a>
+                                        <a class="dropdown-item" href="#">Service Elements</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        {% endif %}
                     {% else %}
                     <ul>
                         <li class="nav-item-3">&nbsp;</li>
