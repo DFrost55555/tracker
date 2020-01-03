@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'apps.components',
     'apps.financials',
     'apps.reports',
+    'apps.reportsadm',
+    'apps.reportsplm',
     'apps.admsettings',
     'apps.customers',
     'apps.svcarea',
