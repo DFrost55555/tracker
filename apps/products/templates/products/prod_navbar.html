@@ -50,9 +50,11 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Hardware Category</a>
                                 <a class="dropdown-item" href="#">Hardware Status</a>
+                                <a class="dropdown-item" href="#">Software Type</a>
                                 <a class="dropdown-item" href="#">Software Category</a>
                                 <a class="dropdown-item" href="#">Software Status</a>
-                                <a class="dropdown-item" href="#">Software Classification</a>
+                                <a class="dropdown-item" href="#">Portfolio Category</a>
+                                <a class="dropdown-item" href="#">Portfolio Status</a>
                             </div>
                         </li>
                     </ul>
@@ -61,18 +63,20 @@
                     <a class="btn btn-navmain-adm btn-md" role="button" aria-pressed="true" href="{% url 'rep-plm-home' %}">REPORTS</a>
                         </li>
                     </ul>
-                    <ul>
-                        <li class="nav-item-3 dropdown">
-                            <a class="dropdown-toggle btn btn-navmain-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                SETTINGS
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Service Lines</a>
-                                <a class="dropdown-item" href="#">Services</a>
-                                <a class="dropdown-item" href="#">Service Elements</a>
-                            </div>
-                        </li>
-                    </ul>
+                        {% if request.user|has_group:"CCDelegate" or request.user|has_group:"CCAdministrator" %}
+                            <ul>
+                                <li class="nav-item-3 dropdown">
+                                    <a class="dropdown-toggle btn btn-navmain-adm btn-md" role="button" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        SETTINGS
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Service Lines</a>
+                                        <a class="dropdown-item" href="#">Services</a>
+                                        <a class="dropdown-item" href="#">Lists</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        {% endif %}
                     {% else %}
                     <ul>
                         <li class="nav-item-3">&nbsp;</li>
