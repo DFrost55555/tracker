@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def rep_plm_home(request):
+    return render(request, 'reportsplm/rep_plm_home.html', {'title': 'PLM Reports Home'})
