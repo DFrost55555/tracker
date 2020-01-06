@@ -40,6 +40,7 @@ def SoftwareFilterView(request):
     swqs = paginator.get_page(page)
     
     context = {
+        'queryset': swqs,
         'swFilter': swFilter
     }
     
