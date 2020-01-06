@@ -1,9 +1,9 @@
     <div>
         <form method="GET" action=".">
             <div class="form-row">
-                <div class="col-2">
+                {% comment %}<div class="col-2">
                     <label for="softwareDesc">Software filter:  </label>
-                </div>
+                </div>{% endcomment %}
                 <div class="col-6">
                     <form method="GET">
                         {{ swFilter.form }}
@@ -31,7 +31,7 @@
                  </tr>
             </thead>
             <tbody>
-                {% for software in queryset %}
+                {% for software in swqs %}
                     <tr>
                         <td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_description }}</b></a></td><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_version }}</b></a></td><td><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_vend_fk}}</b></a></td><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_swcat_fk }}</a><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_swsts_fk }}</a><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_eol_date }}</a>
                     </tr>
