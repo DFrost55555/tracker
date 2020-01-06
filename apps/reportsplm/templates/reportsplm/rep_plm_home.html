@@ -1,14 +1,28 @@
 {% extends "../products/prod_base.html" %}
 {% block content %}
-    <main role="main" class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                {% load static %}
-                <h3 class="mt-4">PLM Reports</h3>
-                <span style="font-size: 192px;">
-                    <i class="fas fa-file-alt"></i>
-                </span>
-            </div>
-        </div>
-    </main>
+        {% with breadcrumb="REPORTS"%}
+            {% include "./rep_plm_pagetopper.html" %}
+        {% endwith %}
+        {% include "./rep_plm_pgheader.html" %}
+        {% if user.is_authenticated %}
+            <main role="main" class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        {% load static %}
+                        <h3 class="mt-4">PLM Reports</h3>
+                        <span style="font-size: 192px;">
+                            <i class="fas fa-file-alt"></i>
+                        </span>
+                    </div>
+                </div>
+            </main>
+        {% else %}
+            <main role="main" class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        {% include "../products/prod_warning.html" %}
+                    </div>
+                </div>
+            </main>
+        {% endif %}
 {% endblock content %}
