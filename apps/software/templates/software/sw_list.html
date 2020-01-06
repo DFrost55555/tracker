@@ -4,7 +4,7 @@
                 {% comment %}<div class="col-2">
                     <label for="softwareDesc">Software filter:  </label>
                 </div>{% endcomment %}
-                <div class="col-6">
+                <div class="col-10">
                     <form method="GET">
                         {{ swFilter.form }}
                     </form>
@@ -12,11 +12,13 @@
                     {% comment %} <small id="softwareHelp" class="form-text text-muted">Enter letters contained in the software description...</small> {% endcomment %}
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search</button>
+                    <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search&nbsp;&nbsp;</button>
                 </div>
+            </div>
+            <div>
                 {% for group in user.groups.all %}
                     {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
-                        <div class="col-2">
+                        <div class="col-xl-12">
                             <a class="btn btn-primary-adm" href="{% url 'software-create' %}"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;&nbsp;New Software...</a>
                         </div>
                     {% endif %}
