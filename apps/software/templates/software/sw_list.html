@@ -1,4 +1,5 @@
     <div>
+    {% load crispy_forms_tags %}
         <form method="GET" action=".">
             <div class="form-row border-bottom">
                 {% comment %}<div class="col-2">
@@ -25,6 +26,9 @@
                 </div>
                 <div class="col-2">
                     <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search&nbsp;&nbsp;</button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-danger" type="submit" onclick="this.form.reset();">X&nbsp;&nbsp;Clear fields...&nbsp;&nbsp;</button>
                 </div>
             </div>
             <div class="form-row mt-2">
