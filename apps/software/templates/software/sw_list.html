@@ -1,6 +1,6 @@
     <div>
         <form method="GET" action=".">
-            <div class="form-row">
+            <div class="form-row border-bottom">
                 {% comment %}<div class="col-2">
                     <label for="softwareDesc">Software filter:  </label>
                 </div>{% endcomment %}
@@ -15,10 +15,10 @@
                     <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search&nbsp;&nbsp;</button>
                 </div>
             </div>
-            <div>
+            <div class="form-row">
                 {% for group in user.groups.all %}
                     {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
-                        <div class="col-xl-12">
+                        <div class="col-xl-12 float-right">
                             <a class="btn btn-primary-adm" href="{% url 'software-create' %}"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;&nbsp;New Software...</a>
                         </div>
                     {% endif %}

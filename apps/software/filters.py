@@ -10,7 +10,6 @@ class SoftwareFilter(django_filters.FilterSet):
     end_date = DateFilter(field_name='sw_eol_date', lookup_expr='lte',  label='EOS Less Than')
     sw_description = CharFilter(field_name='sw_description', lookup_expr='icontains', label='Description')
     sw_version = CharFilter(field_name='sw_version', lookup_expr='icontains', label='Version')
-    sw_vend_fk = 
     class Meta:
         model = Software
         fields = {
