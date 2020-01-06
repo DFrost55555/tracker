@@ -5,7 +5,10 @@
                     <label for="softwareDesc">Software filter:  </label>
                 </div>
                 <div class="col-6">
-                    <input type="text" class="form-control" id="softwareDesc" name="softwareDesc" aria-describedby="softwareHelp" placeholder="Software description contains...">
+                    <form method="GET">
+                        {{ swFilter.form }}
+                    </form>
+                    {% comment %}<input type="text" class="form-control" id="softwareDesc" name="softwareDesc" aria-describedby="softwareHelp" placeholder="Software description contains...">{% endcomment %}
                     {% comment %} <small id="softwareHelp" class="form-text text-muted">Enter letters contained in the software description...</small> {% endcomment %}
                 </div>
                 <div class="col-2">

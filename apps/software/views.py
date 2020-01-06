@@ -18,16 +18,20 @@ from apps.lists.models import ProductType,SoftwareCategory,SoftwareStatus
 from apps.customers.models import Customer
 from apps.vendors.models import Vendor
 from .forms import SoftwareModelForm, SoftwareVendorModelForm, SoftwareMatrixModelForm, SoftwareMatrixForm
+from .filters import SoftwareFilter
 
 
 # Create your views here.
 
 def SoftwareFilterView(request):
     swqs = Software.objects.all().order_by('sw_description')
-    softwareDesc_query = request.GET.get('softwareDesc')
+    #softwareDesc_query = request.GET.get('softwareDesc')
     
-    if softwareDesc_query != '' and softwareDesc_query is not None:
-        swqs = swqs.filter(sw_description__icontains=softwareDesc_query).order_by('sw_description')
+    # if softwareDesc_query != '' and softwareDesc_query is not None:
+    #     swqs = swqs.filter(sw_description__icontains=softwareDesc_query).order_by('sw_description')
+    
+    swFilter = SoftwareFilter(request.GET, queryset=swqs)
+    swqs = swFilter.qs
             
     paginator = Paginator(swqs, 10)
     
@@ -36,7 +40,7 @@ def SoftwareFilterView(request):
     swqs = paginator.get_page(page)
     
     context = {
-        'queryset': swqs
+        'swFilter': swFilter
     }
     
     return render(request,"software/software_home.html",context)
