@@ -1,31 +1,36 @@
     <div>
     {% load crispy_forms_tags %}
-        <form method="GET" action=".">
+        <form method="GET" action="." id="prodForm">
             <div class="form-row border-bottom mb-2">
                 <div class="col-10">
-                    <form method="GET">
-                        <div class="form-row">
-                            <h6 class="form-group col-xl-12">Search Criteria:</h6>
-                            <div class="form-group col-xl-3">
-                                {{ swFilter.form.sw_vend_fk|as_crispy_field }}
-                            </div>                        
-                            <div class="form-group col-xl-6">
-                                {{ swFilter.form.sw_description|as_crispy_field }}
-                            </div>
-                            <div class="form-group col-xl-3">
-                                {{ swFilter.form.sw_version|as_crispy_field }}
-                            </div>
+                    <div class="form-row">
+                        <h6 class="form-group col-xl-12">Search Criteria:</h6>
+                        <div class="form-group col-xl-3">
+                            {{ swFilter.form.sw_vend_fk|as_crispy_field }}
+                        </div>                        
+                        <div class="form-group col-xl-6">
+                            {{ swFilter.form.sw_description|as_crispy_field }}
                         </div>
-                    </form>
+                        <div class="form-group col-xl-3">
+                            {{ swFilter.form.sw_version|as_crispy_field }}
+                        </div>
+                    </div>                    
                     {% comment %}<input type="text" class="form-control" id="softwareDesc" name="softwareDesc" aria-describedby="softwareHelp" placeholder="Software description contains...">{% endcomment %}
                     {% comment %} <small id="softwareHelp" class="form-text text-muted">Enter letters contained in the software description...</small> {% endcomment %}
                 </div>
                 <div class="col-2">
                     <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search&nbsp;&nbsp;</button>
                     <br>
-                    <button class="btn btn-danger" type="submit" onclick="this.form.reset();">X&nbsp;&nbsp;Clear fields&nbsp;&nbsp;</button>
+                    <br>
+                    <button class="btn btn-danger" type="submit" onclick="myResetFunction()">X&nbsp;&nbsp;Clear fields&nbsp;&nbsp;</button>
                 </div>
             </div>
+        </form>
+        <script>
+            function myResetFunction() {
+            document.getElementById("prodForm").reset();
+            }
+        </script>
             <div class="form-row mt-2">
                 {% for group in user.groups.all %}
                     {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
@@ -38,7 +43,6 @@
                     {% endif %}
                 {% endfor %}
             </div>
-        </form>
         <hr/>
         <table class="table-adm table-adm-sm table-adm-hover table-striped mr-2 ml-2">
             <thead>
