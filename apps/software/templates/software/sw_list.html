@@ -1,6 +1,6 @@
     <div>
     {% load crispy_forms_tags %}
-        <form method="GET" action="." id="prodForm">
+        <form method="GET" action="." id="prodSrcForm" name="prodSrcForm">
             <div class="form-row border-bottom mb-2">
                 <div class="col-10">
                     <div class="form-row">
@@ -22,15 +22,10 @@
                     <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search&nbsp;&nbsp;</button>
                     <br>
                     <br>
-                    <button class="btn btn-danger" type="submit" onclick="myResetFunction()">X&nbsp;&nbsp;Clear fields&nbsp;&nbsp;</button>
+                    <button class="btn btn-danger" type="submit" id="clearForm">X&nbsp;&nbsp;Clear fields&nbsp;&nbsp;</button>
                 </div>
             </div>
         </form>
-        <script>
-            function myResetFunction() {
-            document.getElementById("prodForm").reset();
-            }
-        </script>
             <div class="form-row mt-2">
                 {% for group in user.groups.all %}
                     {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
