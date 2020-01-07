@@ -20,7 +20,8 @@ class SoftwareFilter(django_filters.FilterSet):
             'sw_vend_fk',
             'sw_description',
             'sw_version',
-            'sw_eol_date',
+            'sw_swcat_fk',
+            'sw_swsts_fk'
             }  
 
   
