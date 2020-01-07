@@ -1,10 +1,7 @@
     <div>
     {% load crispy_forms_tags %}
         <form method="GET" action=".">
-            <div class="form-row border-bottom">
-                {% comment %}<div class="col-2">
-                    <label for="softwareDesc">Software filter:  </label>
-                </div>{% endcomment %}
+            <div class="form-row border-bottom mb-2">
                 <div class="col-10">
                     <form method="GET">
                         <div class="form-row">
@@ -19,22 +16,23 @@
                                 {{ swFilter.form.sw_version|as_crispy_field }}
                             </div>
                         </div>
-                        {% comment %}{{ swFilter.form }}{% endcomment %}
                     </form>
                     {% comment %}<input type="text" class="form-control" id="softwareDesc" name="softwareDesc" aria-describedby="softwareHelp" placeholder="Software description contains...">{% endcomment %}
                     {% comment %} <small id="softwareHelp" class="form-text text-muted">Enter letters contained in the software description...</small> {% endcomment %}
                 </div>
                 <div class="col-2">
                     <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search&nbsp;&nbsp;</button>
-                </div>
-                <div class="col-2">
-                    <button class="btn btn-danger" type="submit" onclick="this.form.reset();">X&nbsp;&nbsp;Clear fields...&nbsp;&nbsp;</button>
+                    <br>
+                    <button class="btn btn-danger" type="submit" onclick="this.form.reset();">X&nbsp;&nbsp;Clear fields&nbsp;&nbsp;</button>
                 </div>
             </div>
             <div class="form-row mt-2">
                 {% for group in user.groups.all %}
                     {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
-                        <div class="col-xl-12 float-right">
+                        <div class="col-xl-10">
+                            <span>&nbsp;&nbsp;</span>
+                        </div>                    
+                        <div class="col-xl-2">
                             <a class="btn btn-primary-adm" href="{% url 'software-create' %}"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;&nbsp;New Software...</a>
                         </div>
                     {% endif %}
