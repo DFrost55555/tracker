@@ -1,4 +1,5 @@
 import django_filters
+from django import forms
 from django_filters import DateFilter, CharFilter
 from django.utils.translation import gettext_lazy as _
 from django.forms.widgets import TextInput, DateInput, NumberInput
@@ -20,8 +21,6 @@ class SoftwareFilter(django_filters.FilterSet):
             'sw_description',
             'sw_version',
             'sw_eol_date',
-            'start_date',
-            'end_date'
             }  
 
   
