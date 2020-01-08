@@ -8,22 +8,21 @@
                             <h5 >Search Criteria:</h5>
                         </div>
                         <div class="form-group col-xl-3">
-                            <label>Software Vendor</label>
-                            <span>{{ swFilter.form.sw_vend_fk }}</span>
+                            <span>{{ swFilter.form.sw_vend_fk|as_crispy_field }}</span>
                         </div>                        
                         <div class="form-group col-xl-6">
-                            <span>{{ swFilter.form.sw_description }}</span>
+                            <span>{{ swFilter.form.sw_description|as_crispy_field }}</span>
                         </div>
                         <div class="form-group col-xl-3">
-                            <span>{{ swFilter.form.sw_version }}</span>
+                            <span>{{ swFilter.form.sw_version|as_crispy_field }}</span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-xl-3">
-                            <span>{{ swFilter.form.sw_swcat_fk }}</span>
+                            <span>{{ swFilter.form.sw_swcat_fk|as_crispy_field }}</span>
                         </div>
                         <div class="form-group col-xl-3">
-                            <span>{{ swFilter.form.sw_swsts_fk }}</span>
+                            <span>{{ swFilter.form.sw_swsts_fk|as_crispy_field }}</span>
                         </div>
                         <div class="form-group col-xl-6">
                             <span></span>
