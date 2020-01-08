@@ -4,10 +4,12 @@
             <div class="form-row border-bottom mb-2">
                 <div class="col-xl-10">
                     <div class="form-row">
-                        <h5 class="form-group col-xl-12">Search Criteria:</h5>
+                        <div class="form-group col-xl-12 border-bottom">
+                            <h5 >Search Criteria:</h5>
+                        </div>
                         <div class="form-group col-xl-3">
-                            <label>Software Vendor</label>
-                            <span class="form-control">{{ swFilter.form.sw_vend_fk }}</span>
+                            <label for="softwareVendor">Software Vendor</label>
+                            <span class="form-control" id="softwareVendor">{{ swFilter.form.sw_vend_fk }}</span>
                         </div>                        
                         <div class="form-group col-xl-6">
                             {{ swFilter.form.sw_description }}
