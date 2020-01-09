@@ -1,6 +1,6 @@
 ﻿body {
   font-family: 'Nunito';
-  font-size: 11pt;
+  font-size: 10pt;
   background: #ffffff;
   color: #333333;
   margin-top: 210px;
@@ -153,7 +153,7 @@ a.article-title:hover {
 
 .nav-item-2 {
   font-family: Nunito;
-  font-size: 11pt;
+  font-size: 10pt;
   font-weight: 700;
   color: #373737;
   margin-bottom: -1px;
@@ -294,7 +294,7 @@ a.fixed-pgheader.hover{
 .btn-navmain-adm {
   color: #373737;
   font-family:'Nunito';
-  font-size: 11pt;
+  font-size: 10pt;
   font-weight:800;
   background-color: #ffffff;
   border-color: #ffffff;
@@ -503,7 +503,7 @@ a.fixed-pgheader.hover{
 
 .list-adm {
 	font-family:Nunito;
-	font-size:11pt;
+	font-size:10pt;
 	font-weight:500;
 	padding:10px 5px 5px 5px;
 	margin:0;
@@ -535,7 +535,7 @@ a.fixed-pgheader.hover{
   background-color: #343a40;
   border-color: #343a40;
   font-family: 'Nunito', sans-serif;
-  font-size: 11pt;
+  font-size: 10pt;
   font-weight:700;
   vertical-align: bottom;
   border-bottom: 2px solid #dee2e6;
@@ -579,7 +579,7 @@ hr {
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;
-  font-size: 11pt;
+  font-size: 10pt;
   line-height: 1.5;
   color: #495057;
   background-color: #fff;
@@ -634,28 +634,28 @@ hr {
 
 .pg-detail-txt {
 	font-family:'Nunito';
-	font-size: 11pt;
+	font-size: 10pt;
 	font-weight:500;
 	background-color: #ffffff;
 }
 
 .pg-detail-hdr {
 	font-family:'Nunito';
-	font-size: 11pt;
+	font-size: 10pt;
 	font-weight:700;
 	background-color: #ffffff;
 }
 
 .sidebar-options {
 	font-family:'Nunito';
-	font-size: 11pt;
+	font-size: 10pt;
 	font-weight:700;
 	background-color: #ffffff;
 }
 
 label {
   	font-family:'Nunito';
-	font-size: 11pt;
+	font-size: 10pt;
 	font-weight:700;
 	display: inline-block;
   	margin-bottom: .5rem;
