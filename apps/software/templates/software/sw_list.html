@@ -52,13 +52,18 @@
         <table class="table-adm table-adm-sm table-adm-hover table-striped mr-2 ml-2">
             <thead>
                 <tr>
-                <th scope="col">Product</th><th>Version</th><th>Vendor</th><th>Category</th><th>Status</th><th>End of Sale</th>
+                <th scope="col">Product</th><th>Version</th><th>Vendor</th><th>Category</th><th>Status</th><th>&nbsp;</th>
                  </tr>
             </thead>
             <tbody>
                 {% for software in queryset %}
                     <tr>
-                        <td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_description }}</b></a></td><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_version }}</b></a></td><td><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_vend_fk}}</b></a></td><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_swcat_fk }}</a><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_swsts_fk }}</a><td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_eol_date }}</a>
+                        <td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_description }}</b></a></td>
+                        <td scope="row"><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_version }}</b></a></td>
+                        <td scope="row"><b>{{software.sw_vend_fk}}</b></td>
+                        <td scope="row">{{software.sw_swcat_fk }}</td>
+                        <td scope="row">{{software.sw_swsts_fk }}</td>
+                        <td scope="row"><a href="{% url 'software-detail' software.sw_id %}" class="btn btn-primary-adm text-right"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;View&nbsp;</a></td>
                     </tr>
                 {% endfor %}
               </tbody>

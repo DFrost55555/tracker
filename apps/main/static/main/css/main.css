@@ -235,7 +235,7 @@ a.article-title:hover {
 }
 
 .nav-item-3 {
-  font-size: 14pt;
+  font-size: 12pt;
   font-weight: 900;
   color: #373737;
   margin-bottom: -1px;
@@ -502,7 +502,7 @@ a.fixed-pgheader.hover{
 }
 
 .list-adm {
-	font-family:Montserrat;
+	font-family:Nunito;
 	font-size:11pt;
 	font-weight:500;
 	padding:10px 5px 5px 5px;
@@ -519,7 +519,7 @@ a.fixed-pgheader.hover{
   max-width: 100%;
   margin-bottom: 5px;
   background-color: transparent;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight:500;
   font-size: 10pt;
 }
@@ -534,7 +534,7 @@ a.fixed-pgheader.hover{
   color: #fff;
   background-color: #343a40;
   border-color: #343a40;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 11pt;
   font-weight:700;
   vertical-align: bottom;
