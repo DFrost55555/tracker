@@ -60,10 +60,10 @@
                     <tr>
                         <td><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_description }}</b></a></td>
                         <td><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_version }}</b></a></td>
-                        <td><b>{{software.sw_vend_fk}}</b></td>
-                        <td>{{software.sw_swcat_fk }}</td>
-                        <td>{{software.sw_swsts_fk }}</td>
-                        <td><a class="btn btn-outline-detail" href="{% url 'software-detail' software.sw_id %}">View...</a></td>
+                        <td><a href="{% url 'software-detail' software.sw_id %}" style="display:block;"><b>{{software.sw_vend_fk}}</b></a></td>
+                        <td><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_swcat_fk }}</a></td>
+                        <td><a href="{% url 'software-detail' software.sw_id %}" style="display:block;">{{software.sw_swsts_fk }}</a></td>
+                        <td>&nbsp;</td>
                     </tr>
                 {% endfor %}
               </tbody>
