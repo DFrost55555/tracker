@@ -39,7 +39,7 @@
         <div class="pagination">
             <span>
                 {% if queryset.has_previous %}
-                    <a class="btn btn-outline-dark mb-4" href="?page=1">&lt;&lt;</a>
+                    <a class="btn btn-outline-dark mb-4" href="?page=1">&lt;&lt;&lt;</a>
                     <a class="btn btn-outline-dark mb-4" href="?page={{ queryset.previous_page_number }}">&lt;</a>
                 {% endif %}
                 {% for num in queryset.paginator.page_range%}
@@ -51,11 +51,11 @@
                 {% endfor %}
                 {% if queryset.has_next %}
                     <a class="btn btn-outline-dark mb-4" href="?page={{ queryset.next_page_number }}">&gt;</a>
-                    <a class="btn btn-outline-dark mb-4" href="?page={{ queryset.paginator.num_pages }}">&gt;&gt;</a>
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ queryset.paginator.num_pages }}">&gt;&gt;&gt;</a>
                 {% endif %}
             </span>
         </div>
     </div>
-                    <span class="current">
+                    <span class="pg-detail-txt">
                         Page {{ queryset.number }} of {{ queryset.paginator.num_pages }}.
                     </span>

@@ -9,12 +9,12 @@
                     {% comment %} <small id="customerHelp" class="form-text text-muted">Enter letters contained in the customers name...</small> {% endcomment %}
                 </div>
                 <div class="col">
-                    <button class="btn btn-dark" type="submit" >Filter</button>
+                    <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search</button>
                 </div>
             </div>
         </form>
         <hr/>
-        <table class="table-adm table-adm-sm table-adm-hover table-striped">
+        <table class="table-adm table-adm-hover table-striped">
             <thead>
                 <tr>
                 <th scope="col">Customer Name</th>
@@ -32,7 +32,7 @@
         <div class="pagination">
             <span>
                 {% if customerqs.has_previous %}
-                    <a class="btn btn-outline-dark mb-4" href="?page=1">&lt;&lt;</a>
+                    <a class="btn btn-outline-dark mb-4" href="?page=1">&lt;&lt;&lt;</a>
                     <a class="btn btn-outline-dark mb-4" href="?page={{ customerqs.previous_page_number }}">&lt;</a>
                 {% endif %}
                 {% for num in customerqs.paginator.page_range%}
@@ -44,11 +44,11 @@
                 {% endfor %}
                 {% if customerqs.has_next %}
                     <a class="btn btn-outline-dark mb-4" href="?page={{ customerqs.next_page_number }}">&gt;</a>
-                    <a class="btn btn-outline-dark mb-4" href="?page={{ customerqs.paginator.num_pages }}">&gt;&gt;</a>
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ customerqs.paginator.num_pages }}">&gt;&gt;&gt;</a>
                 {% endif %}
             </span>
         </div>
     </div>
-                    <span class="current">
+                    <span class="pg-detail-txt">
                         Page {{ customerqs.number }} of {{ customerqs.paginator.num_pages }}.
                     </span>
