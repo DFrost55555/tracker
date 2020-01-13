@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User, Group
+from djmoney.models.fields import MoneyField
 from apps.customers.models import Customer
 from apps.projects.models import Project
 from apps.resources.models import Resource, ResourceType
@@ -48,7 +49,7 @@ class PurchaseOrder(models.Model):
     po_reference = models.CharField('po reference', max_length=50)
     po_quantity = models.DecimalField('po quantity number', max_digits=10, decimal_places=2)
     po_quantity_type_fk = models.ForeignKey(ChargeUnitType, verbose_name='po quantity type',on_delete=models.SET_NULL, null=True)
-    po_cost_value = models.DecimalField('po cost value', max_digits=10, decimal_places=2)
+    po_cost_value = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
     po_unit_cost = models.DecimalField('po unit cost', max_digits=10, decimal_places=2)
     po_charge_value = models.DecimalField('po charge value', max_digits=10, decimal_places=2)
     po_unit_charge = models.DecimalField('po unit charge', max_digits=10, decimal_places=2)
