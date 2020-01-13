@@ -19,8 +19,8 @@ from . import views
 from .views import (
     PurOrdersFilterView,
     PurOrdersDetailView,
-    PurOrdersCreateView,
-    PurOrdersUpdateView,
+    #PurOrdersCreateView,
+    P#urOrdersUpdateView,
     PurOrdersDeleteView,
     #CustProjectCreateView,
 )
