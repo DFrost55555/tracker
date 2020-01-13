@@ -20,7 +20,7 @@ from .views import (
     PurOrdersFilterView,
     PurOrdersDetailView,
     #PurOrdersCreateView,
-    P#urOrdersUpdateView,
+    #PurOrdersUpdateView,
     PurOrdersDeleteView,
     #CustProjectCreateView,
 )
