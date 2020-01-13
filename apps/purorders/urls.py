@@ -27,8 +27,8 @@ from .views import (
 urlpatterns = [
     path('purorders/', PurOrdersFilterView, name='purorders-home'),
     path('purorders/<int:pk>/', PurOrdersDetailView.as_view(), name='purorders-detail'),
-    path('purorders/new/', PurOrdersCreateView.as_view(), name='purorders-create'),
-    path('purorders/<int:pk>/update/', PurOrdersUpdateView.as_view(), name='purorders-update'),
+    #path('purorders/new/', PurOrdersCreateView.as_view(), name='purorders-create'),
+    #path('purorders/<int:pk>/update/', PurOrdersUpdateView.as_view(), name='purorders-update'),
     path('purorders/<int:pk>/delete/', PurOrdersDeleteView.as_view(), name='purorders-delete'),
     #path('project/new/customer/', CustProjectCreateView.as_view(), name='project-create-cust'),
 ]
