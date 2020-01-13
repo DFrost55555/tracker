@@ -89,7 +89,7 @@ cffi==1.12.3
 chardet==3.0.4
 colorama==0.4.1
 cryptography==2.7
-Django==2.1.10
+Django==2.1.15
 django-bootstrap-breadcrumbs==0.9.1
 django-bootstrap-datepicker==1.4.0
 django-bootstrap-datepicker-plus==3.0.5
