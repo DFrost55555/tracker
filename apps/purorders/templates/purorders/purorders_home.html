@@ -1,0 +1,31 @@
+{% extends "../appdelivery/appdel_base.html" %}
+{% block content %}
+    {% with breadcrumb="PURCHASE ORDERS"%}
+        {% include "./po_pagetopper.html" %}
+    {% endwith %}
+    {% include "./po_pgheader.html" %}
+    {% if user.is_authenticated %}
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                    {% include "./po_list.html" %}
+                </div>
+            </div>
+        </main>
+    {% else %}
+            <main role="main" class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        {% include "../appdelivery/appdel_warning.html" %}
+                    </div>
+                </div>
+            </main>
+    {% endif %}
+{% endblock content %}
