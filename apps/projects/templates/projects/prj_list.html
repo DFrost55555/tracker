@@ -9,7 +9,7 @@
                     {% comment %} <small id="projectHelp" class="form-text text-muted">Enter letters contained in the projects name...</small> {% endcomment %}
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-dark" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search</button>
+                    <button class="btn btn-primary-adm" type="submit" ><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search</button>
                 </div>
                 {% for group in user.groups.all %}
                     {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
@@ -21,7 +21,7 @@
             </div>
         </form>
         <hr/>
-        <table class="table-adm table-adm-sm table-adm-hover table-striped">
+        <table class="table-adm table-adm-hover table-striped">
             <thead>
                 <tr>
                 <th scope="col">Project</th><th>Customer</th>
