@@ -27,6 +27,7 @@ urlpatterns = [
     path('',include('apps.software.urls')),
     path('',include('apps.components.urls')),
     path('',include('apps.financials.urls')),
+    path('',include('apps.purorders.urls')),
     path('',include('apps.reports.urls')),
     path('',include('apps.reportsadm.urls')),
     path('',include('apps.reportsplm.urls')),
