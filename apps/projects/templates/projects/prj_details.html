@@ -4,17 +4,17 @@
                     <legend class="border-bottom mb-4">Project Details</legend>
                     <h2><b>{{ object.project_name }}</b></h2>
                     <h3 class="border-bottom mb-4">{{ object.project_customer_fk }}</h3>
-                    <div class="row">
-                        <div class="col"><h6><b>Project Reference</b></h6></div><div class="col"><h6><b>Project Status</b></h6></div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col">{{ object.project_reference}}</div><div class="col">{{ object.project_statustype_fk }}</div>
+                    <div class="row mt-3 mb-1">
+                        <div class="col pg-detail-hdr"><h6><b>Project Reference</b></h6></div><div class="col pg-detail-hdr"><h6><b>Project Status</b></h6></div>
                     </div>
                     <div class="row">
-                        <div class="col"><h6><b>Charge Code</b></h6></div><div class="col"><h6><b>Charge Code Type</b></h6></div>
+                        <div class="col pg-detail-txt">{{ object.project_reference}}</div><div class="col pg-detail-txt">{{ object.project_statustype_fk }}</div>
                     </div>
-                    <div class="row mb-4">
-                        <div class="col">{{ object.project_chargecode }}</div><div class="col">{{ object.project_chargecodetype_fk }}</div>
+                    <div class="row mt-3 mb-1">
+                        <div class="col pg-detail-hdr"><h6><b>Charge Code</b></h6></div><div class="col pg-detail-hdr"><h6><b>Charge Code Type</b></h6></div>
+                    </div>
+                    <div class="row">
+                        <div class="col pg-detail-txt">{{ object.project_chargecode }}</div><div class="col pg-detail-txt">{{ object.project_chargecodetype_fk }}</div>
                     </div>
                 </div>
             </div>
