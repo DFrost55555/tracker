@@ -612,7 +612,7 @@ fieldset:disabled a.btn {
   background-color: transparent;
   font-family: 'Nunito', sans-serif;
   font-weight:500;
-  font-size: 62.5%;
+  font-size: 87.5%;
 }
 
 .table-adm th,
@@ -626,7 +626,7 @@ fieldset:disabled a.btn {
   background-color: #343a40;
   border-color: #343a40;
   font-family: 'Nunito', sans-serif;
-  font-size: 62.5%;
+  font-size: 87.5%;
   font-weight:700;
   vertical-align: bottom;
   border-bottom: 2px solid #dee2e6;
@@ -670,7 +670,7 @@ hr {
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;
-  font-size: 62.5%;
+  font-size: 87.5%;
   line-height: 1.1;
   color: #495057;
   background-color: #fff;
@@ -742,7 +742,7 @@ select.form-control:focus::-ms-value {
   padding-top: calc(0.375rem + 1px);
   padding-bottom: calc(0.375rem + 1px);
   margin-bottom: 0;
-  font-size: inherit;
+  font-size: 87.5%;
   line-height: 1.1;
 }
 
@@ -756,7 +756,7 @@ select.form-control:focus::-ms-value {
 .col-form-label-sm {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(0.25rem + 1px);
-  font-size: 0.875rem;
+  font-size: 0.625rem;
   line-height: 1.1;
 }
 
