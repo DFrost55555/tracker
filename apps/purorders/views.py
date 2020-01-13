@@ -11,14 +11,14 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .forms import ProjectModelForm, CustProjectModelForm
+#from .forms import ProjectModelForm, CustProjectModelForm
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Project
-from apps.customers.models import Customer
-from apps.statustype.models import StatusType
-from apps.chgcodetype.models import ChgCodeType
+from .models import PurchaseOrder
+#from apps.customers.models import Customer
+#from apps.statustype.models import StatusType
+#from apps.chgcodetype.models import ChgCodeType
 from apps.lists.models import Location, ProjectStatus, ResourceStatus, ChargeCodeType, ChargeUnitType
-from .filters import ProjectFilter
+#from .filters import ProjectFilter
 
 def PurOrdersFilterView(request):
     qs = PurchaseOrder.objects.all().order_by('po_reference')
@@ -44,23 +44,23 @@ class PurOrdersDetailView(LoginRequiredMixin, DetailView):
     model = PurchaseOrder
     
 
-class PurOrdersCreateView(LoginRequiredMixin, CreateView):
-    model = PurchaseOrder
-    fields = ['po_reference', 'po_quantity', 'po_quantity_type_fk', 'po_cost_value', 'po_unit_cost', 'po_charge_value', 'po_unit_charge', 'po_start_date', 'po_end_date', 'po_status_fk']
+# class PurOrdersCreateView(LoginRequiredMixin, CreateView):
+#     model = PurchaseOrder
+#     fields = ['po_reference', 'po_quantity', 'po_quantity_type_fk', 'po_cost_value', 'po_unit_cost', 'po_charge_value', 'po_unit_charge', 'po_start_date', 'po_end_date', 'po_status_fk']
     
-    def form_valid(self, form):
-        form.instance.po_createdby = self.request.user
-        form.instance.po_modifiedby = self.request.user
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         form.instance.po_createdby = self.request.user
+#         form.instance.po_modifiedby = self.request.user
+#         return super().form_valid(form)
     
         
-class PurOrdersUpdateView(LoginRequiredMixin, UpdateView):
-    model = PurchaseOrder
-    fields = ['po_reference', 'po_quantity', 'po_quantity_type_fk', 'po_cost_value', 'po_unit_cost', 'po_charge_value', 'po_unit_charge', 'po_start_date', 'po_end_date', 'po_status_fk']
+# class PurOrdersUpdateView(LoginRequiredMixin, UpdateView):
+#     model = PurchaseOrder
+#     fields = ['po_reference', 'po_quantity', 'po_quantity_type_fk', 'po_cost_value', 'po_unit_cost', 'po_charge_value', 'po_unit_charge', 'po_start_date', 'po_end_date', 'po_status_fk']
     
-    def form_valid(self, form):
-        form.instance.po_modifiedby = self.request.user
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         form.instance.po_modifiedby = self.request.user
+#         return super().form_valid(form)
 
     
 class PurOrdersDeleteView(LoginRequiredMixin, DeleteView):
