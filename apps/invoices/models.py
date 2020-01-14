@@ -10,6 +10,7 @@ from apps.suppliers.models import Supplier
 from apps.lists.models import POItemType, ChargeUnitType
 from apps.approvers.models import Approver
 from django.urls import reverse
+from djmoney.models.fields import MoneyField
 
 
 class INVStatus(models.Model):
@@ -49,8 +50,8 @@ class Invoice(models.Model):
     inv_reference = models.CharField('invoice reference', max_length=50)
     inv_quantity = models.DecimalField('invoice quantity number', max_digits=10, decimal_places=2)
     inv_quantity_type_fk = models.ForeignKey(ChargeUnitType, verbose_name='invoice quantity type', on_delete=models.SET_NULL, null=True)
-    inv_cost_value = models.DecimalField('invoice cost value', max_digits=10, decimal_places=2)
-    inv_unit_cost = models.DecimalField('invoice unit cost', max_digits=10, decimal_places=2)
+    inv_cost_value = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
+    inv_unit_cost = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
     inv_date = models.DateField(verbose_name='Invoice Date', null=True)
     inv_gr_reference = models.CharField('invoice gr reference', max_length=50, null=True)
     inv_gr_date = models.DateField(verbose_name='gr date', null=True)
