@@ -11,13 +11,13 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-#from .forms import ProjectModelForm, CustProjectModelForm
+from .forms import PurOrderModelForm
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import PurchaseOrder
 #from apps.customers.models import Customer
 #from apps.statustype.models import StatusType
 #from apps.chgcodetype.models import ChgCodeType
-from apps.lists.models import Location, ProjectStatus, ResourceStatus, ChargeCodeType, ChargeUnitType
+#from apps.lists.models import Location, ProjectStatus, ResourceStatus, ChargeCodeType, ChargeUnitType
 #from .filters import ProjectFilter
 
 def PurOrdersFilterView(request):
