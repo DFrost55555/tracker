@@ -4,9 +4,9 @@
                 <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'purorders-update' object.sw_id %}"><i class="fas fa-pen"></i>&nbsp;&nbsp;&nbsp;Edit / Update Details</a></li>
                 {% for group in user.groups.all %}
                   {% if group.name == 'CCDelegate' %}
-                    <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'purorders-delete' object.sw_id %}"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;&nbsp;Delete Software</a></li>
+                    <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'purorders-delete' object.sw_id %}"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;&nbsp;Delete Purchase Order</a></li>
                   {% endif %}
                 {% endfor %}
-                <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'purorders-create' %}"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp;&nbsp;New Software</a></li>
+                <li class="list-group-item list-group-item-light"><a class="nav-item-2" href="{% url 'purorders-create' %}"><i class="fas fa-plus-circle"></i>&nbsp;&nbsp;&nbsp;New Purchase Order</a></li>
               </ul>
           </div>

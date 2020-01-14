@@ -37,7 +37,7 @@ def PurOrdersFilterView(request):
         'queryset': qs
     }
     
-    return render(request,"purorders/purorders_home.html",context)
+    return render(request,"purorders/purchaseorder_home.html",context)
 
 
 class PurOrdersDetailView(LoginRequiredMixin, DetailView):
