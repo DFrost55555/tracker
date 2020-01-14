@@ -1,9 +1,9 @@
-{% extends "../products/prod_base.html" %}
+{% extends "../appdelivery/appdel_base.html" %}
 {% block content %}
-    {% with breadcrumb="SOFTWARE / Software Details"%}
-        {% include "./sw_pagetopper.html" %}
+    {% with breadcrumb="PURCHASE ORDERS / Purchase Order Details"%}
+        {% include "./po_pagetopper.html" %}
     {% endwith %}
-    {% include "./sw_pgheader.html" %}
+    {% include "./po_pgheader.html" %}
     {% if user.is_authenticated %}
         <main role="main" class="container">
             <div class="row">
@@ -15,15 +15,15 @@
                     </div>
                     {% endfor %}
                 {% endif %}
-                    {% include "./sw_details.html" %}
+                    {% include "./po_details.html" %}
                 </div>
                 <div class="col-xl-3">
-                    {% include "../software/sw_detailoptions.html" %}
+                    {% include "./po_detailoptions.html" %}
                 </div>
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    {% include "../software/sw_detail_tabs.html" %}
+                    {% include "./po_detail_tabs.html" %}
                 </div>                
             </div>
         </main>
@@ -31,7 +31,7 @@
             <main role="main" class="container">
                 <div class="row">
                     <div class="col-xl-12">
-                        {% include "../products/prod_warning.html" %}
+                        {% include "../appdelivery/appdel_warning.html" %}
                     </div>
                 </div>
             </main>

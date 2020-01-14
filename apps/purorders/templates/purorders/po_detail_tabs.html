@@ -1,0 +1,30 @@
+        <main role="main" class="container">
+            <div class="row">
+                <div class="content-section col-xl-12">
+                    <!-- Details page tabbed lists -->  
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <hr class="mb-2">
+                            <!-- Tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#invoices"><b>INVOICES</b></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#resources"><b>RESOURCES</b></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#notes"><b>NOTES</b></a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div id="invoices" class="container tab-pane active"><br>
+                                    {% include "./po_inv_list.html" %}
+                                </div>
+                                <div id="resources" class="container tab-pane"><br>
+                                     {% include "./po_resource_list.html" %}
+                                </div>
+                                <div id="notes" class="container tab-pane"><br>
+                                     {% include "./po_notes_list.html" %}
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>

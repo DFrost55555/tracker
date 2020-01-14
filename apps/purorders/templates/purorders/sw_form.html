@@ -1,0 +1,93 @@
+        <main role="main" class="container">
+            <div class="row">
+                <div class="content-section col-xl-12">
+                {% load crispy_forms_tags %}
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <legend class="border-bottom mb-4">SOFTWARE DETAILS</legend>
+                        </div>
+                        <div class="form-row border-bottom mb-4">
+                            <h6 class="form-group col-xl-12">Current Software</h6>
+                            <div class="form-group col-xl-3">
+                                {{ form.sw_vend_fk|as_crispy_field }}
+                            </div>                        
+                            <div class="form-group col-xl-6">
+                                {{ form.sw_description|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-xl-3">
+                                {{ form.sw_version|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row border-bottom mb-4">
+                            <h6 class="form-group col-xl-12">Replacement Software <i>(if applicable)</i></h6>
+                            <div class="form-group col-xl-3">
+                                {{ form.sw_repl_vend_fk|as_crispy_field }}
+                            </div>                                              
+                            <div class="form-group col-xl-6">
+                                {{ form.sw_repl_desc|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-xl-3">
+                                {{ form.sw_repl_ver|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row border-bottom mb-2">
+                            <h6 class="form-group col-xl-12">Software Portfolio Details</h6>
+                            <div class="form-group col-xl-4">
+                                {{ form.sw_swsts_fk|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-xl-4">
+                                {{ form.sw_swclass_fk|as_crispy_field }}
+                            </div>                        
+                            <div class="form-group col-xl-4">
+                                {{ form.sw_swcat_fk|as_crispy_field }}
+                            </div>                          
+                        </div>                                                                  
+                        <div class="form-row">
+                            <h6 class="form-group col-xl-12">Milestone Dates</h6>
+                            <div class="form-group col-xl-3">
+                                {{ form.sw_eol_date|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-xl-3">
+                                {{ form.sw_eow_date|as_crispy_field }}
+                            </div>                          
+                        </div>
+                        <div class="form-row border-bottom mb-4">
+                            <div class="form-group col-xl-3">
+                                {{ form.sw_ems_date|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-xl-3">
+                                {{ form.sw_ees1_date|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-xl-3">
+                                {{ form.sw_ees2_date|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-xl-3">
+                                {{ form.sw_ees3_date|as_crispy_field }}
+                            </div>                    
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-xl-1">
+                                {{ form.sw_see_yn_fk|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-xl-11">
+                                {{ form.sw_plp_txt|as_crispy_field }}
+                            </div>                          
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-xl-8">
+                                {{ form.sw_int_reference|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-xl-4">
+                                {{ form.sw_upd_date|as_crispy_field }}
+                            </div>                          
+                        </div>                     
+                        <hr class="mt-2 mb-4" />
+                        <div class="form-group">
+                            <button class="btn btn-primary-adm" type="submit">Save</button>
+                            <a class="btn btn-danger-adm" href="javascript:history.go(-1)">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
