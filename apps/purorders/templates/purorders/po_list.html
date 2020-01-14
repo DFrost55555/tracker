@@ -33,7 +33,7 @@
                         <td scope="row"><a href="{% url 'purorders-detail' purorder.po_id %}" style="display:block;"><b>{{purorder.po_reference }}</b></a></td>
                         <td><a href="{% url 'purorders-detail' purorder.po_id %}" style="display:block;">{{purorder.po_quantity}}</a></td>
                         <td><a href="{% url 'purorders-detail' purorder.po_id %}" style="display:block;">{{purorder.po_quantity_type_fk}}</a></td>
-                        <td><a href="{% url 'purorders-detail' purorder.po_id %}" style="display:block;">{{purorder.po_cost_value.amount}}</a></td>
+                        <td><a href="{% url 'purorders-detail' purorder.po_id %}" style="display:block;">{{purorder.po_cost_value.currency}}&nbsp;&nbsp;{{purorder.po_cost_value.amount}}</a></td>
                         <td><a href="{% url 'purorders-detail' purorder.po_id %}" style="display:block;"><b>{{purorder.po_status_fk}}</b></a></td>
                     </tr>
                 {% endfor %}
