@@ -2,11 +2,13 @@
     {% load crispy_forms_tags %}
         <form method="GET" action="." id="prodSrcForm" name="prodSrcForm">
             <div class="form-row border-bottom mb-2">
-                <div class="col-xl-10">
+                <div class="col-xl-12">
                     <div class="form-row">
                         <div class="form-group col-xl-12 border-bottom">
                             <h5 >Search Criteria:</h5>
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group col-xl-3 mt-0 mb-0">
                             <span>{{ swFilter.form.sw_vend_fk|as_crispy_field }}</span>
                         </div>                        
@@ -36,11 +38,6 @@
                     </div>                    
                     {% comment %}<input type="text" class="form-control" id="softwareDesc" name="softwareDesc" aria-describedby="softwareHelp" placeholder="Software description contains...">{% endcomment %}
                     {% comment %} <small id="softwareHelp" class="form-text text-muted">Enter letters contained in the software description...</small> {% endcomment %}
-                </div>
-                <div class="col-xl-2">
-                    <div class="d-flex align-items-start">
-                        <button class="btn btn-primary-adm text-right" type="submit"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Search&nbsp;&nbsp;</button>
-                    </div>
                 </div>
             </div>
         </form>
