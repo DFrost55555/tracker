@@ -10,16 +10,16 @@ class DatePicker(forms.DateInput):
     input_type = 'date'
 
 class PurOrderModelForm(forms.ModelForm):
-    po_reference = forms.CharField(label="PO Reference", widget=forms.TextInput(), required=True)
-    po_quantity = forms.DecimalField(label="Quantity", widget=forms.NumberInput(), required=True)
-    po_quantity_type_fk = ModelChoiceField(label="Quantity Type", queryset=POType.objects.all(), initial=0, required=True)
+    po_reference = forms.CharField(label="widget=forms.TextInput(), required=True)
+    po_quantity = forms.DecimalField(widget=forms.NumberInput(), required=True)
+    po_quantity_type_fk = ModelChoiceField(queryset=POType.objects.all(), initial=0, required=True)
     po_cost_value = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
     po_unit_cost = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
     po_charge_value = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
     po_unit_charge = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
-    po_start_date = forms.DateField(label='Start Date', widget=DatePicker(), required=False)
-    po_end_date = forms.DateField(label='End Date', widget=DatePicker(), required=False)
-    po_status_fk = ModelChoiceField(label="Status", queryset=POStatus.objects.all(), initial=0, required=True)
+    po_start_date = forms.DateField(widget=DatePicker(), required=True)
+    po_end_date = forms.DateField(widget=DatePicker(), required=True)
+    po_status_fk = ModelChoiceField(queryset=POStatus.objects.all(), initial=0, required=True)
 
 
     class Meta:
@@ -36,3 +36,6 @@ class PurOrderModelForm(forms.ModelForm):
             "po_end_date",
             "po_status_fk",
         ]
+        labels = {
+            'po_reference': 'PO Reference',
+        }
