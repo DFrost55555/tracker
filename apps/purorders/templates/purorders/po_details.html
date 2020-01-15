@@ -5,57 +5,31 @@
                     <h2><b>Purchase Order:&nbsp;&nbsp;{{ object.po_reference }}</b></h2>
                     <h4 class="mb-2 text-right mr-5">Status:&nbsp;&nbsp;{{ object.po_status_fk }}</h4>
                     <hr class="mt-2 mb-2">
-                    <legend class="border-bottom mb-2">XXXXXXXXXXXXXX</legend>
+                    <legend class="border-bottom mb-2">GENERAL</legend>
                     <div class="row mt-2">
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
+                        <div class="col-xl-3 pg-detail-hdr">PO Quantity</div>
+                        <div class="col-xl-3 pg-detail-hdr">PO Quantity Type</div>
+                        <div class="col-xl-3 pg-detail-hdr">Start Date</div>
+                        <div class="col-xl-3 pg-detail-hdr">End Date</div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col-xl-3 pg-detail-txt"></div>
-                        <div class="col-xl-3 pg-detail-txt"></div>
-                        <div class="col-xl-3 pg-detail-txt"></div>
-                        <div class="col-xl-3 pg-detail-txt"></div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.po_quantity }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.po_quantity_type_fk }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.po_start_date }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.po_end_date }}</div>
                     </div>
+                    <legend class="border-bottom mb-2 mt-2">COMMERCIAL</legend>
                     <div class="row mt-2">
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
+                        <div class="col-xl-3 pg-detail-hdr">PO Unit Cost</div>
+                        <div class="col-xl-3 pg-detail-hdr">PO Cost Value</div>
+                        <div class="col-xl-3 pg-detail-hdr">PO Unit Charge</div>
+                        <div class="col-xl-3 pg-detail-hdr">PO Charge Value</div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col-xl-3 pg-detail-txt"></div>
-                        <div class="col-xl-3 pg-detail-txt"></div>
-                        <div class="col-xl-3 pg-detail-txt"></div>
-                        <div class="col-xl-3 pg-detail-txt"></div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx&nbsp;&nbsp;
-                            <a href="#" data-toggle="popover" data-placement="top" title="Lorem ipsum" data-content="Maecenas ante turpis, hendrerit vel convallis vitae, aliquet sit amet lacus.">
-                                <i class="fas fa-info-circle"></i>
-                            </a>
-                        </div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-xl-2 pg-detail-txt"></div>
-                        <div class="col-xl-10 pg-detail-txt"></div>
-                    </div>
-                    <legend class="border-bottom mb-2">XXXXXXXXXXXXXX</legend>
-                    <div class="row mt-2">
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                        <div class="col-xl-3 pg-detail-hdr">xxxxxxxxxxxxxxxx</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-3 pg-detail-txt"></div>
-                        <div class="col-xl-3 pg-detail-txt"></div>
-                        <div class="col-xl-3 pg-detail-txt"></div>
-                        <div class="col-xl-3 pg-detail-txt"></div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.po_unit_cost }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.po_cost_value }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.po_unit_charge }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.po_charge_value }}</div>
                     </div>
                 </div>
             </div>
