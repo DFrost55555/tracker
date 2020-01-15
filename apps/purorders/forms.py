@@ -47,7 +47,7 @@ class PurOrderForm(forms.Form):
     po_reference = forms.CharField(widget=forms.TextInput(), required=True)
     po_quantity = forms.DecimalField(widget=forms.NumberInput(), required=True)
     po_quantity_type_fk = ModelChoiceField(queryset=POType.objects.all(), initial=0, required=True)
-    po_cost_value = forms.DecimalField(max_digits=14, decimal_places=2)
+    po_cost_value = forms.DecimalField(max_digits=14, decimal_places=2, localize=True)
     po_unit_cost = forms.DecimalField(max_digits=14, decimal_places=2)
     po_charge_value = forms.DecimalField(max_digits=14, decimal_places=2)
     po_unit_charge = forms.DecimalField(max_digits=14, decimal_places=2)
