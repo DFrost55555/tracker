@@ -5,6 +5,8 @@ from apps.suppliers.models import Supplier, SupplierStatus
 from apps.projects.models import Project
 from django.forms import ModelChoiceField, CharField, DecimalField, NumberInput
 from djmoney.models.fields import MoneyField
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit, Row, Column
 
 class DatePicker(forms.DateInput):
     input_type = 'date'
@@ -17,8 +19,8 @@ class PurOrderModelForm(forms.ModelForm):
     po_unit_cost = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
     po_charge_value = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
     po_unit_charge = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
-    po_start_date = forms.DateField(widget=forms.TextInput(attrs={'type': 'date'}, required=True)
-    po_end_date = forms.DateField(widget=forms.TextInput(attrs={'type': 'date'}, required=True)
+    po_start_date = forms.DateField(widget=forms.TextInput(attrs={'type': 'date'}), required=True)
+    po_end_date = forms.DateField(widget=forms.TextInput(attrs={'type': 'date'}), required=True)
     po_status_fk = ModelChoiceField(queryset=POStatus.objects.all(), initial=0, required=True)
 
 
@@ -36,6 +38,3 @@ class PurOrderModelForm(forms.ModelForm):
             "po_end_date",
             "po_status_fk",
         ]
-        labels = {
-            'po_reference': 'PO Reference',
-        }
