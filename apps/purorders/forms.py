@@ -23,7 +23,6 @@ class PurOrderModelForm(forms.ModelForm):
     po_end_date = forms.DateField(widget=forms.TextInput(attrs={'type': 'date'}), required=True)
     po_status_fk = ModelChoiceField(queryset=POStatus.objects.all(), initial=0, required=True)
 
-
     class Meta:
         model = PurchaseOrder
         fields = [
@@ -38,6 +37,10 @@ class PurOrderModelForm(forms.ModelForm):
             "po_end_date",
             "po_status_fk",
         ]
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['po_cost_value'].label = 'PO Cost Value'
 
 
 class PurOrderForm(forms.Form):
