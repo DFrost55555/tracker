@@ -50,7 +50,7 @@ class PurchaseOrder(models.Model):
     po_quantity = models.DecimalField('PO Quantity Number', max_digits=10, decimal_places=2, default=0.00)
     po_quantity_type_fk = models.ForeignKey(ChargeUnitType, verbose_name='PO Quantity Type',on_delete=models.SET_NULL, null=True)
     po_cost_value = models.DecimalField('PO Cost Value', max_digits=14, decimal_places=2, default=0.00)
-    po_unit_cost = models.DecimalField('PO UNit Cost', max_digits=14, decimal_places=2, default=0.00)
+    po_unit_cost = models.DecimalField('PO Unit Cost', max_digits=14, decimal_places=2, default=0.00)
     po_charge_value = models.DecimalField('PO Charge Value', max_digits=14, decimal_places=2, default=0.00)
     po_unit_charge = models.DecimalField('PO Unit Charge', max_digits=14, decimal_places=2, default=0.00)
     po_start_date = models.DateField(verbose_name='Start Date', null=True)

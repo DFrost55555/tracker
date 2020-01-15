@@ -1,6 +1,6 @@
     <div>
         <form method="GET" action=".">
-            <div class="form-row">
+            <div class="form-row mt-4">
                 <div class="col-2">
                     <label for="poReference">Purchase Order filter:  </label>
                 </div>
@@ -14,7 +14,7 @@
                 {% for group in user.groups.all %}
                     {% if group.name == 'CCDelegate' or group.name == 'CCEditor' %}
                         <div class="col-2">
-                            <a class="btn btn-primary-adm" href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;&nbsp;New Purchase Order&nbsp;&nbsp;</a>
+                            <a class="btn btn-primary-adm" href="{% url 'purorders-create' %}"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;&nbsp;New Purchase Order&nbsp;&nbsp;</a>
                         </div>
                     {% endif %}
                 {% endfor %} 
