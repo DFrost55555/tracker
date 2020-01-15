@@ -120,8 +120,8 @@ DATABASES = {
         'HOST': 'gd-adm-mssql01.database.windows.net',
         'PORT':'1433',
         'OPTIONS': {
-            #'driver': 'SQL Server Native Client 11.0',
-            'driver': 'ODBC Driver 17 for SQL Server',
+            'driver': 'SQL Server Native Client 11.0',
+            #'driver': 'ODBC Driver 17 for SQL Server',
                 }
     }
 }
@@ -149,7 +149,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-GB'
 
 TIME_ZONE = 'GMT'
 
