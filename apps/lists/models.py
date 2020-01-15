@@ -136,7 +136,7 @@ class ListPriority(models.Model):
 class ListImpact(models.Model):
     ltimpact_id = models.AutoField(primary_key = True)
     ltimpact_name = models.CharField('list impact name', max_length=150)
-    ltimpact_score = models.IntegerField('list impact score', max_length=2)
+    ltimpact_score = models.IntegerField('list impact score')
     ltimpact_description = models.CharField('list impact description', max_length=2000)
     ltimpact_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     ltimpact_createddate = models.DateTimeField(default=timezone.now)
@@ -150,7 +150,7 @@ class ListImpact(models.Model):
 class ListSeverity(models.Model):
     ltsev_id = models.AutoField(primary_key = True)
     ltsev_name = models.CharField('list severity name', max_length=150)
-    ltsev_score = models.IntegerField('list severity score', max_length=2)
+    ltsev_score = models.IntegerField('list severity score')
     ltsev_description = models.CharField('list severity description', max_length=2000)
     ltsev_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     ltsev_createddate = models.DateTimeField(default=timezone.now)
@@ -176,7 +176,7 @@ class ListStatus(models.Model):
 class RiskImpact(models.Model):
     rskimpact_id = models.AutoField(primary_key = True)
     rskimpact_name = models.CharField('risk impact name', max_length=150)
-    rskimpact_score = models.IntegerField('risk impact score', max_length=2)
+    rskimpact_score = models.IntegerField('risk impact score')
     rskimpact_description = models.CharField('risk impact description', max_length=2000)
     rskimpact_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     rskimpact_createddate = models.DateTimeField(default=timezone.now)
@@ -190,7 +190,7 @@ class RiskImpact(models.Model):
 class RiskLikelihood(models.Model):
     rsklklh_id = models.AutoField(primary_key = True)
     rsklklh_name = models.CharField('risk likelihood name', max_length=150)
-    rsklklh_score = models.IntegerField('risk likelihood score', max_length=2)
+    rsklklh_score = models.IntegerField('risk likelihood score')
     rsklklh_description = models.CharField('risk likelihood description', max_length=2000)
     rsklklh_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     rsklklh_createddate = models.DateTimeField(default=timezone.now)
