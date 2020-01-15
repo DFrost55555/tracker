@@ -17,8 +17,8 @@ class PurOrderModelForm(forms.ModelForm):
     po_unit_cost = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
     po_charge_value = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
     po_unit_charge = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
-    po_start_date = forms.DateField(widget=DatePicker(), required=True)
-    po_end_date = forms.DateField(widget=DatePicker(), required=True)
+    po_start_date = forms.DateField(widget=forms.TextInput(attrs={'type': 'date'}, required=True)
+    po_end_date = forms.DateField(widget=forms.TextInput(attrs={'type': 'date'}, required=True)
     po_status_fk = ModelChoiceField(queryset=POStatus.objects.all(), initial=0, required=True)
 
 
