@@ -22,8 +22,8 @@ class PurOrderModelForm(forms.ModelForm):
     po_unit_cost = forms.DecimalField(max_digits=14, decimal_places=2)
     po_charge_value = forms.DecimalField(max_digits=14, decimal_places=2)
     po_unit_charge = forms.DecimalField(max_digits=14, decimal_places=2)
-    po_start_date = forms.DateField(widget=DatePicker(),, required=True)
-    po_end_date = forms.DateField(widget=DatePicker(),, required=True)
+    po_start_date = forms.DateField(widget=DatePicker(), required=True)
+    po_end_date = forms.DateField(widget=DatePicker(), required=True)
     po_status_fk = ModelChoiceField(queryset=POStatus.objects.all(), initial=0, required=True)
     
     class Meta:
