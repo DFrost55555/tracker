@@ -18,8 +18,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/loader.css' %}">
     <script src="https://kit.fontawesome.com/f018e27c82.js"></script>
-
-
     {% if title %}
         <title>ADM Tracker - {{ title }}</title>
     {% else %}
@@ -30,13 +28,11 @@
     <header class="site-header">
       {% include "./appdel_header.html" %}
       {% include "./appdel_subheader.html" %}
-      {% if request.user|has_group:"ADM" %}
+      {% if request.user|has_group:"ADM" or request.user|has_group:"CCDelegate" %}
         {% include "./appdel_navbar.html" %}
       {% else %}
         {% include "../main/navbar.html" %}
       {% endif %}
-      {% block extrahead %}
-      {% endblock %}
     </header>
       {% block content %}
       {% endblock %}

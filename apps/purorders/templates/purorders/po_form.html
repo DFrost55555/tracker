@@ -1,48 +1,51 @@
         <main role="main" class="container">
             <div class="row">
                 <div class="content-section col-xl-12">
+                {% load crispy_forms_tags %}
                     <form method="POST">
                         {% csrf_token %}
                         <div class="form-row">
                             <legend class="border-bottom mb-4">PURCHASE ORDER DETAILS</legend>
                         </div>
-                        <div class="form-row form-group border-bottom mb-4">
-                            <div class="form-control col-xl-6">
-                                {{ form.po_reference }}
+                        <div class="form-row border-bottom mb-4">
+                            <div class="form-group col-xl-6">
+                                {{ form.po_reference|as_crispy_field }}
                             </div>                        
-                            <div class="form-control col-xl-3">
-                                {{ form.po_status_fk }}
+                            <div class="form-group col-xl-3">
+                                {{ form.po_status_fk|as_crispy_field }}
                             </div>
-                            <div class="form-control col-xl-3">
+                            <div class="form-group col-xl-3">
                                 &nbsp;
                             </div>
                         </div>
                         <div class="form-row form-group border-bottom mb-4">
-                            <div class="form-control col-xl-3">
-                                {{ form.po_quantity }}
+                        <h6 class="form-group col-xl-12">GENERAL</h6>
+                            <div class="form-group col-xl-3">
+                                {{ form.po_quantity|as_crispy_field }}
                             </div>                                              
-                            <div class="form-control col-xl-3">
-                                {{ form.po_quantity_type_fk }}
+                            <div class="form-group col-xl-3">
+                                {{ form.po_quantity_type_fk|as_crispy_field }}
                             </div>
-                            <div class="form-control col-xl-3">
-                                {{ form.po_start_date }}
+                            <div class="form-group col-xl-3">
+                                {{ form.po_start_date|as_crispy_field }}
                             </div>
-                            <div class="form-control col-xl-3">
-                                {{ form.po_end_date }}
+                            <div class="form-group col-xl-3">
+                                {{ form.po_end_date|as_crispy_field }}
                             </div>
                         </div>
                         <div class="form-row form-group border-bottom mb-2">
-                            <div class="form-control col-xl-3">
-                                {{ form.po_unit_cost }}
+                        <h6 class="form-group col-xl-12">COMMERCIAL</h6>
+                            <div class="form-group col-xl-3">
+                                {{ form.po_unit_cost|as_crispy_field }}
                             </div>
-                            <div class="form-control col-xl-3">
-                                {{ form.po_cost_value }}
+                            <div class="form-group col-xl-3">
+                                {{ form.po_cost_value|as_crispy_field }}
                             </div>                        
-                            <div class="form-control col-xl-3">
-                                {{ form.po_unit_charge }}
+                            <div class="form-group col-xl-3">
+                                {{ form.po_unit_charge|as_crispy_field }}
                             </div>
-                            <div class="form-control col-xl-3">
-                                {{ form.po_charge_value }}
+                            <div class="form-group col-xl-3">
+                                {{ form.po_charge_value|as_crispy_field }}
                             </div>                         
                         </div>                                                                                    
                         <hr class="mt-2 mb-4" />
