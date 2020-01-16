@@ -4,6 +4,7 @@
                 {% load crispy_forms_tags %}
                     <form method="POST">
                         {% csrf_token %}
+                        {{ form.media }}
                         <div class="form-row">
                             <legend class="border-bottom mb-4">PURCHASE ORDER DETAILS</legend>
                         </div>

@@ -5,6 +5,7 @@ from apps.suppliers.models import Supplier, SupplierStatus
 from apps.projects.models import Project
 from django.forms import ModelChoiceField, CharField, DecimalField, NumberInput
 #from djmoney.models.fields import MoneyField
+from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTimePickerInput, MonthPickerInput, YearPickerInput
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
 
@@ -19,7 +20,7 @@ class PurOrderModelForm(forms.ModelForm):
     po_unit_cost = forms.DecimalField(max_digits=14, decimal_places=2)
     po_charge_value = forms.DecimalField(max_digits=14, decimal_places=2)
     po_unit_charge = forms.DecimalField(max_digits=14, decimal_places=2)
-    po_start_date = forms.DateField(widget=DatePicker(), required=True)
+    po_start_date = forms.DateField(widget=DatePickerInput(format='%d/%m/%Y'), required=True)
     po_end_date = forms.DateField(widget=DatePicker(), required=True)
     po_status_fk = ModelChoiceField(queryset=POStatus.objects.all(), initial=0, required=True)
 
