@@ -11,7 +11,7 @@ from crispy_forms.layout import Layout, Submit, Row, Column
 
 
 class PurOrderModelForm(forms.ModelForm):
-    po_reference = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Please enter the po reference number...'}), required=True)
+    po_reference = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Please enter the PO reference number...'}), required=True)
     po_quantity = forms.DecimalField(widget=forms.NumberInput(), required=True)
     po_quantity_type_fk = ModelChoiceField(queryset=POType.objects.all(), initial=0, required=True)
     po_cost_value = forms.DecimalField(max_digits=14, decimal_places=2, localize=True)
@@ -19,7 +19,7 @@ class PurOrderModelForm(forms.ModelForm):
     po_charge_value = forms.DecimalField(max_digits=14, decimal_places=2)
     po_unit_charge = forms.DecimalField(max_digits=14, decimal_places=2)
     po_start_date = forms.DateField(widget=DatePickerInput(format='%d/%m/%Y'), required=True)
-    po_end_date = forms.DateField(widget=DatePicker(), required=True)
+    po_end_date = forms.DateField(widget=DatePickerInput(format='%d/%m/%Y'), required=True)
     po_status_fk = ModelChoiceField(queryset=POStatus.objects.all(), initial=0, required=True)
     
     class Meta:
@@ -36,16 +36,3 @@ class PurOrderModelForm(forms.ModelForm):
             'po_end_date',
             'po_status_fk'
         ]
-
-
-class PurOrderForm(forms.Form):
-    po_reference = forms.CharField(widget=forms.TextInput(), required=True)
-    po_quantity = forms.DecimalField(widget=forms.NumberInput(), required=True)
-    po_quantity_type_fk = ModelChoiceField(queryset=POType.objects.all(), initial=0, required=True)
-    po_cost_value = forms.DecimalField(max_digits=14, decimal_places=2, localize=True)
-    po_unit_cost = forms.DecimalField(max_digits=14, decimal_places=2)
-    po_charge_value = forms.DecimalField(max_digits=14, decimal_places=2)
-    po_unit_charge = forms.DecimalField(max_digits=14, decimal_places=2)
-    po_start_date = forms.DateField(widget=forms.TextInput(attrs={'type': 'date'}), required=True)
-    po_end_date = forms.DateField(widget=forms.TextInput(attrs={'type': 'date'}), required=True)
-    po_status_fk = ModelChoiceField(queryset=POStatus.objects.all(), initial=0, required=True)
