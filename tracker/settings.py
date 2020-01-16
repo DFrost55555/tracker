@@ -107,6 +107,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tracker.wsgi.application'
 
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
