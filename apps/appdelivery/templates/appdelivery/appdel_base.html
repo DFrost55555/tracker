@@ -35,6 +35,8 @@
       {% else %}
         {% include "../main/navbar.html" %}
       {% endif %}
+      {% block extrahead %}
+      {% endblock %}
     </header>
       {% block content %}
       {% endblock %}
