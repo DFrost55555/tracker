@@ -11,7 +11,7 @@ from crispy_forms.layout import Layout, Submit, Row, Column
 
 
 class PurOrderModelForm(forms.ModelForm):
-    po_reference = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Please enter the PO reference number...'}), required=True)
+    po_reference = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Please enter the PO reference number...'}), required=True)
     po_quantity = forms.DecimalField(widget=forms.NumberInput(), required=True)
     po_quantity_type_fk = ModelChoiceField(queryset=POType.objects.all(), initial=0, required=True)
     po_cost_value = forms.DecimalField(max_digits=14, decimal_places=2, localize=True)
