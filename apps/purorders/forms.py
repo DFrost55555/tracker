@@ -9,11 +9,9 @@ from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTime
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
 
-class DatePicker(forms.DateInput):
-    input_type = 'date'
 
 class PurOrderModelForm(forms.ModelForm):
-    po_reference = forms.CharField(widget=forms.TextInput(), required=True)
+    po_reference = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Please enter the po reference number...'}), required=True)
     po_quantity = forms.DecimalField(widget=forms.NumberInput(), required=True)
     po_quantity_type_fk = ModelChoiceField(queryset=POType.objects.all(), initial=0, required=True)
     po_cost_value = forms.DecimalField(max_digits=14, decimal_places=2, localize=True)
@@ -36,7 +34,7 @@ class PurOrderModelForm(forms.ModelForm):
             'po_unit_charge',
             'po_start_date',
             'po_end_date',
-            'po_status_fk',
+            'po_status_fk'
         ]
 
 
