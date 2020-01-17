@@ -2,8 +2,14 @@
             <div class="row">
                 <div class="content-section col-xl-12">
                     <legend class="border-bottom mb-2">PURCHASE ORDER DETAILS</legend>
-                    <h3><b>Purchase Order:&nbsp;&nbsp;{{ object.po_reference }}</b></h3>
-                    <h5 class="mb-2 text-right mr-5">Status:&nbsp;&nbsp;{{ object.po_status_fk }}</h5>
+                    <div class="row mt-2 mb-2 ">
+                        <div class="col-xl-8 pg-detail-hdr">
+                            <h3><b>Purchase Order:&nbsp;&nbsp;{{ object.po_reference }}</b></h3>
+                        </div>
+                        <div class="col-xl-4 pg-detail-hdr">
+                            <h5 class="text-right mr-5">Status:&nbsp;&nbsp;{{ object.po_status_fk }}</h5>
+                        </div>
+                    </div>
                     <hr class="mt-2 mb-2">
                     <legend class="border-bottom mb-2 mt-2">GENERAL</legend>
                     <div class="row mt-2">
