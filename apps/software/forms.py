@@ -1,6 +1,6 @@
 from django import forms
 #from django.contrib.admin.widgets import AdminDateWidget
-#from bootstrap_datepicker_plus import DatePickerInput
+from bootstrap_datepicker_plus import DatePickerInput
 from django.forms import ModelChoiceField
 #from bootstrap_datepicker.widgets import DatePicker
 from .models import Software, SoftwareContact, SoftwareNote, SWPortfolioStatus, SWPortfolioCategory, SoftwareVendor, SWVendorContact, SWVendorNote, SoftwareMatrix
@@ -34,16 +34,16 @@ class SoftwareModelForm(forms.ModelForm):
     sw_vendfreq_fk = ModelChoiceField(label='Vendor Release Frequency', queryset=VendorFrequency.objects.all(), initial=0, required=False)
     sw_int_code = forms.CharField(label='Internal Part Code', widget=forms.TextInput(), required=False)
     sw_ext_code = forms.CharField(label='External Part Code', widget=forms.TextInput(), required=False)
-    sw_eol_date = forms.DateField(label='End of Life', widget=DatePicker(), required=False) # End of Life
-    sw_eow_date = forms.DateField(label='End of Warranty', widget=DatePicker(), required=False) # End of Warranty
-    sw_ems_date = forms.DateField(label='End of Mainstream Support', widget=DatePicker(), required=False) # End of Mainstream Support
-    sw_ees1_date = forms.DateField(label='End of Extended Support - Period 1', widget=DatePicker(), required=False) # End of Extended Support - Period One
-    sw_ees2_date = forms.DateField(label='End of Extended Support - Period 2', widget=DatePicker(), required=False) # End of Extended Support - Period Two
-    sw_ees3_date = forms.DateField(label='End of Extended Support - Period 3', widget=DatePicker(), required=False) # End of Extended Support - Period Three
+    sw_eol_date = forms.DateField(label='End of Life', widget=DatePickerInput(format='%d/%m/%Y'), required=False) # End of Life
+    sw_eow_date = forms.DateField(label='End of Warranty', widget=DatePickerInput(format='%d/%m/%Y'), required=False) # End of Warranty
+    sw_ems_date = forms.DateField(label='End of Mainstream Support', widget=DatePickerInput(format='%d/%m/%Y'), required=False) # End of Mainstream Support
+    sw_ees1_date = forms.DateField(label='End of Extended Support - Period 1', widget=DatePickerInput(format='%d/%m/%Y'), required=False) # End of Extended Support - Period One
+    sw_ees2_date = forms.DateField(label='End of Extended Support - Period 2', widget=DatePickerInput(format='%d/%m/%Y'), required=False) # End of Extended Support - Period Two
+    sw_ees3_date = forms.DateField(label='End of Extended Support - Period 3', widget=DatePickerInput(format='%d/%m/%Y'), required=False) # End of Extended Support - Period Three
     sw_see_yn_fk = forms.ModelChoiceField(label='Is SEE', queryset=YesNo.objects.all().order_by('yesno_id'), initial=2, required=False) # Support End Estimated
     sw_plp_txt = forms.CharField(label='Product Lifecycle Policy', widget=forms.TextInput(), required=False) # Product Lifecycle Policy
     sw_suppeol_txt = forms.CharField(label='Supplier End of Life Policy', widget=forms.TextInput(), required=False) # Supplier End of Life Policy
-    sw_upd_date = forms.DateField(label='Information Updated', widget=DatePicker(), required=False)
+    sw_upd_date = forms.DateField(label='Information Updated', required=False)
     sw_int_reference = forms.CharField(label='Internal Process Reference', widget=forms.TextInput(), required=False)
 
     class Meta:

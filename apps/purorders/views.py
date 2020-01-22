@@ -46,7 +46,7 @@ class PurOrdersDetailView(LoginRequiredMixin, DetailView):
 
 class PurOrdersCreateView(LoginRequiredMixin, CreateView):
     model = PurchaseOrder
-    fields = ['po_reference', 'po_quantity', 'po_quantity_type_fk', 'po_cost_value', 'po_unit_cost', 'po_charge_value', 'po_unit_charge', 'po_start_date', 'po_end_date', 'po_status_fk']
+    form_class = PurOrderModelForm
     
     def form_valid(self, form):
         form.instance.po_createdby = self.request.user
@@ -56,7 +56,7 @@ class PurOrdersCreateView(LoginRequiredMixin, CreateView):
         
 class PurOrdersUpdateView(LoginRequiredMixin, UpdateView):
     model = PurchaseOrder
-    fields = ['po_reference', 'po_quantity', 'po_quantity_type_fk', 'po_cost_value', 'po_unit_cost', 'po_charge_value', 'po_unit_charge', 'po_start_date', 'po_end_date', 'po_status_fk']
+    form_class = PurOrderModelForm
     
     def form_valid(self, form):
         form.instance.po_modifiedby = self.request.user

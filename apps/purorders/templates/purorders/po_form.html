@@ -1,12 +1,12 @@
+        {{ form.media }}            {# Adds date-picker required JS and CSS #}
         <main role="main" class="container">
             <div class="row">
                 <div class="content-section col-xl-12">
-                {% load crispy_forms_tags %}
-                {{ form.media }}
+                    {% load crispy_forms_tags %}
                     <form method="POST">
                         {% csrf_token %}
                         <div class="form-row">
-                            <legend class="border-bottom mb-4">PURCHASE ORDER DETAILS</legend>
+                            <legend class="border-bottom mb-2">PURCHASE ORDER DETAILS</legend>
                         </div>
                         <div class="form-row border-bottom mb-4">
                             <div class="form-group col-xl-6">
@@ -19,8 +19,8 @@
                                 &nbsp;
                             </div>
                         </div>
-                        <div class="form-row form-group border-bottom mb-4">
-                        <h6 class="form-group col-xl-12">GENERAL</h6>
+                        <div class="form-row border-bottom mb-4">
+                            <h6 class="col-xl-12 border-bottom mb-2">GENERAL</h6>
                             <div class="form-group col-xl-3">
                                 {{ form.po_quantity|as_crispy_field }}
                             </div>                                              
@@ -34,8 +34,8 @@
                                 {{ form.po_end_date|as_crispy_field }}
                             </div>
                         </div>
-                        <div class="form-row form-group border-bottom mb-2">
-                        <h6 class="form-group col-xl-12">COMMERCIAL</h6>
+                        <div class="form-row border-bottom mb-2">
+                        <h6 class="col-xl-12 border-bottom mb-2">COMMERCIAL</h6>
                             <div class="form-group col-xl-3">
                                 {{ form.po_unit_cost|as_crispy_field }}
                             </div>
@@ -48,11 +48,11 @@
                             <div class="form-group col-xl-3">
                                 {{ form.po_charge_value|as_crispy_field }}
                             </div>                         
-                        </div>                                                                                    
+                        </div>                                                                     
                         <hr class="mt-2 mb-4" />
-                        <div class="form-group">
+                        <div class="form-row">
                             <button class="btn btn-primary-adm" type="submit">Save</button>
-                            <a class="btn btn-danger-adm" href="javascript:history.go(-1)">Cancel</a>
+                            <a class="btn btn-danger-adm ml-4" href="javascript:history.go(-1)">Cancel</a>
                         </div>
                     </form>
                 </div>

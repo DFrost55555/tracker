@@ -53,8 +53,8 @@ class PurchaseOrder(models.Model):
     po_unit_cost = models.DecimalField('PO Unit Cost', max_digits=14, decimal_places=2, default=0.00)
     po_charge_value = models.DecimalField('PO Charge Value', max_digits=14, decimal_places=2, default=0.00)
     po_unit_charge = models.DecimalField('PO Unit Charge', max_digits=14, decimal_places=2, default=0.00)
-    po_start_date = models.DateField(verbose_name='Start Date', blank=True, null=True)
-    po_end_date = models.DateField(verbose_name='End Date', blank=True, null=True)
+    po_start_date = models.DateField(blank=True, null=True)
+    po_end_date = models.DateField(blank=True, null=True)
     po_status_fk = models.ForeignKey(POStatus, verbose_name='PO Status',on_delete=models.SET_NULL, null=True)
     po_createdby = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     po_createddate = models.DateTimeField(default=timezone.now)
@@ -65,7 +65,7 @@ class PurchaseOrder(models.Model):
         return self.po_reference
 
     def get_absolute_url(self):
-        return reverse ('purorder-detail', kwargs={"pk": self.pk})
+        return reverse ('purorders-detail', kwargs={"pk": self.pk})
 
 
 class PONote(models.Model):

@@ -1,11 +1,9 @@
 {% extends "../appdelivery/appdel_base.html" %}
-{% load bootstrap4 %}
-{{ form.media }}
 {% block content %}
-    {% with breadcrumb="PURCHASE ORDERS / New Purchase Order"%}
-        {% include "./po_pagetopper.html" %}
+    {% with breadcrumb="INVOICES" %}
+        {% include "./inv_pagetopper.html" %}
     {% endwith %}
-    {% include "./po_pgheader.html" %}
+    {% include "./inv_pgheader.html" %}
     {% if user.is_authenticated %}
         <main role="main" class="container">
             <div class="row">
@@ -17,14 +15,14 @@
                     </div>
                     {% endfor %}
                 {% endif %}
-                    {% include "./po_form.html" %}
+                    {% include "./inv_list.html" %}
                 </div>
             </div>
         </main>
     {% else %}
             <main role="main" class="container">
                 <div class="row">
-                    <div class="col-xl-9">
+                    <div class="col-xl-12">
                         {% include "../appdelivery/appdel_warning.html" %}
                     </div>
                 </div>

@@ -1,0 +1,39 @@
+        <main role="main" class="container">
+            <div class="row">
+                <div class="content-section col-xl-12">
+                    <legend class="border-bottom mb-2">INVOICE DETAILS</legend>
+                    <div class="row mt-2 mb-2 ">
+                        <div class="col-xl-8 pg-detail-hdr">
+                            <h3><b>Invoice:&nbsp;&nbsp;{{ object.inv_reference }}</b></h3>
+                        </div>
+                    </div>
+                    <hr class="mt-2 mb-2">
+                    <legend class="border-bottom mb-2 mt-2">GENERAL</legend>
+                    <div class="row mt-2">
+                        <div class="col-xl-3 pg-detail-hdr">Invoice Quantity</div>
+                        <div class="col-xl-3 pg-detail-hdr">Invoice Quantity Type</div>
+                        <div class="col-xl-3 pg-detail-hdr">Invoice Date</div>
+                        <div class="col-xl-3 pg-detail-hdr">&nbsp;</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-xl-3 pg-detail-txt">{{ object.inv_quantity }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.inv_quantity_type_fk }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.inv_date }}</div>
+                        <div class="col-xl-3 pg-detail-txt">&nbsp;</div>
+                    </div>
+                    <legend class="border-bottom mb-2 mt-2">COMMERCIAL</legend>
+                    <div class="row mt-2">
+                        <div class="col-xl-3 pg-detail-hdr">Invoice Unit Cost</div>
+                        <div class="col-xl-3 pg-detail-hdr">Invoice Cost Value</div>
+                        <div class="col-xl-3 pg-detail-hdr">Invoice Unit Charge</div>
+                        <div class="col-xl-3 pg-detail-hdr">Invoice Charge Value</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-xl-3 pg-detail-txt">{{ object.inv_unit_cost }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.inv_cost_value }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.inv_unit_chg }}</div>
+                        <div class="col-xl-3 pg-detail-txt">{{ object.inv_chg_value }}</div>
+                    </div>
+                </div>
+            </div>
+        </main>

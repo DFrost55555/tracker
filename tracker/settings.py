@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'admmis.azurewebsites.net',
+    '127.0.0.1',
 ]
 
 
@@ -108,10 +109,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tracker.wsgi.application'
 
-BOOTSTRAP4 = {
-    'include_jquery': True,
-}
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -189,3 +186,9 @@ AZURE_ACCOUNT_NAME = "gmsadmstor01"
 AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
 MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+
+
+
+BOOTSTRAP4 = {
+   'include_jquery': True,
+}

@@ -50,8 +50,10 @@ class Invoice(models.Model):
     inv_reference = models.CharField('invoice reference', max_length=50)
     inv_quantity = models.DecimalField('invoice quantity number', max_digits=10, decimal_places=2)
     inv_quantity_type_fk = models.ForeignKey(ChargeUnitType, verbose_name='invoice quantity type', on_delete=models.SET_NULL, null=True)
-    inv_cost_value = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
-    inv_unit_cost = MoneyField(max_digits=14, decimal_places=2, null=True, default_currency='GBP')
+    inv_cost_value = models.DecimalField(max_digits=14, decimal_places=2, null=True)
+    inv_unit_cost = models.DecimalField(max_digits=14, decimal_places=2, null=True)
+    inv_chg_value = models.DecimalField(max_digits=14, decimal_places=2, null=True)
+    inv_unit_chg = models.DecimalField(max_digits=14, decimal_places=2, null=True)
     inv_date = models.DateField(verbose_name='Invoice Date', null=True)
     inv_gr_reference = models.CharField('invoice gr reference', max_length=50, null=True)
     inv_gr_date = models.DateField(verbose_name='gr date', null=True)
@@ -64,7 +66,7 @@ class Invoice(models.Model):
         return self.inv_reference
 
     def get_absolute_url(self):
-        return reverse('invoice-detail', kwargs={"pk": self.pk})
+        return reverse('invoices-detail', kwargs={"pk": self.pk})
 
 
 class INVNote(models.Model):
